@@ -1,6 +1,8 @@
 import {center,points,fit,slots,drift,normalizePreferences,type Point,type Group} from "./geometry.js";
 type Message={id:number,role:"user"|"assistant",content:string};
-type State={context_links:{answer_id:number,source_id:number}[],messages:Message[],count:number,groups:Group[],preferences:unknown,configured:boolean,model:string};
+type CatalogItem={id:string,category:string};
+type CloudStatus={verified:boolean,has_key:boolean,catalog:CatalogItem[],embedding:string,secure_storage:boolean};
+type State={cloud:CloudStatus,context_links:{answer_id:number,source_id:number}[],messages:Message[],count:number,groups:Group[],preferences:unknown,configured:boolean,model:string};
 const byId=<T extends HTMLElement>(id:string)=>document.getElementById(id) as T;
 const svg=document.getElementById("sky") as unknown as SVGSVGElement;
 const stars=document.getElementById("stars")!;
@@ -61,11 +63,13 @@ const cloudStar=element("g",{class:"cloud-star",transform:"translate(870 120)"},
 element("circle",{r:39,fill:"url(#coreHalo)",opacity:.4},cloudStar);
 ring(cloudStar,0,0,17,"#8acaff");element("path",{d:"M-7 0a5 5 0 0 1 5-6 7 7 0 0 1 12 3 4 4 0 0 1-3 7H-5a4 4 0 0 1-2-4Z",fill:"none",stroke:"#b8dfff","stroke-width":1.5},cloudStar);
 textAt(cloudStar,0,31,"Cloud.ru","#a4c7e6",12);
+accessible(cloudStar,"Настройки Cloud.ru",()=>{byId("cloud-toggle").click();});
+const modelStars=element("g",{class:"cloud-model-stars","pointer-events":"none"},cloudStar);
 type WorkEvent={kind:string,ids?:number[],older_ids?:number[],id?:number,role?:string};
 let contextEdges:State["context_links"]=[],memoryIds=new Set<number>(),workflowKind="",workflowTime=0;
 const workRoutes=Array.from({length:6},()=>element("path",{class:"work-route",fill:"none",pathLength:100,stroke:"#ffd391","stroke-width":1.4},workflowLayer) as SVGPathElement);
 const workPackets=Array.from({length:6},()=>element("path",{class:"work-packet",fill:"none",pathLength:100,stroke:"#fff4d8","stroke-width":2.4},workflowLayer) as SVGPathElement);
-const stageLabels:Record<string,string>={chat_received:"Запрос получен",sqlite_start:"Запись в SQLite",sqlite_saved:"Сохранено в SQLite",memory_start:"Поиск контекста",memory_found:"Контекст подготовлен",cloud_start:"Cloud.ru · ожидание ответа",cloud_received:"Ответ модели получен",response_ready:"Подготовка ответа",links_saved:"Связи контекста сохранены",response_delivered:"Ответ готов",local_only:"Локальный режим",failed:"Ошибка операции",finished:""};
+const stageLabels:Record<string,string>={cloud_stream:"Cloud.ru · поступает ответ",embedding_start:"Смысловой поиск · эмбеддинги",embedding_ready:"Векторы получены",semantic_found:"Найдены смысловые совпадения",embedding_failed:"Эмбеддинги недоступны · текстовый поиск",chat_received:"Запрос получен",sqlite_start:"Запись в SQLite",sqlite_saved:"Сохранено в SQLite",memory_start:"Поиск контекста",memory_found:"Контекст подготовлен",cloud_start:"Cloud.ru · ожидание ответа",cloud_received:"Ответ модели получен",response_ready:"Подготовка ответа",links_saved:"Связи контекста сохранены",response_delivered:"Ответ готов",local_only:"Локальный режим",failed:"Ошибка операции",finished:""};
 function showEvent(ev:WorkEvent){
  workflowKind=ev.kind;workflowTime=performance.now();
  if(ev.kind==="memory_found"){memoryIds=new Set(ev.ids||[]);}
@@ -84,6 +88,8 @@ function updateWorkflow(){
  if(workflowKind==="chat_received")add(chat,core);
  if(workflowKind==="sqlite_start"||workflowKind==="sqlite_saved"||workflowKind==="links_saved")add(core,store,"#a8e3b2");
  if(workflowKind==="cloud_start")add(core,cloud,"#9ed0ff");
+ if(workflowKind==="cloud_stream"){add(cloud,core,"#9ed0ff");add(core,chat,"#ffd391");}
+ if(workflowKind==="embedding_start"||workflowKind==="embedding_ready"||workflowKind==="semantic_found")add(core,cloud,"#bca2ef");
  if(workflowKind==="cloud_received"||workflowKind==="response_ready")add(cloud,core,"#9ed0ff");
  if(workflowKind==="response_delivered")add(core,chat);
  if(workflowKind==="memory_start"||workflowKind==="memory_found"){
@@ -91,7 +97,8 @@ function updateWorkflow(){
  for(const page of pages){const scene=scenes.get(page);if(scene)add(core,project(scene.p),"#edcb79");}
  }
  workRoutes.forEach((p,i)=>{const r=routes[i],packet=workPackets[i];if(!r){p.setAttribute("visibility","hidden");packet.setAttribute("visibility","hidden");return;}const d="M"+r.a.x+" "+r.a.y+" Q"+((r.a.x+r.b.x)/2)+" "+((r.a.y+r.b.y)/2-20)+" "+r.b.x+" "+r.b.y;for(const el of [p,packet]){el.setAttribute("d",d);el.setAttribute("stroke",r.c);el.setAttribute("visibility","visible");}});
- cloudStar.classList.toggle("cloud-active",workflowKind==="cloud_start"||workflowKind==="cloud_received");
+ cloudStar.classList.toggle("cloud-error",workflowKind==="failed"||workflowKind==="embedding_failed");
+ cloudStar.classList.toggle("cloud-active",workflowKind==="cloud_start"||workflowKind==="cloud_received"||workflowKind==="cloud_stream"||workflowKind==="embedding_start");
  for(const s of scenes.values()){
  const used=[...memoryIds].some(id=>Math.floor((id-1)/30)===s.page);
  s.hub.classList.toggle("memory-used",used);s.detail.classList.toggle("memory-group",used);
@@ -352,7 +359,7 @@ byId("active-view").addEventListener("click",()=>{if(active>=0)void choose(activ
 byId("zoom-in").addEventListener("click",()=>{auto=false;setCam({...target,k:target.k*1.25});});
 byId("zoom-out").addEventListener("click",()=>{auto=false;setCam({...target,k:target.k/1.25});});
 let renderedIds=new Set<number>();
-function render(s:State){contextEdges=s.context_links||[];cloudStar.classList.toggle("configured",s.configured);if(!prefsLoaded){prefs=normalizePreferences(s.preferences);auto=prefs.auto;applyPrefs();prefsLoaded=true;}byId("state").textContent=s.configured?"Cloud.ru • настроено":"Локальный режим";byId("model").textContent=s.model||"Без модели";byId("count").textContent="Сообщений: "+s.count;
+function render(s:State){contextEdges=s.context_links||[];cloudStar.classList.toggle("configured",s.configured);renderCatalog(s.cloud,s.model);if(!prefsLoaded){prefs=normalizePreferences(s.preferences);auto=prefs.auto;applyPrefs();prefsLoaded=true;}byId("state").textContent=s.configured?(s.cloud.verified?"Cloud.ru • проверено":"Cloud.ru • не проверено"):s.cloud.has_key?"Cloud.ru • выберите модель":"Локальный режим";byId("model").textContent=s.model||"Без модели";byId("count").textContent="Сообщений: "+s.count;
  const list=byId("messages");list.replaceChildren();for(const m of s.messages){const article=document.createElement("article");article.className="message"+(m.role==="assistant"&&ready&&!renderedIds.has(m.id)?" reveal-answer":"");article.id="msg-"+m.id;const role=document.createElement("span");role.className="role";role.textContent=m.role==="user"?"Вы":"Tenmatsuyora";const body=document.createElement("div");body.className="content";body.textContent=m.content;article.append(role,body);list.append(article);}renderedIds=new Set(s.messages.map(m=>m.id));list.scrollTop=list.scrollHeight;draw(s.messages,s.groups);}
 async function refresh(){const r=await fetch("/api/state");if(!r.ok)throw Error("Сервер недоступен");render(await r.json() as State);}
 
@@ -371,22 +378,45 @@ form.addEventListener("submit",async e=>{
  busy=true;send.disabled=true;input.disabled=true;svg.classList.add("busy");wake();byId("notice").textContent="Обработка…";
  clearTimeout(eventTimer);eventQueue=[];eventPlaying=false;eventCursor=0;
  const operation=crypto.randomUUID().replaceAll("-","");let polling=true,pollTimer=0;
- const poll=async()=>{try{const r=await fetch("/api/operation/"+operation);if(r.ok&&polling){const d=await r.json() as {events:WorkEvent[]};if(polling)appendEvents(d.events);}}catch{}finally{if(polling)pollTimer=window.setTimeout(poll,180);}};
+ const preview=document.createElement("article");preview.className="message stream-preview";preview.hidden=true;const previewRole=document.createElement("span");previewRole.className="role";previewRole.textContent="Tenmatsuyora";const previewBody=document.createElement("div");previewBody.className="content";preview.append(previewRole,previewBody);byId("messages").append(preview);
+ const poll=async()=>{try{const r=await fetch("/api/operation/"+operation);if(r.ok&&polling){const d=await r.json() as {events:WorkEvent[],text?:string};if(polling){appendEvents(d.events);if(d.text){preview.hidden=false;previewBody.textContent=d.text;byId("messages").scrollTop=byId("messages").scrollHeight;}}}}catch{}finally{if(polling)pollTimer=window.setTimeout(poll,180);}};
  void poll();
  try{
  const r=await fetch("/api/message",{method:"POST",headers:{"Content-Type":"application/json","X-Tenma":"1"},body:JSON.stringify({content,operation})});
  const result=await r.json();if(!r.ok)throw Error(result.error||"Ошибка сервера");
  appendEvents(result.events||[]);input.value="";byId("notice").textContent=result.notice||"";await refresh();
  }catch(err){appendEvents([...Array.from({length:eventCursor},()=>({kind:""})),{kind:"failed"},{kind:"finished"}]);byId("notice").textContent=err instanceof Error?err.message:"Ошибка";}
- finally{polling=false;clearTimeout(pollTimer);busy=false;send.disabled=false;input.disabled=false;svg.classList.remove("busy");wake();input.focus();}
+ finally{polling=false;clearTimeout(pollTimer);preview.remove();busy=false;send.disabled=false;input.disabled=false;svg.classList.remove("busy");wake();input.focus();}
 });
 const cloudPanel=byId<HTMLFormElement>("cloud-panel");
-byId("cloud-toggle").addEventListener("click",()=>{cloudPanel.hidden=!cloudPanel.hidden;byId("cloud-toggle").setAttribute("aria-expanded",String(!cloudPanel.hidden));if(!cloudPanel.hidden)byId<HTMLInputElement>("cloud-model").value=byId("model").textContent==="Без модели"?"":byId("model").textContent||"";});
+let cloudCatalog:CatalogItem[]=[],currentCloud:CloudStatus|undefined;
+function option(select:HTMLSelectElement,value:string,label:string){const o=document.createElement("option");o.value=value;o.textContent=label;select.append(o);}
+function renderCatalog(status:CloudStatus,model:string){
+ currentCloud=status;cloudCatalog=status.catalog||[];
+ const models=byId<HTMLSelectElement>("cloud-model"),emb=byId<HTMLSelectElement>("cloud-embedding");
+ models.replaceChildren();emb.replaceChildren();option(models,"","Выберите модель");option(emb,"","Выключены");
+ for(const m of cloudCatalog){if(m.category==="embedding")option(emb,m.id,m.id);else if(m.category==="llm"||m.category==="unknown")option(models,m.id,m.id);}
+ if(model&&!Array.from(models.options).some(o=>o.value===model))option(models,model,model+" (не проверено)");
+ models.value=model||"";if(status.embedding&&!Array.from(emb.options).some(o=>o.value===status.embedding))option(emb,status.embedding,status.embedding+" (не проверено)");
+ emb.value=status.embedding||"";byId<HTMLInputElement>("cloud-consent").checked=!!status.embedding;byId<HTMLInputElement>("cloud-remember").disabled=!status.secure_storage;
+ modelStars.replaceChildren();
+ const selected=[model,status.embedding].filter(Boolean);
+ selected.forEach((id,i)=>{const x=i?41:-41,y=8;line(modelStars,0,0,x,y,i?"#bca2ef":"#8acaff",.5);element("circle",{cx:x,cy:y,r:12,fill:"url(#coreHalo)",opacity:.4},modelStars);element("circle",{cx:x,cy:y,r:3,fill:i?"#c5adff":"#b9e2ff"},modelStars);const title=element("title",{},modelStars);title.textContent=id;});
+ renderCatalogList();
+}
+function renderCatalogList(){
+ const box=byId("cloud-catalog"),category=byId<HTMLSelectElement>("cloud-category").value;
+ box.replaceChildren();for(const m of cloudCatalog.filter(m=>category==="all"||m.category===category||(category==="llm"&&m.category==="unknown"))){const item=document.createElement("div");item.setAttribute("role","listitem");item.textContent=m.id+" · "+m.category;box.append(item);}
+}
+byId("cloud-category").addEventListener("change",renderCatalogList);
+byId("cloud-toggle").addEventListener("click",()=>{cloudPanel.hidden=!cloudPanel.hidden;byId("cloud-toggle").setAttribute("aria-expanded",String(!cloudPanel.hidden));});
 async function updateCloud(clear=false){
  if(busy){byId("cloud-status").textContent="Дождитесь завершения запроса";return;}
- const key=byId<HTMLInputElement>("cloud-key"),model=byId<HTMLInputElement>("cloud-model");
- if(!clear&&(!key.value.trim()||!model.value.trim())){byId("cloud-status").textContent="Укажите ключ и модель";return;}
- try{const r=await fetch("/api/cloud",{method:"POST",headers:{"Content-Type":"application/json","X-Tenma":"1"},body:JSON.stringify({key:clear?"":key.value,model:clear?"":model.value})});if(!r.ok)throw Error("Настройки не приняты");key.value="";await refresh();byId("cloud-status").textContent=clear?"Отключено":"Настроено для текущего сеанса";}catch(e){byId("cloud-status").textContent=e instanceof Error?e.message:"Ошибка";}
+ const key=byId<HTMLInputElement>("cloud-key"),model=byId<HTMLSelectElement>("cloud-model"),embedding=byId<HTMLSelectElement>("cloud-embedding");
+ if(!clear&&!key.value.trim()&&!currentCloud?.has_key){byId("cloud-status").textContent="Введите ключ";return;}
+ const submit=cloudPanel.querySelector<HTMLButtonElement>("[type=submit]")!;submit.disabled=true;
+ byId("cloud-status").textContent="Проверка каталога…";
+ try{const r=await fetch("/api/cloud",{method:"POST",headers:{"Content-Type":"application/json","X-Tenma":"1"},body:JSON.stringify({key:key.value,model:model.value,embedding:embedding.value,remember:byId<HTMLInputElement>("cloud-remember").checked,semantic_consent:byId<HTMLInputElement>("cloud-consent").checked,clear})});const d=await r.json();if(!r.ok)throw Error(d.error||"Настройки не приняты");key.value="";await refresh();byId("cloud-status").textContent=clear?"Отключено":d.model?"Ключ проверен, модель выбрана":"Ключ проверен. Выберите модель и примените."; }catch(e){byId("cloud-status").textContent=e instanceof Error?e.message:"Ошибка";cloudStar.classList.add("cloud-error");}finally{submit.disabled=false;}
 }
 cloudPanel.addEventListener("submit",e=>{e.preventDefault();void updateCloud();});
 byId("cloud-clear").addEventListener("click",()=>void updateCloud(true));
