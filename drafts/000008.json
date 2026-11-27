@@ -1,0 +1,1764 @@
+{
+  "schema": 1,
+  "base_sha": "e4b5b201eae9439d51e6072585067e9ffa4e3147",
+  "chapter": 8,
+  "status": "complete_prose_unpublished",
+  "prerequisite": {
+    "chapter": 7,
+    "branch": "main",
+    "commit": "e4b5b201eae9439d51e6072585067e9ffa4e3147",
+    "blob": "53a7edd1625d1b0bf07a6d54b94976e812f3f3c9",
+    "closing": "И вернулась к своим делам."
+  },
+  "opening": "— Антон.",
+  "closing": "Без него.",
+  "completed_scenes": [
+    "draft.scene.000008.001",
+    "draft.scene.000008.002",
+    "draft.scene.000008.003",
+    "draft.scene.000008.004",
+    "draft.scene.000008.005",
+    "draft.scene.000008.006",
+    "draft.scene.000008.007",
+    "draft.scene.000008.008",
+    "draft.scene.000008.009",
+    "draft.scene.000008.010",
+    "draft.scene.000008.011",
+    "draft.scene.000008.012",
+    "draft.scene.000008.013"
+  ],
+  "body_chars": 29165,
+  "next_scene": "Глава 9 «Дворец без тепла»: начинается месяц дворцового лечения после возвращения. Тэнмацуйора по-прежнему травмирована (левая рука и нога, правая рука частично восстановилась); уход магией, инструментами и дистанцией, без новых исключений прямого контакта. Сэйран организует три независимых расследования, Линь Сюэ отстранена от самостоятельной охраны/применения силы, даёт показания. Поиски Антона идут, результата пока нет. Путь Земля–дворец восстановлен, но направление второго переноса неизвестно. Не забыть дом, оставленный телефон и записку, распоряжение сохранить имущество, обещание найти Антона. В публичной жизни властная и строгая; в закрытых покоях вспоминает чашку, ложку, гребень, ожидание шагов. Не объявлять любовь взаимной и не раскрывать двору тайну безопасного касания.",
+  "editorial_status": "Полный черновик, предварительная память. Проверены точные привязки и диапазоны сцен. Линь Сюэ — имя прежней безымянной горничной, стабильный идентификатор сохранён. Не официальный опубликованный журнал; для публикации необходимы последовательная редакция, stamp/validate и CI.",
+  "draft_memory": {
+    "scenes": [
+      {
+        "id": "draft.scene.000008.001",
+        "paragraphs": [
+          1,
+          13
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро конца первого месяца",
+        "summary": "Просит Антона продолжить разговор вечером; он соглашается после дел.",
+        "chronological_order": 1
+      },
+      {
+        "id": "draft.scene.000008.002",
+        "paragraphs": [
+          14,
+          52
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "То же утро",
+        "summary": "Исследует застёжку, путь домой не установлен; Антон предлагает повторную поездку к полю.",
+        "chronological_order": 2
+      },
+      {
+        "id": "draft.scene.000008.003",
+        "paragraphs": [
+          53,
+          74
+        ],
+        "pov": "char.maid_guard_unnamed",
+        "place": "place.earth.field",
+        "time": "Перед появлением в доме; синхронность миров не установлена",
+        "summary": "Линь Сюэ, одна из девяти горничных-телохранительниц, идёт по следу энергии к Земле и дому.",
+        "chronological_order": 3
+      },
+      {
+        "id": "draft.scene.000008.004",
+        "paragraphs": [
+          75,
+          115
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Ближе к обеду",
+        "summary": "Антон помогает с подушкой; безопасное касание стало привычным. Императрица замечает пространственное искажение.",
+        "chronological_order": 4
+      },
+      {
+        "id": "draft.scene.000008.005",
+        "paragraphs": [
+          116,
+          162
+        ],
+        "pov": "char.maid_guard_unnamed",
+        "place": "place.earth.anton_home",
+        "time": "Момент встречи",
+        "summary": "Узнаёт раненую госпожу. Ошибочно принимает приближающегося Антона за угрозу, атакует до приказа; человек исчезает.",
+        "chronological_order": 5
+      },
+      {
+        "id": "draft.scene.000008.006",
+        "paragraphs": [
+          163,
+          206
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Сразу после исчезновения",
+        "summary": "Шок, попытка поиска в комнате и вокруг дома; приказывает установить направление исчезновения.",
+        "chronological_order": 6
+      },
+      {
+        "id": "draft.scene.000008.007",
+        "paragraphs": [
+          207,
+          274
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Непосредственное расследование",
+        "summary": "След уходит за пределы мира; причина и точка назначения неизвестны. Линь Сюэ узнаёт, что Антон спаситель, признаёт вину.",
+        "chronological_order": 7
+      },
+      {
+        "id": "draft.scene.000008.008",
+        "paragraphs": [
+          275,
+          304
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Восстановление связи с дворцом",
+        "summary": "Получает предварительный доклад о дворце, приказывает искать Антона и оказывать помощь при обнаружении.",
+        "chronological_order": 8
+      },
+      {
+        "id": "draft.scene.000008.009",
+        "paragraphs": [
+          305,
+          356
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Подготовка к уходу",
+        "summary": "Сохранить дом и имущество, оставить сообщение для Антона; обещание предупредить об уходе сорвано обстоятельствами.",
+        "chronological_order": 9
+      },
+      {
+        "id": "draft.scene.000008.010",
+        "paragraphs": [
+          357,
+          397
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Переход обратно",
+        "summary": "Проверенный маршрут; бесконтактное перемещение из-за травм и правила шока; забирает собственную застёжку.",
+        "chronological_order": 10
+      },
+      {
+        "id": "draft.scene.000008.011",
+        "paragraphs": [
+          398,
+          453
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Возвращение во дворец",
+        "summary": "Сэйран получает три независимых направления расследования; Линь Сюэ отстранена от самостоятельной охраны и применения силы.",
+        "chronological_order": 11
+      },
+      {
+        "id": "draft.scene.000008.012",
+        "paragraphs": [
+          454,
+          476
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "После возвращения",
+        "summary": "Дворцовые лекари осматривают травмы без прямого контакта; привычный порядок ощущается чужим.",
+        "chronological_order": 12
+      },
+      {
+        "id": "draft.scene.000008.013",
+        "paragraphs": [
+          477,
+          520
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Вечер",
+        "summary": "Фиксирует доказательства, остаётся наедине с личным переживанием; поиск продолжается.",
+        "chronological_order": 13
+      }
+    ],
+    "evidence": [
+      {
+        "id": "draft.event.000008.evening_plan",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 8,
+          "start": 0,
+          "end": 44,
+          "quote": "— Возможно, мы продолжим вчерашний разговор."
+        }
+      },
+      {
+        "id": "draft.event.000008.clasp_no_route",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 14,
+          "start": 0,
+          "end": 47,
+          "quote": "На столике у кровати лежала сломанная застёжка."
+        }
+      },
+      {
+        "id": "draft.event.000008.confirmed_spatial_change",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 28,
+          "start": 0,
+          "end": 141,
+          "quote": "— Мне удалось установить, что на месте, где вы нашли меня, действительно произошло изменение пространства. Но направления перехода я не знаю."
+        }
+      },
+      {
+        "id": "draft.event.000008.repeat_field_offer",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 32,
+          "start": 0,
+          "end": 45,
+          "quote": "— Ну, если ещё съездить понадобится, скажите."
+        }
+      },
+      {
+        "id": "draft.event.000008.injuries",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 33,
+          "start": 0,
+          "end": 265,
+          "quote": "Она посмотрела на свою левую ногу. После недавнего осмотра ей разрешали немного больше движений, однако длительные поездки всё ещё требовали осторожности. Левая рука тоже оставалась под защитой. Правая уже позволяла пользоваться чашкой и ложкой, но быстро уставала."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_name",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 54,
+          "start": 0,
+          "end": 18,
+          "quote": "Её звали Линь Сюэ."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_role",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 55,
+          "start": 0,
+          "end": 319,
+          "quote": "Она была одной из девяти личных горничных-телохранительниц небесной императрицы. В обычные дни её обязанности включали подготовку покоев, сопровождение госпожи и охрану внутренних помещений дворца. В случае угрозы она принадлежала к числу тех, кто должен был принять решение прежде, чем опасность достигнет императрицы."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_search",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 59,
+          "start": 0,
+          "end": 74,
+          "quote": "Она больше не считала число переходов, совершённых с момента исчезновения."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_reaches_earth",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 63,
+          "start": 0,
+          "end": 49,
+          "quote": "За ним оказалась совершенно незнакомая местность."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_finds_field",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 68,
+          "start": 0,
+          "end": 291,
+          "quote": "След привёл её к полю. Линь Сюэ обнаружила там остаточные признаки перехода и более свежий отклик той же природы. Она внимательно исследовала их, не уничтожая. Теперь, находясь в самом мире, смогла различить ещё одно направление — к области, где энергия императрицы проявлялась неоднократно."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_follows_home",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 73,
+          "start": 0,
+          "end": 29,
+          "quote": "Линь Сюэ направилась к домам."
+        }
+      },
+      {
+        "id": "draft.event.000008.anton_rest",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 87,
+          "start": 0,
+          "end": 22,
+          "quote": "— Отдохну после обеда."
+        }
+      },
+      {
+        "id": "draft.event.000008.safe_neck_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 97,
+          "start": 0,
+          "end": 170,
+          "quote": "Тэнмацуйора не обратила особого внимания на краткое соприкосновение его пальцев с кожей возле шеи. За месяц оно перестало быть событием, требующим отдельного размышления."
+        }
+      },
+      {
+        "id": "draft.event.000008.arrival_distortion",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 112,
+          "start": 0,
+          "end": 59,
+          "quote": "В тот же миг возле стены возникло тонкое искажение воздуха."
+        }
+      },
+      {
+        "id": "draft.event.000008.recognition",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 116,
+          "start": 0,
+          "end": 25,
+          "quote": "Линь Сюэ увидела госпожу."
+        }
+      },
+      {
+        "id": "draft.event.000008.kneels",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 124,
+          "start": 0,
+          "end": 18,
+          "quote": "— Ваше Величество!"
+        }
+      },
+      {
+        "id": "draft.event.000008.anton_arrives",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 133,
+          "start": 0,
+          "end": 46,
+          "quote": "Антон вошёл в комнату с тарелкой в одной руке."
+        }
+      },
+      {
+        "id": "draft.event.000008.misinterprets",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 140,
+          "start": 0,
+          "end": 65,
+          "quote": "Для Линь Сюэ всё это в первое мгновение сложилось в одну картину."
+        }
+      },
+      {
+        "id": "draft.event.000008.no_order",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 142,
+          "start": 0,
+          "end": 103,
+          "quote": "Она не успела выяснить, кто он. Не спросила, почему госпожа находится здесь. Не дождалась распоряжения."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_warning",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 143,
+          "start": 0,
+          "end": 25,
+          "quote": "— Прочь от Её Величества!"
+        }
+      },
+      {
+        "id": "draft.event.000008.anton_no_comprehension",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 144,
+          "start": 0,
+          "end": 23,
+          "quote": "Антон не понял её слов."
+        }
+      },
+      {
+        "id": "draft.event.000008.attack",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 150,
+          "start": 0,
+          "end": 111,
+          "quote": "Её сила вспыхнула между ней и человеком. Она направила удар, чтобы немедленно отбросить его от постели госпожи."
+        }
+      },
+      {
+        "id": "draft.event.000008.unintended_distortion",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 152,
+          "start": 0,
+          "end": 55,
+          "quote": "В следующий миг пространство вокруг мужчины исказилось."
+        }
+      },
+      {
+        "id": "draft.event.000008.empress_calls",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 156,
+          "start": 0,
+          "end": 8,
+          "quote": "— АНТОН!"
+        }
+      },
+      {
+        "id": "draft.event.000008.last_seen",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 158,
+          "start": 0,
+          "end": 26,
+          "quote": "Она увидела голубые глаза."
+        }
+      },
+      {
+        "id": "draft.event.000008.disappears",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 160,
+          "start": 0,
+          "end": 12,
+          "quote": "Антон исчез."
+        }
+      },
+      {
+        "id": "draft.event.000008.plate_breaks",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 161,
+          "start": 0,
+          "end": 24,
+          "quote": "Тарелка разбилась о пол."
+        }
+      },
+      {
+        "id": "draft.event.000008.local_search",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 169,
+          "start": 0,
+          "end": 36,
+          "quote": "Её сила распространилась по комнате."
+        }
+      },
+      {
+        "id": "draft.event.000008.no_result",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 176,
+          "start": 0,
+          "end": 159,
+          "quote": "Она искала знакомое живое присутствие, которое научилась отличать за прошедшие недели, стараясь одновременно не причинить вреда тем, кто находился в этом мире."
+        }
+      },
+      {
+        "id": "draft.event.000008.pain",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 184,
+          "start": 0,
+          "end": 82,
+          "quote": "Резкая боль заставила её остановиться. Она снова посмотрела на место исчезновения."
+        }
+      },
+      {
+        "id": "draft.event.000008.where",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 195,
+          "start": 0,
+          "end": 53,
+          "quote": "— Куда, — произнесла императрица, — вы его отправили?"
+        }
+      },
+      {
+        "id": "draft.event.000008.urgent_order",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 205,
+          "start": 0,
+          "end": 36,
+          "quote": "— Немедленно, — сказала императрица."
+        }
+      },
+      {
+        "id": "draft.event.000008.beyond_world",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 211,
+          "start": 0,
+          "end": 250,
+          "quote": "Ей было ясно, что произошло не обыкновенное перемещение в пределах комнаты или ближайшей местности. Человек исчез за пределами доступного для непосредственного наблюдения пространства. Но связать обнаруженные остатки с конкретным местом не удавалось."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_hypothesis",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 220,
+          "start": 0,
+          "end": 40,
+          "quote": "— Я полагала, что он закрылся полностью."
+        }
+      },
+      {
+        "id": "draft.event.000008.preserve_evidence",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 225,
+          "start": 0,
+          "end": 125,
+          "quote": "— Не выдавайте предположение за установленный факт. Сохраните все доступные сведения. Мы не знаем, что вызвало это изменение."
+        }
+      },
+      {
+        "id": "draft.event.000008.uncertain_fate",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 232,
+          "start": 0,
+          "end": 57,
+          "quote": "Не знала, в каком мире он оказался и можно ли там выжить."
+        }
+      },
+      {
+        "id": "draft.event.000008.concealed_shaking",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 237,
+          "start": 0,
+          "end": 32,
+          "quote": "Она спрятала их под край одеяла."
+        }
+      },
+      {
+        "id": "draft.event.000008.no_established_threat",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 250,
+          "start": 0,
+          "end": 148,
+          "quote": "— Тогда вы действовали не на основании моего приказа и не на основании установленной угрозы. Вы действовали на основании собственного предположения."
+        }
+      },
+      {
+        "id": "draft.event.000008.rescuer_disclosure",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 252,
+          "start": 0,
+          "end": 135,
+          "quote": "— Этот человек нашёл меня раненой. Вызвал помощь. Предоставил мне свой дом. На протяжении почти месяца заботился о моём восстановлении."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_admits",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 267,
+          "start": 0,
+          "end": 11,
+          "quote": "— Моя вина."
+        }
+      },
+      {
+        "id": "draft.event.000008.accountability",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 272,
+          "start": 0,
+          "end": 107,
+          "quote": "— И запомните: преданность не освобождает от ответственности за решение, принятое без необходимых сведений."
+        }
+      },
+      {
+        "id": "draft.event.000008.palace_contact",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 276,
+          "start": 0,
+          "end": 263,
+          "quote": "Линь Сюэ сохраняла сведения о совершённых ею переходах, но направление, по которому исчез Антон, не совпадало ни с одним из известных ей маршрутов. Она смогла передать сообщение остальным горничным и получить подтверждение того, что связь с дворцом восстановлена."
+        }
+      },
+      {
+        "id": "draft.event.000008.palace_report",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 278,
+          "start": 0,
+          "end": 264,
+          "quote": "Ей сообщили, что после нападения дворец продолжает действовать. Значительная часть повреждений устранена. Сведения о нападавших, обстоятельствах возникновения разлома и всех последствиях ещё собираются. Сэйран находится в столице и ожидает возвращения императрицы."
+        }
+      },
+      {
+        "id": "draft.event.000008.search_anton",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 282,
+          "start": 0,
+          "end": 247,
+          "quote": "— Выделить тех, кто занимается исследованием пространственных переходов. Передать им точные сведения о только что произошедшем событии. Искать человеческого мужчину. Имя — Антон. Голубые глаза, короткие волосы. Последний раз находился в этом доме."
+        }
+      },
+      {
+        "id": "draft.event.000008.search_safety",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 285,
+          "start": 0,
+          "end": 153,
+          "quote": "— Считать возможными травмы. При обнаружении оказать помощь, не причинять вреда и не принуждать к перемещению без необходимости. Немедленно сообщить мне."
+        }
+      },
+      {
+        "id": "draft.event.000008.no_false_results",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 289,
+          "start": 0,
+          "end": 176,
+          "quote": "— Установить мир, направление и все промежуточные следы. Не утверждать, что человек погиб, пока нет доказательств. Не утверждать, что найден, пока его личность не подтверждена."
+        }
+      },
+      {
+        "id": "draft.event.000008.search_started",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 292,
+          "start": 0,
+          "end": 31,
+          "quote": "Линь Сюэ передала распоряжения."
+        }
+      },
+      {
+        "id": "draft.event.000008.return_proposed",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 305,
+          "start": 0,
+          "end": 54,
+          "quote": "— Ваше Величество, вам необходимо вернуться во дворец."
+        }
+      },
+      {
+        "id": "draft.event.000008.warn_departure_failed",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 323,
+          "start": 0,
+          "end": 64,
+          "quote": "Обещание теперь нельзя было исполнить так, как она предполагала."
+        }
+      },
+      {
+        "id": "draft.event.000008.preserve_house",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 327,
+          "start": 0,
+          "end": 22,
+          "quote": "— Этот дом не трогать."
+        }
+      },
+      {
+        "id": "draft.event.000008.leave_phone",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 333,
+          "start": 0,
+          "end": 41,
+          "quote": "— Это принадлежит ему. Оставить на месте."
+        }
+      },
+      {
+        "id": "draft.event.000008.message_if_returns",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 338,
+          "start": 0,
+          "end": 82,
+          "quote": "— Если он вернётся сюда раньше, чем мы его найдём, он должен узнать, что его ищут."
+        }
+      },
+      {
+        "id": "draft.event.000008.note_name",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 348,
+          "start": 0,
+          "end": 60,
+          "quote": "На нём она вывела собственное имя письменностью своего мира."
+        }
+      },
+      {
+        "id": "draft.event.000008.note_promise",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 350,
+          "start": 0,
+          "end": 14,
+          "quote": "«Я найду вас»."
+        }
+      },
+      {
+        "id": "draft.event.000008.note_instructions",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 354,
+          "start": 0,
+          "end": 117,
+          "quote": "— Это оставить здесь. Не выдавать за установленный способ связи. Найдите способ передать ему смысл, если он вернётся."
+        }
+      },
+      {
+        "id": "draft.event.000008.verified_route",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 358,
+          "start": 0,
+          "end": 236,
+          "quote": "Тэнмацуйора лично проверила сведения о маршруте, которым предстояло воспользоваться. Она не позволила повторять неопределённый переход, пока не было установлено, что путь ведёт к знакомому месту и его границы достаточно ясно определены."
+        }
+      },
+      {
+        "id": "draft.event.000008.no_bare_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 367,
+          "start": 0,
+          "end": 203,
+          "quote": "Горничная использовала магию, подготавливая устойчивую поверхность для безопасного перемещения раненой госпожи. Императрица помогла управлять ею собственной силой. Ни одна рука не прикоснулась к её коже."
+        }
+      },
+      {
+        "id": "draft.event.000008.clasp_taken",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 389,
+          "start": 0,
+          "end": 138,
+          "quote": "Это была её собственность, вещь, найденная Антоном в волосах в день спасения. Тэнмацуйора подняла её магией и поместила среди своих вещей."
+        }
+      },
+      {
+        "id": "draft.event.000008.return_portal",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 393,
+          "start": 0,
+          "end": 48,
+          "quote": "В последний раз она посмотрела на дверь комнаты."
+        }
+      },
+      {
+        "id": "draft.event.000008.seiran_reunion",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 399,
+          "start": 0,
+          "end": 173,
+          "quote": "Когда открылся переход, в просторном помещении уже находились лекари, служители и несколько приближённых. Сэйран стоял возле входа. Увидев госпожу, он немедленно поклонился."
+        }
+      },
+      {
+        "id": "draft.event.000008.guard_suspension",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 414,
+          "start": 0,
+          "end": 182,
+          "quote": "— До выяснения обстоятельств вы отстранены от самостоятельных действий по охране и применению силы. Остаётесь доступной для опроса и точного исполнения распоряжений поисковой группы."
+        }
+      },
+      {
+        "id": "draft.event.000008.three_investigations",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 418,
+          "start": 0,
+          "end": 73,
+          "quote": "Она поручила Сэйран организовать три отдельных направления расследования."
+        }
+      },
+      {
+        "id": "draft.event.000008.no_assumed_link",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 422,
+          "start": 0,
+          "end": 126,
+          "quote": "— Возможную связь проверять, — сказала она. — Но не объявлять эти события следствием одной причины до получения доказательств."
+        }
+      },
+      {
+        "id": "draft.event.000008.limited_identity",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 432,
+          "start": 0,
+          "end": 22,
+          "quote": "— Фамилия, государыня?"
+        }
+      },
+      {
+        "id": "draft.event.000008.unknown_job",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 440,
+          "start": 0,
+          "end": 92,
+          "quote": "Ей не приходило в голову, что подобное сведение может понадобиться, чтобы однажды найти его."
+        }
+      },
+      {
+        "id": "draft.event.000008.search_despite_missing",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 449,
+          "start": 0,
+          "end": 71,
+          "quote": "— Поиск не прекращать из-за недостатка этих сведений, — произнесла она."
+        }
+      },
+      {
+        "id": "draft.event.000008.palace_medics",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 455,
+          "start": 0,
+          "end": 276,
+          "quote": "Тэнмацуйора терпеливо отвечала на вопросы, позволяла исследовать повреждения и выслушивала объяснения. Они пользовались инструментами, магией и привычными способами работы на расстоянии. Всё было устроено для того, чтобы никто не подвергался опасности прямого соприкосновения."
+        }
+      },
+      {
+        "id": "draft.event.000008.cup_alone",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 465,
+          "start": 0,
+          "end": 65,
+          "quote": "Императрица подняла чашу силой, сделала глоток и вернула на стол."
+        }
+      },
+      {
+        "id": "draft.event.000008.evidence_notes",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 483,
+          "start": 0,
+          "end": 237,
+          "quote": "Перед ней возникли записи о событиях в доме Антона. Она восстановила расположение предметов, движение Линь Сюэ, характер вспышки, последние наблюдения перед исчезновением человека. Записала вопросы, на которые предстояло получить ответы."
+        }
+      },
+      {
+        "id": "draft.event.000008.clasp_memory",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 494,
+          "start": 0,
+          "end": 106,
+          "quote": "Потом вспомнила, как мужчина, не знавший даже её имени, сохранил эту вещь, пока она находилась в больнице."
+        }
+      },
+      {
+        "id": "draft.event.000008.not_named_love",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 499,
+          "start": 0,
+          "end": 45,
+          "quote": "Она не называла то, что чувствовала, любовью."
+        }
+      },
+      {
+        "id": "draft.event.000008.loss_realized",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 506,
+          "start": 0,
+          "end": 73,
+          "quote": "И всё же обнаружить, что в этом огромном мире не хватает одного человека."
+        }
+      },
+      {
+        "id": "draft.event.000008.groups_working",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 510,
+          "start": 0,
+          "end": 60,
+          "quote": "Служитель доложил, что поисковые группы приступили к работе."
+        }
+      },
+      {
+        "id": "draft.event.000008.final_order",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 512,
+          "start": 0,
+          "end": 62,
+          "quote": "— Продолжайте. Докладывать о каждом подтверждённом результате."
+        }
+      },
+      {
+        "id": "draft.event.000008.evening_lost",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 519,
+          "start": 0,
+          "end": 35,
+          "quote": "Но вечер наступил в девяти небесах."
+        }
+      }
+    ],
+    "speech": [
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Добровольное желание общества.",
+        "source": {
+          "paragraph": 8,
+          "start": 0,
+          "end": 44,
+          "quote": "— Возможно, мы продолжим вчерашний разговор."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Согласие на вечер после дел.",
+        "source": {
+          "paragraph": 9,
+          "start": 0,
+          "end": 39,
+          "quote": "— Хорошо. Только дела во дворе закончу."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Подтверждённое изменение пространства без направления.",
+        "source": {
+          "paragraph": 28,
+          "start": 0,
+          "end": 141,
+          "quote": "— Мне удалось установить, что на месте, где вы нашли меня, действительно произошло изменение пространства. Но направления перехода я не знаю."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Предложение повторно помочь.",
+        "source": {
+          "paragraph": 32,
+          "start": 0,
+          "end": 45,
+          "quote": "— Ну, если ещё съездить понадобится, скажите."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Узнала госпожу.",
+        "source": {
+          "paragraph": 124,
+          "start": 0,
+          "end": 18,
+          "quote": "— Ваше Величество!"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Прерванное распоряжение.",
+        "source": {
+          "paragraph": 130,
+          "start": 0,
+          "end": 39,
+          "quote": "— Поднимитесь, — сказала она. — Как вы…"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Пришёл с обедом.",
+        "source": {
+          "paragraph": 132,
+          "start": 0,
+          "end": 21,
+          "quote": "— Тэнмацуйора, я тут…"
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Антон не понял чужую речь.",
+        "source": {
+          "paragraph": 143,
+          "start": 0,
+          "end": 25,
+          "quote": "— Прочь от Её Величества!"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Не знает горничную и титул.",
+        "source": {
+          "paragraph": 146,
+          "start": 0,
+          "end": 15,
+          "quote": "— Вы её знаете?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Позвала в момент исчезновения; он повернулся, не ответил.",
+        "source": {
+          "paragraph": 156,
+          "start": 0,
+          "end": 8,
+          "quote": "— АНТОН!"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Первый вопрос после исчезновения.",
+        "source": {
+          "paragraph": 195,
+          "start": 0,
+          "end": 53,
+          "quote": "— Куда, — произнесла императрица, — вы его отправили?"
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Намеревалась отстранить, не знала о переносе.",
+        "source": {
+          "paragraph": 197,
+          "start": 0,
+          "end": 87,
+          "quote": "— Государыня, я не знаю. Я намеревалась отстранить его от вас. Пространство изменилось…"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Приказ установить направление.",
+        "source": {
+          "paragraph": 205,
+          "start": 0,
+          "end": 36,
+          "quote": "— Немедленно, — сказала императрица."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Наблюдение, причина не установлена.",
+        "source": {
+          "paragraph": 216,
+          "start": 0,
+          "end": 137,
+          "quote": "— Удар совпал с изменением границы пространства. Я не успела определить, почему. След ведёт за пределы этого мира, но дальше распадается."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Неуверенность в состоянии собственного перехода.",
+        "source": {
+          "paragraph": 220,
+          "start": 0,
+          "end": 40,
+          "quote": "— Я полагала, что он закрылся полностью."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Сохранить данные и различать факты.",
+        "source": {
+          "paragraph": 225,
+          "start": 0,
+          "end": 125,
+          "quote": "— Не выдавайте предположение за установленный факт. Сохраните все доступные сведения. Мы не знаем, что вызвало это изменение."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Прямо устанавливает самоуправство.",
+        "source": {
+          "paragraph": 250,
+          "start": 0,
+          "end": 148,
+          "quote": "— Тогда вы действовали не на основании моего приказа и не на основании установленной угрозы. Вы действовали на основании собственного предположения."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Раскрывает роль Антона, не его безопасное прикосновение.",
+        "source": {
+          "paragraph": 252,
+          "start": 0,
+          "end": 135,
+          "quote": "— Этот человек нашёл меня раненой. Вызвал помощь. Предоставил мне свой дом. На протяжении почти месяца заботился о моём восстановлении."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Признаёт ответственность.",
+        "source": {
+          "paragraph": 267,
+          "start": 0,
+          "end": 11,
+          "quote": "— Моя вина."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Верность не оправдывает ошибку.",
+        "source": {
+          "paragraph": 272,
+          "start": 0,
+          "end": 107,
+          "quote": "— И запомните: преданность не освобождает от ответственности за решение, принятое без необходимых сведений."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Первый межмировой поисковый приказ.",
+        "source": {
+          "paragraph": 282,
+          "start": 0,
+          "end": 247,
+          "quote": "— Выделить тех, кто занимается исследованием пространственных переходов. Передать им точные сведения о только что произошедшем событии. Искать человеческого мужчину. Имя — Антон. Голубые глаза, короткие волосы. Последний раз находился в этом доме."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "При обнаружении помощь, не принуждать.",
+        "source": {
+          "paragraph": 285,
+          "start": 0,
+          "end": 153,
+          "quote": "— Считать возможными травмы. При обнаружении оказать помощь, не причинять вреда и не принуждать к перемещению без необходимости. Немедленно сообщить мне."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Не объявлять гибель или обнаружение без доказательств.",
+        "source": {
+          "paragraph": 289,
+          "start": 0,
+          "end": 176,
+          "quote": "— Установить мир, направление и все промежуточные следы. Не утверждать, что человек погиб, пока нет доказательств. Не утверждать, что найден, пока его личность не подтверждена."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Предложение лечения и сохранения поиска.",
+        "source": {
+          "paragraph": 305,
+          "start": 0,
+          "end": 54,
+          "quote": "— Ваше Величество, вам необходимо вернуться во дворец."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Сохранить имущество и доступ.",
+        "source": {
+          "paragraph": 327,
+          "start": 0,
+          "end": 22,
+          "quote": "— Этот дом не трогать."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Сообщить ему о поисках.",
+        "source": {
+          "paragraph": 338,
+          "start": 0,
+          "end": 82,
+          "quote": "— Если он вернётся сюда раньше, чем мы его найдём, он должен узнать, что его ищут."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Послание в собственной письменности, чтение не гарантировано.",
+        "source": {
+          "paragraph": 354,
+          "start": 0,
+          "end": 117,
+          "quote": "— Это оставить здесь. Не выдавать за установленный способ связи. Найдите способ передать ему смысл, если он вернётся."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Запрет самостоятельной охраны и применения силы.",
+        "source": {
+          "paragraph": 414,
+          "start": 0,
+          "end": 182,
+          "quote": "— До выяснения обстоятельств вы отстранены от самостоятельных действий по охране и применению силы. Остаётесь доступной для опроса и точного исполнения распоряжений поисковой группы."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Три расследования без предположения общей причины.",
+        "source": {
+          "paragraph": 422,
+          "start": 0,
+          "end": 126,
+          "quote": "— Возможную связь проверять, — сказала она. — Но не объявлять эти события следствием одной причины до получения доказательств."
+        }
+      },
+      {
+        "speaker": "char.seiran",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Недостающий идентификатор.",
+        "source": {
+          "paragraph": 432,
+          "start": 0,
+          "end": 22,
+          "quote": "— Фамилия, государыня?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Искать по имеющимся данным.",
+        "source": {
+          "paragraph": 449,
+          "start": 0,
+          "end": 71,
+          "quote": "— Поиск не прекращать из-за недостатка этих сведений, — произнесла она."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.palace_servant_unnamed"
+        ],
+        "heard": [
+          "char.palace_servant_unnamed"
+        ],
+        "comprehension": "Продолжать поиск.",
+        "source": {
+          "paragraph": 512,
+          "start": 0,
+          "end": 62,
+          "quote": "— Продолжайте. Докладывать о каждом подтверждённом результате."
+        }
+      }
+    ],
+    "commitments": [
+      {
+        "id": "draft.commitment.tenmatsuyora.warn_departure",
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "status": "blocked_by_disappearance",
+        "origin_chapter": 7,
+        "action": "Предупредить Антона заранее об уходе; стало невозможно после его исчезновения, не считать добровольным нарушением.",
+        "source": {
+          "paragraph": 323,
+          "start": 0,
+          "end": 64,
+          "quote": "Обещание теперь нельзя было исполнить так, как она предполагала."
+        }
+      },
+      {
+        "id": "draft.commitment.tenmatsuyora.evening_talk",
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "status": "blocked_by_disappearance",
+        "action": "Продолжить разговор вечером после дворовых дел; вечер не состоялся.",
+        "source": {
+          "paragraph": 9,
+          "start": 0,
+          "end": 39,
+          "quote": "— Хорошо. Только дела во дворе закончу."
+        }
+      },
+      {
+        "id": "draft.commitment.tenmatsuyora.find_anton",
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "status": "open",
+        "action": "Найти Антона, установить судьбу, оказать помощь; оставила письменное послание, не доказано, что оно будет прочитано.",
+        "source": {
+          "paragraph": 350,
+          "start": 0,
+          "end": 14,
+          "quote": "«Я найду вас»."
+        }
+      },
+      {
+        "id": "draft.order.anton_search",
+        "from": "char.tenmatsuyora",
+        "to": "char.maid_guard_unnamed",
+        "status": "active",
+        "action": "Передать группе поиск человека по межмировым следам; при обнаружении помочь, не принуждать.",
+        "source": {
+          "paragraph": 282,
+          "start": 0,
+          "end": 247,
+          "quote": "— Выделить тех, кто занимается исследованием пространственных переходов. Передать им точные сведения о только что произошедшем событии. Искать человеческого мужчину. Имя — Антон. Голубые глаза, короткие волосы. Последний раз находился в этом доме."
+        }
+      },
+      {
+        "id": "draft.order.preserve_anton_home",
+        "from": "char.tenmatsuyora",
+        "to": "char.maid_guard_unnamed",
+        "status": "active",
+        "action": "Сохранить дом, имущество и возможность повторного исследования; не вмешиваться в местных людей без необходимости.",
+        "source": {
+          "paragraph": 327,
+          "start": 0,
+          "end": 22,
+          "quote": "— Этот дом не трогать."
+        }
+      },
+      {
+        "id": "draft.order.guard_suspension",
+        "from": "char.tenmatsuyora",
+        "to": "char.maid_guard_unnamed",
+        "status": "active",
+        "action": "Отстранение от самостоятельной охраны и применения силы, доступность для опроса и точного исполнения распоряжений.",
+        "source": {
+          "paragraph": 414,
+          "start": 0,
+          "end": 182,
+          "quote": "— До выяснения обстоятельств вы отстранены от самостоятельных действий по охране и применению силы. Остаётесь доступной для опроса и точного исполнения распоряжений поисковой группы."
+        }
+      },
+      {
+        "id": "draft.order.separate_investigations",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Отдельно расследовать нападение на дворец, первый разлом и исчезновение Антона; связь только при доказательствах.",
+        "source": {
+          "paragraph": 418,
+          "start": 0,
+          "end": 73,
+          "quote": "Она поручила Сэйран организовать три отдельных направления расследования."
+        }
+      }
+    ],
+    "carried_commitments": [
+      {
+        "id": "draft.commitment.anton.show_field",
+        "origin_chapter": 5,
+        "status": "fulfilled"
+      },
+      {
+        "id": "draft.commitment.tenmatsuyora.remember_rescue",
+        "origin_chapter": 7,
+        "status": "active"
+      },
+      {
+        "id": "draft.agreement.care_boundaries",
+        "origin_chapter": 5,
+        "status": "interrupted_by_disappearance"
+      },
+      {
+        "id": "draft.agreement.not_move_injured_body",
+        "origin_chapter": 6,
+        "status": "interrupted_by_disappearance"
+      },
+      {
+        "id": "draft.agreement.do_not_neglect_own_work",
+        "origin_chapter": 6,
+        "status": "interrupted_by_disappearance"
+      }
+    ],
+    "characters": [
+      {
+        "id": "char.tenmatsuyora",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Конец первого месяца на Земле, вернулась во дворец. Правая рука частично восстановлена, левая рука и левая нога ещё нуждаются в защите/лечении; при попытке подняться после исчезновения боль. Дворцовый осмотр выполнен; дальнейшее лечение необходимо. Магическая сила не ограничена.",
+          "emotion": "Потрясение, страх за судьбу Антона, гнев на самоуправство, скрытая личная утрата. Публично строгая и властная; наедине ощущает отсутствие человека, не называет чувство любовью.",
+          "goals": [
+            "Найти Антона, установить его судьбу и помочь",
+            "Организовать три отдельные линии расследования",
+            "Восстановить здоровье и управление",
+            "Сохранить земной дом и возможность связи"
+          ]
+        },
+        "knows": [
+          "Линь Сюэ пришла по свежему следу и ударила Антона до приказа; он исчез, последний взгляд голубых глаз",
+          "След второго переноса ведёт за пределы Земли, конечная точка неизвестна",
+          "Линь Сюэ намеревалась отстранить его, не знала о последствии; её предположение о закрытом переходе не доказано",
+          "Дворец продолжает действовать, частично восстановлен; Сэйран на месте",
+          "Обратный маршрут Земля–дворец найден; не равен маршруту исчезновения Антона",
+          "Антон не знает её титула по понятому разговору, мог слышать непонятную речь горничной",
+          "Её записка на Земле не гарантирует связи; фамилия, точный возраст и работа Антона неизвестны"
+        ],
+        "unknown": [
+          "Мир, состояние и судьба Антона после исчезновения",
+          "Механизм второго переноса, связь с первым разломом/нападением",
+          "Причина безопасных касаний и взаимного понимания речи",
+          "Прочтёт ли Антон сообщение"
+        ],
+        "voice": "Публично точные короткие приказы и вопросы, не показывает дрожь и личную боль; в одиночестве допускает переживание."
+      },
+      {
+        "id": "char.anton",
+        "state": {
+          "location": "unknown_after_interworld_transfer",
+          "health": "Не установлено после удара и переноса; не объявлять погибшим или невредимым.",
+          "emotion": "Последнее наблюдение: повернулся на голос Тэнмацуйоры; после этого неизвестно.",
+          "goals": [
+            "Не установлены после исчезновения"
+          ]
+        },
+        "knows": [
+          "До исчезновения увидел незнакомую женщину рядом с Тэнмацуйорой",
+          "Не понял приказ горничной, спросил, знакомы ли они",
+          "Знает правило шока и безопасный опыт, но не титул и устройство девяти небес"
+        ],
+        "unknown": [
+          "Судьба Тэнмацуйоры после исчезновения, её возвращение и поиски",
+          "Место, состояние и события после переноса",
+          "Имя горничной и её роль; не установлено, что он разобрал имя",
+          "Записка и обещание найти его"
+        ],
+        "voice": "Последние реплики простые, бытовые; никакой новый POV после исчезновения."
+      },
+      {
+        "id": "char.maid_guard_unnamed",
+        "name": "Линь Сюэ",
+        "aliases": [
+          "Линь Сюэ"
+        ],
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Травмы не установлены.",
+          "emotion": "Преданность, потрясение при виде ранений, поспешное решение, осознание ошибки и вины.",
+          "goals": [
+            "Дать точные показания",
+            "Исполнять распоряжения поисковой группы без самостоятельной охраны и применения силы"
+          ]
+        },
+        "knows": [
+          "Госпожа была ранена и находилась на Земле",
+          "Антон приблизился с тарелкой, она напала без приказа и видимой агрессии с его стороны",
+          "Её удар совпал с изменением пространства, человек исчез; причина не установлена",
+          "Императрица прямо сообщила, что Антон спаситель",
+          "Действуют отстранение и поисковые распоряжения"
+        ],
+        "unknown": [
+          "Состояние и место Антона",
+          "Полная причина второго переноса",
+          "Безопасное прямое прикосновение Антона к императрице",
+          "Внутренние чувства госпожи"
+        ],
+        "voice": "Почтительная формальная речь, государыня/Ваше Величество; признаёт ошибку, не оправдывать ею самоуправство."
+      },
+      {
+        "id": "char.seiran",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Не установлено; присутствует и исполняет поручения.",
+          "emotion": "Сдержанность, забота о состоянии императрицы в рамках долга.",
+          "goals": [
+            "Организовать три расследования",
+            "Собирать доклады и не смешивать гипотезы"
+          ]
+        },
+        "knows": [
+          "Императрица вернулась раненой с Земли",
+          "Человек Антон спас её, исчез после удара Линь Сюэ; описательные данные ограничены",
+          "Получил три отдельных поручения и указание продолжать поиск"
+        ],
+        "unknown": [
+          "Тайна безопасного касания, личное переживание императрицы",
+          "Причина обоих переносов и нападения",
+          "Судьба Антона"
+        ],
+        "voice": "Почтительные точные доклады и уточнения."
+      }
+    ],
+    "relationships": [
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "bond": "Спаситель и важный человек; исчезновение, активный поиск",
+        "trust": "Сохраняет доверие и благодарность",
+        "affection": "Сильная личная утрата, привязанность, любовь ещё не названа",
+        "reason": "Утрачено привычное общество, обещанный вечер не состоялся; решает найти его."
+      },
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.maid_guard_unnamed",
+        "bond": "Госпожа и личная горничная-телохранительница",
+        "trust": "Подорвано самоуправством; ограничение полномочий",
+        "affection": "Не определена",
+        "reason": "Атака без приказа, исчезновение спасителя; требует расследования."
+      },
+      {
+        "from": "char.maid_guard_unnamed",
+        "to": "char.tenmatsuyora",
+        "bond": "Преданная подчинённая под расследованием",
+        "trust": "Признаёт власть и собственную ответственность",
+        "affection": "Не определена",
+        "reason": "Узнала о спасении после ошибки; принимает отстранение."
+      },
+      {
+        "from": "char.seiran",
+        "to": "char.tenmatsuyora",
+        "bond": "Приближённый и организатор расследований",
+        "trust": "Исполняет приказы",
+        "affection": "Не определена",
+        "reason": "Получил доклад и поручения после возвращения."
+      }
+    ],
+    "items": [
+      {
+        "id": "item.broken_hair_clasp",
+        "location": "place.nine_heavens.palace",
+        "note": "Тэнмацуйора забрала собственную сломанную застёжку из дома, лежит на столе в её покоях."
+      },
+      {
+        "id": "item.anton_phone",
+        "location": "place.earth.anton_home",
+        "note": "Оставлен у окна по приказу, не изымать; содержание не изучено."
+      },
+      {
+        "id": "item.tenmatsuyora_note",
+        "location": "place.earth.anton_home",
+        "note": "Лист с именем Тэнмацуйоры и фразой «Я найду вас» в её письменности, лежит на тумбочке; получение и понимание не подтверждены."
+      },
+      {
+        "id": "item.anton_plate",
+        "location": "place.earth.anton_home",
+        "note": "Разбилась при исчезновении; возможное вещественное свидетельство."
+      }
+    ],
+    "unresolved": [
+      "Антон исчез; местоположение, травмы и судьба неизвестны. Не придумывать сведения как подтверждённые в POV других героев.",
+      "Причина переноса не установлена; удар совпал с пространственным изменением, связь с первым разломом неизвестна.",
+      "Три линии расследования независимы до доказательств.",
+      "Земной дом и вещи сохранены распоряжением; фактическое исполнение долгосрочной охраны ещё не подтверждено.",
+      "Фамилия, точный возраст и работа Антона не известны императрице; земные контакты пока не найдены.",
+      "Горничная Линь Сюэ отстранена, расследование и итоговое решение впереди.",
+      "Тайна безопасного контакта остаётся у Антона и Тэнмацуйоры.",
+      "Механизм взаимного понимания речи неизвестен; Антон не понял речь Линь Сюэ.",
+      "Окончательное лечение ещё не завершено."
+    ],
+    "editorial_decisions": [
+      "Имя Линь Сюэ выбрано для прежней безымянной горничной; идентификатор char.maid_guard_unnamed сохранён, чтобы не создать дубликат.",
+      "Удар направлен на отстранение, но фактически вызывает исчезновение; причина межмирового эффекта неизвестна. Не ограничивать могущество императрицы: поиск требует координат, а решение заняло долю мгновения.",
+      "Время между мирами не синхронизировано явно; приблизительно месяц на Земле.",
+      "Тэнмацуйора возвращается, чтобы расширить поиск и лечиться, а не отказывается искать.",
+      "Добавлены записка, распоряжение сохранить дом и отстранение Линь Сюэ. Эти сюжетные решения переносить дальше.",
+      "Сэйран узнаёт о спасении, но не о безопасном касании; Антон не понимает речь горничной.",
+      "Не подтверждены гибель или местонахождение Антона; не раскрыто взаимное чувство любви."
+    ]
+  }
+}
