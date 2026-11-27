@@ -1,0 +1,21 @@
+{
+  "documents": {
+    "characters/char.tenmatsuyora.json": "da7c01eafdeb3bc3acce01d4616e3604e1ffb7ebe4e6ee0026a26d1229a5b473",
+    "handover/latest.json": "e6ed4eac5a3f320bd9f5bd4e97547f6b32f0b911558c62bdc6e395763512526e",
+    "index.json": "ac42177f67b64efd3eb83360dcf7056aa1f17060f5f65cb161b4b496851307ed"
+  },
+  "inputs": {
+    "AGENTS.md": "cdb55c40f178b14c6f9fd5ca8e3e7e6338cb8d83b044549e12e8182afe604b39",
+    "START_HERE.md": "cd21d51fe36b34701605b054d6b9d2316552e9320de24489e978800da1d43bea",
+    "canon/foundation.json": "d33f40d0bd2c55ae2b262f31dfce874f12703cfba90aa69c7322e54b43e408d7",
+    "catalog.json": "e7252e4ad4807212c0520ea2652d1ccd1cdbefef003b903d925e7643713168f2",
+    "plan/PLOT.md": "6f8695a96b3adecfe8efa9c7f9fc90d5c63b3c2e8e11fdce99f0e4f8e300a7b8",
+    "plan/UNKNOWN.md": "0325c4bd44852cc5a08fbec24e5d2fbdba62bd7b07a1c81cbfae4f7cb2780a91",
+    "state/checkpoint.json": "e9545b285adbdc0c14114adabe140af41adcb4e6162919a3c754bf3f03b87f11",
+    "style/EXAMPLES.json": "1577b2c9703f63c141c6b2aeb68354d14338372c7f8b995a1050f4f6f82e4f75",
+    "style/STYLE.md": "b89f11acad5908f611504450367d263da408d859ede0d209edda0dd4b1cf170d",
+    "style/VOICES.md": "783cc708fd9e446634131708b2cf0603a66de1c74dfaa19379e8d68838500c22"
+  },
+  "last_chapter": null,
+  "schema": 1
+}

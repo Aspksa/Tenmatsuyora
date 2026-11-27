@@ -1,0 +1,24 @@
+{
+  "active_characters": [],
+  "last_chapter": null,
+  "last_tick": 0,
+  "next_chapter": 1,
+  "next_scene": "Выбрать первую сцену, установить действующих лиц, место, цель и конфликт; не объявлять будущие события прошлым.",
+  "open_commitments": [],
+  "open_threads": [],
+  "overdue_commitments": [],
+  "read_first": [
+    "START_HERE.md",
+    "AGENTS.md",
+    "style/STYLE.md",
+    "style/VOICES.md",
+    "state/checkpoint.json",
+    "narrative/index.json"
+  ],
+  "recent_chapters": [],
+  "recent_dialogues": [],
+  "repeat_warnings": [],
+  "required_chapters": [],
+  "schema": 1,
+  "summary": "Роман ещё не начат. Есть исходный образ, художественный стандарт и предварительный план."
+}

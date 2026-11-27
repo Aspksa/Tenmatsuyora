@@ -5,6 +5,7 @@ import hashlib
 import json
 import re
 import sqlite3
+import narrative
 
 ROOT = Path(__file__).resolve().parent / "chronicles"
 REVIEW = ("canon","voices","knowledge","relationships","timeline","style","repetition")
@@ -112,12 +113,12 @@ def event_apply(st,e,scene):
     elif t=="knowledge":
         who,fact=d["character"],d["fact"];char(who);require(fact in facts,"Unknown fact")
         key=pair_key(who,fact); require(st["knowledge"].get(key)==d["before"],"Stale knowledge")
-        v=d["after"];require(isinstance(v,dict) and v.get("mode") in ("witnessed","told","inferred","mistaken","forgotten") and isinstance(v.get("note"),str),"Invalid knowledge")
+        v=d["after"];require(isinstance(v,dict) and v.get("mode") in ("witnessed","told","inferred","mistaken","forgotten","overheard","partial","misunderstood","lied_to") and isinstance(v.get("note"),str),"Invalid knowledge")
         source=v.get("source")
         if source is not None: char(source)
         if v["mode"]=="witnessed": require(who in scene["participants"],"Absent witness")
         if v["mode"]=="told":
-            require(source is not None and source!=who and st["knowledge"].get(pair_key(source,fact),{}).get("mode") in ("witnessed","told","inferred","mistaken"),"Teller does not know fact")
+            require(source is not None and source!=who and st["knowledge"].get(pair_key(source,fact),{}).get("mode") in ("witnessed","told","inferred","mistaken","overheard","partial","misunderstood","lied_to"),"Teller does not know fact")
             require(source in scene["participants"] and who in scene["participants"],"Telling participants absent")
         st["knowledge"][key]=copy.deepcopy(v);st["sources"][key]=src
     elif t=="open_thread":
@@ -135,6 +136,8 @@ def event_apply(st,e,scene):
         if d["to"] is not None:
             c=char(d["to"]);require(item not in c["state"]["items"],"Duplicate item");c["state"]["items"].append(item)
         items[item]["owner"]=d["to"];st["sources"][item+".owner"]=src
+    elif t in narrative.EXTRA:
+        pass # validated by narrative replay against exact text and history
     elif t=="note":
         require(isinstance(d.get("text"),str) and d["text"].strip(),"Empty note")
     else: raise ValueError("Unknown event type: "+str(t))
@@ -219,7 +222,21 @@ def validate(root=ROOT,check_snapshot=True):
         seen.add(entry["id"])
         require(entry["kind"] in ("character","world","place","magic","history") and type(entry["visible_after"]) is int and 0<=entry["visible_after"]<=n,"Invalid encyclopedia visibility")
         require(all(isinstance(entry.get(k),str) and entry[k].strip() for k in ("title","text")),"Invalid public entry")
+    docs=narrative.build(root,cat,cp,__import__(__name__))
+    if check_snapshot:narrative.verify(root,docs)
     return cat,cp,st
+
+def state_at(number,root=ROOT):
+    """Recover the whole world at a historical chapter from its original events."""
+    cat=load(root,"catalog.json")
+    require(type(number) is int and 0<=number<=len(cat["chapters"]),"Invalid historical chapter")
+    st=initial(root)
+    for ch in cat["chapters"][:number]:
+        events=load(root,ch["events"])["events"]
+        scenes={s["id"]:s for s in ch["scenes"]}
+        for event in events:event_apply(st,event,scenes[event["scene"]])
+        st["last_tick"]=ch["scenes"][-1]["end_tick"]
+    return st
 
 def character_snapshot(st,cid):
     return {"profile":st["characters"][cid],
@@ -240,6 +257,7 @@ def materialize(root,st):
     for cid in st["characters"]:write(folder/(cid+".json"),character_snapshot(st,cid))
     for p in folder.glob("*.json"):
         if p.stem not in st["characters"]:p.unlink()
+    narrative.materialize(root,narrative.build(root,load(root,"catalog.json"),load(root,"state/checkpoint.json"),__import__(__name__)))
 
 def public_encyclopedia(through,root=ROOT):
     n=len(load(root,"catalog.json")["chapters"])
