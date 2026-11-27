@@ -1,0 +1,1666 @@
+{
+  "schema": 1,
+  "base_sha": "1e4dfc7bc2e5791b36a546fa3b4ab2774ee9cdb0",
+  "chapter": 12,
+  "status": "complete_prose_unpublished",
+  "prerequisite": {
+    "chapter": 11,
+    "branch": "main",
+    "commit": "1e4dfc7bc2e5791b36a546fa3b4ab2774ee9cdb0",
+    "blob": "02c6fa048340344f8f53d68a8e2dd966d3114283",
+    "closing": "Но Тэнмацуйора больше не сидела в пустой комнате."
+  },
+  "opening": "Старший лекарь попросил ещё один светильник.",
+  "closing": "Ей впервые было достаточно того, что он сам попросил её остаться.",
+  "completed_scenes": [
+    "draft.scene.000012.001",
+    "draft.scene.000012.002",
+    "draft.scene.000012.003",
+    "draft.scene.000012.004",
+    "draft.scene.000012.005",
+    "draft.scene.000012.006",
+    "draft.scene.000012.007",
+    "draft.scene.000012.008",
+    "draft.scene.000012.009",
+    "draft.scene.000012.010",
+    "draft.scene.000012.011",
+    "draft.scene.000012.012"
+  ],
+  "body_chars": 28769,
+  "next_scene": "Предлагаемая глава 13 «Право выбора»: после первой недели Антон продолжает лечение раны в спине, ожогов и истощения, ещё не встаёт самостоятельно. Постепенная мобилизация по оценке лекаря. Он знает титул Тэнмацуйоры, имя Линь Сюэ, причины её поступка со слов императрицы, длительность поисков по её календарю, собственную свободу и возможность вернуться на Землю. Любовь прямо не признана, взаимность неизвестна. Тэнмацуйора узнаёт о плене только из рассказанного им и проверяемых документов. Возможные сцены: первые шаги, поиск товарища по плену, добровольный разговор с Линь Сюэ, расследование действий принца, загадка новой энергии без опасных экспериментов, выбор между Землёй и дворцом. Не объявлять исход этих линий заранее.",
+  "editorial_status": "Полный рабочий текст; хронология первых дней лечения исправлена. Официальная публикация требует журнала и индексации.",
+  "draft_memory": {
+    "scenes": [
+      {
+        "id": "draft.scene.000012.001",
+        "paragraphs": [
+          1,
+          23
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Утро после бала",
+        "summary": "Лекари продолжают лечение; императрица выполняет указания, не подменяя медицинское знание магией.",
+        "chronological_order": 1
+      },
+      {
+        "id": "draft.scene.000012.002",
+        "paragraphs": [
+          24,
+          59
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Первый день",
+        "summary": "Сэйран докладывает о последствиях; исследования вихря ограничены безопасностью; документы посредников не проверены.",
+        "chronological_order": 2
+      },
+      {
+        "id": "draft.scene.000012.003",
+        "paragraphs": [
+          60,
+          85
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Вторая ночь",
+        "summary": "Тревожный сон Антона; Тэнмацуйора фиксирует наблюдения, не вызывает новую энергию намеренно.",
+        "chronological_order": 3
+      },
+      {
+        "id": "draft.scene.000012.004",
+        "paragraphs": [
+          86,
+          142
+        ],
+        "pov": "char.anton",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Третий день",
+        "summary": "Антон пробуждается, узнаёт о свободе, пьёт воду после разрешения лекаря, спрашивает о её здоровье.",
+        "chronological_order": 4
+      },
+      {
+        "id": "draft.scene.000012.005",
+        "paragraphs": [
+          143,
+          207
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Следующее пробуждение",
+        "summary": "Раскрыты титул, имя и роль Линь Сюэ, почти год поисков после выздоровления. Антон просит остаться.",
+        "chronological_order": 5
+      },
+      {
+        "id": "draft.scene.000012.006",
+        "paragraphs": [
+          208,
+          257
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Четвёртый день",
+        "summary": "Первое кормление с ложки по разрешению лекаря; Антон помогает ей освоить уход.",
+        "chronological_order": 6
+      },
+      {
+        "id": "draft.scene.000012.007",
+        "paragraphs": [
+          258,
+          296
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Вечер четвёртого дня",
+        "summary": "Зеркало и расчёсывание волос с согласия, выбор дальнейшей причёски оставлен Антону.",
+        "chronological_order": 7
+      },
+      {
+        "id": "draft.scene.000012.008",
+        "paragraphs": [
+          297,
+          330
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Следующий день",
+        "summary": "Умывание и помощь при медицинском уходе, прикосновение не вызывает шока.",
+        "chronological_order": 8
+      },
+      {
+        "id": "draft.scene.000012.009",
+        "paragraphs": [
+          331,
+          353
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Конец первой недели",
+        "summary": "Расследование, поиск других пленников, перевод, защита медицинских данных и ограничение доступа Линь Сюэ.",
+        "chronological_order": 9
+      },
+      {
+        "id": "draft.scene.000012.010",
+        "paragraphs": [
+          354,
+          385
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Конец первой недели",
+        "summary": "Антон спрашивает о Земле; императрица обещает помощь в возвращении при медицинской готовности и его желании.",
+        "chronological_order": 10
+      },
+      {
+        "id": "draft.scene.000012.011",
+        "paragraphs": [
+          386,
+          430
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Позднее",
+        "summary": "Часть рассказа о плене; пожилой товарищ; добровольное прикосновение к руке, новая энергия не проявилась.",
+        "chronological_order": 11
+      },
+      {
+        "id": "draft.scene.000012.012",
+        "paragraphs": [
+          431,
+          465
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Вечер",
+        "summary": "Состояние улучшается, самостоятельно вставать нельзя; она признаёт желание быть рядом, он просит читать.",
+        "chronological_order": 12
+      }
+    ],
+    "evidence": [
+      {
+        "id": "draft.event.000012.healers",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 1,
+          "start": 0,
+          "end": 44,
+          "quote": "Старший лекарь попросил ещё один светильник."
+        }
+      },
+      {
+        "id": "draft.event.000012.danger",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 12,
+          "start": 0,
+          "end": 97,
+          "quote": "— Мы продолжаем поддерживать его состояние. Не следует считать, что опасность полностью миновала."
+        }
+      },
+      {
+        "id": "draft.event.000012.knowledge",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 21,
+          "start": 0,
+          "end": 145,
+          "quote": "Императрица могла выполнить любое необходимое магическое действие. Ей не хватало другого — знания о том, какое действие действительно необходимо."
+        }
+      },
+      {
+        "id": "draft.event.000012.residue",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 33,
+          "start": 0,
+          "end": 92,
+          "quote": "— Предоставьте. Но никаких попыток вызвать повторное проявление в присутствии живых существ."
+        }
+      },
+      {
+        "id": "draft.event.000012.research_consent",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 44,
+          "start": 0,
+          "end": 162,
+          "quote": "— Антона не привлекать к исследованиям. Его состояние требует лечения. Всякое дальнейшее участие возможно лишь после восстановления и по его собственному решению."
+        }
+      },
+      {
+        "id": "draft.event.000012.broker_docs",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 46,
+          "start": 0,
+          "end": 209,
+          "quote": "Затем сообщил, что принц остаётся под охраной. Посольство представило документы о приобретении пленника у посредников, однако подлинность документов и сведения о предыдущих владельцах ещё предстояло проверить."
+        }
+      },
+      {
+        "id": "draft.event.000012.human_not_property",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 49,
+          "start": 0,
+          "end": 88,
+          "quote": "— Используйте это слово только при изложении их утверждений. Антон никогда не был вещью."
+        }
+      },
+      {
+        "id": "draft.event.000012.victims",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 53,
+          "start": 0,
+          "end": 221,
+          "quote": "Их ещё уточняли. Не все сведения о составе иностранного сопровождения совпадали. Императрица велела установить личности погибших, известить тех, кого следовало известить, и отдельно рассмотреть вопрос помощи пострадавшим."
+        }
+      },
+      {
+        "id": "draft.event.000012.night",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 60,
+          "start": 0,
+          "end": 37,
+          "quote": "Вторая ночь оказалась тяжелее первой."
+        }
+      },
+      {
+        "id": "draft.event.000012.dream",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 63,
+          "start": 0,
+          "end": 66,
+          "quote": "Среди обрывков речи ей послышалось знакомое русское слово — «дом»."
+        }
+      },
+      {
+        "id": "draft.event.000012.energy_absent",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 71,
+          "start": 0,
+          "end": 251,
+          "quote": "Тэнмацуйора внимательно прислушалась к собственному состоянию. Обычная магия оставалась столь же послушной, как прежде. Она могла перемещать предметы, создавать защиту, удерживать целые конструкции. Никакого признака новой энергии сейчас не ощущалось."
+        }
+      },
+      {
+        "id": "draft.event.000012.observations",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 75,
+          "start": 0,
+          "end": 178,
+          "quote": "О приближении Антона она указала лишь то, что следовало знать для оценки опасности: человек пересёк границу явления и получил ожоги, но не распался вместе с окружающим веществом."
+        }
+      },
+      {
+        "id": "draft.event.000012.rest",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 84,
+          "start": 0,
+          "end": 138,
+          "quote": "Она разрешила дежурному лекарю разбудить её при любом существенном изменении. Через некоторое время, против собственных ожиданий, заснула."
+        }
+      },
+      {
+        "id": "draft.event.000012.wakes",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 86,
+          "start": 0,
+          "end": 34,
+          "quote": "На третий день Антон открыл глаза."
+        }
+      },
+      {
+        "id": "draft.event.000012.palace",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 101,
+          "start": 0,
+          "end": 56,
+          "quote": "— В моём дворце. Вы ранены. Лекари оказывают вам помощь."
+        }
+      },
+      {
+        "id": "draft.event.000012.attacker_guarded",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 106,
+          "start": 0,
+          "end": 92,
+          "quote": "— Человек, ударивший вас, находится под охраной. Его люди не имеют права приближаться к вам."
+        }
+      },
+      {
+        "id": "draft.event.000012.freedom",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 111,
+          "start": 0,
+          "end": 56,
+          "quote": "— Вы свободны. Это не место заключения. Здесь вас лечат."
+        }
+      },
+      {
+        "id": "draft.event.000012.language",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 113,
+          "start": 0,
+          "end": 142,
+          "quote": "Старший лекарь приблизился к постели. Слова его Антон не понял. Когда незнакомый мужчина показал инструмент и протянул руку, пациент напрягся."
+        }
+      },
+      {
+        "id": "draft.event.000012.water",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 118,
+          "start": 0,
+          "end": 240,
+          "quote": "Осмотр занял немного времени. Лекарь предупредил императрицу, что бодрствование пока может быть непродолжительным. После дополнительных проверок разрешил дать пациенту немного воды под наблюдением, если тот способен глотать без затруднений."
+        }
+      },
+      {
+        "id": "draft.event.000012.asks_health",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 131,
+          "start": 0,
+          "end": 17,
+          "quote": "— Рука нормально?"
+        }
+      },
+      {
+        "id": "draft.event.000012.healed",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 135,
+          "start": 0,
+          "end": 39,
+          "quote": "— Обе руки восстановились. И нога тоже."
+        }
+      },
+      {
+        "id": "draft.event.000012.title",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 150,
+          "start": 0,
+          "end": 32,
+          "quote": "— Да. Я правлю девятью небесами."
+        }
+      },
+      {
+        "id": "draft.event.000012.humor",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 159,
+          "start": 0,
+          "end": 50,
+          "quote": "— Ну, тогда понятно, почему вы так разговариваете."
+        }
+      },
+      {
+        "id": "draft.event.000012.guard_identity",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 177,
+          "start": 0,
+          "end": 69,
+          "quote": "— Одной из моих личных горничных-телохранительниц. Её зовут Линь Сюэ."
+        }
+      },
+      {
+        "id": "draft.event.000012.guard_error",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 181,
+          "start": 0,
+          "end": 103,
+          "quote": "— Ошибочно сочла вас угрозой. Не дождалась моего распоряжения. У неё не было основания нападать на вас."
+        }
+      },
+      {
+        "id": "draft.event.000012.failed_to_stop",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 183,
+          "start": 0,
+          "end": 80,
+          "quote": "— Нет. Я не успела остановить удар. Потом пыталась установить, где вы оказались."
+        }
+      },
+      {
+        "id": "draft.event.000012.duration",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 186,
+          "start": 0,
+          "end": 126,
+          "quote": "— Почти год после моего выздоровления. До этого — ещё месяц лечения во дворце. Сколько времени прошло для вас, мне неизвестно."
+        }
+      },
+      {
+        "id": "draft.event.000012.search_disclosed",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 188,
+          "start": 0,
+          "end": 22,
+          "quote": "— Я искала вас, Антон."
+        }
+      },
+      {
+        "id": "draft.event.000012.not_forgotten",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 197,
+          "start": 0,
+          "end": 18,
+          "quote": "— Я не забыла вас."
+        }
+      },
+      {
+        "id": "draft.event.000012.stay_request",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 205,
+          "start": 0,
+          "end": 32,
+          "quote": "— Нет. Посидите, если не заняты."
+        }
+      },
+      {
+        "id": "draft.event.000012.food",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 208,
+          "start": 0,
+          "end": 196,
+          "quote": "На четвёртый день лекари разрешили небольшие порции подходящей пищи. Врач объяснил, что после длительного недостаточного питания Антону требуется осторожное восстановление, а не обильное угощение."
+        }
+      },
+      {
+        "id": "draft.event.000012.spoon",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 221,
+          "start": 0,
+          "end": 12,
+          "quote": "— Чуть ниже."
+        }
+      },
+      {
+        "id": "draft.event.000012.echo",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 231,
+          "start": 0,
+          "end": 33,
+          "quote": "— Не торопитесь. Сначала поешьте."
+        }
+      },
+      {
+        "id": "draft.event.000012.stop_food",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 244,
+          "start": 0,
+          "end": 48,
+          "quote": "— Хорошо. Остальное позже, если лекарь разрешит."
+        }
+      },
+      {
+        "id": "draft.event.000012.hope",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 251,
+          "start": 0,
+          "end": 13,
+          "quote": "— Привыкнете."
+        }
+      },
+      {
+        "id": "draft.event.000012.mirror",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 258,
+          "start": 0,
+          "end": 46,
+          "quote": "В тот же вечер Антон впервые попросил зеркало."
+        }
+      },
+      {
+        "id": "draft.event.000012.hair_consent",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 270,
+          "start": 0,
+          "end": 45,
+          "quote": "— Сначала волосы. Если устанете, остановимся."
+        }
+      },
+      {
+        "id": "draft.event.000012.hair_pain",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 276,
+          "start": 0,
+          "end": 19,
+          "quote": "— Немного потянули."
+        }
+      },
+      {
+        "id": "draft.event.000012.willing_care",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 285,
+          "start": 0,
+          "end": 9,
+          "quote": "— Я хочу."
+        }
+      },
+      {
+        "id": "draft.event.000012.appearance_choice",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 290,
+          "start": 0,
+          "end": 59,
+          "quote": "— Когда восстановитесь, сможете выбрать, что делать дальше."
+        }
+      },
+      {
+        "id": "draft.event.000012.dignity",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 293,
+          "start": 0,
+          "end": 33,
+          "quote": "— Вы им оставались всё это время."
+        }
+      },
+      {
+        "id": "draft.event.000012.wash_help",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 303,
+          "start": 0,
+          "end": 49,
+          "quote": "— Ладно, — наконец сказал он. — Помогите немного."
+        }
+      },
+      {
+        "id": "draft.event.000012.wash_permission",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 305,
+          "start": 0,
+          "end": 25,
+          "quote": "— Можно к щеке приложить?"
+        }
+      },
+      {
+        "id": "draft.event.000012.safe_temple",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 312,
+          "start": 0,
+          "end": 37,
+          "quote": "Пальцы ненадолго коснулись его виска."
+        }
+      },
+      {
+        "id": "draft.event.000012.medical_assist",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 317,
+          "start": 0,
+          "end": 199,
+          "quote": "Позднее лекарь попросил осмотреть повязки на руке. Тэнмацуйора отошла, а затем, когда ей показали, как безопасно поддерживать неповреждённую часть конечности, помогла удержать её в удобном положении."
+        }
+      },
+      {
+        "id": "draft.event.000012.stop_right",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 324,
+          "start": 0,
+          "end": 81,
+          "quote": "— Вы вправе просить, чтобы мы остановились. Я не намерена лишать вас этого права."
+        }
+      },
+      {
+        "id": "draft.event.000012.unexplained_residue",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 333,
+          "start": 0,
+          "end": 216,
+          "quote": "На повреждённых предметах обнаруживались следы, не похожие на действие известной придворным магии. Некоторые изменения имели резкую границу, другие ослабевали постепенно по мере удаления от места возникновения вихря."
+        }
+      },
+      {
+        "id": "draft.event.000012.privacy",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 339,
+          "start": 0,
+          "end": 191,
+          "quote": "— Его медицинские сведения используются для лечения, — ответила она. — Если потребуется иной доступ, объясните цель и получите его разрешение, когда он будет способен принимать такое решение."
+        }
+      },
+      {
+        "id": "draft.event.000012.other_captives",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 342,
+          "start": 0,
+          "end": 212,
+          "quote": "Тэнмацуйора поручила искать и остальных пленников, упомянутых в документах. Она не знала, сколько человек могли находиться в таком же положении, как Антон, и не собиралась ограничивать расследование одним именем."
+        }
+      },
+      {
+        "id": "draft.event.000012.lin_restriction",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 344,
+          "start": 0,
+          "end": 87,
+          "quote": "— Пусть продолжает работу с исследователями. К Антону её не допускать без его согласия."
+        }
+      },
+      {
+        "id": "draft.event.000012.translation",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 347,
+          "start": 0,
+          "end": 225,
+          "quote": "— Необходимо обеспечить перевод для Антона. Его речь понятна мне, но далеко не всем служителям. Подберите людей, которые смогут изучить особенности его языка и организовать общение. Не требуйте от него занятий, пока он болен."
+        }
+      },
+      {
+        "id": "draft.event.000012.home_question",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 356,
+          "start": 0,
+          "end": 35,
+          "quote": "— А вы можете меня домой отправить?"
+        }
+      },
+      {
+        "id": "draft.event.000012.route",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 360,
+          "start": 0,
+          "end": 29,
+          "quote": "— Путь на Землю нам известен."
+        }
+      },
+      {
+        "id": "draft.event.000012.earth_missing",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 366,
+          "start": 0,
+          "end": 149,
+          "quote": "— Ваше исчезновение заметили. Я не могу сообщить вам, в каком состоянии сейчас находятся все ваши вещи. Мы не входили в дом без законного разрешения."
+        }
+      },
+      {
+        "id": "draft.event.000012.return_promise",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 372,
+          "start": 0,
+          "end": 114,
+          "quote": "— Я помогу вам вернуться, когда лекари подтвердят, что перемещение не угрожает вашему здоровью. Если вы пожелаете."
+        }
+      },
+      {
+        "id": "draft.event.000012.free_choice",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 377,
+          "start": 0,
+          "end": 40,
+          "quote": "— Вы не обязаны оставаться здесь, Антон."
+        }
+      },
+      {
+        "id": "draft.event.000012.undecided",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 381,
+          "start": 0,
+          "end": 21,
+          "quote": "— А потом… посмотрим."
+        }
+      },
+      {
+        "id": "draft.event.000012.captivity_account",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 388,
+          "start": 0,
+          "end": 157,
+          "quote": "Сначала о ручье и незнакомом небе. О двух светлых дисках, которые он увидел, придя в сознание. Потом о поселении, где ему дали воды и позволили переночевать."
+        }
+      },
+      {
+        "id": "draft.event.000012.capture_account",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 391,
+          "start": 0,
+          "end": 125,
+          "quote": "Антон рассказал, как в поселение приехали вооружённые люди. Как его забрали, хотя он пытался объяснить, что ничего не сделал."
+        }
+      },
+      {
+        "id": "draft.event.000012.no_vortex",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 395,
+          "start": 0,
+          "end": 35,
+          "quote": "Ничего подобного вихрю не возникло."
+        }
+      },
+      {
+        "id": "draft.event.000012.elder",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 398,
+          "start": 0,
+          "end": 103,
+          "quote": "— Там один мужик был. Пожилой. Мы с ним вместе работали. Потом нас развезли куда-то. Не знаю, живой ли."
+        }
+      },
+      {
+        "id": "draft.event.000012.elder_search",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 402,
+          "start": 0,
+          "end": 117,
+          "quote": "— Если вы захотите, позднее мы запишем всё, что помните о нём. Возможно, удастся найти его по сведениям о перевозках."
+        }
+      },
+      {
+        "id": "draft.event.000012.loneliness",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 407,
+          "start": 0,
+          "end": 52,
+          "quote": "— Я там думал, что больше никого знакомого не увижу."
+        }
+      },
+      {
+        "id": "draft.event.000012.shared_loneliness",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 409,
+          "start": 0,
+          "end": 20,
+          "quote": "— Я думала о том же."
+        }
+      },
+      {
+        "id": "draft.event.000012.hand_offer",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 417,
+          "start": 0,
+          "end": 27,
+          "quote": "— Могу я взять вас за руку?"
+        }
+      },
+      {
+        "id": "draft.event.000012.hand_choice",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 419,
+          "start": 0,
+          "end": 51,
+          "quote": "Он сам медленно протянул пальцы и коснулся её руки."
+        }
+      },
+      {
+        "id": "draft.event.000012.safe_contact",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 421,
+          "start": 0,
+          "end": 36,
+          "quote": "Магического потрясения не произошло."
+        }
+      },
+      {
+        "id": "draft.event.000012.reassurance",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 423,
+          "start": 0,
+          "end": 46,
+          "quote": "— Вот видите, — сказал Антон. — Всё нормально."
+        }
+      },
+      {
+        "id": "draft.event.000012.recovery",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 431,
+          "start": 0,
+          "end": 268,
+          "quote": "Вечером лекарь сообщил, что состояние Антона постепенно улучшается, хотя последствия ранения, ожогов и истощения ещё потребуют длительного восстановления. Самостоятельно вставать он пока не должен. Питание и нагрузку следовало увеличивать только по медицинской оценке."
+        }
+      },
+      {
+        "id": "draft.event.000012.desire",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 443,
+          "start": 0,
+          "end": 42,
+          "quote": "— Потому что хочу находиться рядом с вами."
+        }
+      },
+      {
+        "id": "draft.event.000012.invitation",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 446,
+          "start": 0,
+          "end": 19,
+          "quote": "— Ну… тогда сидите."
+        }
+      },
+      {
+        "id": "draft.event.000012.reading",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 456,
+          "start": 0,
+          "end": 12,
+          "quote": "— Почитайте."
+        }
+      },
+      {
+        "id": "draft.event.000012.ending",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 465,
+          "start": 0,
+          "end": 65,
+          "quote": "Ей впервые было достаточно того, что он сам попросил её остаться."
+        }
+      }
+    ],
+    "speech": [
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "source": {
+          "paragraph": 44,
+          "start": 0,
+          "end": 162,
+          "quote": "— Антона не привлекать к исследованиям. Его состояние требует лечения. Всякое дальнейшее участие возможно лишь после восстановления и по его собственному решению."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 111,
+          "start": 0,
+          "end": 56,
+          "quote": "— Вы свободны. Это не место заключения. Здесь вас лечат."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 131,
+          "start": 0,
+          "end": 17,
+          "quote": "— Рука нормально?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 135,
+          "start": 0,
+          "end": 39,
+          "quote": "— Обе руки восстановились. И нога тоже."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 150,
+          "start": 0,
+          "end": 32,
+          "quote": "— Да. Я правлю девятью небесами."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 156,
+          "start": 0,
+          "end": 14,
+          "quote": "— Императрица."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 159,
+          "start": 0,
+          "end": 50,
+          "quote": "— Ну, тогда понятно, почему вы так разговариваете."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 177,
+          "start": 0,
+          "end": 69,
+          "quote": "— Одной из моих личных горничных-телохранительниц. Её зовут Линь Сюэ."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 181,
+          "start": 0,
+          "end": 103,
+          "quote": "— Ошибочно сочла вас угрозой. Не дождалась моего распоряжения. У неё не было основания нападать на вас."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 186,
+          "start": 0,
+          "end": 126,
+          "quote": "— Почти год после моего выздоровления. До этого — ещё месяц лечения во дворце. Сколько времени прошло для вас, мне неизвестно."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 188,
+          "start": 0,
+          "end": 22,
+          "quote": "— Я искала вас, Антон."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 197,
+          "start": 0,
+          "end": 18,
+          "quote": "— Я не забыла вас."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 205,
+          "start": 0,
+          "end": 32,
+          "quote": "— Нет. Посидите, если не заняты."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 221,
+          "start": 0,
+          "end": 12,
+          "quote": "— Чуть ниже."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 231,
+          "start": 0,
+          "end": 33,
+          "quote": "— Не торопитесь. Сначала поешьте."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 251,
+          "start": 0,
+          "end": 13,
+          "quote": "— Привыкнете."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 270,
+          "start": 0,
+          "end": 45,
+          "quote": "— Сначала волосы. Если устанете, остановимся."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 285,
+          "start": 0,
+          "end": 9,
+          "quote": "— Я хочу."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 293,
+          "start": 0,
+          "end": 33,
+          "quote": "— Вы им оставались всё это время."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 305,
+          "start": 0,
+          "end": 25,
+          "quote": "— Можно к щеке приложить?"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 356,
+          "start": 0,
+          "end": 35,
+          "quote": "— А вы можете меня домой отправить?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 372,
+          "start": 0,
+          "end": 114,
+          "quote": "— Я помогу вам вернуться, когда лекари подтвердят, что перемещение не угрожает вашему здоровью. Если вы пожелаете."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 377,
+          "start": 0,
+          "end": 40,
+          "quote": "— Вы не обязаны оставаться здесь, Антон."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 398,
+          "start": 0,
+          "end": 103,
+          "quote": "— Там один мужик был. Пожилой. Мы с ним вместе работали. Потом нас развезли куда-то. Не знаю, живой ли."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 409,
+          "start": 0,
+          "end": 20,
+          "quote": "— Я думала о том же."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 417,
+          "start": 0,
+          "end": 27,
+          "quote": "— Могу я взять вас за руку?"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 423,
+          "start": 0,
+          "end": 46,
+          "quote": "— Вот видите, — сказал Антон. — Всё нормально."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "source": {
+          "paragraph": 443,
+          "start": 0,
+          "end": 42,
+          "quote": "— Потому что хочу находиться рядом с вами."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 446,
+          "start": 0,
+          "end": 19,
+          "quote": "— Ну… тогда сидите."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "source": {
+          "paragraph": 456,
+          "start": 0,
+          "end": 12,
+          "quote": "— Почитайте."
+        }
+      }
+    ],
+    "commitments": [
+      {
+        "id": "draft.order.anton_care",
+        "from": "char.tenmatsuyora",
+        "to": "char.palace_healer_unnamed",
+        "status": "active",
+        "action": "Осторожное лечение, постепенная нагрузка и питание по оценке лекаря.",
+        "source": {
+          "paragraph": 431,
+          "start": 0,
+          "end": 268,
+          "quote": "Вечером лекарь сообщил, что состояние Антона постепенно улучшается, хотя последствия ранения, ожогов и истощения ещё потребуют длительного восстановления. Самостоятельно вставать он пока не должен. Питание и нагрузку следовало увеличивать только по медицинской оценке."
+        }
+      },
+      {
+        "id": "draft.order.no_experiment",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Не воспроизводить вихрь возле живых существ; Антон не объект исследований.",
+        "source": {
+          "paragraph": 44,
+          "start": 0,
+          "end": 162,
+          "quote": "— Антона не привлекать к исследованиям. Его состояние требует лечения. Всякое дальнейшее участие возможно лишь после восстановления и по его собственному решению."
+        }
+      },
+      {
+        "id": "draft.order.medical_privacy",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Нелечебный доступ к медицинским сведениям только после объяснения цели и согласия.",
+        "source": {
+          "paragraph": 339,
+          "start": 0,
+          "end": 191,
+          "quote": "— Его медицинские сведения используются для лечения, — ответила она. — Если потребуется иной доступ, объясните цель и получите его разрешение, когда он будет способен принимать такое решение."
+        }
+      },
+      {
+        "id": "draft.order.find_other_captives",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Искать других пленников по документам посредников.",
+        "source": {
+          "paragraph": 342,
+          "start": 0,
+          "end": 212,
+          "quote": "Тэнмацуйора поручила искать и остальных пленников, упомянутых в документах. Она не знала, сколько человек могли находиться в таком же положении, как Антон, и не собиралась ограничивать расследование одним именем."
+        }
+      },
+      {
+        "id": "draft.order.translation",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Организовать перевод без нагрузки на больного.",
+        "source": {
+          "paragraph": 347,
+          "start": 0,
+          "end": 225,
+          "quote": "— Необходимо обеспечить перевод для Антона. Его речь понятна мне, но далеко не всем служителям. Подберите людей, которые смогут изучить особенности его языка и организовать общение. Не требуйте от него занятий, пока он болен."
+        }
+      },
+      {
+        "id": "draft.commitment.anton_return",
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "status": "conditional",
+        "action": "Помочь вернуться на Землю при медицинской готовности и его желании.",
+        "source": {
+          "paragraph": 372,
+          "start": 0,
+          "end": 114,
+          "quote": "— Я помогу вам вернуться, когда лекари подтвердят, что перемещение не угрожает вашему здоровью. Если вы пожелаете."
+        }
+      },
+      {
+        "id": "draft.commitment.elder_search",
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "status": "conditional",
+        "action": "Попытаться найти пожилого пленника после добровольного рассказа, без гарантии результата.",
+        "source": {
+          "paragraph": 402,
+          "start": 0,
+          "end": 117,
+          "quote": "— Если вы захотите, позднее мы запишем всё, что помните о нём. Возможно, удастся найти его по сведениям о перевозках."
+        }
+      },
+      {
+        "id": "draft.commitment.lin_xue.apology",
+        "from": "char.maid_guard_unnamed",
+        "to": "char.anton",
+        "status": "conditional",
+        "action": "Не допускать встречи без согласия Антона.",
+        "source": {
+          "paragraph": 344,
+          "start": 0,
+          "end": 87,
+          "quote": "— Пусть продолжает работу с исследователями. К Антону её не допускать без его согласия."
+        }
+      }
+    ],
+    "carried_commitments": [
+      {
+        "id": "draft.order.prince_inquiry",
+        "origin_chapter": 11,
+        "status": "active"
+      },
+      {
+        "id": "draft.order.vortex_inquiry",
+        "origin_chapter": 11,
+        "status": "active"
+      },
+      {
+        "id": "draft.order.guard_suspension",
+        "origin_chapter": 8,
+        "status": "active"
+      },
+      {
+        "id": "draft.order.anton_freedom",
+        "origin_chapter": 11,
+        "status": "active"
+      },
+      {
+        "id": "draft.commitment.anton_autonomy",
+        "origin_chapter": 11,
+        "status": "active"
+      },
+      {
+        "id": "draft.commitment.tenmatsuyora.find_anton",
+        "origin_chapter": 8,
+        "status": "fulfilled"
+      }
+    ],
+    "characters": [
+      {
+        "id": "char.tenmatsuyora",
+        "state": {
+          "location": "place.nine_heavens.private_recovery_room",
+          "health": "Здорова; обычная магия безгранична; новый вихрь не повторился.",
+          "emotion": "Любит Антона, заботится лично, признаёт желание быть рядом, не требует взаимности."
+        },
+        "goals": [
+          "Восстановление Антона",
+          "Помочь ему свободно решить вопрос возвращения",
+          "Расследовать пленение и выброс",
+          "Найти других пленников"
+        ],
+        "knows": [
+          "Антон очнулся на третий день, ест с четвёртого, к концу недели ещё не может самостоятельно вставать",
+          "Антон знает её титул и поиски, спрашивает о возвращении",
+          "Антон рассказал о ручье, двух светлых дисках, приюте, вооружённом захвате и пожилом товарище",
+          "Принц под охраной; документы посредников не проверены",
+          "Прикосновения к виску и руке безопасны; гнев при рассказе не вызвал нового вихря"
+        ],
+        "unknown": [
+          "Причины новой энергии и безопасного касания",
+          "Полный маршрут пленения, имена посредников и товарища",
+          "Чувства Антона и его окончательный выбор",
+          "Текущая сохранность дома на Земле"
+        ],
+        "voice": "Властные точные распоряжения при дворе, бережная речь наедине, редкая улыбка."
+      },
+      {
+        "id": "char.anton",
+        "state": {
+          "location": "place.nine_heavens.private_recovery_room",
+          "health": "В сознании, рана в спине, ожоги и истощение постепенно восстанавливаются; самостоятельно вставать пока нельзя.",
+          "emotion": "Радость встречи, тревога за дом, память о плене; добровольно просит её оставаться."
+        },
+        "goals": [
+          "Восстановиться",
+          "Вернуться домой при возможности",
+          "Узнать судьбу пожилого пленника"
+        ],
+        "knows": [
+          "Тэнмацуйора — императрица девяти небес, здорова",
+          "Линь Сюэ ударила его ошибочно, не дождавшись приказа",
+          "Императрица искала почти год после выздоровления, не забыла его",
+          "Он свободен, принц под охраной, путь на Землю известен",
+          "Она обещала помочь вернуться, когда безопасно; хочет быть рядом"
+        ],
+        "unknown": [
+          "Её признанная самой себе любовь",
+          "Причины переноса и вихря",
+          "Длительность плена по земному календарю",
+          "Судьба товарища и состояние дома",
+          "Полное расследование"
+        ],
+        "voice": "Простой русский, тихий юмор; устает, может попросить остановиться."
+      },
+      {
+        "id": "char.seiran",
+        "state": {
+          "location": "place.nine_heavens.palace"
+        },
+        "knows": [
+          "Принц под охраной, документы посредников требуют проверки",
+          "Запрет исследований на живых, согласие для доступа к медицинским сведениям",
+          "Поручения о переводе и других пленниках, Линь Сюэ не допускать без согласия"
+        ],
+        "unknown": [
+          "Личные признания и частные прикосновения"
+        ],
+        "goals": [
+          "Проверить документы, расследовать, организовать перевод"
+        ]
+      },
+      {
+        "id": "char.prince_unnamed",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "status": "Под охраной"
+        },
+        "knows": [
+          "Его удар расследуется"
+        ],
+        "unknown": [
+          "Итог разбирательства"
+        ],
+        "goals": [
+          "Защитить свою позицию"
+        ]
+      },
+      {
+        "id": "char.maid_guard_unnamed",
+        "name": "Линь Сюэ",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "status": "Отстранена от личной охраны"
+        },
+        "knows": [
+          "Антон найден",
+          "Может представить показания, встреча только с его согласия"
+        ],
+        "unknown": [
+          "Личный рассказ Антона и чувства императрицы"
+        ],
+        "goals": [
+          "Дать показания, дождаться возможности извиниться"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "bond": "Любимый человек, свободный гость; личная забота",
+        "affection": "Любовь, не объявлена ему прямо",
+        "trust": "Добровольные прикосновения и честный разговор",
+        "reason": "Уход, обещание возвращения, желание быть рядом."
+      },
+      {
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "bond": "Знакомая спасённая женщина, теперь императрица и заботящийся человек",
+        "affection": "Тепло и доверие растут, романтическая взаимность не установлена",
+        "trust": "Принимает помощь, сам протягивает руку, просит остаться",
+        "reason": "Она объяснила свою роль и поиски, уважает свободу."
+      }
+    ],
+    "items": [
+      {
+        "id": "item.anton_mirror",
+        "location": "place.nine_heavens.private_recovery_room",
+        "note": "Полированная пластина для ухода."
+      },
+      {
+        "id": "item.anton_comb",
+        "location": "place.nine_heavens.private_recovery_room",
+        "note": "Редкие зубья, используется императрицей."
+      },
+      {
+        "id": "item.broken_hair_clasp",
+        "location": "place.nine_heavens.palace",
+        "note": "Не изменена."
+      },
+      {
+        "id": "item.broker_documents",
+        "location": "place.nine_heavens.palace",
+        "note": "Представлены посольством; подлинность не установлена."
+      }
+    ],
+    "unresolved": [
+      "Антон ещё не восстановился полностью и не решил, где останется.",
+      "Тайна энергии, касания и понимания речи.",
+      "Причастность принца и посредников к пленению, первоначальное нападение и переносы.",
+      "Судьба других пленников и пожилого товарища.",
+      "Линь Сюэ не встречалась с Антоном, прощение не получено.",
+      "Окончательные последствия вихря и помощь пострадавшим.",
+      "Текущая судьба дома на Земле."
+    ],
+    "editorial_decisions": [
+      "Первое пробуждение на третий день; пища с четвёртого по разрешению лекаря, к концу первой недели не встаёт самостоятельно.",
+      "Исправлены упоминания вчерашнего бала, русского языка императрицы и длительности плена.",
+      "Добавлены документы посредников как непроверенная версия, поиск других пленников, перевод и добровольный уход.",
+      "Любовь не объявлена взаимной; следующий заголовок предложен, не утверждён."
+    ]
+  }
+}
