@@ -1,20 +1,20 @@
 {
   "documents": {
     "characters/char.tenmatsuyora.json": "da7c01eafdeb3bc3acce01d4616e3604e1ffb7ebe4e6ee0026a26d1229a5b473",
-    "handover/latest.json": "e6ed4eac5a3f320bd9f5bd4e97547f6b32f0b911558c62bdc6e395763512526e",
+    "handover/latest.json": "a2db0a0be0ba25395f7adc9d7f37752942e68294c4eb5d7778a5c4117bd6dab7",
     "index.json": "ac42177f67b64efd3eb83360dcf7056aa1f17060f5f65cb161b4b496851307ed"
   },
   "inputs": {
-    "AGENTS.md": "cdb55c40f178b14c6f9fd5ca8e3e7e6338cb8d83b044549e12e8182afe604b39",
-    "START_HERE.md": "cd21d51fe36b34701605b054d6b9d2316552e9320de24489e978800da1d43bea",
-    "canon/foundation.json": "d33f40d0bd2c55ae2b262f31dfce874f12703cfba90aa69c7322e54b43e408d7",
+    "AGENTS.md": "d1018000faf69d2a1aa74eb68b3530dc25dccae9167c7a0c8ba0031258c09619",
+    "START_HERE.md": "c637391adb1a6b5cc09861e00186e934e63a772a46800480385b7178c4584809",
+    "canon/foundation.json": "7262dbd4e6c69bcde9d8027d45400d61309c15cfdb376756fdc708bf7d72a1f7",
     "catalog.json": "e7252e4ad4807212c0520ea2652d1ccd1cdbefef003b903d925e7643713168f2",
-    "plan/PLOT.md": "6f8695a96b3adecfe8efa9c7f9fc90d5c63b3c2e8e11fdce99f0e4f8e300a7b8",
-    "plan/UNKNOWN.md": "0325c4bd44852cc5a08fbec24e5d2fbdba62bd7b07a1c81cbfae4f7cb2780a91",
-    "state/checkpoint.json": "e9545b285adbdc0c14114adabe140af41adcb4e6162919a3c754bf3f03b87f11",
+    "plan/PLOT.md": "409e39abfdda80060f204702a991ef17e8df4c7a63505f075f405b5025b6e25f",
+    "plan/UNKNOWN.md": "ef8b4a094a7eed84a14dfdec4d12f2664752d096b3aeefd19f5ac85efac3348f",
+    "state/checkpoint.json": "f8a47728e1f74dd0bfaa265f66179da7b3fa56852221d8a131a6707a3a1139f1",
     "style/EXAMPLES.json": "1577b2c9703f63c141c6b2aeb68354d14338372c7f8b995a1050f4f6f82e4f75",
-    "style/STYLE.md": "b89f11acad5908f611504450367d263da408d859ede0d209edda0dd4b1cf170d",
-    "style/VOICES.md": "783cc708fd9e446634131708b2cf0603a66de1c74dfaa19379e8d68838500c22"
+    "style/STYLE.md": "3eb64a29f1e371cb684ea1e22a61993cc091768500cab4d8723d37794015ea3c",
+    "style/VOICES.md": "ca8e5b90a5ded3638fceb86f2322d4ebfd665ce76d9d1d3ad5a99f5ff8697fc0"
   },
   "last_chapter": null,
   "schema": 1

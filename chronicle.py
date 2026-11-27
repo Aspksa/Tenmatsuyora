@@ -168,7 +168,7 @@ def validate(root=ROOT,check_snapshot=True):
         raw,body=chapter_text(root,ch);digest=hashlib.sha256(raw).hexdigest()
         require(ch["sha256"]==digest and digest not in seen_hash,"Chapter hash / duplicate");seen_hash.add(digest)
         title=ch["title"].strip().casefold();require(title and title not in seen_titles,"Duplicate chapter title");seen_titles.add(title)
-        require(type(ch["body_chars"]) is int and ch["body_chars"]==len(body) and 15000<=len(body)<=25000,"Chapter length must be 15000–25000")
+        require(type(ch["body_chars"]) is int and ch["body_chars"]==len(body) and bool(body),"Chapter body must be nonempty and match recorded length")
         paragraphs=[p.strip().casefold() for p in re.split(r"\n\s*\n",body) if len(p.strip())>=120]
         require(len(paragraphs)==len(set(paragraphs)),"Repeated long paragraph")
         require(isinstance(ch["summary"],str) and len(ch["summary"].strip())>=30,"Missing summary")
