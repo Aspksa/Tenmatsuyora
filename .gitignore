@@ -4,3 +4,5 @@ static/app.js
 __pycache__/
 *.pyc
 .env
+
+static/geometry.js

@@ -4,6 +4,7 @@ import sqlite3
 import threading
 import urllib.request
 import webbrowser
+import re
 from contextlib import closing
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -30,7 +31,12 @@ def state():
     with closing(connect()) as conn:
         rows = conn.execute("SELECT id,role,content FROM messages ORDER BY id DESC LIMIT 200").fetchall()
         count = conn.execute("SELECT count(*) FROM messages").fetchone()[0]
-    return {"messages": [dict(row) for row in reversed(rows)], "count": count, "configured": bool(KEY and MODEL), "model": MODEL if KEY and MODEL else ""}
+        groups = [dict(row) for row in conn.execute("SELECT (id-1)/30 AS page, count(*) AS count FROM messages GROUP BY (id-1)/30 ORDER BY page")]
+    return {"messages": [dict(row) for row in reversed(rows)], "count": count, "groups": groups, "configured": bool(KEY and MODEL), "model": MODEL if KEY and MODEL else ""}
+
+def cluster(page):
+    with closing(connect()) as conn:
+        return [dict(row) for row in conn.execute("SELECT id,role,content FROM messages WHERE id BETWEEN ? AND ? ORDER BY id", (page*30+1, page*30+30))]
 
 def generate():
     context = [{"role": m["role"], "content": m["content"]} for m in state()["messages"][-20:]]
@@ -55,7 +61,7 @@ def process(content):
         except (OSError, ValueError, KeyError, IndexError, TypeError):
             return "Сообщение сохранено. Cloud.ru не вернул ответ; проверьте настройки. Автоповтора нет."
 
-ASSETS = {"/": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/star.svg": ("star.svg", "image/svg+xml")}
+ASSETS = {"/": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/geometry.js": ("geometry.js", "text/javascript; charset=utf-8"), "/star.svg": ("star.svg", "image/svg+xml")}
 
 class Handler(BaseHTTPRequestHandler):
     def allowed(self):
@@ -79,6 +85,9 @@ class Handler(BaseHTTPRequestHandler):
             return self.json(403, {"error":"Invalid host"})
         if self.path == "/api/state":
             return self.json(200, state())
+        match = re.fullmatch(r"/api/cluster/([0-9]{1,12})", self.path)
+        if match:
+            return self.json(200, {"messages": cluster(int(match.group(1)))})
         if self.path not in ASSETS:
             return self.json(404, {"error":"Not found"})
         name, mime = ASSETS[self.path]
@@ -105,7 +114,7 @@ class Handler(BaseHTTPRequestHandler):
             self.json(400, {"error":"Некорректное сообщение"})
 
 def main():
-    if not (ROOT / "static" / "app.js").is_file():
+    if not all((ROOT / "static" / name).is_file() for name in ("app.js", "geometry.js")):
         raise SystemExit("Run npm install and npm run build first")
     with closing(connect()):
         pass

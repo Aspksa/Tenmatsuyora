@@ -24,5 +24,17 @@ class HistoryTests(unittest.TestCase):
             self.assertIn("Автоповтора нет", server.process("Запрос"))
             self.assertEqual(server.state()["count"], 1)
 
+    def test_graph_keeps_archive(self):
+        from contextlib import closing
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server, "DB", Path(tmp)/"test.sqlite"):
+            with closing(server.connect()) as conn, conn:
+                conn.executemany("INSERT INTO messages(role,content) VALUES ('user',?)", [(str(i),) for i in range(10000)])
+            s=server.state()
+            self.assertEqual(len(s["messages"]), 200)
+            self.assertEqual(sum(g["count"] for g in s["groups"]), 10000)
+            self.assertEqual(len(s["groups"]), 334)
+            self.assertEqual(len(server.cluster(0)), 30)
+            self.assertEqual(len(server.cluster(333)), 10)
+
 if __name__ == "__main__":
     unittest.main()
