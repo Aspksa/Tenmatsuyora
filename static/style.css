@@ -60,3 +60,17 @@ main{width:100%;min-width:0;grid-template-columns:minmax(0,65fr) minmax(0,35fr);
 @media(max-width:900px){.conversation{padding-right:20px;padding-left:14px}.content{font-size:16px}header{gap:15px}}
 @media(max-width:720px){header{padding:10px 14px;min-height:40px;gap:10px}.brand{font-size:15px}.brand-star{font-size:22px}main{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,38fr) minmax(0,62fr)}.conversation{padding:6px 17px 10px}.map-controls{left:10px;top:5px;opacity:1}#messages{padding-top:8px}.message{margin-bottom:18px}#composer{padding-bottom:2px}#graph-count{right:12px;top:6px}#node-info{left:14px;bottom:2px;max-width:90%}}
 @media(prefers-reduced-motion:reduce){.thinking-dots i{animation:none}.service-hub,.cloud-star{transition:none}}
+
+/* Video mode: small white core, dense irregular coloured networks and active-node focus. */
+#sky .core-atmosphere{opacity:.52}#sky .core .orbit{opacity:.18}#sky .core .sparkle{opacity:.9}#sky .core .graph-label{opacity:.65}
+#sky .constellation-link{stroke-width:.7;filter:none}#sky .local-link{stroke-width:.6}#sky .cluster-control:not(.active-cluster) .hub-glow{opacity:.38}#sky .cluster-control:not(.active-cluster) .orbit{opacity:.10}#sky .cluster-control:not(.active-cluster) .cluster-tag{opacity:.65}
+#sky .cluster-control.active-cluster .orbit{opacity:.48}#sky .cluster-control.active-cluster .spin-ring{opacity:.72}
+#sky .star-glow{opacity:min(1,calc(.82 * var(--glow)))}#sky .star-glow.inner{opacity:min(1,calc(.82 * var(--glow)))}
+#sky .service-link{opacity:.12;stroke-width:.55;filter:none}#sky .service-hub{opacity:.44}#sky .service-hub.service-active{opacity:1}#sky .cloud-star{opacity:.65}#sky .cloud-star.configured{opacity:.88}
+#sky .node-tag .active-tag-bg{fill-opacity:.93;stroke:none}#sky .node-tag .free-label{stroke:none;fill:#160d0a;font-weight:600;letter-spacing:0}#sky .last-born .focus-ring{stroke-width:1.5;filter:drop-shadow(0 0 5px #ffe2a2)}
+#sky .awaiting-birth{visibility:hidden}#sky .mini-dots{stroke-width:4;filter:drop-shadow(0 0 2px #eacb9d)}
+#sky .newborn{animation-duration:calc(.72s * var(--motion-time));animation-timing-function:cubic-bezier(.12,.75,.22,1)}
+#sky .graph-label{stroke-width:2px;letter-spacing:.04em}
+#sky .cluster-control .cluster-tag{fill:#e9d7bc}#sky .cluster-control.active-cluster .cluster-tag{fill:#fff0d4}
+#celestial-background{opacity:.7}body{background:#000}
+@media(prefers-reduced-motion:reduce){#sky .awaiting-birth{visibility:visible}}
