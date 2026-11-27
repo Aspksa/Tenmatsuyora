@@ -16,12 +16,12 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)");
 
 
 const defs=svg.querySelector("defs")!;
-const palette=["#f5d477","#eea565","#f16f94","#d66ac4","#eab9ed"];
+const palette=["#ffd77c","#ffac65","#f9bd70","#e99a5c","#ffe2a6"];
 palette.forEach((c,i)=>{
  const gradient=element("radialGradient",{id:"nebula"+i},defs);
- [[0,".95"],[.07,".66"],[.2,".29"],[.44,".075"],[.76,".015"],[1,"0"]].forEach(([offset,opacity])=>element("stop",{offset:String(offset),"stop-color":c,"stop-opacity":String(opacity)},gradient));
+ [[0,"1"],[.09,".85"],[.22,".43"],[.46,".13"],[.75,".025"],[1,"0"]].forEach(([offset,opacity])=>element("stop",{offset:String(offset),"stop-color":c,"stop-opacity":String(opacity)},gradient));
 });
-for(let i=0;i<1200;i++){
+for(let i=0;i<750;i++){
  const r=.15+rand(i+2400)*.85;
  const star=element("circle",{cx:rand(i)*1000,cy:rand(i+1200)*900,r,fill:i%9===0?"#d3b3ff":"#f1dfbd",opacity:.04+rand(i+3600)*.3},stars);
  if(i%3===0)star.classList.add("far-star");
@@ -29,6 +29,22 @@ for(let i=0;i<1200;i++){
 }
 function line(parent:Element,x1:number,y1:number,x2:number,y2:number,color:string,opacity:number,klass=""){
  return element("line",{x1,y1,x2,y2,stroke:color,opacity,"stroke-width":.8,class:klass},parent);
+}
+function curveD(a:Point,b:Point,bend=.15){
+ const dx=b.x-a.x,dy=b.y-a.y;
+ return "M"+a.x+" "+a.y+" Q"+(a.x+dx*.5-dy*bend)+" "+(a.y+dy*.5+dx*bend)+" "+b.x+" "+b.y;
+}
+function curve(parent:Element,a:Point,b:Point,c:string,opacity:number,klass=""){
+ return element("path",{d:curveD(a,b),fill:"none",stroke:c,opacity,"stroke-width":.8,class:klass},parent) as SVGPathElement;
+}
+function sparkle(parent:Element,x:number,y:number,r:number,c:string){
+ element("path",{d:"M"+x+" "+(y-r)+" Q"+(x+r*.15)+" "+(y-r*.15)+" "+(x+r)+" "+y+" Q"+(x+r*.15)+" "+(y+r*.15)+" "+x+" "+(y+r)+" Q"+(x-r*.15)+" "+(y+r*.15)+" "+(x-r)+" "+y+" Q"+(x-r*.15)+" "+(y-r*.15)+" "+x+" "+(y-r)+"Z",fill:c,class:"sparkle"},parent);
+}
+const background=document.getElementById("celestial-background")!;
+for(let i=0;i<1800;i++){
+ const x=rand(i+9800)*1600,y=rand(i+12800)*900,r=.16+rand(i+15800)*.72;
+ const c=i%13===0?"#c8d6ed":i%3===0?"#f5c27c":"#eee5d3";
+ element("circle",{cx:x,cy:y,r,fill:c,opacity:.07+rand(i+18800)*.29},background);
 }
 function flare(parent:Element,x:number,y:number,r:number,color:string){
  const g=element("g",{class:"flare"},parent);
@@ -44,25 +60,43 @@ function textAt(parent:Element,x:number,y:number,value:string,c:string,size=12){
 
 type Cam={x:number,y:number,k:number};
 type LiveStar={id:number,base:Point,p:Point,node:SVGGElement};
-type LiveEdge={el:SVGLineElement,a:number,b:number};
-type Scene={anchor:Point,page:number,count:number,hub:SVGGElement,detail:SVGGElement,mini:SVGGElement,edge:SVGLineElement,p:Point,scale:number,targetScale:number,signature:string,active:boolean,miniSignature:string,stars:LiveStar[],edges:LiveEdge[],inView:boolean};
+type LiveEdge={el:SVGPathElement,a:number,b:number};
+type Scene={anchor:Point,page:number,count:number,hub:SVGGElement,detail:SVGGElement,mini:SVGGElement,edge:SVGPathElement,p:Point,scale:number,targetScale:number,signature:string,active:boolean,miniSignature:string,stars:LiveStar[],edges:LiveEdge[],inView:boolean};
 const world=element("g",{},svg);
 world.append(links,nodes);
 const core=element("g",{class:"core"},nodes);
-element("circle",{cx:0,cy:0,r:85,fill:"url(#coreHalo)"},core);
-[18,34,52].forEach(r=>ring(core,0,0,r,"#fff2d6"));
+element("circle",{cx:0,cy:0,r:125,fill:"url(#coreHalo)",class:"core-atmosphere"},core);
+element("circle",{r:54,fill:"url(#coreHalo)"},core);
+[21,35,48,62,81].forEach(r=>ring(core,0,0,r,"#fff2d6"));
 ring(core,0,0,30,"#fff0c8","core-echo");
 ring(core,0,0,42,"#fff0c8","core-echo second");
-flare(core,0,0,37,"#fff9e9");
-element("circle",{cx:0,cy:0,r:7.5,fill:"#fffef7"},core);
-textAt(core,0,56,"Ядро","#eee3cf",12);
+flare(core,0,0,62,"#fff9e9");sparkle(core,0,0,36,"#fff9ee");
+element("circle",{cx:0,cy:0,r:12,fill:"#fffef7"},core);
+textAt(core,0,92,"Ядро","#eee3cf",13);
 const scenes=new Map<number,Scene>();
 const contextLayer=element("g",{class:"context-links","pointer-events":"none"},world);
 const workflowLayer=element("g",{class:"workflow-layer","aria-hidden":"true","pointer-events":"none"},svg);
-const cloudStar=element("g",{class:"cloud-star",transform:"translate(870 120)"},svg);
-element("circle",{r:39,fill:"url(#coreHalo)",opacity:.4},cloudStar);
-ring(cloudStar,0,0,17,"#8acaff");element("path",{d:"M-7 0a5 5 0 0 1 5-6 7 7 0 0 1 12 3 4 4 0 0 1-3 7H-5a4 4 0 0 1-2-4Z",fill:"none",stroke:"#b8dfff","stroke-width":1.5},cloudStar);
-textAt(cloudStar,0,31,"Cloud.ru","#a4c7e6",12);
+const cloudPoint={x:805,y:690},memoryPoint={x:155,y:460},storagePoint={x:255,y:745};
+const infrastructure=element("g",{class:"infrastructure","aria-label":"Рабочие подсистемы, не записи памяти"},svg);
+const infrastructurePaths=[memoryPoint,storagePoint,cloudPoint].map(p=>curve(infrastructure,{x:500,y:520},p,"#dcb272",.32,"service-link"));
+function service(p:Point,label:string,description:string,color:string){
+ const g=element("g",{class:"service-hub",transform:"translate("+p.x+" "+p.y+")"},infrastructure);
+ element("circle",{r:65,fill:"url(#nebula0)",opacity:.75},g);
+ element("circle",{r:24,fill:"url(#nebula0)"},g);
+ [17,33,49].forEach(r=>ring(g,0,0,r,color));
+ flare(g,0,0,22,color);element("circle",{r:7,fill:"#fff1c8"},g);
+ textAt(g,0,64,label,color,15);
+ element("circle",{r:27,fill:"transparent"},g);
+ accessible(g,label,()=>{byId("node-info").textContent=description;});
+ return g;
+}
+const memoryHub=service(memoryPoint,"Контекст","Поиск по истории диалога и, при подключении, эмбеддингам.","#f4cf85");
+const storageHub=service(storagePoint,"SQLite","Локальная история и сохранение связей. Число записей указано на карте.","#efba71");
+const cloudStar=element("g",{class:"cloud-star",transform:"translate("+cloudPoint.x+" "+cloudPoint.y+")"},svg);
+element("circle",{r:75,fill:"url(#nebula1)",opacity:.9},cloudStar);
+element("circle",{r:34,fill:"url(#nebula0)"},cloudStar);
+[20,37,53].forEach(r=>ring(cloudStar,0,0,r,"#edbe74"));flare(cloudStar,0,0,28,"#ffd699");element("path",{d:"M-7 0a5 5 0 0 1 5-6 7 7 0 0 1 12 3 4 4 0 0 1-3 7H-5a4 4 0 0 1-2-4Z",fill:"none",stroke:"#fff0ca","stroke-width":1.5},cloudStar);
+textAt(cloudStar,0,70,"Cloud.ru","#ffdb99",16);element("circle",{r:28,fill:"transparent"},cloudStar);
 accessible(cloudStar,"Настройки Cloud.ru",()=>{byId("cloud-toggle").click();});
 const modelStars=element("g",{class:"cloud-model-stars","pointer-events":"none"},cloudStar);
 type WorkEvent={kind:string,ids?:number[],older_ids?:number[],id?:number,role?:string};
@@ -81,19 +115,23 @@ function showEvent(ev:WorkEvent){
  dirty=true;wake();
 }
 function updateWorkflow(){
- const core=project(corePosition),chat={x:1000,y:460},cloud={x:870,y:120};
- const activeScene=scenes.get(active);const store=activeScene?project(activeScene.p):{x:core.x-75,y:core.y+95};
+ const core=project(corePosition),chat={x:1000,y:460},cloud=cloudPoint;
+ infrastructurePaths.forEach((p,i)=>p.setAttribute("d",curveD(core,[memoryPoint,storagePoint,cloudPoint][i])));
+ memoryHub.classList.toggle("service-active",["memory_start","memory_found","embedding_start","embedding_ready","semantic_found"].includes(workflowKind));
+ storageHub.classList.toggle("service-active",["sqlite_start","sqlite_saved","links_saved"].includes(workflowKind));
+ const store=storagePoint;
  const routes:{a:Point,b:Point,c:string}[]=[];
  const add=(a:Point,b:Point,c="#ffd391")=>routes.push({a,b,c});
  if(workflowKind==="chat_received")add(chat,core);
  if(workflowKind==="sqlite_start"||workflowKind==="sqlite_saved"||workflowKind==="links_saved")add(core,store,"#a8e3b2");
- if(workflowKind==="cloud_start")add(core,cloud,"#9ed0ff");
- if(workflowKind==="cloud_stream"){add(cloud,core,"#9ed0ff");add(core,chat,"#ffd391");}
- if(workflowKind==="embedding_start"||workflowKind==="embedding_ready"||workflowKind==="semantic_found")add(core,cloud,"#bca2ef");
- if(workflowKind==="cloud_received"||workflowKind==="response_ready")add(cloud,core,"#9ed0ff");
+ if(workflowKind==="cloud_start")add(core,cloud,"#ffd18a");
+ if(workflowKind==="cloud_stream"){add(cloud,core,"#ffd18a");add(core,chat,"#ffd391");}
+ if(workflowKind==="embedding_start"||workflowKind==="embedding_ready"||workflowKind==="semantic_found")add(core,cloud,"#ffb66c");
+ if(workflowKind==="cloud_received"||workflowKind==="response_ready")add(cloud,core,"#ffd18a");
  if(workflowKind==="response_delivered")add(core,chat);
  if(workflowKind==="memory_start"||workflowKind==="memory_found"){
- const pages=[...new Set([...memoryIds].map(id=>Math.floor((id-1)/30)))].slice(0,6);
+ add(core,memoryPoint,"#edcb79");
+ const pages=[...new Set([...memoryIds].map(id=>Math.floor((id-1)/30)))].slice(0,5);
  for(const page of pages){const scene=scenes.get(page);if(scene)add(core,project(scene.p),"#edcb79");}
  }
  workRoutes.forEach((p,i)=>{const r=routes[i],packet=workPackets[i];if(!r){p.setAttribute("visibility","hidden");packet.setAttribute("visibility","hidden");return;}const d="M"+r.a.x+" "+r.a.y+" Q"+((r.a.x+r.b.x)/2)+" "+((r.a.y+r.b.y)/2-20)+" "+r.b.x+" "+r.b.y;for(const el of [p,packet]){el.setAttribute("d",d);el.setAttribute("stroke",r.c);el.setAttribute("visibility","visible");}});
@@ -188,7 +226,7 @@ function tick(t:number){
  // Labels only appear when their estimated screen boxes do not overlap.
  const used:{x:number,y:number}[]=[];
  for(const s of [...scenes.values()].sort((a,b)=>Number(b.active)-Number(a.active)||Number(b.page===focused)-Number(a.page===focused))){
- const p=project(s.p),show=s.inView&&cam.k>=.48&&!used.some(q=>Math.abs(p.x-q.x)<105&&Math.abs(p.y-q.y)<44);
+ const p=project(s.p),show=s.inView&&cam.k>=.48&&!used.some(q=>Math.abs(p.x-q.x)<125&&Math.abs(p.y-q.y)<55)&&![memoryPoint,storagePoint,cloudPoint].some(q=>Math.hypot(p.x-q.x,p.y-q.y)<100);
  s.hub.classList.toggle("label-hidden",!show);if(show)used.push(p);
  }
  dirty=false;
@@ -201,7 +239,7 @@ function tick(t:number){
  const coreP=project(corePosition);
  if(busy||returning)beamPath.setAttribute("d","M1000 460 Q750 510 "+coreP.x+" "+coreP.y);
  for(const s of scenes.values()){
- if(s.inView){s.edge.setAttribute("x1",String(corePosition.x));s.edge.setAttribute("y1",String(corePosition.y));}
+ if(s.inView)s.edge.setAttribute("d",curveD(corePosition,s.p));
  const expanding=s.page===active||s.page===focused;
  if(s.inView&&(expanding||Math.abs(s.p.x-s.anchor.x)+Math.abs(s.p.y-s.anchor.y)>.05)){
  const shift=drift(s.page+33,time,staticMotion||!expanding?0:9);
@@ -209,7 +247,7 @@ function tick(t:number){
  const translation="translate("+s.p.x+" "+s.p.y+")";
  s.hub.setAttribute("transform",translation+" scale("+Math.max(1,Math.min(3,.45/cam.k))+")");
  s.mini.setAttribute("transform",translation);
- s.edge.setAttribute("x2",String(s.p.x));s.edge.setAttribute("y2",String(s.p.y));
+ s.edge.setAttribute("d",curveD(corePosition,s.p));
  s.detail.setAttribute("transform",translation+" scale("+s.scale+")");
  }
  const diff=s.targetScale-s.scale;
@@ -227,7 +265,7 @@ function tick(t:number){
  }
  for(const e of s.edges){
  const a=e.a<0?{x:0,y:0}:s.stars[e.a].p,b=s.stars[e.b].p;
- e.el.setAttribute("x1",String(a.x));e.el.setAttribute("y1",String(a.y));e.el.setAttribute("x2",String(b.x));e.el.setAttribute("y2",String(b.y));
+ e.el.setAttribute("d",curveD(a,b,.09));
  }
  }
  if((busy||returning)&&!staticMotion){
@@ -254,12 +292,12 @@ async function choose(page:number){
 }
 function createScene(g:Group):Scene{
  const p=center(g.page),j=g.page%palette.length,c=palette[j];
- const edge=line(links,0,0,p.x,p.y,c,.23) as SVGLineElement;
+ const edge=curve(links,{x:0,y:0},p,c,.55,"constellation-link");
  const hub=element("g",{class:"cluster-control",transform:"translate("+p.x+" "+p.y+")"},nodes) as SVGGElement;
- element("circle",{r:66,fill:"url(#nebula"+j+")",opacity:.78},hub);
- ring(hub,0,0,18,c);ring(hub,0,0,30,c,"orbit spin-ring");
- flare(hub,0,0,23,c);element("circle",{r:6,fill:c},hub);element("circle",{r:2,fill:"#fff9df"},hub);
- const tag=textAt(hub,0,-39,"",c,12);tag.classList.add("cluster-tag");
+ element("circle",{r:90,fill:"url(#nebula"+j+")",opacity:.85,class:"hub-glow"},hub);element("circle",{r:29,fill:"url(#nebula"+j+")"},hub);
+ ring(hub,0,0,18,c);ring(hub,0,0,30,c,"orbit spin-ring");ring(hub,0,0,48,c);
+ flare(hub,0,0,32,c);element("circle",{r:8,fill:c},hub);element("circle",{r:2,fill:"#fff9df"},hub);
+ const tag=textAt(hub,0,-55,"",c,15);tag.classList.add("cluster-tag");
  const n=textAt(hub,0,43,"",c,13);n.classList.add("cluster-number");
  element("circle",{r:16,fill:"transparent",class:"hit"},hub);
  accessible(hub,"Открыть созвездие "+(g.page+1),()=>{void choose(g.page);});
@@ -298,8 +336,8 @@ function refreshDetails(){
  const edges=element("g",{},s.detail);
  data.forEach((m,i)=>{
  const {x,y}=ps[i];
- s.edges.push({el:line(edges,0,0,x,y,c,.24) as SVGLineElement,a:-1,b:i});
- ps.slice(0,i).map((p,k)=>({p,k,d:Math.hypot(x-p.x,y-p.y)})).sort((a,b)=>a.d-b.d).slice(0,2).filter(v=>v.d<85).forEach(({p,k})=>s.edges.push({el:line(edges,x,y,p.x,p.y,c,.2) as SVGLineElement,a:i,b:k}));
+ s.edges.push({el:curve(edges,{x:0,y:0},{x,y},c,.42,"local-link"),a:-1,b:i});
+ ps.slice(0,i).map((p,k)=>({p,k,d:Math.hypot(x-p.x,y-p.y)})).sort((a,b)=>a.d-b.d).slice(0,2).filter(v=>v.d<85).forEach(({p,k})=>s.edges.push({el:curve(edges,{x,y},p,c,.28,"local-link"),a:i,b:k}));
  const existing=old.get(m.id);
  const n=existing?.node||element("g",{class:"star-node",transform:"translate("+x+" "+y+")"},s.detail) as SVGGElement;
  n.dataset.x=String(x);n.dataset.y=String(y);
@@ -309,8 +347,8 @@ function refreshDetails(){
  n.dataset.id=String(m.id);
  const visual=element("g",{class:ready?"newborn":""},n);
  if(ready){(visual as SVGElement).style.animationDelay=Math.min(i*45,500)+"ms";}
- const size=(m.role==="user"?2.6:3.7)+rand(m.id)*1.5;
- element("circle",{r:30+rand(m.id+18)*9,fill:"url(#nebula"+j+")",class:"star-glow"},visual);
+ const size=(m.role==="user"?3.1:4.7)+rand(m.id)*2;
+ element("circle",{r:42+rand(m.id+18)*12,fill:"url(#nebula"+j+")",class:"star-glow"},visual);
  element("circle",{r:13,fill:"url(#nebula"+j+")",class:"star-glow inner"},visual);
  element("circle",{r:10,fill:"transparent"},visual);
  if(m.role==="assistant")element("path",{d:"M0 "+(-size-1)+"L"+size+" 0 0 "+(size+1)+" "+(-size)+" 0Z",fill:c,class:"orb"},visual);else element("circle",{r:size,fill:c,class:"orb"},visual);
@@ -318,8 +356,8 @@ function refreshDetails(){
  if(m.role==="assistant")ring(visual,0,0,8,c);
  ring(visual,0,0,15,c,"focus-ring");ring(visual,0,0,24,c,"birth-wave");ring(visual,0,0,34,c,"birth-wave second");
  const label=element("g",{class:"node-tag","pointer-events":"none"},visual);
- element("rect",{x:12,y:-12,width:75,height:21,rx:3,fill:"#120e0c",stroke:c,"stroke-width":.6},label);
- const t=element("text",{x:18,y:2,fill:c,"font-size":10},label);t.textContent="#"+m.id+" · "+(m.role==="user"?"Вы":"ИИ");
+ 
+ const t=element("text",{x:18,y:2,fill:c,"font-size":12,class:"free-label"},label);t.textContent="#"+m.id+" · "+(m.role==="user"?"Вы":"ИИ");
  accessible(n,(m.role==="user"?"Вы: ":"ИИ: ")+m.content.slice(0,100),()=>{selected=m.id;nodes.querySelectorAll(".selected").forEach(el=>el.classList.remove("selected"));n.classList.add("selected");byId("node-info").textContent=m.content.slice(0,180);document.getElementById("msg-"+m.id)?.scrollIntoView({block:"nearest"});auto=false;setCam({x:s.p.x+Number(n.dataset.x)*s.scale,y:s.p.y+Number(n.dataset.y)*s.scale,k:2.1});});
  }
  n.classList.toggle("selected",selected===m.id);
@@ -341,7 +379,7 @@ function draw(data:Message[],summary:Group[]){
  }
  refreshDetails();
  byId("graph-count").textContent=summary.reduce((n,g)=>n+g.count,0)+" записей · "+summary.length+" созвездий";
- if(!ready){setCam(prefs.camera??fit(groups));cam={...target};}
+ if(!ready){setCam(auto?fit(groups):prefs.camera??fit(groups));cam={...target};}
  else if(auto&&active!==previous&&active>=0){
  const f=fit(groups);if(f.k>=.55)setCam(f);else focusCam(active);
  }
@@ -375,7 +413,7 @@ function playEvents(){
 function appendEvents(events:WorkEvent[]){for(const ev of events.slice(eventCursor))eventQueue.push(ev);eventCursor=Math.max(eventCursor,events.length);playEvents();}
 form.addEventListener("submit",async e=>{
  e.preventDefault();const content=input.value.trim();if(!content||busy)return;
- busy=true;send.disabled=true;input.disabled=true;svg.classList.add("busy");wake();byId("notice").textContent="Обработка…";
+ busy=true;send.disabled=true;input.disabled=true;svg.classList.add("busy");document.body.classList.add("working");wake();byId("notice").textContent="";
  clearTimeout(eventTimer);eventQueue=[];eventPlaying=false;eventCursor=0;
  const operation=crypto.randomUUID().replaceAll("-","");let polling=true,pollTimer=0;
  const preview=document.createElement("article");preview.className="message stream-preview";preview.hidden=true;const previewRole=document.createElement("span");previewRole.className="role";previewRole.textContent="Tenmatsuyora";const previewBody=document.createElement("div");previewBody.className="content";preview.append(previewRole,previewBody);byId("messages").append(preview);
@@ -386,7 +424,7 @@ form.addEventListener("submit",async e=>{
  const result=await r.json();if(!r.ok)throw Error(result.error||"Ошибка сервера");
  appendEvents(result.events||[]);input.value="";byId("notice").textContent=result.notice||"";await refresh();
  }catch(err){appendEvents([...Array.from({length:eventCursor},()=>({kind:""})),{kind:"failed"},{kind:"finished"}]);byId("notice").textContent=err instanceof Error?err.message:"Ошибка";}
- finally{polling=false;clearTimeout(pollTimer);preview.remove();busy=false;send.disabled=false;input.disabled=false;svg.classList.remove("busy");wake();input.focus();}
+ finally{polling=false;clearTimeout(pollTimer);preview.remove();busy=false;send.disabled=false;input.disabled=false;svg.classList.remove("busy");document.body.classList.remove("working");wake();input.focus();}
 });
 const cloudPanel=byId<HTMLFormElement>("cloud-panel");
 let cloudCatalog:CatalogItem[]=[],currentCloud:CloudStatus|undefined;
@@ -401,7 +439,7 @@ function renderCatalog(status:CloudStatus,model:string){
  emb.value=status.embedding||"";byId<HTMLInputElement>("cloud-consent").checked=!!status.embedding;byId<HTMLInputElement>("cloud-remember").disabled=!status.secure_storage;
  modelStars.replaceChildren();
  const selected=[model,status.embedding].filter(Boolean);
- selected.forEach((id,i)=>{const x=i?41:-41,y=8;line(modelStars,0,0,x,y,i?"#bca2ef":"#8acaff",.5);element("circle",{cx:x,cy:y,r:12,fill:"url(#coreHalo)",opacity:.4},modelStars);element("circle",{cx:x,cy:y,r:3,fill:i?"#c5adff":"#b9e2ff"},modelStars);const title=element("title",{},modelStars);title.textContent=id;});
+ selected.forEach((id,i)=>{const x=i?41:-41,y=8;line(modelStars,0,0,x,y,i?"#ffb66c":"#edbe74",.5);element("circle",{cx:x,cy:y,r:12,fill:"url(#coreHalo)",opacity:.4},modelStars);element("circle",{cx:x,cy:y,r:3,fill:i?"#ffc680":"#ffe2a5"},modelStars);const title=element("title",{},modelStars);title.textContent=id;});
  renderCatalogList();
 }
 function renderCatalogList(){
