@@ -18,4 +18,5 @@ jobs:
           node-version: '22'
       - run: npm install --no-audit --no-fund
       - run: npm run build
+      - run: node tests/geometry.mjs
       - run: python -m unittest discover -s tests -v
