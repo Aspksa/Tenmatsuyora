@@ -17,6 +17,11 @@ class DOM(HTMLParser):
         super().__init__()
         self.ready = False
         self.engine = False
+        self.visual = False
+        self.layout = ""
+        self.overflow = ""
+        self.models = 0
+        self.depth = 0
         self.minis = 0
         self.stars = 0
         self.chat = False
@@ -30,6 +35,12 @@ class DOM(HTMLParser):
         if d.get("id") == "sky":
             self.ready = d.get("data-ready") == "true"
             self.engine = d.get("data-engine") == "d3-force@3.0.0"
+            self.visual = d.get("data-visual") == "celestial-11"
+        if tag == "body":
+            self.layout = d.get("data-layout", "")
+            self.overflow = d.get("data-overflow", "")
+        self.models += "cloud-model-node" in cls
+        self.depth += "sky-depth" in cls
         self.minis += "mini-cluster" in cls
         self.stars += "star-node" in cls
         self.chat |= d.get("id") == "msg-360"
@@ -50,17 +61,18 @@ def main():
             thread.start()
             try:
                 url=f"http://127.0.0.1:{http.server_port}"
-                for attempt in range(3):
-                    run=subprocess.run([chrome,"--headless=new","--no-sandbox","--disable-dev-shm-usage","--disable-gpu","--no-first-run","--no-default-browser-check","--disable-background-networking",f"--user-data-dir={tmp}/chrome-{attempt}","--virtual-time-budget=9000","--dump-dom",url],capture_output=True,timeout=60,encoding="utf-8",errors="replace")
-                    dom=DOM()
-                    dom.feed(run.stdout)
-                    if run.returncode==0 and dom.ready and dom.engine and dom.minis==12 and dom.stars==90 and dom.chat and dom.cloud and dom.controls and dom.services == 2 and dom.background:
-                        print("Browser: 12 compact constellations, 90 detailed stars, loaded chat and initialized SVG")
-                        break
-                else:
-                    print(run.stdout[-5000:])
-                    print(run.stderr[-2000:])
-                    raise AssertionError(f"Browser did not initialize: {dom.ready}, mini={dom.minis}, stars={dom.stars}, chat={dom.chat}")
+                for size, expected in (("1440,900","side"),("480,900","stack")):
+                    for attempt in range(3):
+                        run=subprocess.run([chrome,"--headless=new","--no-sandbox","--disable-dev-shm-usage","--disable-gpu","--no-first-run","--no-default-browser-check","--disable-background-networking",f"--window-size={size}",f"--user-data-dir={tmp}/chrome-{size}-{attempt}","--virtual-time-budget=9000","--dump-dom",url],capture_output=True,timeout=60,encoding="utf-8",errors="replace")
+                        dom=DOM()
+                        dom.feed(run.stdout)
+                        if run.returncode==0 and dom.ready and dom.engine and dom.minis==12 and dom.stars==90 and dom.chat and dom.cloud and dom.controls and dom.services==2 and dom.background and dom.visual and dom.models==2 and dom.depth==3 and dom.layout==expected and dom.overflow=="false":
+                            print(f"Browser {size}: {expected}, no horizontal overflow, visual engine and archive ready")
+                            break
+                    else:
+                        print(run.stdout[-5000:])
+                        print(run.stderr[-2000:])
+                        raise AssertionError(f"Browser {size}: ready={dom.ready}, layout={dom.layout}, overflow={dom.overflow}, stars={dom.stars}, visual={dom.visual}")
             finally:
                 http.shutdown()
                 thread.join(timeout=5)
