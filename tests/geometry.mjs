@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {center,points,fit,slots,drift,normalizePreferences} from "../static/geometry.js";
+import {center,points,fit,slots,drift,normalizePreferences,evolutionCenter,evolutionScale,neighbours} from "../static/geometry.js";
 const groups=Array.from({length:334},(_,page)=>({page,count:30}));
 const coords=groups.map(g=>center(g.page));
 assert.equal(new Set(coords.map(p=>p.x.toFixed(5)+","+p.y.toFixed(5))).size,334);
@@ -16,3 +16,11 @@ assert.equal(drift(1,123,0).x,0);
 assert.ok(Math.abs(drift(1,123,4).y)<=4);
 assert.equal(normalizePreferences({glow:99,speed:-1}).glow,1.5);
 assert.equal(normalizePreferences({glow:99,speed:-1}).speed,0);
+
+assert.ok(evolutionScale(30,true)>evolutionScale(30,false));
+assert.ok(evolutionScale(30,true)>evolutionScale(1,true));
+for(let active=0;active<12;active++){
+ const v=Array.from({length:12},(_,i)=>evolutionCenter(i,active));
+ for(let i=0;i<v.length;i++)for(let j=i+1;j<v.length;j++)assert.ok(Math.hypot(v[i].x-v[j].x,v[i].y-v[j].y)>220);
+}
+for(let i=1;i<p.length;i++){const n=neighbours(p,i);assert.ok(n.length>=1&&n.length<=3);assert.ok(n.every(k=>k<i));}
