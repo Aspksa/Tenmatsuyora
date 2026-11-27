@@ -50,3 +50,6 @@ galaxy.dispose();assert.deepEqual(massCenter([{position:{x:3,y:7},count:30}]),{x
 assert.deepEqual(alongCurve({x:1,y:2},{x:9,y:8},0),{x:1,y:2});assert.deepEqual(alongCurve({x:1,y:2},{x:9,y:8},1),{x:9,y:8});
 const birth=makePhysics([{x:0,y:25},{x:40,y:25}],[{x:0,y:25},{x:0,y:25}],[{a:0,b:1}]);birth.hold(1);assert.deepEqual(birth.step(10)[1],{x:0,y:25});birth.release(1);assert.ok(birth.step(80)[1].x>20);birth.dispose();
 console.log("Galactic simulation, mass, semantic springs, birth and curved particles");
+
+assert.equal(normalizePreferences({cinematic:true}).cinematic,true);
+assert.equal(normalizePreferences({cinematic:"yes"}).cinematic,false);

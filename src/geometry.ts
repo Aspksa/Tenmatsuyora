@@ -39,7 +39,7 @@ export function normalizePreferences(value:unknown){
  const d=typeof value==="object"&&value!==null?value as Record<string,unknown>:{};
  const num=(v:unknown,lo:number,hi:number,fallback:number)=>typeof v==="number"&&Number.isFinite(v)?Math.max(lo,Math.min(hi,v)):fallback;
  const c=typeof d.camera==="object"&&d.camera!==null?d.camera as Record<string,unknown>:null;
- return {glow:num(d.glow,.25,1.5,1),speed:num(d.speed,0,2,1),quality:d.quality==="low"?"low":"high",camera:c?{x:num(c.x,-100000,100000,0),y:num(c.y,-100000,100000,0),k:num(c.k,.035,3,1)}:null,auto:d.auto!==false};
+ return {glow:num(d.glow,.25,1.5,1),speed:num(d.speed,0,2,1),quality:d.quality==="low"?"low":"high",camera:c?{x:num(c.x,-100000,100000,0),y:num(c.y,-100000,100000,0),k:num(c.k,.035,3,1)}:null,auto:d.auto!==false,cinematic:d.cinematic===true};
 }
 
 /** Stable anchor plus bounded radial expansion of the current group.

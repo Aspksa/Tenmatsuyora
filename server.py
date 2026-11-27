@@ -101,7 +101,7 @@ def save_preferences(value):
         return min(hi, max(lo, v)) if (type(v) is int or (type(v) is float and math.isfinite(v))) else default
     camera = value.get("camera")
     camera = {"x": num(camera.get("x"), -100000, 100000, 0), "y": num(camera.get("y"), -100000, 100000, 0), "k": num(camera.get("k"), .035, 3, 1)} if isinstance(camera, dict) else None
-    clean = {"glow": num(value.get("glow"), .25, 1.5, 1), "speed": num(value.get("speed"), 0, 2, 1), "quality": "low" if value.get("quality") == "low" else "high", "camera": camera, "auto": value.get("auto") is not False}
+    clean = {"glow": num(value.get("glow"), .25, 1.5, 1), "speed": num(value.get("speed"), 0, 2, 1), "quality": "low" if value.get("quality") == "low" else "high", "camera": camera, "auto": value.get("auto") is not False, "cinematic": value.get("cinematic") is True}
     with closing(connect()) as conn, conn:
         conn.execute("INSERT INTO visual_preferences(id,value) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET value=excluded.value", (json.dumps(clean),))
     return clean
