@@ -10,6 +10,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -20,6 +22,13 @@ jobs:
       - run: npm run build
       - run: node tests/geometry.mjs
       - run: python -m unittest discover -s tests -v
+      - run: python scripts/chronicle.py validate
+      - name: Protect published chapters
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python scripts/chronicle.py validate --base "$BASE_SHA"
+        shell: bash
 
       - name: Browser SVG and archive smoke test
         if: runner.os == 'Linux'

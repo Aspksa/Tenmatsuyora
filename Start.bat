@@ -15,6 +15,7 @@ if not errorlevel 1 (
   if not exist "static\app.js" goto fail
   if not exist "static\geometry.js" goto fail
   if not exist "static\physics.js" goto fail
+  if not exist "static\reader.js" goto fail
 )
 %PY% server.py
 if errorlevel 1 goto fail
