@@ -1,0 +1,1434 @@
+{
+  "schema": 1,
+  "base_sha": "0ead80aa620c28fac0d4127d513272f74228e9ea",
+  "chapter": 11,
+  "status": "complete_prose_unpublished",
+  "prerequisite": {
+    "chapter": 10,
+    "branch": "main",
+    "commit": "0ead80aa620c28fac0d4127d513272f74228e9ea",
+    "blob": "12004b135fbf19a76a75c41535a1d5725004711d",
+    "closing": "А того, чтобы среди них оказался один человек."
+  },
+  "opening": "В ту ночь в императорском дворце собрались правители, перед которыми склонялись целые народы.",
+  "closing": "Но Тэнмацуйора больше не сидела в пустой комнате.",
+  "completed_scenes": [
+    "draft.scene.000011.001",
+    "draft.scene.000011.002",
+    "draft.scene.000011.003",
+    "draft.scene.000011.004",
+    "draft.scene.000011.005",
+    "draft.scene.000011.006",
+    "draft.scene.000011.007",
+    "draft.scene.000011.008",
+    "draft.scene.000011.009",
+    "draft.scene.000011.010",
+    "draft.scene.000011.011",
+    "draft.scene.000011.012",
+    "draft.scene.000011.013",
+    "draft.scene.000011.014",
+    "draft.scene.000011.015"
+  ],
+  "body_chars": 30060,
+  "next_scene": "Глава 12 «Теперь моя очередь»: после бала Антон в закрытых покоях рядом с императрицей, без сознания; рана мечом в спине, ожоги от вихря, тяжёлое истощение, длительное лечение. Не кормить до достаточного сознания и разрешения лекаря. Тэнмацуйора лично ухаживает, повторяет опыт Земли (ложка, тёплая вода, волосы), преодолевает гордость постепенно, не требует любви или покорности. Антон знает, что она правительница; её признание любви и год поисков пока не слышал. Вопросы о плене и возвращении домой — после стабилизации. Новая неуправляемая энергия распылила солдат принца на атомы; обычная магия безгранична и под контролем. Антон прошёл вихрь с ожогами, прямое касание по-прежнему не вызывает шока; причина устойчивости и прекращения вихря неизвестна, не объявлять абсолютный иммунитет. Принц под охраной за удар, расследования допуска, работорговли, выброса и разломов отдельны; Линь Сюэ остаётся отстранённой и не встречается без разрешения. Тайна безопасного касания не подтверждена двору. Не ускорять восстановление и взаимность.",
+  "editorial_status": "Полный рабочий текст с авторским поворотом: принц ударил Антона мечом в спину; новая энергия уничтожила солдат; Антон прошёл вихрь, обнял императрицу и потерял сознание. Точные привязки проверены. Официальная публикация требует последовательной редакции и журнала.",
+  "draft_memory": {
+    "scenes": [
+      {
+        "id": "draft.scene.000011.001",
+        "paragraphs": [
+          1,
+          6
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.great_hall",
+        "time": "Вечер бала",
+        "summary": "Вход императрицы, скрытая боль.",
+        "chronological_order": 1
+      },
+      {
+        "id": "draft.scene.000011.002",
+        "paragraphs": [
+          7,
+          19
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.great_hall",
+        "time": "Начало торжества",
+        "summary": "Дары делегаций; новые правила охраны; отрицательный поисковый доклад.",
+        "chronological_order": 2
+      },
+      {
+        "id": "draft.scene.000011.003",
+        "paragraphs": [
+          20,
+          36
+        ],
+        "pov": "char.anton",
+        "place": "place.nine_heavens.hall_anteroom",
+        "time": "Перед представлением",
+        "summary": "Истощён, в цепях, не знает правительницу, предупреждён о запрете смотреть.",
+        "chronological_order": 3
+      },
+      {
+        "id": "draft.scene.000011.004",
+        "paragraphs": [
+          37,
+          69
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.great_hall",
+        "time": "Представление дара",
+        "summary": "Принц предлагает пленника как раба и объект демонстрации; императрица отвергает жестокость.",
+        "chronological_order": 4
+      },
+      {
+        "id": "draft.scene.000011.005",
+        "paragraphs": [
+          70,
+          82
+        ],
+        "pov": "char.anton",
+        "place": "place.nine_heavens.great_hall",
+        "time": "Момент узнавания",
+        "summary": "Узнаёт голос, поднимает голову, видит живую Тэнмацуйору.",
+        "chronological_order": 5
+      },
+      {
+        "id": "draft.scene.000011.006",
+        "paragraphs": [
+          83,
+          108
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.great_hall",
+        "time": "То же мгновение",
+        "summary": "Узнаёт глаза и лицо; принц сам наносит удар мечом в спину за поднятый взгляд.",
+        "chronological_order": 6
+      },
+      {
+        "id": "draft.scene.000011.007",
+        "paragraphs": [
+          109,
+          146
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.great_hall",
+        "time": "Сразу после удара",
+        "summary": "Эмоции вызывают новую неконтролируемую энергию; вихрь распыляет ближайших солдат, люди бегут; обычная магия удерживает здание.",
+        "chronological_order": 7
+      },
+      {
+        "id": "draft.scene.000011.008",
+        "paragraphs": [
+          147,
+          187
+        ],
+        "pov": "char.anton",
+        "place": "place.nine_heavens.great_hall",
+        "time": "Во время вихря",
+        "summary": "Понимает её статус; проходит сквозь вихрь, получает ожоги, цепи разрушаются, обнимает её.",
+        "chronological_order": 8
+      },
+      {
+        "id": "draft.scene.000011.009",
+        "paragraphs": [
+          188,
+          222
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.great_hall",
+        "time": "Сразу после объятия",
+        "summary": "Антон шепчет, что рад видеть её, теряет сознание; прямой контакт безопасен, вихрь стихает, причина неизвестна.",
+        "chronological_order": 9
+      },
+      {
+        "id": "draft.scene.000011.010",
+        "paragraphs": [
+          223,
+          255
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.great_hall",
+        "time": "После выброса",
+        "summary": "Поддерживает жизнь Антона, освобождает его распоряжением, приказывает вызвать лекарей и расследовать удар и последствия собственной энергии.",
+        "chronological_order": 10
+      },
+      {
+        "id": "draft.scene.000011.011",
+        "paragraphs": [
+          256,
+          278
+        ],
+        "pov": "char.seiran",
+        "place": "place.nine_heavens.palace",
+        "time": "После эвакуации",
+        "summary": "Принц задержан под охраной, разбирательство без преждевременного вывода о причастности к исчезновению.",
+        "chronological_order": 11
+      },
+      {
+        "id": "draft.scene.000011.012",
+        "paragraphs": [
+          279,
+          305
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Ночь",
+        "summary": "Лекари стабилизируют Антона, он без сознания, нуждается в длительном лечении.",
+        "chronological_order": 12
+      },
+      {
+        "id": "draft.scene.000011.013",
+        "paragraphs": [
+          306,
+          325
+        ],
+        "pov": "char.maid_guard_unnamed",
+        "place": "place.nine_heavens.palace",
+        "time": "Ночь",
+        "summary": "Линь Сюэ узнаёт о спасении, соблюдает ограничения, готовит сведения, не требует встречи.",
+        "chronological_order": 13
+      },
+      {
+        "id": "draft.scene.000011.014",
+        "paragraphs": [
+          326,
+          368
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Поздняя ночь",
+        "summary": "Наедине держит его ладонь; поисковое дело закрыто как розыск, расследование продолжается; принц под охраной.",
+        "chronological_order": 14
+      },
+      {
+        "id": "draft.scene.000011.015",
+        "paragraphs": [
+          369,
+          390
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.private_recovery_room",
+        "time": "Под утро",
+        "summary": "Остаётся рядом с Антоном, говорит «Теперь моя очередь, Антон»; он ещё не очнулся.",
+        "chronological_order": 15
+      }
+    ],
+    "evidence": [
+      {
+        "id": "draft.event.000011.ball",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 9,
+          "start": 0,
+          "end": 48,
+          "quote": "— Великий бал девяти небес объявляется открытым."
+        }
+      },
+      {
+        "id": "draft.event.000011.guard_rules",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 13,
+          "start": 0,
+          "end": 223,
+          "quote": "На балу действовали новые правила охраны. Телохранительницы знали, что нарушение церемонии не является основанием для нападения. Линь Сюэ среди них не было: ограничение, наложенное после событий на Земле, оставалось в силе."
+        }
+      },
+      {
+        "id": "draft.event.000011.last_search",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 15,
+          "start": 0,
+          "end": 36,
+          "quote": "Подтверждённого следа не обнаружено."
+        }
+      },
+      {
+        "id": "draft.event.000011.captivity",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 22,
+          "start": 0,
+          "end": 234,
+          "quote": "Антон с трудом держался на ногах. После последней перевозки ему дали немного воды и сменили одежду, но никто не позаботился о том, чтобы он мог отдохнуть. Кольца на запястьях соединялись цепью. Ещё одна цепь ограничивала движение ног."
+        }
+      },
+      {
+        "id": "draft.event.000011.prohibition",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 26,
+          "start": 0,
+          "end": 195,
+          "quote": "Позднее один из сопровождающих показал жестами, что в зале нельзя смотреть на правительницу, затем добавил несколько слов, которые Антон уже слышал в плену. Речь шла о наказании за неповиновение."
+        }
+      },
+      {
+        "id": "draft.event.000011.gift_list",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 43,
+          "start": 0,
+          "end": 289,
+          "quote": "Архивист негромко сообщил, что в перечне, переданном служителям посольства, значился человек неизвестного происхождения, заявленный как зависимый служитель. Порядок его появления в зале следовало уточнить. Прежде чем Сэйран успел потребовать пояснений, принц уже подал знак сопровождающим."
+        }
+      },
+      {
+        "id": "draft.event.000011.prisoner_entry",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 44,
+          "start": 0,
+          "end": 33,
+          "quote": "Из боковой двери вывели пленника."
+        }
+      },
+      {
+        "id": "draft.event.000011.prince_claim",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 49,
+          "start": 0,
+          "end": 313,
+          "quote": "— Редкая находка, Ваше Величество. Человек, прибывший из далёкого мира, о котором даже наши исследователи знают крайне мало. Он не обладает сколько-нибудь значимой магической силой, но отличается необычным происхождением и выносливостью. Я счёл, что подобный экземпляр может оказаться интересен великой владычице."
+        }
+      },
+      {
+        "id": "draft.event.000011.magic_request",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 58,
+          "start": 0,
+          "end": 165,
+          "quote": "— Если государыня соблаговолит продемонстрировать то могущество, перед которым не может устоять ни одно живое существо, этот раб вполне пригоден для подобного опыта."
+        }
+      },
+      {
+        "id": "draft.event.000011.reject_cruelty",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 61,
+          "start": 0,
+          "end": 60,
+          "quote": "— Вы перепутали моё присутствие с разрешением на жестокость."
+        }
+      },
+      {
+        "id": "draft.event.000011.asks_name",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 67,
+          "start": 0,
+          "end": 31,
+          "quote": "— Как ваше имя? — спросила она."
+        }
+      },
+      {
+        "id": "draft.event.000011.anton_hears",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 71,
+          "start": 0,
+          "end": 103,
+          "quote": "Слова, произнесённые женщиной, достигли его не так, как речь охранников. Он уловил смысл вопроса сразу."
+        }
+      },
+      {
+        "id": "draft.event.000011.anton_raises_head",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 74,
+          "start": 0,
+          "end": 20,
+          "quote": "Антон поднял голову."
+        }
+      },
+      {
+        "id": "draft.event.000011.anton_recognition",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 81,
+          "start": 0,
+          "end": 14,
+          "quote": "Она была жива."
+        }
+      },
+      {
+        "id": "draft.event.000011.blue_eyes",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 83,
+          "start": 0,
+          "end": 34,
+          "quote": "Тэнмацуйора увидела голубые глаза."
+        }
+      },
+      {
+        "id": "draft.event.000011.face",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 88,
+          "start": 0,
+          "end": 186,
+          "quote": "Знакомые очертания лица, несмотря на истощение и бороду. Небольшое движение бровей. Выражение удивления, с которым он смотрел на неё так, словно хотел спросить, откуда она здесь взялась."
+        }
+      },
+      {
+        "id": "draft.event.000011.prince_sword",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 99,
+          "start": 0,
+          "end": 31,
+          "quote": "Принц выхватил собственный меч."
+        }
+      },
+      {
+        "id": "draft.event.000011.back_wound",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 101,
+          "start": 0,
+          "end": 24,
+          "quote": "И ударил Антона в спину."
+        }
+      },
+      {
+        "id": "draft.event.000011.unlawful_attack",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 102,
+          "start": 0,
+          "end": 106,
+          "quote": "Не по приказу императрицы. Не в ответ на угрозу. Он наказал человека за нарушение навязанного ему правила."
+        }
+      },
+      {
+        "id": "draft.event.000011.emotions",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 117,
+          "start": 0,
+          "end": 314,
+          "quote": "В это мгновение внутри неё сошлось всё, чего прежде никогда не существовало одновременно. Радость, которой она не успела испытать. Боль от его вида. Страх, что ещё один миг отнимет его навсегда. Любовь, которую она хранила в тишине своих покоев. Ярость оттого, что перед ней снова подняли руку на того же человека."
+        }
+      },
+      {
+        "id": "draft.event.000011.new_energy",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 122,
+          "start": 0,
+          "end": 236,
+          "quote": "Тэнмацуйора ощутила присутствие энергии, которой никогда прежде не давала имени. Она не походила на привычные потоки её силы. В ней не было того ясного разделения между намерением и действием, которое императрица знала с самого детства."
+        }
+      },
+      {
+        "id": "draft.event.000011.emotion_driven",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 126,
+          "start": 0,
+          "end": 23,
+          "quote": "Его определяли чувства."
+        }
+      },
+      {
+        "id": "draft.event.000011.vortex",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 127,
+          "start": 0,
+          "end": 269,
+          "quote": "Воздух вокруг императрицы потемнел. По полу прошла волна. Золотые светильники погасли, прозрачные ленты под сводами разорвались. Вокруг девяти чёрных хвостов начали подниматься тонкие алые нити, а между ними проступил почти невидимый вихрь, искажавший очертания колонн."
+        }
+      },
+      {
+        "id": "draft.event.000011.disintegration",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 131,
+          "start": 0,
+          "end": 229,
+          "quote": "Один из солдат принца, оказавшийся слишком близко к границе вихря, исчез прежде, чем успел отступить. За ним исчезли остальные, попавшие в разрушительную волну. Их доспехи рассыпались вместе с ними. Энергия распылила их на атомы."
+        }
+      },
+      {
+        "id": "draft.event.000011.prince_flees",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 141,
+          "start": 0,
+          "end": 28,
+          "quote": "Принц скрылся среди бегущих."
+        }
+      },
+      {
+        "id": "draft.event.000011.evacuation",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 139,
+          "start": 0,
+          "end": 155,
+          "quote": "Сэйран, едва удержавшись на ногах, приказал открыть все двери и вывести гостей. Телохранительницы подчинились, не пытаясь приблизиться к самой императрице."
+        }
+      },
+      {
+        "id": "draft.event.000011.normal_magic",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 142,
+          "start": 0,
+          "end": 217,
+          "quote": "Тэнмацуйора оставалась в центре вихря. Привычная магия продолжала подчиняться её намерениям. Императрица удержала перекрытия, не позволила рухнуть зданию и отвела следующий выброс от двери, через которую уходили люди."
+        }
+      },
+      {
+        "id": "draft.event.000011.no_control",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 143,
+          "start": 0,
+          "end": 83,
+          "quote": "Однако остановить саму новую энергию одним знакомым движением ей пока не удавалось."
+        }
+      },
+      {
+        "id": "draft.event.000011.anton_status",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 153,
+          "start": 0,
+          "end": 119,
+          "quote": "Теперь он понял, почему все склонялись перед ней. Она была той самой правительницей, на которую ему запрещали смотреть."
+        }
+      },
+      {
+        "id": "draft.event.000011.warning",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 165,
+          "start": 0,
+          "end": 19,
+          "quote": "— Не приближайтесь!"
+        }
+      },
+      {
+        "id": "draft.event.000011.enters",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 175,
+          "start": 0,
+          "end": 31,
+          "quote": "Антон переступил границу вихря."
+        }
+      },
+      {
+        "id": "draft.event.000011.burns",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 177,
+          "start": 0,
+          "end": 121,
+          "quote": "Его одежда пострадала. На коже остались ожоги. Металл цепей нагрелся, затем рассыпался под действием разрушительной силы."
+        }
+      },
+      {
+        "id": "draft.event.000011.resistance",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 178,
+          "start": 0,
+          "end": 36,
+          "quote": "Но самого Антона вихрь не уничтожил."
+        }
+      },
+      {
+        "id": "draft.event.000011.embrace",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 186,
+          "start": 0,
+          "end": 8,
+          "quote": "И обнял."
+        }
+      },
+      {
+        "id": "draft.event.000011.safe_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 192,
+          "start": 0,
+          "end": 18,
+          "quote": "Шока не произошло."
+        }
+      },
+      {
+        "id": "draft.event.000011.whisper",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 195,
+          "start": 0,
+          "end": 26,
+          "quote": "— Рад… что снова вас вижу."
+        }
+      },
+      {
+        "id": "draft.event.000011.identity_confirmed",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 198,
+          "start": 0,
+          "end": 107,
+          "quote": "Тэнмацуйора узнала его окончательно. Ей больше не нужны были вопросы о поле, гребне или сломанной застёжке."
+        }
+      },
+      {
+        "id": "draft.event.000011.faints",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 206,
+          "start": 0,
+          "end": 20,
+          "quote": "Его глаза закрылись."
+        }
+      },
+      {
+        "id": "draft.event.000011.stabilization",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 211,
+          "start": 0,
+          "end": 172,
+          "quote": "Она обнаружила дыхание. Жизнь ещё сохранялась. Привычной магией поддержала его тело и остановила кровотечение, не пытаясь воздействовать на него новой, непонятной энергией."
+        }
+      },
+      {
+        "id": "draft.event.000011.vortex_fades",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 212,
+          "start": 0,
+          "end": 23,
+          "quote": "Вихрь начал ослабевать."
+        }
+      },
+      {
+        "id": "draft.event.000011.cause_unknown",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 213,
+          "start": 0,
+          "end": 150,
+          "quote": "Тэнмацуйора не знала, было ли это следствием прикосновения Антона, изменения её чувств или того, что впервые после удара у неё появилась ясная задача."
+        }
+      },
+      {
+        "id": "draft.event.000011.freedom",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 231,
+          "start": 0,
+          "end": 156,
+          "quote": "— Этот человек свободен. Ни принц, ни его люди, ни кто-либо другой не имеют права распоряжаться им как собственностью. Он находится под моей личной защитой."
+        }
+      },
+      {
+        "id": "draft.event.000011.seiran_knows",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 237,
+          "start": 0,
+          "end": 16,
+          "quote": "— Антон с Земли?"
+        }
+      },
+      {
+        "id": "draft.event.000011.prince_order",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 242,
+          "start": 0,
+          "end": 208,
+          "quote": "— Найдите принца. Разоружить его сопровождение, обеспечить охрану и законное разбирательство. Не причинять вреда тем, кто не участвовал в нападении. Записи о даре, его происхождении и допуске в зал сохранить."
+        }
+      },
+      {
+        "id": "draft.event.000011.empress_accountability",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 244,
+          "start": 0,
+          "end": 205,
+          "quote": "— Также установить последствия моего выброса. Оказать помощь всем пострадавшим. Имена погибших внести в отдельный список. Их смерть не должна исчезнуть из отчётов только потому, что причиной была моя сила."
+        }
+      },
+      {
+        "id": "draft.event.000011.medical_transport",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 249,
+          "start": 0,
+          "end": 272,
+          "quote": "Тэнмацуйора подняла Антона чуть выше, поддерживая его магией. Ей хотелось нести его самостоятельно, как он нёс её на Земле, но она не позволила этому желанию превратиться в новую угрозу для его здоровья. Сила удерживала его тело неподвижно, пока она направлялась к выходу."
+        }
+      },
+      {
+        "id": "draft.event.000011.detention",
+        "pov": "char.seiran",
+        "source": {
+          "paragraph": 267,
+          "start": 0,
+          "end": 176,
+          "quote": "— Я понимаю, что вы нанесли человеку удар мечом. Вопрос о происхождении дара и ваших действиях будет рассмотрен отдельно. До распоряжения императрицы вы останетесь под охраной."
+        }
+      },
+      {
+        "id": "draft.event.000011.ball_ends",
+        "pov": "char.seiran",
+        "source": {
+          "paragraph": 272,
+          "start": 0,
+          "end": 185,
+          "quote": "К этому времени уже поступали первые сообщения о пострадавших при эвакуации. Великий бал прекратился. Гостей размещали в безопасных помещениях, повреждённый зал закрыли для посторонних."
+        }
+      },
+      {
+        "id": "draft.event.000011.witness_limits",
+        "pov": "char.seiran",
+        "source": {
+          "paragraph": 273,
+          "start": 0,
+          "end": 236,
+          "quote": "Архивист велел зафиксировать свидетельства отдельно. Некоторые люди видели удар мечом, другие — только разрушительный выброс. Никто из присутствовавших в коридорах не мог достоверно утверждать, что произошло после того, как зал опустел."
+        }
+      },
+      {
+        "id": "draft.event.000011.treatment",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 281,
+          "start": 0,
+          "end": 48,
+          "quote": "Тэнмацуйора осторожно уложила Антона на постель."
+        }
+      },
+      {
+        "id": "draft.event.000011.medical_report",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 295,
+          "start": 0,
+          "end": 246,
+          "quote": "Жизнь Антона удалось сохранить. Однако рана, ожоги и последствия длительного истощения требовали продолжительного лечения. Потеря сознания не была неожиданной в таком состоянии. Лекари продолжали наблюдение; точного срока пробуждения не называли."
+        }
+      },
+      {
+        "id": "draft.event.000011.no_food",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 297,
+          "start": 0,
+          "end": 140,
+          "quote": "— Покой и лечение. Никакой пищи или питья до восстановления достаточного сознания. Мы будем рядом и сообщим о каждом существенном изменении."
+        }
+      },
+      {
+        "id": "draft.event.000011.lin_xue_knows",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 309,
+          "start": 0,
+          "end": 13,
+          "quote": "Антон найден."
+        }
+      },
+      {
+        "id": "draft.event.000011.lin_xue_waits",
+        "pov": "char.maid_guard_unnamed",
+        "source": {
+          "paragraph": 324,
+          "start": 0,
+          "end": 27,
+          "quote": "Её просьба могла подождать."
+        }
+      },
+      {
+        "id": "draft.event.000011.private_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 334,
+          "start": 0,
+          "end": 59,
+          "quote": "Она осторожно положила пальцы на его неповреждённую ладонь."
+        }
+      },
+      {
+        "id": "draft.event.000011.private_words",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 341,
+          "start": 0,
+          "end": 45,
+          "quote": "— Я нашла вас, — тихо произнесла императрица."
+        }
+      },
+      {
+        "id": "draft.event.000011.future_choice",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 348,
+          "start": 0,
+          "end": 53,
+          "quote": "— Никто больше не будет решать за вас, куда вам идти."
+        }
+      },
+      {
+        "id": "draft.event.000011.detention_confirmed",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 352,
+          "start": 0,
+          "end": 152,
+          "quote": "— Принц под охраной, государыня. Великий зал закрыт. Лекари оказывают помощь пострадавшим при эвакуации. Окончательных сведений о последствиях пока нет."
+        }
+      },
+      {
+        "id": "draft.event.000011.separate_cases",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 356,
+          "start": 0,
+          "end": 133,
+          "quote": "— Не подменяйте этот вопрос предположением, что принц был причастен к первоначальному исчезновению. Проверяйте каждое звено отдельно."
+        }
+      },
+      {
+        "id": "draft.event.000011.search_closed",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 358,
+          "start": 0,
+          "end": 171,
+          "quote": "— И прекратите розыск Антона как пропавшего. Личность подтверждена. Расследование его исчезновения, пленения и перевозок продолжить. Подробности лечения не распространять."
+        }
+      },
+      {
+        "id": "draft.event.000011.no_assumed_love",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 383,
+          "start": 0,
+          "end": 54,
+          "quote": "Она не собиралась требовать от него любви за спасение."
+        }
+      },
+      {
+        "id": "draft.event.000011.my_turn",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 387,
+          "start": 0,
+          "end": 28,
+          "quote": "— Теперь моя очередь, Антон."
+        }
+      },
+      {
+        "id": "draft.event.000011.unconscious",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 389,
+          "start": 0,
+          "end": 23,
+          "quote": "Он ещё не открыл глаза."
+        }
+      }
+    ],
+    "speech": [
+      {
+        "speaker": "char.seiran",
+        "to": [],
+        "heard": [],
+        "comprehension": "Открывает бал.",
+        "source": {
+          "paragraph": 9,
+          "start": 0,
+          "end": 48,
+          "quote": "— Великий бал девяти небес объявляется открытым."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.prince_unnamed"
+        ],
+        "heard": [
+          "char.prince_unnamed"
+        ],
+        "comprehension": "Не принимает человека как вещь.",
+        "source": {
+          "paragraph": 51,
+          "start": 0,
+          "end": 75,
+          "quote": "— Вы привели в мой зал живого человека в цепях и называете его экземпляром?"
+        }
+      },
+      {
+        "speaker": "char.prince_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Просит демонстрацию разрушительной силы на пленнике.",
+        "source": {
+          "paragraph": 58,
+          "start": 0,
+          "end": 165,
+          "quote": "— Если государыня соблаговолит продемонстрировать то могущество, перед которым не может устоять ни одно живое существо, этот раб вполне пригоден для подобного опыта."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.prince_unnamed"
+        ],
+        "heard": [
+          "char.prince_unnamed"
+        ],
+        "comprehension": "Запрещает жестокость.",
+        "source": {
+          "paragraph": 61,
+          "start": 0,
+          "end": 60,
+          "quote": "— Вы перепутали моё присутствие с разрешением на жестокость."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Антон понимает вопрос.",
+        "source": {
+          "paragraph": 67,
+          "start": 0,
+          "end": 31,
+          "quote": "— Как ваше имя? — спросила она."
+        }
+      },
+      {
+        "speaker": "char.prince_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Объявляет повод удара; понимание Антоном не подтверждено.",
+        "source": {
+          "paragraph": 100,
+          "start": 0,
+          "end": 43,
+          "quote": "— Раб не смеет смотреть в глаза государыне!"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Предупреждает об опасности; Антон понимает.",
+        "source": {
+          "paragraph": 165,
+          "start": 0,
+          "end": 19,
+          "quote": "— Не приближайтесь!"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Шепчет на ухо по-русски; не признание любви.",
+        "source": {
+          "paragraph": 195,
+          "start": 0,
+          "end": 26,
+          "quote": "— Рад… что снова вас вижу."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Освобождает, не присваивает.",
+        "source": {
+          "paragraph": 231,
+          "start": 0,
+          "end": 156,
+          "quote": "— Этот человек свободен. Ни принц, ни его люди, ни кто-либо другой не имеют права распоряжаться им как собственностью. Он находится под моей личной защитой."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Приказ охраны и разбирательства.",
+        "source": {
+          "paragraph": 242,
+          "start": 0,
+          "end": 208,
+          "quote": "— Найдите принца. Разоружить его сопровождение, обеспечить охрану и законное разбирательство. Не причинять вреда тем, кто не участвовал в нападении. Записи о даре, его происхождении и допуске в зал сохранить."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Учитывать последствия собственной силы.",
+        "source": {
+          "paragraph": 244,
+          "start": 0,
+          "end": 205,
+          "quote": "— Также установить последствия моего выброса. Оказать помощь всем пострадавшим. Имена погибших внести в отдельный список. Их смерть не должна исчезнуть из отчётов только потому, что причиной была моя сила."
+        }
+      },
+      {
+        "speaker": "char.prince_unnamed",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Подтверждает собственный поступок.",
+        "source": {
+          "paragraph": 261,
+          "start": 0,
+          "end": 49,
+          "quote": "— Раб нарушил правила. Я наказал его за дерзость."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.palace_healer_unnamed"
+        ],
+        "heard": [
+          "char.palace_healer_unnamed"
+        ],
+        "comprehension": "Сообщает наблюдаемые травмы.",
+        "source": {
+          "paragraph": 282,
+          "start": 0,
+          "end": 150,
+          "quote": "— Рана в спине. Ожоги. Он потерял сознание после того, как подошёл ко мне. До этого находился в цепях, был истощён. Я поддерживала его обычной магией."
+        }
+      },
+      {
+        "speaker": "char.palace_healer_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Лечебное ограничение.",
+        "source": {
+          "paragraph": 297,
+          "start": 0,
+          "end": 140,
+          "quote": "— Покой и лечение. Никакой пищи или питья до восстановления достаточного сознания. Мы будем рядом и сообщим о каждом существенном изменении."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.search_researcher_unnamed"
+        ],
+        "heard": [
+          "char.search_researcher_unnamed"
+        ],
+        "comprehension": "Соблюдает отстранение.",
+        "source": {
+          "paragraph": 318,
+          "start": 0,
+          "end": 55,
+          "quote": "— Если госпоже понадобятся мои показания, я буду здесь."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [],
+        "heard": [],
+        "comprehension": "Антон без сознания, не считать услышанным.",
+        "source": {
+          "paragraph": 341,
+          "start": 0,
+          "end": 45,
+          "quote": "— Я нашла вас, — тихо произнесла императрица."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [],
+        "heard": [],
+        "comprehension": "Личное обещание без подтверждения восприятия.",
+        "source": {
+          "paragraph": 348,
+          "start": 0,
+          "end": 53,
+          "quote": "— Никто больше не будет решать за вас, куда вам идти."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Закрыть розыск, продолжить расследование.",
+        "source": {
+          "paragraph": 358,
+          "start": 0,
+          "end": 171,
+          "quote": "— И прекратите розыск Антона как пропавшего. Личность подтверждена. Расследование его исчезновения, пленения и перевозок продолжить. Подробности лечения не распространять."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [],
+        "heard": [],
+        "comprehension": "Антон не очнулся, не приписывать ответ.",
+        "source": {
+          "paragraph": 387,
+          "start": 0,
+          "end": 28,
+          "quote": "— Теперь моя очередь, Антон."
+        }
+      }
+    ],
+    "commitments": [
+      {
+        "id": "draft.commitment.tenmatsuyora.find_anton",
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "status": "fulfilled",
+        "action": "Антон найден живым; расследование и лечение продолжаются.",
+        "source": {
+          "paragraph": 358,
+          "start": 0,
+          "end": 171,
+          "quote": "— И прекратите розыск Антона как пропавшего. Личность подтверждена. Расследование его исчезновения, пленения и перевозок продолжить. Подробности лечения не распространять."
+        }
+      },
+      {
+        "id": "draft.order.anton_freedom",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Свободный человек под личной защитой, не собственность.",
+        "source": {
+          "paragraph": 231,
+          "start": 0,
+          "end": 156,
+          "quote": "— Этот человек свободен. Ни принц, ни его люди, ни кто-либо другой не имеют права распоряжаться им как собственностью. Он находится под моей личной защитой."
+        }
+      },
+      {
+        "id": "draft.order.prince_inquiry",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Принц под охраной, установить цепочку пленения и допуск дара.",
+        "source": {
+          "paragraph": 242,
+          "start": 0,
+          "end": 208,
+          "quote": "— Найдите принца. Разоружить его сопровождение, обеспечить охрану и законное разбирательство. Не причинять вреда тем, кто не участвовал в нападении. Записи о даре, его происхождении и допуске в зал сохранить."
+        }
+      },
+      {
+        "id": "draft.order.vortex_inquiry",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "action": "Отдельно установить погибших, пострадавших и последствия выброса.",
+        "source": {
+          "paragraph": 244,
+          "start": 0,
+          "end": 205,
+          "quote": "— Также установить последствия моего выброса. Оказать помощь всем пострадавшим. Имена погибших внести в отдельный список. Их смерть не должна исчезнуть из отчётов только потому, что причиной была моя сила."
+        }
+      },
+      {
+        "id": "draft.commitment.lin_xue.apology",
+        "from": "char.maid_guard_unnamed",
+        "to": "char.anton",
+        "status": "conditional",
+        "action": "Извинение только после восстановления и согласия Антона, не состоялось.",
+        "source": {
+          "paragraph": 324,
+          "start": 0,
+          "end": 27,
+          "quote": "Её просьба могла подождать."
+        }
+      },
+      {
+        "id": "draft.order.anton_care",
+        "from": "char.tenmatsuyora",
+        "to": "char.palace_healer_unnamed",
+        "status": "active",
+        "action": "Лечение раны, ожогов и истощения, пока без пищи/питья до разрешения лекаря.",
+        "source": {
+          "paragraph": 297,
+          "start": 0,
+          "end": 140,
+          "quote": "— Покой и лечение. Никакой пищи или питья до восстановления достаточного сознания. Мы будем рядом и сообщим о каждом существенном изменении."
+        }
+      },
+      {
+        "id": "draft.commitment.anton_autonomy",
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "status": "active",
+        "action": "Свобода выбора; сказано без сознания, восприятие не подтверждено.",
+        "source": {
+          "paragraph": 348,
+          "start": 0,
+          "end": 53,
+          "quote": "— Никто больше не будет решать за вас, куда вам идти."
+        }
+      }
+    ],
+    "carried_commitments": [
+      {
+        "id": "draft.order.guard_suspension",
+        "origin_chapter": 8,
+        "status": "active"
+      },
+      {
+        "id": "draft.order.separate_investigations",
+        "origin_chapter": 8,
+        "status": "active"
+      },
+      {
+        "id": "draft.order.guard_policy_review",
+        "origin_chapter": 9,
+        "status": "fulfilled"
+      },
+      {
+        "id": "draft.order.prince_gift_disclosure",
+        "origin_chapter": 10,
+        "status": "under_investigation"
+      },
+      {
+        "id": "draft.commitment.tenmatsuyora.warn_departure",
+        "origin_chapter": 7,
+        "status": "blocked_until_anton_awake"
+      }
+    ],
+    "characters": [
+      {
+        "id": "char.tenmatsuyora",
+        "state": {
+          "location": "place.nine_heavens.private_recovery_room",
+          "health": "Физические травмы не установлены; обычная магия безгранична, под контролем; впервые проявилась новая неуправляемая эмоциями энергия, вихрь стих.",
+          "emotion": "Радость узнавания, страх утраты, боль, любовь, ярость, затем сосредоточенная забота. Публично вернула властный тон, приватно ждёт пробуждения.",
+          "goals": [
+            "Сохранить жизнь и здоровье Антона",
+            "Обеспечить его свободу и право выбора",
+            "Установить последствия выброса, происхождение пленения и действия принца",
+            "Понять новую энергию без риска для других"
+          ]
+        },
+        "knows": [
+          "Узнала Антона по глазам, лицу и голосу; он жив и освобождён",
+          "Принц ударил его собственным мечом в спину за поднятый взгляд",
+          "Новая энергия исходила из неё, была связана с чувствами, распылила солдат; обычная магия подчинялась",
+          "Антон выдержал вихрь с ожогами, прямое прикосновение не вызвало шока, после объятия он потерял сознание; вихрь стих, причина неизвестна",
+          "Лекари стабилизировали Антона, он не очнулся; принц под охраной, бал прекращён"
+        ],
+        "unknown": [
+          "Причина новой энергии, её пределы и условия контроля; механизм устойчивости Антона к вихрю",
+          "Полная цепочка пленения, связь принца с ранними событиями, причины обоих разломов",
+          "Чувства Антона и его желание остаться; не знает рассказ о плене",
+          "Число погибших и полный ущерб"
+        ],
+        "voice": "До удара сдержанна и властна; во время вихря короткие испуганные предупреждения; после возвращает точные приказы, приватно говорит тихо."
+      },
+      {
+        "id": "char.anton",
+        "state": {
+          "location": "place.nine_heavens.private_recovery_room",
+          "health": "Жив, без сознания, тяжёлое истощение, рана мечом в спине, ожоги после прохождения вихря; стабилизирован лекарями, дальнейшее лечение необходимо.",
+          "emotion": "Радость узнавания, тревога за неё, последнее осознанное действие — объятие и слова о радости встречи.",
+          "goals": [
+            "До потери сознания — приблизиться и убедиться, что она жива; дальнейшие решения не известны"
+          ]
+        },
+        "knows": [
+          "Узнал голос и внешность Тэнмацуйоры; понял, что она правительница",
+          "Принц наказал его мечом, увидел разрушительный вихрь, прошёл его с ожогами, обнял Тэнмацуйору",
+          "Не знает, что произошло после потери сознания"
+        ],
+        "unknown": [
+          "Год поисков, любовь императрицы, её распоряжение освободить его, последующее лечение, точный титул и устройство девяти небес",
+          "Причина устойчивости к вихрю, разломов, судьба прежних пленников",
+          "Положение Земли и возможность возвращения"
+        ],
+        "voice": "Простой русский, истощённая речь: «Рад… что снова вас вижу»."
+      },
+      {
+        "id": "char.prince_unnamed",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Уцелел после эвакуации, травмы не установлены.",
+          "emotion": "Испуг при выбросе; пытается оправдать удар этикетом и дипломатическим статусом.",
+          "goals": [
+            "Объяснить свои действия, избежать последствий; скрытая мотивация неизвестна"
+          ]
+        },
+        "knows": [
+          "Представил пленника, просил испытать на нём магию, ударил за поднятый взгляд",
+          "Вихрь убил его ближайших солдат, бал сорван; находится под охраной"
+        ],
+        "unknown": [
+          "Личные отношения Антона и императрицы, механизм вихря, исход расследования; причастность к первоначальному захвату не установлена"
+        ],
+        "voice": "Церемонная речь, затем оправдания обычаями и статусом."
+      },
+      {
+        "id": "char.seiran",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Состояние без установленной травмы.",
+          "emotion": "Потрясение, служебная сосредоточенность.",
+          "goals": [
+            "Организовать эвакуацию, лечение, охрану принца, отдельные расследования"
+          ]
+        },
+        "knows": [
+          "Антон найден живым, освобождён; императрица держала его, точный контакт не видел",
+          "Принц ударил Антона и находится под охраной; зал повреждён, есть погибшие и пострадавшие"
+        ],
+        "unknown": [
+          "Признание любви, точная причина прекращения вихря, подтверждённое безопасное прикосновение"
+        ],
+        "voice": "Краткие доклады, уважительное обращение."
+      },
+      {
+        "id": "char.maid_guard_unnamed",
+        "name": "Линь Сюэ",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Не установлено.",
+          "emotion": "Облегчение, вина, желание извиниться без самовольства.",
+          "goals": [
+            "Сверить исходные сведения; ждать разрешения на встречу"
+          ]
+        },
+        "knows": [
+          "Бал сорван разрушительным выбросом, Антон найден живым; ограничения сохраняются"
+        ],
+        "unknown": [
+          "Объятие, тайна касания, детали лечения, чувства императрицы"
+        ],
+        "voice": "Формальная почтительная речь."
+      }
+    ],
+    "relationships": [
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "bond": "Любимый человек и спаситель; найден после разлуки, под защитой",
+        "affection": "Осознанная любовь, взаимность неизвестна",
+        "trust": "Сохраняется",
+        "reason": "Узнала, спасает, уважает свободу выбора."
+      },
+      {
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "bond": "Спасённая им женщина, теперь узнанная правительница",
+        "affection": "Радость встречи и забота; объятие не равнозначно признанию любви",
+        "trust": "Пошёл навстречу, но вопросы о плене не разрешены",
+        "reason": "Узнал голос, прошёл вихрь, обнял."
+      },
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.prince_unnamed",
+        "bond": "Дипломатический гость под охраной за нападение",
+        "trust": "Разрушено",
+        "affection": "Гнев",
+        "reason": "Удар по Антону, попытка использовать пленника для демонстрации."
+      }
+    ],
+    "items": [
+      {
+        "id": "item.prince_sword",
+        "location": "place.nine_heavens.great_hall",
+        "note": "Принц выронил при выбросе; дальнейшая сохранность не установлена."
+      },
+      {
+        "id": "item.anton_chains",
+        "location": "place.nine_heavens.great_hall",
+        "note": "Разрушены вихрем."
+      },
+      {
+        "id": "item.broken_hair_clasp",
+        "location": "place.nine_heavens.palace",
+        "note": "Личная вещь императрицы, не изменена."
+      },
+      {
+        "id": "item.closed_search_register",
+        "location": "place.nine_heavens.palace",
+        "note": "Розыск завершён, расследование продолжается."
+      }
+    ],
+    "unresolved": [
+      "Антон без сознания, прогноз и время пробуждения неизвестны.",
+      "Новая энергия и её связь с чувствами; причина устойчивости Антона и прекращения вихря неизвестна.",
+      "Полные последствия выброса, число погибших, пострадавшие и ущерб не установлены.",
+      "Принц задержан, не объявлять виновным в раннем нападении/переносе без доказательств.",
+      "Линь Сюэ не получила прощения; ограничения сохраняются.",
+      "Взаимная любовь, возвращение на Землю, знание Антоном поисков и титула предстоят.",
+      "Двор видел разрушение и перенос раненого, объятие после эвакуации не подтверждено свидетелями."
+    ],
+    "editorial_decisions": [
+      "Авторский новый поворот имеет приоритет над прежним планом: принц бьёт мечом в спину за взгляд, вихрь уничтожает ближайших солдат на атомарном уровне, Антон проходит его с ожогами, обнимает её, шепчет о радости и падает без сознания.",
+      "Обычная безграничная магия не ослабла; отдельное новое проявление неуправляемо, причины не установлены.",
+      "Принц выживает и задержан; последствия выброса расследуются отдельно, не оправдываются автоматически.",
+      "Тэнмацуйора спасает Антона обычной магией и лекарями, не присваивает его как раба, не требует любви.",
+      "Добавлены закрытые лечебные покои, приказ о прекращении розыска, обязательство учитывать погибших, сохранение ограничений Линь Сюэ."
+    ]
+  }
+}
