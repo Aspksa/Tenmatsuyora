@@ -19,6 +19,8 @@ class DOM(HTMLParser):
         self.minis = 0
         self.stars = 0
         self.chat = False
+        self.cloud = False
+        self.controls = False
     def handle_starttag(self, tag, attrs):
         d = dict(attrs)
         cls = d.get("class", "").split()
@@ -27,6 +29,8 @@ class DOM(HTMLParser):
         self.minis += "mini-cluster" in cls
         self.stars += "star-node" in cls
         self.chat |= d.get("id") == "msg-360"
+        self.cloud |= "cloud-star" in cls
+        self.controls |= d.get("id") == "fullscreen"
 
 def main():
     chrome = os.environ.get("CHROME_PATH") or shutil.which("google-chrome") or shutil.which("chromium") or shutil.which("chromium-browser")
@@ -44,7 +48,7 @@ def main():
                     run=subprocess.run([chrome,"--headless=new","--no-sandbox","--disable-dev-shm-usage","--disable-gpu","--no-first-run","--no-default-browser-check","--disable-background-networking",f"--user-data-dir={tmp}/chrome-{attempt}","--virtual-time-budget=9000","--dump-dom",url],capture_output=True,timeout=60,encoding="utf-8",errors="replace")
                     dom=DOM()
                     dom.feed(run.stdout)
-                    if run.returncode==0 and dom.ready and dom.minis==12 and dom.stars==90 and dom.chat:
+                    if run.returncode==0 and dom.ready and dom.minis==12 and dom.stars==90 and dom.chat and dom.cloud and dom.controls:
                         print("Browser: 12 compact constellations, 90 detailed stars, loaded chat and initialized SVG")
                         break
                 else:

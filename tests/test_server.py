@@ -47,5 +47,30 @@ class HistoryTests(unittest.TestCase):
             self.assertEqual(server.state()["preferences"],saved)
             self.assertEqual(server.save_preferences({"speed": float("nan")})["speed"],1)
 
+    def test_operation_real_context_and_links(self):
+        from contextlib import closing
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server, "DB", Path(tmp)/"test.sqlite"), patch.object(server, "KEY", "test"), patch.object(server, "MODEL", "test"):
+            with closing(server.connect()) as conn, conn:
+                conn.executemany("INSERT INTO messages(role,content) VALUES ('user',?)", [("гараж" if i==0 else "прочее",) for i in range(25)])
+            class Reply:
+                def __enter__(self):
+                    return self
+                def __exit__(self, *args):
+                    pass
+                def read(self, *args):
+                    return b'{"choices":[{"message":{"content":"OK"}}]}'
+            with patch.object(server.urllib.request, "urlopen", return_value=Reply()):
+                token="a"*32
+                self.assertEqual(server.process("гараж",token),"")
+                events=server.operation(token)
+                self.assertTrue(events["done"])
+                kinds=[e["kind"] for e in events["events"]]
+                self.assertLess(kinds.index("memory_found"), kinds.index("cloud_start"))
+                self.assertLess(kinds.index("cloud_received"), kinds.index("response_delivered"))
+                self.assertIn(1,next(e for e in events["events"] if e["kind"]=="memory_found")["older_ids"])
+                self.assertIn({"answer_id":27,"source_id":1},server.state()["context_links"])
+            with self.assertRaises(ValueError):
+                server.process("повтор",token)
+
 if __name__ == "__main__":
     unittest.main()
