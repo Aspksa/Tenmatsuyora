@@ -3,7 +3,7 @@
 body{background:radial-gradient(ellipse at 27% 48%,#100c08 0,transparent 58%),#040404}
 #graph-count{position:absolute;top:8px;right:24px;color:#a49a87;font-size:10px;letter-spacing:.08em;font-variant-numeric:tabular-nums;pointer-events:none}
 .graph-label{letter-spacing:.045em;paint-order:stroke;stroke:#080605;stroke-width:3px;stroke-linejoin:round;pointer-events:none}
-.orbit{stroke:inherit;opacity:.24}
+.orbit{stroke:#e8c78b;opacity:.24}
 .cluster-hub{pointer-events:none}
 .flare{pointer-events:none}
 .twinkle{animation:twinkle 5.8s ease-in-out infinite alternate}
