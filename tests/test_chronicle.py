@@ -31,8 +31,12 @@ class ChronicleTest(unittest.TestCase):
         p=self.root/"books/vol-001/chapter-000001.md";p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
         actor="char.tenmatsuyora";sid="scene.000001.001"
         ch={"number":1,"volume":"vol.001","title":"Начало","path":"books/vol-001/chapter-000001.md","events":"events/000001.json","sha256":hashlib.sha256(raw).hexdigest(),"body_chars":len(body),"summary":"Тестовый пересказ, не являющийся настоящей главой.","participants":[actor],"places":[],"themes":["тест"],"related_chapters":[],"scenes":[{"id":sid,"pov":actor,"participants":[actor],"place":None,"start_tick":1,"end_tick":2,"summary":"Тест"}],"review":{**{k:True for k in c.REVIEW},"notes":"fixture"}}
+        paras=c.narrative.paragraphs(body)
+        ch["scenes"][0].update(paragraphs=[1,len(paras)],goal="Тест",outcome="Тест",emotion_end="Тест",bridge="Тест",time_description="Тест",pending_actions=[],pending_dialogues=[])
+        ch["continuity"]={"opening":paras[0],"closing":paras[-1],"previous_chapter":None,"next_transition":"Продолжение", "unresolved_actions":[],"unresolved_dialogues":[]}
         cat["chapters"]=[ch];self.write("catalog.json",cat)
         ev={"schema":1,"chapter":1,"events":[{"id":"event.000001.001","tick":1,"scene":sid,"type":"change_state","data":{"character":actor,"field":"health","before":"не установлено","after":"здорова"}}]}
+        ev["events"][0].update(source={"paragraph":1,"start":0,"end":8,"quote":paras[0][:8]},actors=[actor],causes=[],threads=[])
         self.write(ch["events"],ev)
         cp=c.load(self.root,"state/checkpoint.json");cp.update(last_chapter=1,next_chapter=2,last_tick=2);self.write("state/checkpoint.json",cp)
         _,_,st=c.validate(self.root,check_snapshot=False);c.materialize(self.root,st)
