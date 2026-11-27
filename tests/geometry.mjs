@@ -37,3 +37,16 @@ assert.ok(!sim.running());
 for(let i=0;i<final.length;i++)for(let j=i+1;j<final.length;j++)assert.ok(Math.hypot(final[i].x-final[j].x,final[i].y-final[j].y)>10);
 sim.dispose();
 console.log("D3 physical simulation: repulsion, collision, springs, cooling and bounded positions");
+
+const {makeGalaxy,clusterRadius,clusterMass,starMass,massCenter,semanticPairs,alongCurve}=await import("../static/physics.js");
+assert.ok(clusterMass(30)>clusterMass(1));assert.ok(starMass(5000)>starMass(1));
+assert.deepEqual(semanticPairs([{query_id:31,source_id:1},{query_id:32,source_id:2},{query_id:2,source_id:1}]),[{a:0,b:1,weight:2}]);
+const seeds=Array.from({length:12},(_,page)=>({page,count:30,active:page===11,goal:evolutionCenter(page,11),position:evolutionCenter(page,11)}));
+const galaxy=makeGalaxy(seeds,[{a:0,b:1,weight:3},{a:1,b:11,weight:1}]);
+const settled=galaxy.step(150);assert.ok(!galaxy.running());
+assert.ok(settled.every((p,i)=>Number.isFinite(p.x)&&Math.hypot(p.x-seeds[i].goal.x,p.y-seeds[i].goal.y)<=115.001));
+for(let i=0;i<settled.length;i++)for(let j=i+1;j<settled.length;j++)assert.ok(Math.hypot(settled[i].x-settled[j].x,settled[i].y-settled[j].y)>=clusterRadius(30,seeds[i].active)+clusterRadius(30,seeds[j].active)-5);
+galaxy.dispose();assert.deepEqual(massCenter([{position:{x:3,y:7},count:30}]),{x:3,y:7});
+assert.deepEqual(alongCurve({x:1,y:2},{x:9,y:8},0),{x:1,y:2});assert.deepEqual(alongCurve({x:1,y:2},{x:9,y:8},1),{x:9,y:8});
+const birth=makePhysics([{x:0,y:25},{x:40,y:25}],[{x:0,y:25},{x:0,y:25}],[{a:0,b:1}]);birth.hold(1);assert.deepEqual(birth.step(10)[1],{x:0,y:25});birth.release(1);assert.ok(birth.step(80)[1].x>20);birth.dispose();
+console.log("Galactic simulation, mass, semantic springs, birth and curved particles");

@@ -74,3 +74,6 @@ main{width:100%;min-width:0;grid-template-columns:minmax(0,65fr) minmax(0,35fr);
 #sky .cluster-control .cluster-tag{fill:#e9d7bc}#sky .cluster-control.active-cluster .cluster-tag{fill:#fff0d4}
 #celestial-background{opacity:.7}body{background:#000}
 @media(prefers-reduced-motion:reduce){#sky .awaiting-birth{visibility:visible}}
+
+/* Galactic physics: provenance links and luminous packets on real moving edges. */
+#sky .semantic-cluster-link{stroke-width:.8;stroke-dasharray:3 5;opacity:.65}#sky .galactic-particles{filter:drop-shadow(0 0 3px #ffd486)}#sky.low-quality .galactic-particles,#sky.adaptive-low .galactic-particles{filter:none}#sky.motion-off .galactic-particles{display:none}@media(prefers-reduced-motion:reduce){#sky .galactic-particles{display:none}}

@@ -74,6 +74,8 @@ def connect():
     conn.execute("CREATE TABLE IF NOT EXISTS context_links (answer_id INTEGER NOT NULL, source_id INTEGER NOT NULL, PRIMARY KEY(answer_id,source_id))")
     conn.execute("CREATE TABLE IF NOT EXISTS cloud_secret (id INTEGER PRIMARY KEY CHECK(id=1), protected BLOB NOT NULL)")
     conn.execute("CREATE TABLE IF NOT EXISTS embedding_cache (model TEXT NOT NULL, digest TEXT NOT NULL, vector TEXT NOT NULL, PRIMARY KEY(model,digest))")
+    conn.execute("CREATE TABLE IF NOT EXISTS semantic_links (query_id INTEGER NOT NULL, source_id INTEGER NOT NULL, PRIMARY KEY(query_id,source_id))")
+    conn.execute("CREATE TABLE IF NOT EXISTS physical_layout (kind TEXT NOT NULL, entity_id INTEGER NOT NULL, x REAL NOT NULL, y REAL NOT NULL, PRIMARY KEY(kind,entity_id))")
     return conn
 
 def save(role, content):
@@ -88,7 +90,9 @@ def state():
         groups = [dict(row) for row in conn.execute("SELECT (id-1)/30 AS page, count(*) AS count, sum(1 << ((id-1)%30)) AS mask FROM messages GROUP BY (id-1)/30 ORDER BY page")]
         pref = conn.execute("SELECT value FROM visual_preferences WHERE id=1").fetchone()
         edges = [dict(row) for row in conn.execute("SELECT answer_id,source_id FROM context_links ORDER BY answer_id DESC LIMIT 300")]
-    return {"cloud": cloud_status(), "context_links": edges, "preferences": json.loads(pref[0]) if pref else {}, "messages": [dict(row) for row in reversed(rows)], "count": count, "groups": groups, "configured": bool(KEY and MODEL), "model": MODEL if KEY and MODEL else ""}
+        semantic = [dict(row) for row in conn.execute("SELECT query_id,source_id FROM semantic_links ORDER BY query_id DESC LIMIT 500")]
+        layout = [dict(row) for row in conn.execute("SELECT kind,entity_id,x,y FROM physical_layout WHERE kind='group' OR (kind='star' AND entity_id >= ?) ORDER BY entity_id LIMIT 10000", (rows[-1]["id"] if rows else 0,))]
+    return {"semantic_links": semantic, "layout": layout, "cloud": cloud_status(), "context_links": edges, "preferences": json.loads(pref[0]) if pref else {}, "messages": [dict(row) for row in reversed(rows)], "count": count, "groups": groups, "configured": bool(KEY and MODEL), "model": MODEL if KEY and MODEL else ""}
 
 def save_preferences(value):
     if not isinstance(value, dict):
@@ -101,6 +105,33 @@ def save_preferences(value):
     with closing(connect()) as conn, conn:
         conn.execute("INSERT INTO visual_preferences(id,value) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET value=excluded.value", (json.dumps(clean),))
     return clean
+
+def save_layout(data):
+    rows = data.get("rows")
+    if not isinstance(rows,list) or len(rows)>400:
+        raise ValueError("Invalid layout")
+    clean = []
+    for row in rows:
+        if not isinstance(row,dict):
+            raise ValueError("Invalid layout row")
+        kind, eid, x, y = (row.get(k) for k in ("kind","entity_id","x","y"))
+        if kind not in ("group","star") or type(eid) is not int or not 0<=eid<=2**53-1 or (kind=="star" and eid==0):
+            raise ValueError("Invalid layout id")
+        limit = 1000000 if kind=="group" else 130
+        if any(type(v) not in (int,float) or not -limit<=v<=limit for v in (x,y)):
+            raise ValueError("Invalid coordinate")
+        clean.append((kind,eid,x,y))
+    with closing(connect()) as conn, conn:
+        for kind,eid,x,y in clean:
+            sql = "SELECT 1 FROM messages WHERE id=?" if kind=="star" else "SELECT 1 FROM messages WHERE id BETWEEN ? AND ? LIMIT 1"
+            args = (eid,) if kind=="star" else (eid*30+1,eid*30+30)
+            if conn.execute(sql,args).fetchone():
+                conn.execute("INSERT OR REPLACE INTO physical_layout VALUES (?,?,?,?)",(kind,eid,x,y))
+    return {"saved":True}
+
+def cluster_layout(page):
+    with closing(connect()) as conn:
+        return [dict(row) for row in conn.execute("SELECT kind,entity_id,x,y FROM physical_layout WHERE kind='star' AND entity_id BETWEEN ? AND ?",(page*30+1,page*30+30))]
 
 def cluster(page):
     with closing(connect()) as conn:
@@ -251,7 +282,8 @@ def retrieve_context():
             vectors = cached_vectors(EMBED_MODEL, [query[:1200]]+[row["content"][:1200] for row in candidates])
             ranked = sorted(zip(candidates,vectors[1:]),key=lambda item:cosine(vectors[0],item[1]),reverse=True)
             matches = [row for row,v in ranked[:5] if cosine(vectors[0],v)>0]
-            emit("semantic_found", ids=[row["id"] for row in matches])
+            LOCAL.semantic_ids = [row["id"] for row in matches]
+            emit("semantic_found", ids=LOCAL.semantic_ids)
         except (OSError, ValueError, KeyError, TypeError, IndexError, sqlite3.Error):
             emit("embedding_failed")
     return recent, matches
@@ -289,6 +321,7 @@ def process(content, token=None):
     start_operation(token)
     LOCAL.token = token
     LOCAL.context_ids = []
+    LOCAL.semantic_ids = []
     try:
         emit("chat_received")
         with LOCK:
@@ -307,6 +340,7 @@ def process(content, token=None):
                     answer_id = cursor.lastrowid
                     ids = list(dict.fromkeys(LOCAL.context_ids))
                     conn.executemany("INSERT OR IGNORE INTO context_links(answer_id,source_id) VALUES (?,?)", [(answer_id, i) for i in ids])
+                    conn.executemany("INSERT OR IGNORE INTO semantic_links(query_id,source_id) VALUES (?,?)", [(user_id,i) for i in LOCAL.semantic_ids])
                 emit("sqlite_saved", id=answer_id, role="assistant")
                 emit("links_saved", ids=ids, id=answer_id)
                 emit("response_delivered", id=answer_id)
@@ -319,6 +353,7 @@ def process(content, token=None):
         finish_operation(token)
         LOCAL.token = None
         LOCAL.context_ids = []
+        LOCAL.semantic_ids = []
 
 def configure_cloud(data):
     global KEY, MODEL, CATALOG, VERIFIED, EMBED_MODEL
@@ -382,7 +417,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.json(200, operation(op_match.group(1)))
         match = re.fullmatch(r"/api/cluster/([0-9]{1,12})", self.path)
         if match:
-            return self.json(200, {"messages": cluster(int(match.group(1)))})
+            return self.json(200, {"messages": cluster(int(match.group(1))), "layout": cluster_layout(int(match.group(1)))})
         if self.path not in ASSETS:
             return self.json(404, {"error":"Not found"})
         name, mime = ASSETS[self.path]
@@ -394,7 +429,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self.allowed() or self.headers.get("Origin") != f"http://127.0.0.1:{self.server.server_port}" or self.headers.get("X-Tenma") != "1":
             return self.json(403, {"error":"Invalid origin"})
-        if self.path not in ("/api/message", "/api/preferences", "/api/cloud"):
+        if self.path not in ("/api/message", "/api/preferences", "/api/cloud", "/api/layout"):
             return self.json(404, {"error":"Not found"})
         try:
             length = int(self.headers.get("Content-Length", "0"))
@@ -403,6 +438,8 @@ class Handler(BaseHTTPRequestHandler):
             data = json.loads(self.rfile.read(length))
             if not isinstance(data, dict):
                 raise ValueError("Invalid request")
+            if self.path == "/api/layout":
+                return self.json(200, save_layout(data))
             if self.path == "/api/preferences":
                 return self.json(200, {"preferences": save_preferences(data)})
             if self.path == "/api/cloud":
