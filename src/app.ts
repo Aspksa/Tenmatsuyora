@@ -57,9 +57,14 @@ let latest:Message[]=[],archive:Message[]=[],archivePage=-1,requestId=0;
 let cam:Cam={x:0,y:0,k:1},target={...cam},auto=true,ready=false,frame=0,last=0,dirty=true;
 let busy=false;
 let visibleDetail=0;
+let returningUntil=0;
+const recentPages=()=>new Set(groups.slice(-3).map(g=>g.page));
 const beam=element("g",{class:"activity","aria-hidden":"true"},svg);
 const beamPath=element("path",{d:"M1000 460 Q750 510 500 450",class:"activity-track",fill:"none",stroke:"#ffe5a0","stroke-width":1},beam) as SVGPathElement;
 const packets=Array.from({length:5},(_,i)=>element("circle",{r:i===0?2.8:1.6,fill:"#fff1b7",class:"packet"},beam));
+const flow=element("g",{class:"activity","aria-hidden":"true"},world);
+const flowLine=element("path",{d:"M0 0 L0 0",class:"activity-track",fill:"none",stroke:"#ffd68d","stroke-width":1.2},flow) as SVGPathElement;
+const flowDots=Array.from({length:3},()=>element("circle",{r:2,fill:"#ffeab9",class:"packet"},flow));
 function wake(){if(!frame&&!document.hidden)frame=requestAnimationFrame(tick);}
 function setCam(c:Cam){target={x:c.x,y:c.y,k:Math.max(.035,Math.min(3,c.k))};dirty=true;wake();}
 function overview(){auto=true;focused=-1;requestId++;archive=[];archivePage=-1;refreshDetails();setCam(fit(groups));}
@@ -68,6 +73,7 @@ function project(p:Point){return {x:500+(p.x-cam.x)*cam.k,y:450+(p.y-cam.y)*cam.
 function tick(t:number){
  frame=0;const dt=Math.min(50,last? t-last:16);last=t;
  const ease=reduced.matches?1:1-Math.exp(-dt/145);
+ const returning=t<returningUntil;svg.classList.toggle("returning",returning);
  let moving=false;
  for(const k of ["x","y","k"] as const){const diff=target[k]-cam[k];if(Math.abs(diff)>(k==="k"?.0005:.1)){cam[k]+=diff*ease;moving=true;}else if(diff){cam[k]=target[k];dirty=true;}}
  if(dirty||moving){
@@ -79,6 +85,7 @@ function tick(t:number){
  const p=project(s.p),inView=p.x>-170&&p.x<1170&&p.y>-170&&p.y<1070;
  s.hub.classList.toggle("culled",!inView);
  s.hub.classList.toggle("tiny",cam.k<.48);
+ s.hub.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+Math.max(1,Math.min(3,.45/cam.k))+")");
  s.detail.classList.toggle("culled",!inView||cam.k<.48);
  s.edge.classList.toggle("culled",!inView);
  }
@@ -86,14 +93,19 @@ function tick(t:number){
  }
  for(const s of scenes.values()){
  const diff=s.targetScale-s.scale;
- if(Math.abs(diff)>.002){s.scale+=diff*ease;moving=true;}else{s.scale=s.targetScale;}
- s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");
+ if(Math.abs(diff)>.002){s.scale+=diff*ease;moving=true;s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");}
+ else if(diff!==0){s.scale=s.targetScale;s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");}
  }
- if(busy&&!reduced.matches){
+ if((busy||returning)&&!reduced.matches){
  const length=beamPath.getTotalLength();
- packets.forEach((p,i)=>{const a=((t/1450+i/5)%1),v=beamPath.getPointAtLength(length*a);p.setAttribute("cx",String(v.x));p.setAttribute("cy",String(v.y));});
+ packets.forEach((p,i)=>{const a=((t/1450+i/5)%1),v=beamPath.getPointAtLength(length*(returning?1-a:a));p.setAttribute("cx",String(v.x));p.setAttribute("cy",String(v.y));});
+ const destination=scenes.get(active)?.p;
+ if(destination){
+ flow.setAttribute("visibility","visible");flowLine.setAttribute("d","M0 0 L"+destination.x+" "+destination.y);
+ flowDots.forEach((p,i)=>{const a=((t/1650+i/3)%1),q=returning?1-a:a;p.setAttribute("cx",String(destination.x*q));p.setAttribute("cy",String(destination.y*q));});
+ }else flow.setAttribute("visibility","hidden");
  }
- if(moving||(busy&&!reduced.matches))wake();else last=0;
+ if(moving||((busy||returning)&&!reduced.matches))wake();else last=0;
 }
 document.addEventListener("visibilitychange",()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;last=0;}else{dirty=true;wake();}});
 reduced.addEventListener("change",()=>{dirty=true;wake();});
@@ -101,7 +113,7 @@ function accessible(el:Element,label:string,action:()=>void){el.setAttribute("ta
 async function choose(page:number){
  auto=false;focused=page;archive=[];archivePage=-1;const ticket=++requestId;
  focusCam(page);refreshDetails();
- if(page===active)return;
+ if(recentPages().has(page)&&latest.filter(m=>Math.floor((m.id-1)/30)===page).length===scenes.get(page)?.count)return;
  try{const r=await fetch("/api/cluster/"+page);if(!r.ok)throw Error("Не удалось открыть созвездие");const d=await r.json() as {messages:Message[]};if(ticket!==requestId)return;archive=d.messages;archivePage=page;refreshDetails();}
  catch(e){if(ticket===requestId)byId("node-info").textContent=e instanceof Error?e.message:"Ошибка";}
 }
@@ -116,15 +128,18 @@ function createScene(g:Group):Scene{
  const n=textAt(hub,0,43,"",c,13);n.classList.add("cluster-number");
  element("circle",{r:16,fill:"transparent",class:"hit"},hub);
  accessible(hub,"Открыть созвездие "+(g.page+1),()=>{void choose(g.page);});
- const detail=element("g",{class:"cluster-detail"},nodes) as SVGGElement;
+ const detail=element("g",{class:"cluster-detail",transform:"translate("+p.x+" "+p.y+") scale(.55)"},nodes) as SVGGElement;
  return {page:g.page,count:g.count,hub,detail,edge,p,scale:.55,targetScale:.55,signature:"",active:false};
 }
 function refreshDetails(){
  visibleDetail=0;
+ const recent=recentPages();
+ const index=new Map<number,Message[]>();
+ for(const m of latest){const p=Math.floor((m.id-1)/30);const list=index.get(p)||[];list.push(m);index.set(p,list);}
  for(const s of scenes.values()){
- const data=s.page===active?latest.filter(m=>Math.floor((m.id-1)/30)===s.page):s.page===focused&&archivePage===s.page?archive:[];
+ const data=s.page===focused&&archivePage===s.page?archive:recent.has(s.page)?index.get(s.page)||[]:[];
  const signature=data.map(m=>m.id).join(",");
- s.targetScale=s.page===active?1:.64;
+ s.targetScale=s.page===active?1:.52;
  if(s.page===focused)s.targetScale=1;
  visibleDetail+=data.length;
  if(signature===s.signature)continue;
@@ -139,6 +154,7 @@ function refreshDetails(){
  ps.slice(0,i).map((p,k)=>({p,k,d:Math.hypot(x-p.x,y-p.y)})).sort((a,b)=>a.d-b.d).slice(0,2).filter(v=>v.d<85).forEach(({p})=>line(edges,x,y,p.x,p.y,c,.2));
  const existing=old.get(m.id);
  const n=existing||element("g",{class:"star-node",transform:"translate("+x+" "+y+")"},s.detail) as SVGGElement;
+ n.dataset.x=String(x);n.dataset.y=String(y);
  if(existing){s.detail.append(n);n.setAttribute("transform","translate("+x+" "+y+")");}
  else{
  n.dataset.id=String(m.id);
@@ -153,7 +169,7 @@ function refreshDetails(){
  const label=element("g",{class:"node-tag","pointer-events":"none"},visual);
  element("rect",{x:12,y:-12,width:75,height:21,rx:3,fill:"#120e0c",stroke:c,"stroke-width":.6},label);
  const t=element("text",{x:18,y:2,fill:c,"font-size":10},label);t.textContent="#"+m.id+" · "+(m.role==="user"?"Вы":"ИИ");
- accessible(n,(m.role==="user"?"Вы: ":"ИИ: ")+m.content.slice(0,100),()=>{selected=m.id;nodes.querySelectorAll(".selected").forEach(el=>el.classList.remove("selected"));n.classList.add("selected");byId("node-info").textContent=m.content.slice(0,180);document.getElementById("msg-"+m.id)?.scrollIntoView({block:"nearest"});auto=false;setCam({x:s.p.x+x*s.scale,y:s.p.y+y*s.scale,k:2.1});});
+ accessible(n,(m.role==="user"?"Вы: ":"ИИ: ")+m.content.slice(0,100),()=>{selected=m.id;nodes.querySelectorAll(".selected").forEach(el=>el.classList.remove("selected"));n.classList.add("selected");byId("node-info").textContent=m.content.slice(0,180);document.getElementById("msg-"+m.id)?.scrollIntoView({block:"nearest"});auto=false;setCam({x:s.p.x+Number(n.dataset.x)*s.scale,y:s.p.y+Number(n.dataset.y)*s.scale,k:2.1});});
  }
  n.classList.toggle("selected",selected===m.id);
  });
@@ -196,7 +212,7 @@ async function refresh(){const r=await fetch("/api/state");if(!r.ok)throw Error(
 
 const form=byId<HTMLFormElement>("composer"),input=byId<HTMLTextAreaElement>("message"),send=byId<HTMLButtonElement>("send");
 form.addEventListener("submit",async e=>{e.preventDefault();const content=input.value.trim();if(!content||busy)return;busy=true;send.disabled=true;input.disabled=true;svg.classList.add("busy");wake();byId("notice").textContent="Обработка…";
- try{const r=await fetch("/api/message",{method:"POST",headers:{"Content-Type":"application/json","X-Tenma":"1"},body:JSON.stringify({content})});const result=await r.json();if(!r.ok)throw Error(result.error||"Ошибка сервера");input.value="";byId("notice").textContent=result.notice||"";await refresh();}
+ try{const r=await fetch("/api/message",{method:"POST",headers:{"Content-Type":"application/json","X-Tenma":"1"},body:JSON.stringify({content})});const result=await r.json();if(!r.ok)throw Error(result.error||"Ошибка сервера");input.value="";byId("notice").textContent=result.notice||"";await refresh();if(!result.notice&&!reduced.matches){returningUntil=performance.now()+1650;wake();}}
  catch(err){byId("notice").textContent=err instanceof Error?err.message:"Ошибка";}finally{busy=false;send.disabled=false;input.disabled=false;svg.classList.remove("busy");wake();input.focus();}
 });
 input.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey&&!e.isComposing){e.preventDefault();form.requestSubmit();}});
