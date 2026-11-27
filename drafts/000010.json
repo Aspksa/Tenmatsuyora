@@ -1,0 +1,2200 @@
+{
+  "schema": 1,
+  "base_sha": "19afdee5d75773b8b8083db1c6d7459206bbe32e",
+  "chapter": 10,
+  "status": "complete_prose_unpublished",
+  "prerequisite": {
+    "chapter": 9,
+    "branch": "main",
+    "commit": "19afdee5d75773b8b8083db1c6d7459206bbe32e",
+    "blob": "34b764a4747e0e556fba668ebd6f3ed257eb9540",
+    "closing": "И каково это — не услышать их."
+  },
+  "opening": "— Сколько миров проверено?",
+  "closing": "А того, чтобы среди них оказался один человек.",
+  "completed_scenes": [
+    "draft.scene.000010.001",
+    "draft.scene.000010.002",
+    "draft.scene.000010.003",
+    "draft.scene.000010.004",
+    "draft.scene.000010.005",
+    "draft.scene.000010.006",
+    "draft.scene.000010.007",
+    "draft.scene.000010.008",
+    "draft.scene.000010.009",
+    "draft.scene.000010.010",
+    "draft.scene.000010.011",
+    "draft.scene.000010.012",
+    "draft.scene.000010.013",
+    "draft.scene.000010.014"
+  ],
+  "body_chars": 37958,
+  "next_scene": "Глава 11 «Голубые глаза»: великий бал после почти года поисков со времени выздоровления. Тэнмацуйора здорова, строга, осознала любовь наедине; не знает, что Антон выжил и пленён. Принц без имени читателю, печать — две пересекающиеся дуги над тонкой вертикальной линией, тёмное одеяние с серебряными украшениями. Обещал сведения об особом даре, исполнение не подтверждено. Антон жив, истощён, с отросшими волосами и бородой, после нескольких перевозок пленников, неизвестное место очередного назначения. Время его миров не синхронизировано с девятью небесами. Не утверждать, что принц организовал похищение или нападение. На балу принц представляет человека как раба и просит продемонстрировать смертоносную магию. Императрица прекращает жестокое представление, узнаёт голубые глаза и подтверждает личность голосом/характерной фразой. Сохраняет достоинство, прекращает пленение, велит снять цепи, объявляет личную защиту короны, организует лечение и расследование происхождения. Не объявляет Антона собственностью, не раскрывает любви и тайны прикосновения перед двором. Восстановление и объяснения в главе 12.",
+  "editorial_status": "Полный черновик; сцены и источники проверены. Рамка относится к сцене 12. Две независимые временные линии. Официальный журнал и канон ещё не обновлены.",
+  "draft_memory": {
+    "scenes": [
+      {
+        "id": "draft.scene.000010.001",
+        "paragraphs": [
+          1,
+          11
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Конец года, рамка к сцене 12",
+        "summary": "Сэйран докладывает об отсутствии результата; приказ продолжать за пределами известных миров.",
+        "frame_of": "draft.scene.000010.012",
+        "chronological_order": null
+      },
+      {
+        "id": "draft.scene.000010.002",
+        "paragraphs": [
+          12,
+          53
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Начало второго месяца после возвращения",
+        "summary": "Лично посещает Землю, не вторгается в дом, записка не получена.",
+        "timeline": "nine_heavens",
+        "chronological_order": 1
+      },
+      {
+        "id": "draft.scene.000010.003",
+        "paragraphs": [
+          54,
+          81
+        ],
+        "pov": "char.anton",
+        "place": "place.unknown_silver_leaves",
+        "time": "Первые дни после переноса, ретроспектива",
+        "summary": "Антон жив, ушибы, неизвестная планета с двумя светилами, ищет людей.",
+        "timeline": "anton_local",
+        "chronological_order": 1
+      },
+      {
+        "id": "draft.scene.000010.004",
+        "paragraphs": [
+          82,
+          113
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.mirror_world",
+        "time": "Первые месяцы поисков",
+        "summary": "Отражающие поверхности; совпадение следа не уникально.",
+        "timeline": "nine_heavens",
+        "chronological_order": 2
+      },
+      {
+        "id": "draft.scene.000010.005",
+        "paragraphs": [
+          114,
+          153
+        ],
+        "pov": "char.anton",
+        "place": "place.unknown_silver_leaves",
+        "time": "После прибытия, местное время",
+        "summary": "Временный приют, языковой барьер, насильственный захват.",
+        "timeline": "anton_local",
+        "chronological_order": 2
+      },
+      {
+        "id": "draft.scene.000010.006",
+        "paragraphs": [
+          154,
+          218
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Четвёртый месяц поисков",
+        "summary": "Ответственность Линь Сюэ за удар установлена, причина переноса неизвестна, новые правила охраны.",
+        "timeline": "nine_heavens",
+        "chronological_order": 3
+      },
+      {
+        "id": "draft.scene.000010.007",
+        "paragraphs": [
+          219,
+          260
+        ],
+        "pov": "char.anton",
+        "place": "place.unknown_captive_worksite",
+        "time": "Период плена",
+        "summary": "Принудительный труд, торговля людьми, перевозки, взаимопомощь пожилого пленника, ухудшение здоровья.",
+        "timeline": "anton_local",
+        "chronological_order": 3
+      },
+      {
+        "id": "draft.scene.000010.008",
+        "paragraphs": [
+          261,
+          296
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.warm_springs_world",
+        "time": "Около шестого месяца",
+        "summary": "Карта гипотез, миры деревьев и источников; ошибочное опознание, помощь другому пропавшему.",
+        "timeline": "nine_heavens",
+        "chronological_order": 4
+      },
+      {
+        "id": "draft.scene.000010.009",
+        "paragraphs": [
+          297,
+          337
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Вечер после проверки личности",
+        "summary": "Осознаёт любовь независимо от касания и благодарности; признаётся наедине.",
+        "timeline": "nine_heavens",
+        "chronological_order": 5
+      },
+      {
+        "id": "draft.scene.000010.010",
+        "paragraphs": [
+          338,
+          368
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Восьмой месяц",
+        "summary": "Проверяет гипотезу исчезающих следов, расширяет поиск несвободных людей; контролируемое участие Линь Сюэ.",
+        "timeline": "nine_heavens",
+        "chronological_order": 6
+      },
+      {
+        "id": "draft.scene.000010.011",
+        "paragraphs": [
+          369,
+          417
+        ],
+        "pov": "char.anton",
+        "place": "place.unknown_captive_transit",
+        "time": "Поздний период плена, местное время",
+        "summary": "Истощение, борода, осмотры, сообщает происхождение, новая перевозка.",
+        "timeline": "anton_local",
+        "chronological_order": 4
+      },
+      {
+        "id": "draft.scene.000010.012",
+        "paragraphs": [
+          418,
+          468
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Почти год после выздоровления",
+        "summary": "Управление и поиск; прибывает посольство принца.",
+        "timeline": "nine_heavens",
+        "chronological_order": 7
+      },
+      {
+        "id": "draft.scene.000010.013",
+        "paragraphs": [
+          469,
+          492
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "За несколько дней до бала",
+        "summary": "Принц обещает особый дар, требует соблюдения порядка.",
+        "timeline": "nine_heavens",
+        "chronological_order": 8
+      },
+      {
+        "id": "draft.scene.000010.014",
+        "paragraphs": [
+          493,
+          534
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.nine_heavens.palace",
+        "time": "Вечер перед балом",
+        "summary": "Подготовка, охрана, застёжка, Антон не найден.",
+        "timeline": "nine_heavens",
+        "chronological_order": 9
+      }
+    ],
+    "evidence": [
+      {
+        "id": "draft.event.000010.opening_search",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 8,
+          "start": 0,
+          "end": 36,
+          "quote": "— Значит, продолжим за их пределами."
+        }
+      },
+      {
+        "id": "draft.event.000010.earth_return",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 12,
+          "start": 0,
+          "end": 77,
+          "quote": "В начале второго месяца после возвращения во дворец она вновь посетила Землю."
+        }
+      },
+      {
+        "id": "draft.event.000010.earth_missing",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 23,
+          "start": 0,
+          "end": 286,
+          "quote": "За время её отсутствия поисковая группа установила, что исчезновение Антона не осталось незамеченным среди земных людей. Сведения о пропавшем человеке передавались обычными для этого мира способами. Однако исследователи не получили подтверждения того, что кто-либо знает, куда он исчез."
+        }
+      },
+      {
+        "id": "draft.event.000010.respect_home",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 26,
+          "start": 0,
+          "end": 95,
+          "quote": "Но впервые, увидев знакомую дверь снаружи, поймала себя на мысли, что не знает, имеет ли право."
+        }
+      },
+      {
+        "id": "draft.event.000010.note_status",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 32,
+          "start": 0,
+          "end": 139,
+          "quote": "— Не получена им. Последнее известное её положение зафиксировано. Нынешнее состояние комнаты без законного доступа мы подтвердить не можем."
+        }
+      },
+      {
+        "id": "draft.event.000010.earth_order",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 36,
+          "start": 0,
+          "end": 159,
+          "quote": "— Необходимо продолжать обмен сведениями с теми, кто имеет право участвовать в поиске здесь. Не подвергайте их опасности из-за особенностей нашего присутствия."
+        }
+      },
+      {
+        "id": "draft.event.000010.no_destination",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 46,
+          "start": 0,
+          "end": 40,
+          "quote": "Нельзя было установить, где он оказался."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_awakes",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 59,
+          "start": 0,
+          "end": 214,
+          "quote": "Антон пришёл в себя на камнях у неглубокого ручья. Некоторое время он лежал неподвижно, стараясь понять, почему так трудно дышать. Болел бок, плечо было ушиблено. Одежда промокла, на ладони остался след от падения."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_injuries",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 59,
+          "start": 0,
+          "end": 214,
+          "quote": "Антон пришёл в себя на камнях у неглубокого ручья. Некоторое время он лежал неподвижно, стараясь понять, почему так трудно дышать. Болел бок, плечо было ушиблено. Одежда промокла, на ладони остался след от падения."
+        }
+      },
+      {
+        "id": "draft.event.000010.alien_sky",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 63,
+          "start": 0,
+          "end": 104,
+          "quote": "Один светлый диск находился высоко над горизонтом. Второй, значительно меньший, был виден сквозь облака."
+        }
+      },
+      {
+        "id": "draft.event.000010.phone_absent",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 68,
+          "start": 0,
+          "end": 69,
+          "quote": "Он оставил его дома, возле окна, прежде чем отнести обед Тэнмацуйоре."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_calls",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 72,
+          "start": 0,
+          "end": 14,
+          "quote": "— Тэнмацуйора!"
+        }
+      },
+      {
+        "id": "draft.event.000010.smoke",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 78,
+          "start": 0,
+          "end": 32,
+          "quote": "На третий день увидел вдали дым."
+        }
+      },
+      {
+        "id": "draft.event.000010.mirror_world",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 82,
+          "start": 0,
+          "end": 52,
+          "quote": "Мир неподвижных зеркал встретил Тэнмацуйору тишиной."
+        }
+      },
+      {
+        "id": "draft.event.000010.mirror_probe",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 86,
+          "start": 0,
+          "end": 168,
+          "quote": "Она подняла руку, и над каменной равниной возникли сотни тонких магических линий. Они расходились во все стороны, проникая в промежутки между отражающими поверхностями."
+        }
+      },
+      {
+        "id": "draft.event.000010.mirror_false_match",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 101,
+          "start": 0,
+          "end": 139,
+          "quote": "Не один и тот же след, возвращающийся с задержкой, а характерное искажение, возникающее при определённых условиях во множестве пространств."
+        }
+      },
+      {
+        "id": "draft.event.000010.not_unique",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 102,
+          "start": 0,
+          "end": 43,
+          "quote": "— Это не уникальный признак, — сказала она."
+        }
+      },
+      {
+        "id": "draft.event.000010.method_revision",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 105,
+          "start": 0,
+          "end": 152,
+          "quote": "— Мы получили полезный результат. Теперь знаем, что одного совпадения недостаточно. Пересмотрите признаки, по которым отбираются дальнейшие направления."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_language",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 119,
+          "start": 0,
+          "end": 174,
+          "quote": "Незнакомая речь не вызвала у Антона даже приблизительного понимания. Он вспомнил, как постепенно начал понимать Тэнмацуйору, хотя в первый день не мог разобрать почти ничего."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_shelter",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 125,
+          "start": 0,
+          "end": 167,
+          "quote": "Там дали пищу и позволили переночевать. Антон не понимал, о чём переговаривались хозяева, но впервые с момента падения получил возможность отдохнуть не на голой земле."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_helps",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 126,
+          "start": 0,
+          "end": 230,
+          "quote": "Несколько дней он помогал им с тем, что мог выполнить без долгих объяснений. Переносил лёгкие вещи, убирал помещение, чинил простую деревянную перегородку под наблюдением хозяина. Ушибы постепенно перестали причинять прежнюю боль."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_draws",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 129,
+          "start": 0,
+          "end": 77,
+          "quote": "Рисовал на земле дом, поле и человека с длинными волосами и девятью хвостами."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_worries",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 133,
+          "start": 0,
+          "end": 128,
+          "quote": "Он беспокоился о раненой гостье. Она ещё не могла нормально ходить. В том доме остались её вещи, лекарства и незаконченные дела."
+        }
+      },
+      {
+        "id": "draft.event.000010.capture",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 145,
+          "start": 0,
+          "end": 206,
+          "quote": "Он сопротивлялся, но не сумел уйти от нескольких человек, среди которых были способные пользоваться магией. Чужая сила прижала его к земле. Он почувствовал, как на запястьях сомкнулись металлические кольца."
+        }
+      },
+      {
+        "id": "draft.event.000010.taken",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 147,
+          "start": 0,
+          "end": 23,
+          "quote": "Антона увели к повозке."
+        }
+      },
+      {
+        "id": "draft.event.000010.no_free_movement",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 152,
+          "start": 0,
+          "end": 81,
+          "quote": "Он знал только, что в этом мире больше не мог самостоятельно выбирать, куда идти."
+        }
+      },
+      {
+        "id": "draft.event.000010.guard_conclusion",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 158,
+          "start": 0,
+          "end": 122,
+          "quote": "Установлено, что она применила силу до окончания распоряжения императрицы, не обнаружив оружия или наблюдаемого нападения."
+        }
+      },
+      {
+        "id": "draft.event.000010.transfer_unknown",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 160,
+          "start": 0,
+          "end": 123,
+          "quote": "Не установлено, каким образом удар, остаточное состояние перехода и другие возможные обстоятельства привели к исчезновению."
+        }
+      },
+      {
+        "id": "draft.event.000010.guard_accountable",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 162,
+          "start": 0,
+          "end": 122,
+          "quote": "— Первое и второе не следует смешивать. Отсутствие объяснения переноса не отменяет ответственности за необоснованный удар."
+        }
+      },
+      {
+        "id": "draft.event.000010.life_value",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 184,
+          "start": 0,
+          "end": 93,
+          "quote": "— Тогда запомните: ценность его жизни не определяется тем, кем он оказался для вашей госпожи."
+        }
+      },
+      {
+        "id": "draft.event.000010.guard_restrictions",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 190,
+          "start": 0,
+          "end": 326,
+          "quote": "— Вы отстраняетесь от личной охраны до отдельного решения. Ограничение на самостоятельное применение силы и поисковые переходы сохраняется. Ваши сведения могут использоваться для исследований. Вы будете работать под назначенным руководством, если исследователи смогут указать конкретную задачу, для которой необходим ваш опыт."
+        }
+      },
+      {
+        "id": "draft.event.000010.guard_case_open",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 195,
+          "start": 0,
+          "end": 76,
+          "quote": "— И не окончательное решение по делу об исчезновении. Оно остаётся открытым."
+        }
+      },
+      {
+        "id": "draft.event.000010.new_guard_rules",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 200,
+          "start": 0,
+          "end": 128,
+          "quote": "— Ввести эти правила для моей личной охраны. Остальным подразделениям подготовить соответствующие предложения с учётом их задач."
+        }
+      },
+      {
+        "id": "draft.event.000010.guard_apology",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 208,
+          "start": 0,
+          "end": 50,
+          "quote": "— Если его найдут, я хотела бы попросить прощения."
+        }
+      },
+      {
+        "id": "draft.event.000010.apology_consent",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 210,
+          "start": 0,
+          "end": 35,
+          "quote": "— Если он согласится вас выслушать."
+        }
+      },
+      {
+        "id": "draft.event.000010.forced_work",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 220,
+          "start": 0,
+          "end": 146,
+          "quote": "Иногда он переносил груз на склад. Иногда помогал разгружать повозки. Иногда его заставляли подолгу ждать в помещении вместе с другими пленниками."
+        }
+      },
+      {
+        "id": "draft.event.000010.trafficking",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 223,
+          "start": 0,
+          "end": 36,
+          "quote": "Стало ясно, что здесь людей продают."
+        }
+      },
+      {
+        "id": "draft.event.000010.first_captive_portal",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 225,
+          "start": 0,
+          "end": 63,
+          "quote": "В первый раз его перевезли через пространство, открытое магией."
+        }
+      },
+      {
+        "id": "draft.event.000010.route_lost",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 229,
+          "start": 0,
+          "end": 199,
+          "quote": "Пытался запомнить, кто сопровождал перевозку, какие предметы находились вокруг, как выглядел новый мир. Но каждое следующее перемещение делало представление о собственном маршруте всё более неполным."
+        }
+      },
+      {
+        "id": "draft.event.000010.older_prisoner",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 232,
+          "start": 0,
+          "end": 209,
+          "quote": "Тот был старше Антона. Говорил мало, но понимал, как показать значение слова или объяснить необходимость какого-либо действия. Антон помог ему донести тяжёлую корзину, когда увидел, что мужчина не справляется."
+        }
+      },
+      {
+        "id": "draft.event.000010.shared_food",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 233,
+          "start": 0,
+          "end": 46,
+          "quote": "Вечером старик разделил с ним часть своей еды."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_dignity",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 242,
+          "start": 0,
+          "end": 109,
+          "quote": "Но постепенно научился отличать достоинство от необходимости доказывать своё достоинство каждому надзирателю."
+        }
+      },
+      {
+        "id": "draft.event.000010.punishment",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 245,
+          "start": 0,
+          "end": 22,
+          "quote": "За это его наказывали."
+        }
+      },
+      {
+        "id": "draft.event.000010.health_decline",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 246,
+          "start": 0,
+          "end": 262,
+          "quote": "Его физическая сила, которой прежде хватало на тяжёлую работу и помощь незнакомым людям, постепенно переставала означать то, что значила раньше. Недостаток нормальной пищи, отдыха и лечения сказывался на теле. Старые повреждения иногда вновь давали о себе знать."
+        }
+      },
+      {
+        "id": "draft.event.000010.beard",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 248,
+          "start": 0,
+          "end": 41,
+          "quote": "Волосы отросли. На лице появилась борода."
+        }
+      },
+      {
+        "id": "draft.event.000010.mirror_memory",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 253,
+          "start": 0,
+          "end": 172,
+          "quote": "Он вспомнил Тэнмацуйору перед зеркалом. Как она была недовольна спутанными волосами. Как объясняла ему, что расчёсывать длинные пряди нужно с концов, а не тянуть от корней."
+        }
+      },
+      {
+        "id": "draft.event.000010.map_expanded",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 261,
+          "start": 0,
+          "end": 71,
+          "quote": "К шестому месяцу закрытый реестр стал слишком большим для одного стола."
+        }
+      },
+      {
+        "id": "draft.event.000010.map_separation",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 267,
+          "start": 0,
+          "end": 54,
+          "quote": "— Разделите их. Сходство признака не является дорогой."
+        }
+      },
+      {
+        "id": "draft.event.000010.other_worlds",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 272,
+          "start": 0,
+          "end": 342,
+          "quote": "В течение нескольких месяцев она лично посещала пространства, где удавалось установить хотя бы какие-либо основания для поиска. В одном мире огромные города находились внутри живых деревьев, корни которых уходили глубоко под поверхность. В другом свет исходил от медленно движущихся облаков, а поселения существовали вокруг тёплых источников."
+        }
+      },
+      {
+        "id": "draft.event.000010.false_identity",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 279,
+          "start": 0,
+          "end": 47,
+          "quote": "Она сразу поняла, что перед ней другой человек."
+        }
+      },
+      {
+        "id": "draft.event.000010.missing_man_family",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 281,
+          "start": 0,
+          "end": 173,
+          "quote": "С помощью местного переводчика выяснилось, что мужчина несколько месяцев назад оказался вдали от собственного дома после несчастного случая. Его семья продолжала искать его."
+        }
+      },
+      {
+        "id": "draft.event.000010.help_other",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 287,
+          "start": 0,
+          "end": 139,
+          "quote": "— Он имеет отношение к своему, — ответила императрица. — Мы обнаружили его, потому что искали другого. Нет причин оставлять его без помощи."
+        }
+      },
+      {
+        "id": "draft.event.000010.family_found",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 288,
+          "start": 0,
+          "end": 76,
+          "quote": "Через несколько дней пришло подтверждение, что сведения о семье установлены."
+        }
+      },
+      {
+        "id": "draft.event.000010.false_identity_record",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 291,
+          "start": 0,
+          "end": 70,
+          "quote": "«Личность не совпадает. Связь с исчезновением Антона не подтверждена»."
+        }
+      },
+      {
+        "id": "draft.event.000010.library",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 298,
+          "start": 0,
+          "end": 140,
+          "quote": "Она прошла в небольшую библиотеку, где хранились записи о человеческих обычаях и частной жизни существ, населявших разные небесные владения."
+        }
+      },
+      {
+        "id": "draft.event.000010.freedom_choice",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 309,
+          "start": 0,
+          "end": 67,
+          "quote": "Теперь императрица поняла, что должна быть готова поступить так же."
+        }
+      },
+      {
+        "id": "draft.event.000010.love_not_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 318,
+          "start": 0,
+          "end": 103,
+          "quote": "И даже если бы такое прикосновение вдруг оказалось невозможным, она всё равно продолжила бы искать его."
+        }
+      },
+      {
+        "id": "draft.event.000010.love_admitted",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 325,
+          "start": 0,
+          "end": 21,
+          "quote": "— Я люблю вас, Антон."
+        }
+      },
+      {
+        "id": "draft.event.000010.love_private",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 326,
+          "start": 0,
+          "end": 34,
+          "quote": "Слова прозвучали в пустой комнате."
+        }
+      },
+      {
+        "id": "draft.event.000010.reciprocity_unknown",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 333,
+          "start": 0,
+          "end": 76,
+          "quote": "Она ещё не знала, что ответит Антон, если когда-нибудь услышит её признание."
+        }
+      },
+      {
+        "id": "draft.event.000010.new_hypothesis",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 338,
+          "start": 0,
+          "end": 53,
+          "quote": "На восьмом месяце поисков возникло новое направление."
+        }
+      },
+      {
+        "id": "draft.event.000010.guard_careful_testimony",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 347,
+          "start": 0,
+          "end": 145,
+          "quote": "— Здесь есть сходство с тем, что произошло после моего удара, Ваше Величество. Но я не могу утверждать, что это один и тот же способ перемещения."
+        }
+      },
+      {
+        "id": "draft.event.000010.safe_test",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 351,
+          "start": 0,
+          "end": 167,
+          "quote": "Тэнмацуйора распорядилась проверить гипотезу на доступных пространственных моделях, не воспроизводя удар по живому существу и не рискуя случайно переместить кого-либо."
+        }
+      },
+      {
+        "id": "draft.event.000010.trace_changes",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 353,
+          "start": 0,
+          "end": 106,
+          "quote": "Они установили, что некоторые следы действительно могли исчезать или изменяться при последующих переходах."
+        }
+      },
+      {
+        "id": "draft.event.000010.search_displaced",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 356,
+          "start": 0,
+          "end": 299,
+          "quote": "— Тогда мы изменим направление работы. Наряду со следами ищите сведения о людях, появившихся в незнакомых мирах без объяснимого происхождения. Не ограничивайтесь свободными путниками. Если человек был ранен, задержан или лишён возможности передвигаться, он мог не оставить обычной записи о переходе."
+        }
+      },
+      {
+        "id": "draft.event.000010.no_capture_incentive",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 359,
+          "start": 0,
+          "end": 199,
+          "quote": "— Установите его там, где это возможно. Не раскрывайте лишних сведений об Антоне и не обещайте награды за доставку человека. Никто не должен получить основание хватать людей, подходящих под описание."
+        }
+      },
+      {
+        "id": "draft.event.000010.supervised_guard",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 363,
+          "start": 0,
+          "end": 37,
+          "quote": "— Под руководством исследователя. Да."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_time_unknown",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 370,
+          "start": 0,
+          "end": 198,
+          "quote": "Ему уже трудно было определить, сколько времени прошло с момента исчезновения. В некоторых местах дни были заметно длиннее привычных, в других он почти не видел неба. Считать их точно не получалось."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_conflicted",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 380,
+          "start": 0,
+          "end": 27,
+          "quote": "Порой он мысленно сердился."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_no_blame_fact",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 384,
+          "start": 0,
+          "end": 36,
+          "quote": "Не мог утверждать, что она виновата."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_origin",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 393,
+          "start": 0,
+          "end": 16,
+          "quote": "— Россия. Земля."
+        }
+      },
+      {
+        "id": "draft.event.000010.buyer_interest",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 398,
+          "start": 0,
+          "end": 188,
+          "quote": "Его стали рассматривать как человека неизвестного происхождения. Это не улучшило его положения. Напротив, непонятность происхождения вызвала у некоторых покупателей дополнительный интерес."
+        }
+      },
+      {
+        "id": "draft.event.000010.older_prisoner_separated",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 403,
+          "start": 0,
+          "end": 152,
+          "quote": "Среди них уже не было пожилого мужчины, который когда-то поделился с ним едой. Их разлучили при одной из перевозок. Антон не знал его дальнейшей судьбы."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_appearance",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 407,
+          "start": 0,
+          "end": 230,
+          "quote": "Одежда, в которой его забрали с Земли, давно была заменена на грубую ткань. От прежних вещей почти ничего не осталось. Волосы и борода отросли, лицо осунулось. Ему всё чаще требовалось время, чтобы подняться после долгого сидения."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_name",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 412,
+          "start": 0,
+          "end": 19,
+          "quote": "— Меня зовут Антон."
+        }
+      },
+      {
+        "id": "draft.event.000010.anton_agency",
+        "pov": "char.anton",
+        "source": {
+          "paragraph": 416,
+          "start": 0,
+          "end": 36,
+          "quote": "Просто оно всё ещё принадлежало ему."
+        }
+      },
+      {
+        "id": "draft.event.000010.government",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 420,
+          "start": 0,
+          "end": 259,
+          "quote": "Восстановленные сооружения первого неба получили отдельные заключения. Вопросы расходов и компенсаций рассматривались по представленным Лянь Шо сведениям. Императрица принимала решения по дорогам, безопасности, деятельности управляющих и множеству других дел."
+        }
+      },
+      {
+        "id": "draft.event.000010.methods_not_stop",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 437,
+          "start": 0,
+          "end": 47,
+          "quote": "— Изменить методы — возможно. Прекратить — нет."
+        }
+      },
+      {
+        "id": "draft.event.000010.task_deadlines",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 440,
+          "start": 0,
+          "end": 242,
+          "quote": "— Вы не можете установить срок нахождения человека, если не знаете, где он находится. Устанавливайте сроки выполнения конкретных задач. Проверки направления. Изучения записи. Получения ответа. Не обещайте результата, который вам неподвластен."
+        }
+      },
+      {
+        "id": "draft.event.000010.almost_year",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 443,
+          "start": 0,
+          "end": 46,
+          "quote": "— Прошёл почти год после вашего выздоровления."
+        }
+      },
+      {
+        "id": "draft.event.000010.prince_arrival",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 451,
+          "start": 0,
+          "end": 201,
+          "quote": "— Прибыло посольство. Его возглавляет принц из владений, поддерживающих отношения с несколькими нашими небесами. Он просит личного представления и разрешения присутствовать на предстоящем великом балу."
+        }
+      },
+      {
+        "id": "draft.event.000010.prince_seal",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 453,
+          "start": 0,
+          "end": 94,
+          "quote": "На нём находилась печать, изображавшая две пересекающиеся дуги над тонкой вертикальной линией."
+        }
+      },
+      {
+        "id": "draft.event.000010.prince_declared_purpose",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 456,
+          "start": 0,
+          "end": 100,
+          "quote": "— Официально — подтверждение отношений и представление даров. Подробный перечень ещё не представлен."
+        }
+      },
+      {
+        "id": "draft.event.000010.prince_no_link",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 465,
+          "start": 0,
+          "end": 73,
+          "quote": "Чужое посольство не имело установленного отношения к исчезновению Антона."
+        }
+      },
+      {
+        "id": "draft.event.000010.prince_audience",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 469,
+          "start": 0,
+          "end": 57,
+          "quote": "Принца представили императрице за несколько дней до бала."
+        }
+      },
+      {
+        "id": "draft.event.000010.prince_appearance",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 470,
+          "start": 0,
+          "end": 155,
+          "quote": "Он вошёл в зал в тёмном одеянии с тонкими серебряными украшениями. Поклонился в соответствии с придворным порядком и произнёс положенные слова приветствия."
+        }
+      },
+      {
+        "id": "draft.event.000010.special_gift",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 477,
+          "start": 0,
+          "end": 131,
+          "quote": "— Ваше Величество, я позволил себе подготовить особый дар, — сказал он. — Надеюсь, государыня сочтёт его достойным своего внимания."
+        }
+      },
+      {
+        "id": "draft.event.000010.gift_rules",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 479,
+          "start": 0,
+          "end": 82,
+          "quote": "— Содержание дара должно быть известно тем, кто отвечает за порядок представления."
+        }
+      },
+      {
+        "id": "draft.event.000010.prince_delays_details",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 480,
+          "start": 0,
+          "end": 132,
+          "quote": "— Разумеется. Я передам необходимые сведения вашим служителям. Однако позволю себе сохранить часть торжественности до самого вечера."
+        }
+      },
+      {
+        "id": "draft.event.000010.ball_preparations",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 493,
+          "start": 0,
+          "end": 66,
+          "quote": "Подготовка к великому балу заняла последние дни отчётного периода."
+        }
+      },
+      {
+        "id": "draft.event.000010.ball_guard_rules",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 497,
+          "start": 0,
+          "end": 85,
+          "quote": "Новые правила, утверждённые после поступка Линь Сюэ, распространялись и на торжество."
+        }
+      },
+      {
+        "id": "draft.event.000010.guard_not_restored",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 498,
+          "start": 0,
+          "end": 127,
+          "quote": "Горничная по-прежнему не была возвращена к личной охране. Её участие в исследованиях продолжалось под назначенным руководством."
+        }
+      },
+      {
+        "id": "draft.event.000010.clasp_kept",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 516,
+          "start": 0,
+          "end": 119,
+          "quote": "На протяжении года она берегла эту вещь. Иногда брала с собой в поисковые поездки, иногда оставляла среди личных вещей."
+        }
+      },
+      {
+        "id": "draft.event.000010.no_result",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 523,
+          "start": 0,
+          "end": 16,
+          "quote": "Антон не найден."
+        }
+      },
+      {
+        "id": "draft.event.000010.search_continues",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 524,
+          "start": 0,
+          "end": 49,
+          "quote": "Она поставила рядом отметку о продолжении работы."
+        }
+      },
+      {
+        "id": "draft.event.000010.closing_wish",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 534,
+          "start": 0,
+          "end": 46,
+          "quote": "А того, чтобы среди них оказался один человек."
+        }
+      }
+    ],
+    "speech": [
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Рамка к сцене 12, не новое событие.",
+        "source": {
+          "paragraph": 1,
+          "start": 0,
+          "end": 26,
+          "quote": "— Сколько миров проверено?"
+        }
+      },
+      {
+        "speaker": "char.seiran",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Нет подтверждённого следа.",
+        "source": {
+          "paragraph": 3,
+          "start": 0,
+          "end": 116,
+          "quote": "— Государыня, за последний месяц мы исследовали ещё несколько десятков пространств. Ни одного подтверждённого следа."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Продолжать поиск.",
+        "source": {
+          "paragraph": 8,
+          "start": 0,
+          "end": 36,
+          "quote": "— Значит, продолжим за их пределами."
+        }
+      },
+      {
+        "speaker": "char.search_researcher_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Текущее состояние дома неизвестно.",
+        "source": {
+          "paragraph": 32,
+          "start": 0,
+          "end": 139,
+          "quote": "— Не получена им. Последнее известное её положение зафиксировано. Нынешнее состояние комнаты без законного доступа мы подтвердить не можем."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.search_researcher_unnamed"
+        ],
+        "heard": [
+          "char.search_researcher_unnamed"
+        ],
+        "comprehension": "Правомерный поиск.",
+        "source": {
+          "paragraph": 36,
+          "start": 0,
+          "end": 159,
+          "quote": "— Необходимо продолжать обмен сведениями с теми, кто имеет право участвовать в поиске здесь. Не подвергайте их опасности из-за особенностей нашего присутствия."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [],
+        "heard": [],
+        "comprehension": "Зовёт после переноса; адресат отсутствует.",
+        "source": {
+          "paragraph": 72,
+          "start": 0,
+          "end": 14,
+          "quote": "— Тэнмацуйора!"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.settlers_unnamed"
+        ],
+        "heard": [
+          "char.settlers_unnamed"
+        ],
+        "comprehension": "Язык не понят ими.",
+        "source": {
+          "paragraph": 117,
+          "start": 0,
+          "end": 37,
+          "quote": "— Здравствуйте. Вы русский понимаете?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.search_researcher_unnamed"
+        ],
+        "heard": [
+          "char.search_researcher_unnamed"
+        ],
+        "comprehension": "Сходство не доказательство.",
+        "source": {
+          "paragraph": 102,
+          "start": 0,
+          "end": 43,
+          "quote": "— Это не уникальный признак, — сказала она."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.search_researcher_unnamed"
+        ],
+        "heard": [
+          "char.search_researcher_unnamed"
+        ],
+        "comprehension": "Не путать надежду и доказательство.",
+        "source": {
+          "paragraph": 107,
+          "start": 0,
+          "end": 71,
+          "quote": "— Надежда не была ошибкой. Ошибкой было бы объявить её доказательством."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Ответственность и механизм переноса независимы.",
+        "source": {
+          "paragraph": 162,
+          "start": 0,
+          "end": 122,
+          "quote": "— Первое и второе не следует смешивать. Отсутствие объяснения переноса не отменяет ответственности за необоснованный удар."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Признаёт ответственность.",
+        "source": {
+          "paragraph": 178,
+          "start": 0,
+          "end": 39,
+          "quote": "— Я виновна в том, что с ним случилось."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Жизнь ценна независимо от связи с госпожой.",
+        "source": {
+          "paragraph": 184,
+          "start": 0,
+          "end": 93,
+          "quote": "— Тогда запомните: ценность его жизни не определяется тем, кем он оказался для вашей госпожи."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Ограничения сохраняются.",
+        "source": {
+          "paragraph": 190,
+          "start": 0,
+          "end": 326,
+          "quote": "— Вы отстраняетесь от личной охраны до отдельного решения. Ограничение на самостоятельное применение силы и поисковые переходы сохраняется. Ваши сведения могут использоваться для исследований. Вы будете работать под назначенным руководством, если исследователи смогут указать конкретную задачу, для которой необходим ваш опыт."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Исчезновение расследуется.",
+        "source": {
+          "paragraph": 195,
+          "start": 0,
+          "end": 76,
+          "quote": "— И не окончательное решение по делу об исчезновении. Оно остаётся открытым."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Ввести правила.",
+        "source": {
+          "paragraph": 200,
+          "start": 0,
+          "end": 128,
+          "quote": "— Ввести эти правила для моей личной охраны. Остальным подразделениям подготовить соответствующие предложения с учётом их задач."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Намерение извиниться.",
+        "source": {
+          "paragraph": 208,
+          "start": 0,
+          "end": 50,
+          "quote": "— Если его найдут, я хотела бы попросить прощения."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Право Антона отказаться.",
+        "source": {
+          "paragraph": 210,
+          "start": 0,
+          "end": 35,
+          "quote": "— Если он согласится вас выслушать."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.older_captive_unnamed"
+        ],
+        "heard": [
+          "char.older_captive_unnamed"
+        ],
+        "comprehension": "Благодарность.",
+        "source": {
+          "paragraph": 236,
+          "start": 0,
+          "end": 33,
+          "quote": "— Спасибо, — сказал он по-русски."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [],
+        "heard": [],
+        "comprehension": "Собственному отражению.",
+        "source": {
+          "paragraph": 252,
+          "start": 0,
+          "end": 18,
+          "quote": "— Ну и вид у тебя…"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Отделить гипотезы.",
+        "source": {
+          "paragraph": 267,
+          "start": 0,
+          "end": 54,
+          "quote": "— Разделите их. Сходство признака не является дорогой."
+        }
+      },
+      {
+        "speaker": "char.seiran",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Не Антон.",
+        "source": {
+          "paragraph": 286,
+          "start": 0,
+          "end": 48,
+          "quote": "— Этот человек не имеет отношения к нашему делу."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Помочь найденному человеку.",
+        "source": {
+          "paragraph": 287,
+          "start": 0,
+          "end": 139,
+          "quote": "— Он имеет отношение к своему, — ответила императрица. — Мы обнаружили его, потому что искали другого. Нет причин оставлять его без помощи."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [],
+        "heard": [],
+        "comprehension": "Признание наедине, Антон не слышал.",
+        "source": {
+          "paragraph": 325,
+          "start": 0,
+          "end": 21,
+          "quote": "— Я люблю вас, Антон."
+        }
+      },
+      {
+        "speaker": "char.maid_guard_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Гипотеза не доказана.",
+        "source": {
+          "paragraph": 347,
+          "start": 0,
+          "end": 145,
+          "quote": "— Здесь есть сходство с тем, что произошло после моего удара, Ваше Величество. Но я не могу утверждать, что это один и тот же способ перемещения."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Расширить поиск.",
+        "source": {
+          "paragraph": 356,
+          "start": 0,
+          "end": 299,
+          "quote": "— Тогда мы изменим направление работы. Наряду со следами ищите сведения о людях, появившихся в незнакомых мирах без объяснимого происхождения. Не ограничивайтесь свободными путниками. Если человек был ранен, задержан или лишён возможности передвигаться, он мог не оставить обычной записи о переходе."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Не создавать стимул к захватам.",
+        "source": {
+          "paragraph": 359,
+          "start": 0,
+          "end": 199,
+          "quote": "— Установите его там, где это возможно. Не раскрывайте лишних сведений об Антоне и не обещайте награды за доставку человека. Никто не должен получить основание хватать людей, подходящих под описание."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.maid_guard_unnamed"
+        ],
+        "heard": [
+          "char.maid_guard_unnamed"
+        ],
+        "comprehension": "Только контролируемая работа.",
+        "source": {
+          "paragraph": 363,
+          "start": 0,
+          "end": 37,
+          "quote": "— Под руководством исследователя. Да."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.captive_examiners_unnamed"
+        ],
+        "heard": [
+          "char.captive_examiners_unnamed"
+        ],
+        "comprehension": "Сообщает происхождение; понимание неизвестно.",
+        "source": {
+          "paragraph": 393,
+          "start": 0,
+          "end": 16,
+          "quote": "— Россия. Земля."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [],
+        "heard": [],
+        "comprehension": "Сохраняет имя; ответа нет.",
+        "source": {
+          "paragraph": 412,
+          "start": 0,
+          "end": 19,
+          "quote": "— Меня зовут Антон."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Поиск продолжается.",
+        "source": {
+          "paragraph": 437,
+          "start": 0,
+          "end": 47,
+          "quote": "— Изменить методы — возможно. Прекратить — нет."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Сроки задач, не гарантии.",
+        "source": {
+          "paragraph": 440,
+          "start": 0,
+          "end": 242,
+          "quote": "— Вы не можете установить срок нахождения человека, если не знаете, где он находится. Устанавливайте сроки выполнения конкретных задач. Проверки направления. Изучения записи. Получения ответа. Не обещайте результата, который вам неподвластен."
+        }
+      },
+      {
+        "speaker": "char.seiran",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Хронология.",
+        "source": {
+          "paragraph": 443,
+          "start": 0,
+          "end": 46,
+          "quote": "— Прошёл почти год после вашего выздоровления."
+        }
+      },
+      {
+        "speaker": "char.seiran",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Принц прибыл.",
+        "source": {
+          "paragraph": 451,
+          "start": 0,
+          "end": 201,
+          "quote": "— Прибыло посольство. Его возглавляет принц из владений, поддерживающих отношения с несколькими нашими небесами. Он просит личного представления и разрешения присутствовать на предстоящем великом балу."
+        }
+      },
+      {
+        "speaker": "char.seiran",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Заявленная цель, не доказанный мотив.",
+        "source": {
+          "paragraph": 456,
+          "start": 0,
+          "end": 100,
+          "quote": "— Официально — подтверждение отношений и представление даров. Подробный перечень ещё не представлен."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Проверка полномочий.",
+        "source": {
+          "paragraph": 460,
+          "start": 0,
+          "end": 157,
+          "quote": "— Обычный порядок допуска. Подготовьте сведения о его полномочиях и составе сопровождения. Само присутствие на балу не означает разрешения на любое действие."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.seiran"
+        ],
+        "heard": [
+          "char.seiran"
+        ],
+        "comprehension": "Бал не мешает поискам.",
+        "source": {
+          "paragraph": 462,
+          "start": 0,
+          "end": 65,
+          "quote": "— И не задерживайте поисковые доклады из-за подготовки торжества."
+        }
+      },
+      {
+        "speaker": "char.prince_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Содержание не сообщено.",
+        "source": {
+          "paragraph": 477,
+          "start": 0,
+          "end": 131,
+          "quote": "— Ваше Величество, я позволил себе подготовить особый дар, — сказал он. — Надеюсь, государыня сочтёт его достойным своего внимания."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.prince_unnamed"
+        ],
+        "heard": [
+          "char.prince_unnamed"
+        ],
+        "comprehension": "Соблюдать порядок.",
+        "source": {
+          "paragraph": 479,
+          "start": 0,
+          "end": 82,
+          "quote": "— Содержание дара должно быть известно тем, кто отвечает за порядок представления."
+        }
+      },
+      {
+        "speaker": "char.prince_unnamed",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Обещание.",
+        "source": {
+          "paragraph": 480,
+          "start": 0,
+          "end": 132,
+          "quote": "— Разумеется. Я передам необходимые сведения вашим служителям. Однако позволю себе сохранить часть торжественности до самого вечера."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.prince_unnamed"
+        ],
+        "heard": [
+          "char.prince_unnamed"
+        ],
+        "comprehension": "Не даёт исключения.",
+        "source": {
+          "paragraph": 481,
+          "start": 0,
+          "end": 53,
+          "quote": "— Торжественность не заменяет установленного порядка."
+        }
+      }
+    ],
+    "commitments": [
+      {
+        "id": "draft.commitment.tenmatsuyora.find_anton",
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "status": "open",
+        "origin_chapter": 8,
+        "action": "Продолжать поиск.",
+        "source": {
+          "paragraph": 437,
+          "start": 0,
+          "end": 47,
+          "quote": "— Изменить методы — возможно. Прекратить — нет."
+        }
+      },
+      {
+        "id": "draft.order.anton_search",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "origin_chapter": 8,
+        "action": "Искать также несвободных, раненых и перемещённых.",
+        "source": {
+          "paragraph": 356,
+          "start": 0,
+          "end": 299,
+          "quote": "— Тогда мы изменим направление работы. Наряду со следами ищите сведения о людях, появившихся в незнакомых мирах без объяснимого происхождения. Не ограничивайтесь свободными путниками. Если человек был ранен, задержан или лишён возможности передвигаться, он мог не оставить обычной записи о переходе."
+        }
+      },
+      {
+        "id": "draft.order.preserve_anton_home",
+        "from": "char.tenmatsuyora",
+        "to": "char.search_researcher_unnamed",
+        "status": "active",
+        "origin_chapter": 8,
+        "action": "Не вторгаться, законный обмен сведениями.",
+        "source": {
+          "paragraph": 36,
+          "start": 0,
+          "end": 159,
+          "quote": "— Необходимо продолжать обмен сведениями с теми, кто имеет право участвовать в поиске здесь. Не подвергайте их опасности из-за особенностей нашего присутствия."
+        }
+      },
+      {
+        "id": "draft.order.guard_suspension",
+        "from": "char.tenmatsuyora",
+        "to": "char.maid_guard_unnamed",
+        "status": "active",
+        "origin_chapter": 8,
+        "action": "Отстранение и запрет самовольных переходов/силы, работа под руководством.",
+        "source": {
+          "paragraph": 190,
+          "start": 0,
+          "end": 326,
+          "quote": "— Вы отстраняетесь от личной охраны до отдельного решения. Ограничение на самостоятельное применение силы и поисковые переходы сохраняется. Ваши сведения могут использоваться для исследований. Вы будете работать под назначенным руководством, если исследователи смогут указать конкретную задачу, для которой необходим ваш опыт."
+        }
+      },
+      {
+        "id": "draft.order.guard_policy_review",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "fulfilled",
+        "origin_chapter": 9,
+        "action": "Новые правила личной охраны введены; предложения другим подразделениям впереди.",
+        "source": {
+          "paragraph": 200,
+          "start": 0,
+          "end": 128,
+          "quote": "— Ввести эти правила для моей личной охраны. Остальным подразделениям подготовить соответствующие предложения с учётом их задач."
+        }
+      },
+      {
+        "id": "draft.commitment.lin_xue.apology",
+        "from": "char.maid_guard_unnamed",
+        "to": "char.anton",
+        "status": "conditional_open",
+        "origin_chapter": 10,
+        "action": "Извинение при согласии Антона выслушать.",
+        "source": {
+          "paragraph": 208,
+          "start": 0,
+          "end": 50,
+          "quote": "— Если его найдут, я хотела бы попросить прощения."
+        }
+      },
+      {
+        "id": "draft.order.closed_search_register",
+        "from": "char.tenmatsuyora",
+        "to": "char.seiran",
+        "status": "active",
+        "origin_chapter": 9,
+        "action": "Раздельная карта известных переходов и гипотез.",
+        "source": {
+          "paragraph": 267,
+          "start": 0,
+          "end": 54,
+          "quote": "— Разделите их. Сходство признака не является дорогой."
+        }
+      },
+      {
+        "id": "draft.commitment.prince.gift_disclosure",
+        "from": "char.prince_unnamed",
+        "to": "char.tenmatsuyora",
+        "status": "open",
+        "origin_chapter": 10,
+        "action": "Сообщить необходимые сведения о даре служителям; исполнение не подтверждено.",
+        "source": {
+          "paragraph": 480,
+          "start": 0,
+          "end": 132,
+          "quote": "— Разумеется. Я передам необходимые сведения вашим служителям. Однако позволю себе сохранить часть торжественности до самого вечера."
+        }
+      }
+    ],
+    "carried_commitments": [
+      {
+        "id": "draft.commitment.tenmatsuyora.remember_rescue",
+        "origin_chapter": 7,
+        "status": "active"
+      },
+      {
+        "id": "draft.commitment.tenmatsuyora.warn_departure",
+        "origin_chapter": 7,
+        "status": "blocked_by_disappearance"
+      },
+      {
+        "id": "draft.commitment.tenmatsuyora.evening_talk",
+        "origin_chapter": 8,
+        "status": "blocked_by_disappearance"
+      },
+      {
+        "id": "draft.order.separate_investigations",
+        "origin_chapter": 8,
+        "status": "active"
+      },
+      {
+        "id": "draft.order.reservoir_followup",
+        "origin_chapter": 1,
+        "status": "ongoing"
+      }
+    ],
+    "characters": [
+      {
+        "id": "char.tenmatsuyora",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Полностью восстановлена; магия безгранична.",
+          "emotion": "Публично властна, холодна, точна; наедине осознанная любовь, тоска, надежда и уважение свободы Антона."
+        },
+        "goals": [
+          "Найти Антона, помочь, выяснить судьбу",
+          "Управлять девятью небесами",
+          "Продолжить три расследования",
+          "Провести бал"
+        ],
+        "knows": [
+          "Земная группа не установила возвращения, записка не получена, состояние дома без доступа неизвестно",
+          "Следы зеркал не уникальны, гипотеза исчезающих следов не дала маршрута",
+          "Голубоглазый мужчина из мира источников не Антон, семья установлена",
+          "Линь Сюэ ответственна за удар; механизм переноса неизвестен, ограничения и новые правила охраны действуют",
+          "Любит Антона, призналась наедине; даже исчезновение исключения касания не отменило бы поиск",
+          "Принц прибыл, заявил об особом даре"
+        ],
+        "unknown": [
+          "Жив ли Антон, плен, маршрут, истощение и чувства",
+          "Механизм переноса, первого разлома, касания, речи",
+          "Содержание дара и скрытый мотив принца",
+          "Время для Антона"
+        ],
+        "voice": "Сдержанная властная точная речь, наедине «Я люблю вас, Антон»."
+      },
+      {
+        "id": "char.anton",
+        "state": {
+          "location": "unknown_after_captive_transit",
+          "health": "Жив; ушибы после переноса, недостаток пищи, отдыха и лечения; истощён, худой, борода, отросшие волосы, диагнозы неизвестны.",
+          "emotion": "Тоска по дому, беспокойство о Тэнмацуйоре, обида и вопросы без обвинения как факта, сохраняет достоинство."
+        },
+        "goals": [
+          "Выжить",
+          "Сохранить имя",
+          "Вернуться домой",
+          "Узнать судьбу Тэнмацуйоры"
+        ],
+        "knows": [
+          "Очнулся у ручья в чужом мире, телефон оставлен дома",
+          "Получил приют, схвачен вооружёнными людьми с магией, принудительно работал; людей продают",
+          "Несколько межмировых перевозок, маршрута не знает",
+          "Частично выучил чужую речь, сообщил Россия и Земля",
+          "Помнит пожилого пленника, их разлучили",
+          "Помнит имя и правило касания Тэнмацуйоры, её голос при исчезновении"
+        ],
+        "unknown": [
+          "Титул, возвращение, выздоровление, поиски и любовь Тэнмацуйоры",
+          "Имя, роль и мотив Линь Сюэ",
+          "Причина переноса, покупатель, место назначения, принц",
+          "Судьба пожилого пленника, время по девяти небесам"
+        ],
+        "voice": "Простой русский, короткие фразы, не свободное владение чужим языком."
+      },
+      {
+        "id": "char.maid_guard_unnamed",
+        "name": "Линь Сюэ",
+        "aliases": [
+          "Линь Сюэ"
+        ],
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Не установлено",
+          "emotion": "Признанная вина, осторожность, желание исправления."
+        },
+        "goals": [
+          "Сотрудничать под руководством",
+          "Попросить прощения с согласия Антона"
+        ],
+        "knows": [
+          "Ответственность за удар установлена, механизм переноса нет",
+          "Отстранение сохраняется, правила охраны изменены",
+          "Сходство следа не доказывает тождество"
+        ],
+        "unknown": [
+          "Судьба Антона, причина переноса, любовь и безопасное касание"
+        ],
+        "voice": "Почтительная формальная речь, признаёт ответственность."
+      },
+      {
+        "id": "char.seiran",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Не установлено",
+          "emotion": "Деловая сдержанность."
+        },
+        "goals": [
+          "Реестр, расследования, дипломатический допуск и бал"
+        ],
+        "knows": [
+          "Год поисков не дал результата, методы расширены",
+          "Ограничения Линь Сюэ и правила охраны",
+          "Принц обещал особый дар"
+        ],
+        "unknown": [
+          "Плен, любовь и касание, скрытый мотив принца"
+        ],
+        "voice": "Точные доклады и вопросы."
+      },
+      {
+        "id": "char.prince_unnamed",
+        "name": "Принц (имя не названо читателю)",
+        "age": "Взрослый; точный возраст неизвестен",
+        "appearance": "Тёмное одеяние с серебряными украшениями.",
+        "biography": "Возглавляет посольство владений, поддерживающих отношения с несколькими небесами.",
+        "state": {
+          "location": "place.nine_heavens.palace",
+          "health": "Не установлено",
+          "emotion": "Внешняя уверенность, следит за впечатлением."
+        },
+        "goals": [
+          "Заявлено: подтвердить отношения и представить особый дар"
+        ],
+        "knows": [
+          "Правила допуска и представления даров"
+        ],
+        "unknown": [
+          "Скрытый мотив и собственные сведения о пленнике не раскрыты читателю; не предполагать знания о связи Антона и императрицы"
+        ],
+        "voice": "Неторопливая дипломатическая почтительность."
+      },
+      {
+        "id": "char.older_captive_unnamed",
+        "name": "Пожилой пленник",
+        "age": "Старше Антона",
+        "biography": "Работал рядом с Антоном, общался жестами, поделился едой.",
+        "state": {
+          "location": "unknown_after_separation",
+          "health": "Не установлено",
+          "emotion": "Не установлено"
+        },
+        "goals": [
+          "Выжить"
+        ],
+        "knows": [
+          "Антон помог с корзиной, сказал спасибо"
+        ],
+        "unknown": [
+          "Судьба Антона после разлучения"
+        ],
+        "voice": "Мало говорит, жесты, повторяет «спасибо» с акцентом."
+      }
+    ],
+    "relationships": [
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "bond": "Любимый человек, разлука и поиск",
+        "trust": "Сохраняет доверие и благодарность",
+        "affection": "Любовь осознана, взаимность неизвестна",
+        "reason": "Нужен сам человек независимо от касания; уважает его право вернуться на Землю."
+      },
+      {
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "bond": "Бывшая гостья, неизвестная судьба",
+        "trust": "Осложнено обстоятельствами исчезновения",
+        "affection": "Забота и беспокойство; любовь не установлена",
+        "reason": "Помнит, хочет объяснений, не обвиняет без знания."
+      },
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.maid_guard_unnamed",
+        "bond": "Госпожа и отстранённая горничная",
+        "trust": "Только контролируемые исследования",
+        "affection": "Не определена",
+        "reason": "Удар без угрозы, дело открыто."
+      },
+      {
+        "from": "char.maid_guard_unnamed",
+        "to": "char.anton",
+        "bond": "Причинившая вред и пострадавший",
+        "trust": "Не установлено",
+        "affection": "Не установлена",
+        "reason": "Желает извиниться с его согласия."
+      },
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.prince_unnamed",
+        "bond": "Суверен и дипломатический гость",
+        "trust": "Обычная проверка полномочий",
+        "affection": "Не установлена",
+        "reason": "Приём и обещание дара."
+      },
+      {
+        "from": "char.anton",
+        "to": "char.older_captive_unnamed",
+        "bond": "Товарищи по плену, разлучены",
+        "trust": "Взаимопомощь",
+        "affection": "Сочувствие",
+        "reason": "Корзина и разделённая еда."
+      }
+    ],
+    "items": [
+      {
+        "id": "item.broken_hair_clasp",
+        "location": "place.nine_heavens.palace",
+        "note": "Сохранена сломанной как личная память, не поисковый инструмент."
+      },
+      {
+        "id": "item.anton_phone",
+        "location": "place.earth.anton_home",
+        "note": "Последнее известное положение дома; сохранность без доступа неизвестна."
+      },
+      {
+        "id": "item.tenmatsuyora_note",
+        "location": "place.earth.anton_home",
+        "note": "Получение не подтверждено; последнее известное положение зафиксировано."
+      },
+      {
+        "id": "item.closed_search_register",
+        "location": "place.nine_heavens.palace",
+        "note": "Отдельный зал, раздельные подтверждённые переходы и гипотезы."
+      },
+      {
+        "id": "item.anton_identity_sheet",
+        "location": "place.nine_heavens.palace",
+        "note": "Сохранён; тайна касания не раскрыта."
+      },
+      {
+        "id": "item.prince_seal",
+        "location": "place.nine_heavens.palace",
+        "note": "На свитке две пересекающиеся дуги над вертикальной линией; значение неизвестно."
+      }
+    ],
+    "unresolved": [
+      "Антон жив и пленён только для читателя; императрица не знает.",
+      "Маршрут, длительность плена, связь торговцев с принцем неизвестны.",
+      "Имя и мотив принца, содержание дара и исполнение требования неизвестны.",
+      "Три линии расследования раздельны; механизм переноса неизвестен.",
+      "Отстранение Линь Сюэ действует; условное извинение впереди.",
+      "Земной дом: текущее состояние неизвестно.",
+      "Взаимность не установлена; Антон не знает титула.",
+      "Тайна касания и речи не раскрыта.",
+      "Расходы и компенсации первого неба ещё рассматриваются."
+    ],
+    "editorial_decisions": [
+      "Начало — рамка к сцене 12, не отдельное событие; согласовано положение императрицы за столом.",
+      "Почти год после выздоровления по времени девяти небес; локальная линия Антона ретроспективна.",
+      "Добавлены миры зеркал, деревьев и источников, ошибочное опознание и помощь другому пропавшему.",
+      "Пленение показано через потерю свободы, труд, язык, истощение, взаимопомощь без точных дат и полного маршрута.",
+      "Ответственность за удар установлена, механизм переноса неизвестен, ограничения и новые правила охраны.",
+      "Любовь признана наедине; не переносить это знание к Антону.",
+      "Принц без имени читателю; печать и обещание дара — новые зацепки, связь с похищением не доказана.",
+      "Бал и узнавание оставлены главе 11."
+    ]
+  }
+}
