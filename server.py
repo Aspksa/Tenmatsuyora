@@ -420,6 +420,9 @@ class Handler(BaseHTTPRequestHandler):
                 if parsed.path == "/api/chronicles/search":
                     q = parse_qs(parsed.query).get("q", [""])[0][:200]
                     return self.json(200, chronicle.search(q,public=True))
+                if parsed.path == "/api/chronicles/encyclopedia":
+                    through = int(parse_qs(parsed.query).get("through", ["0"])[0])
+                    return self.json(200,chronicle.public_encyclopedia(through))
                 if parsed.path == "/api/chronicles/reader":
                     DB.parent.mkdir(parents=True,exist_ok=True)
                     return self.json(200,chronicle.reader_settings(DB))

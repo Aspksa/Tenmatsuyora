@@ -35,6 +35,8 @@ def main():
             raw,body=c.chapter_text(c.ROOT,ch)
             ch.update(sha256=hashlib.sha256(raw).hexdigest(),body_chars=len(body))
         (c.ROOT/"catalog.json").write_text(json.dumps(cat,ensure_ascii=False,indent=2)+"\n",encoding="utf-8",newline="\n")
+        _,_,st=c.validate(check_snapshot=False)
+        c.materialize(c.ROOT,st)
         return
     cat,cp,st=c.validate()
     if args.base:guard(args.base)

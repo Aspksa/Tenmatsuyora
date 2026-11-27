@@ -76,7 +76,9 @@ def event_apply(st,e,scene):
         key=record["id"]; require(not any(key in st[k] for k in ("characters","places","items","facts","threads")),f"Duplicate record {key}")
         st[kind][key]=copy.deepcopy(record);st["sources"][key]=src
     if t=="create_character":
-        character_ok(d["record"]);add("characters",d["record"]);names_ok(chars)
+        character_ok(d["record"]);require(not d["record"]["state"]["items"],"New character must acquire items through transfers")
+        require(d["record"]["state"]["location"] is None or d["record"]["state"]["location"] in places,"Unknown initial location")
+        add("characters",d["record"]);names_ok(chars)
     elif t in ("create_place","create_item"):
         k="places" if t=="create_place" else "items"
         require(isinstance(d["record"].get("name"),str) and d["record"]["name"].strip(),"Missing name")
@@ -145,7 +147,7 @@ def chapter_text(root,ch):
     require(sep and first=="# "+ch["title"],"Chapter title mismatch")
     return raw,body.strip()
 
-def validate(root=ROOT):
+def validate(root=ROOT,check_snapshot=True):
     root=Path(root)
     cat=load(root,"catalog.json"); cp=load(root,"state/checkpoint.json")
     require(cat["schema"]==cp["schema"]==1,"Unknown schema")
@@ -202,7 +204,47 @@ def validate(root=ROOT):
     examples=load(root,"style/EXAMPLES.json")
     for ex in examples["examples"]: require(type(ex["chapter"]) is int and 1<=ex["chapter"]<=n and ex["scene"] in {s["id"] for s in cat["chapters"][ex["chapter"]-1]["scenes"]},"Invalid style example")
     st["last_tick"]=last_tick
+    # The checked materialized snapshot can be read directly by a fresh GitHub chat.
+    if check_snapshot:
+        require(load(root,"state/current.json")==st,"Stale current snapshot: run stamp")
+        for cid,character in st["characters"].items():
+            require(load(root,"state/characters/"+cid+".json")==character_snapshot(st,cid),"Stale character snapshot "+cid)
+        actual={p.stem for p in (root/"state/characters").glob("*.json")}
+        require(actual==set(st["characters"]),"Unexpected character snapshot")
+    entries=load(root,"encyclopedia.json")
+    require(entries["schema"]==1,"Unknown encyclopedia schema")
+    seen=set()
+    for entry in entries["entries"]:
+        require(valid_id(entry["id"]) and entry["id"] not in seen,"Duplicate encyclopedia entry")
+        seen.add(entry["id"])
+        require(entry["kind"] in ("character","world","place","magic","history") and type(entry["visible_after"]) is int and 0<=entry["visible_after"]<=n,"Invalid encyclopedia visibility")
+        require(all(isinstance(entry.get(k),str) and entry[k].strip() for k in ("title","text")),"Invalid public entry")
     return cat,cp,st
+
+def character_snapshot(st,cid):
+    return {"profile":st["characters"][cid],
+        "relationships_out":{k:v for k,v in st["relationships"].items() if k.startswith(cid+"->")},
+        "relationships_in":{k:v for k,v in st["relationships"].items() if k.endswith("->"+cid)},
+        "knowledge":{k:v for k,v in st["knowledge"].items() if k.startswith(cid+"->")},
+        "facts":{k:v for k,v in st["facts"].items() if cid in v.get("subjects",[]) or pair_key(cid,k) in st["knowledge"]},
+        "sources":{k:v for k,v in st["sources"].items() if k==cid or k.startswith(cid+".") or k.startswith(cid+"->") or k.endswith("->"+cid)}}
+
+def materialize(root,st):
+    root=Path(root)
+    def write(path,data):
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8",newline="\n")
+    write(root/"state/current.json",st)
+    folder=root/"state/characters"
+    folder.mkdir(parents=True,exist_ok=True)
+    for cid in st["characters"]:write(folder/(cid+".json"),character_snapshot(st,cid))
+    for p in folder.glob("*.json"):
+        if p.stem not in st["characters"]:p.unlink()
+
+def public_encyclopedia(through,root=ROOT):
+    n=len(load(root,"catalog.json")["chapters"])
+    require(type(through) is int and 0<=through<=n,"Invalid reading chapter")
+    return [e for e in load(root,"encyclopedia.json")["entries"] if e["visible_after"]<=through]
 
 def public_catalog(root=ROOT):
     cat=load(root,"catalog.json")
@@ -228,7 +270,8 @@ def search(query,root=ROOT,public=False):
     return found
 
 def reader_settings(db,data=None,max_chapter=0):
-    with sqlite3.connect(db,timeout=10) as conn:
+    from contextlib import closing
+    with closing(sqlite3.connect(db,timeout=10)) as conn, conn:
         conn.execute("CREATE TABLE IF NOT EXISTS chronicle_reader(id INTEGER PRIMARY KEY CHECK(id=1), value TEXT NOT NULL)")
         row=conn.execute("SELECT value FROM chronicle_reader WHERE id=1").fetchone()
         result=json.loads(row[0]) if row else {"chapter":0,"position":0,"font":20,"theme":"night","bookmarks":[]}

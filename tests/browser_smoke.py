@@ -73,6 +73,10 @@ def main():
                         print(run.stdout[-5000:])
                         print(run.stderr[-2000:])
                         raise AssertionError(f"Browser {size}: ready={dom.ready}, layout={dom.layout}, overflow={dom.overflow}, stars={dom.stars}, visual={dom.visual}")
+                reader_run=subprocess.run([chrome,"--headless=new","--no-sandbox","--disable-dev-shm-usage","--disable-gpu","--no-first-run","--window-size=1280,900",f"--user-data-dir={tmp}/reader","--virtual-time-budget=9000","--dump-dom",url+"/chronicles"],capture_output=True,timeout=60,encoding="utf-8",errors="replace")
+                if reader_run.returncode!=0 or 'data-ready="true"' not in reader_run.stdout or 'id="chapter"' not in reader_run.stdout:
+                    raise AssertionError("Reader did not initialize: "+reader_run.stdout[-2000:]+reader_run.stderr[-1000:])
+                print("Browser: local Chronicle reader initialized")
             finally:
                 http.shutdown()
                 thread.join(timeout=5)

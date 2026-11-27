@@ -13,6 +13,14 @@ class ChronicleTest(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)/"chronicles"
         shutil.copytree(c.ROOT,self.root)
+        # Isolate tests from the future growing novel; no actual chapter is replaced.
+        cat=c.load(self.root,"catalog.json");cat["chapters"]=[];self.write("catalog.json",cat)
+        for p in self.root.glob("books/**/chapter-*.md"):p.unlink()
+        for p in self.root.glob("events/*.json"):p.unlink()
+        cp=c.load(self.root,"state/checkpoint.json");cp.update(last_chapter=None,next_chapter=1,last_tick=0,open_threads=[]);self.write("state/checkpoint.json",cp)
+        self.write("style/EXAMPLES.json",{"schema":1,"examples":[]})
+        enc=c.load(self.root,"encyclopedia.json");enc["entries"]=[e for e in enc["entries"] if e["visible_after"]==0];self.write("encyclopedia.json",enc)
+        c.materialize(self.root,c.initial(self.root))
     def write(self,path,value):
         p=self.root/path;p.parent.mkdir(parents=True,exist_ok=True)
         p.write_text(json.dumps(value,ensure_ascii=False),encoding="utf-8")
@@ -20,13 +28,14 @@ class ChronicleTest(unittest.TestCase):
         cat=c.load(self.root,"catalog.json")
         body="\n\n".join(f"Тестовый абзац {i}: "+"слово "*32 for i in range(80))
         raw=("# Начало\n\n"+body+"\n").encode()
-        p=self.root/"books/vol-001/chapter-000001.md";p.parent.mkdir(parents=True);p.write_bytes(raw)
+        p=self.root/"books/vol-001/chapter-000001.md";p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
         actor="char.tenmatsuyora";sid="scene.000001.001"
         ch={"number":1,"volume":"vol.001","title":"Начало","path":"books/vol-001/chapter-000001.md","events":"events/000001.json","sha256":hashlib.sha256(raw).hexdigest(),"body_chars":len(body),"summary":"Тестовый пересказ, не являющийся настоящей главой.","participants":[actor],"places":[],"themes":["тест"],"related_chapters":[],"scenes":[{"id":sid,"pov":actor,"participants":[actor],"place":None,"start_tick":1,"end_tick":2,"summary":"Тест"}],"review":{**{k:True for k in c.REVIEW},"notes":"fixture"}}
         cat["chapters"]=[ch];self.write("catalog.json",cat)
         ev={"schema":1,"chapter":1,"events":[{"id":"event.000001.001","tick":1,"scene":sid,"type":"change_state","data":{"character":actor,"field":"health","before":"не установлено","after":"здорова"}}]}
         self.write(ch["events"],ev)
         cp=c.load(self.root,"state/checkpoint.json");cp.update(last_chapter=1,next_chapter=2,last_tick=2);self.write("state/checkpoint.json",cp)
+        _,_,st=c.validate(self.root,check_snapshot=False);c.materialize(self.root,st)
         return cat,ev,cp
     def test_seed(self):
         cat,cp,st=c.validate(self.root);self.assertEqual(cp["next_chapter"],len(cat["chapters"])+1)
@@ -44,6 +53,15 @@ class ChronicleTest(unittest.TestCase):
         with self.assertRaises(ValueError):c.validate(self.root)
         cp["next_chapter"]=2;self.write("state/checkpoint.json",cp);cat["chapters"][0]["sha256"]="0"*64;self.write("catalog.json",cat)
         with self.assertRaises(ValueError):c.validate(self.root)
+    def test_snapshot_and_spoiler_boundary(self):
+        self.fixture()
+        st=c.load(self.root,"state/current.json");st["last_tick"]=99;self.write("state/current.json",st)
+        with self.assertRaises(ValueError):c.validate(self.root)
+        _,_,st=c.validate(self.root,check_snapshot=False);c.materialize(self.root,st)
+        enc=c.load(self.root,"encyclopedia.json");enc["entries"].append({"id":"entry.test","kind":"history","title":"Тайна","text":"Только после главы","visible_after":1});self.write("encyclopedia.json",enc)
+        self.assertNotIn("entry.test",[e["id"] for e in c.public_encyclopedia(0,self.root)])
+        self.assertIn("entry.test",[e["id"] for e in c.public_encyclopedia(1,self.root)])
+        c.validate(self.root)
     def test_reader_settings(self):
         db=Path(self.temp.name)/"reader.sqlite"
         c.reader_settings(db,{"chapter":1,"position":4500,"font":24,"theme":"paper","bookmarks":[1]},1)
