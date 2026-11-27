@@ -76,6 +76,10 @@ class Replay:
         self.paragraph_hashes={}
         self.volume_chapters=defaultdict(list)
         self.topic=defaultdict(set)
+        self.terms=defaultdict(set)
+        self.entity_chapters=defaultdict(set)
+        self.entity_events=defaultdict(list)
+        self.chapter_events=defaultdict(list)
 
     def apply(self,e,scene,ch,paras,st):
         eid=e["id"];d=e["data"];t=e["type"]
@@ -88,6 +92,10 @@ class Replay:
         for tid in refs(e,"threads",st["threads"]):self.threads[tid].append(eid)
         # Character references are explicit, not inferred from arbitrary prose.
         involved=refs(e,"actors",known|people)
+        if t in ("change_state","change_profile"):
+            require(d["character"] in involved,"missing state change actor")
+        if t=="transfer_item":
+            require({d["from"],d["to"]}-{None}<=set(involved),"missing transfer actor")
         if t=="speech":
             speaker=d.get("speaker")
             require(speaker in known and speaker in people and speaker in involved,"speaker absent")
@@ -209,7 +217,7 @@ class Replay:
             require(who in known and who in involved and past in self.events and past in causes,"invalid recall")
             require(d.get("remembered_tick")==self.events[past]["tick"],"wrong remembered time")
             text_fields(d,("interpretation","mode"));require(d["mode"] in ("experienced","told","inferred","mistaken"),"recall mode")
-            if d["mode"]=="experienced":require(who in self.hero and past in self.hero[who]["events"],"hero did not experience recalled event")
+            if d["mode"]=="experienced":require(who in self.hero and past in self.hero[who]["events"] and who in self.scenes[self.events[past]["scene"]]["participants"],"hero did not experience recalled event")
         elif t in ("decision","consequence"):
             text_fields(d,("description","motivation","impact"))
             require(bool(involved),"missing decision actors")
@@ -218,6 +226,20 @@ class Replay:
         if t=="close_thread":self.threads[d["thread"]].append(eid)
         for x in involved:self.hero[x]["events"].append(eid)
         self.events[eid]=row
+        self.chapter_events[ch["number"]].append(eid)
+        # Index explicitly recorded IDs, never infer a person or artifact from a similar name.
+        entities=set(st["characters"])|set(st["places"])|set(st["items"])|set(st["facts"])|set(st["threads"])|set(self.commitments)|set(self.secrets)
+        record=d.get("record")
+        if isinstance(record,dict) and isinstance(record.get("id"),str):entities.add(record["id"])
+        def visit(value):
+            if isinstance(value,str):
+                if value in entities:yield value
+            elif isinstance(value,list):
+                for v in value:yield from visit(v)
+            elif isinstance(value,dict):
+                for v in value.values():yield from visit(v)
+        for entity in sorted(set(involved)|set(visit(d))):
+            self.entity_chapters[entity].add(ch["number"]);self.entity_events[entity].append(eid)
 
     def scene_start(self,scene,number,paras,expected):
         limits=scene.get("paragraphs")
@@ -249,26 +271,30 @@ class Replay:
             self.paragraph_hashes.setdefault(h,n)
         for v in [*ch["participants"],*ch["places"],*ch["themes"]]:self.topic[v].add(n)
         self.volume_chapters[ch["volume"]].append(n)
+        for entity in [*ch["participants"],*ch["places"]]:self.entity_chapters[entity].add(n)
+        for word in set(words(" ".join(paras)+" "+ch["title"]+" "+ch["summary"]+" "+" ".join(ch["themes"]))):
+            for term in stems(word):self.terms[term].add(n)
         active={cid:copy.deepcopy(st["characters"][cid]["state"]) for cid in ch["participants"]}
         # Chapter-end snapshot, compact: world changes are recoverable from the immutable journal.
-        self.chapters[n]={"number":n,"title":ch["title"],"path":ch["path"],"events_path":ch["events"],"sha256":ch["sha256"],"summary":ch["summary"],"continuity":copy.deepcopy(continuity),"scenes":[s["id"] for s in ch["scenes"]],"participants":ch["participants"],"places":ch["places"],"themes":ch["themes"],"related_chapters":ch["related_chapters"],"snapshot":{"last_tick":ch["scenes"][-1]["end_tick"],"characters":active,"open_threads":sorted(k for k,v in st["threads"].items() if v["status"]=="open"),"open_commitments":sorted(k for k,v in self.commitments.items() if v["status"]=="open")}}
+        self.chapters[n]={"number":n,"title":ch["title"],"path":ch["path"],"events_path":ch["events"],"sha256":ch["sha256"],"summary":ch["summary"],"continuity":copy.deepcopy(continuity),"scenes":[s["id"] for s in ch["scenes"]],"participants":ch["participants"],"places":ch["places"],"themes":ch["themes"],"related_chapters":ch["related_chapters"],"snapshot":{"last_tick":ch["scenes"][-1]["end_tick"],"characters":active,"relationships":{k:copy.deepcopy(v) for k,v in st["relationships"].items() if any(x in active for x in k.split("->"))},"knowledge":{k:copy.deepcopy(v) for k,v in st["knowledge"].items() if k.split("->",1)[0] in active},"open_threads":sorted(k for k,v in st["threads"].items() if v["status"]=="open"),"open_commitments":sorted(k for k,v in self.commitments.items() if v["status"]=="open")}}
 
     def documents(self,cat,cp,st):
         docs={}
         def add(path,data):docs[path]=data
         for sid,s in self.scenes.items():add("scenes/"+sid+".json",s)
         for n,ch in self.chapters.items():
-            events=[e for e in self.events.values() if e["chapter"]==n]
+            events=[self.events[e] for e in self.chapter_events[n]]
             add(f"chapters/{n:06d}.json",{**ch,"events":events,"dialogues":[x["id"] for x in events if x["type"]=="speech"]})
         for cid in st["characters"]:
             h=self.hero[cid];known=[{"fact":k.split("->",1)[1],"value":v} for k,v in st["knowledge"].items() if k.startswith(cid+"->")]
             relevant=[self.events[x] for x in h["events"][-12:]]
             add("characters/"+cid+".json",{**h,"profile_path":"state/characters/"+cid+".json","known":known,"recent_events":[ref_event(e) for e in relevant],"latest_spoken":h["spoken"][-1] if h["spoken"] else None,"latest_heard":h["heard"][-1] if h["heard"] else None,"chapters":sorted({self.scenes[s]["chapter"] for s in h["scenes"]}|{self.events[e]["chapter"] for e in h["events"]})})
         pair_index={}
+        event_order={eid:i for i,eid in enumerate(self.events)}
         for key,p in self.pairs.items():
             a,b=key.split("|");enc=p["encounters"];dialogs=p["dialogues"]
             filename=a+"--"+b+".json";pair_index[key]="pairs/"+filename
-            event_ids=sorted(set(enc+dialogs+p["relationship_changes"]),key=lambda k:(self.events[k]["chapter"],self.events[k]["tick"],k))
+            event_ids=sorted(set(enc+dialogs+p["relationship_changes"]),key=lambda k:event_order[k])
             add("pairs/"+filename,{**p,"characters":[a,b],"first_meeting":enc[0] if enc else None,"last_meeting":enc[-1] if enc else None,"last_dialogue":dialogs[-1] if dialogs else None,"current":{k:st["relationships"].get(k) for k in (a+"->"+b,b+"->"+a)},"chapters":sorted({self.events[x]["chapter"] for x in event_ids}),"recent":[ref_event(self.events[x]) for x in event_ids[-12:]]})
         for tid,t in st["threads"].items():
             history=self.threads[tid]
@@ -279,6 +305,11 @@ class Replay:
             knowers={k.split("->",1)[0]:x for k,x in st["knowledge"].items() if k.endswith("->"+v["fact"]) and x["mode"]!="forgotten"}
             add("secrets/"+sid+".json",{**v,"known_or_believed_by":knowers})
         for volume,ns in self.volume_chapters.items():add("volumes/"+volume+".json",{"chapters":ns,"summaries":[{"number":n,"summary":self.chapters[n]["summary"]} for n in ns]})
+        shards=defaultdict(dict)
+        for term,ns in self.terms.items():shards[term_shard(term)][term]=sorted(ns)
+        for key,terms in shards.items():add("terms/"+key+".json",terms)
+        for entity,ns in self.entity_chapters.items():
+            add("entities/"+entity+".json",{"id":entity,"chapters":sorted(ns),"events":self.entity_events[entity]})
         event_index={k:{"chapter":e["chapter"],"scene":e["scene"],"type":e["type"],"causes":e["causes"],"effects":self.causal[k]} for k,e in self.events.items()}
         aliases={cid:[c["name"],*c["aliases"],*c["titles"]] for cid,c in st["characters"].items()}
         add("index.json",{"schema":1,"last_chapter":cp["last_chapter"],"events":event_index,"pairs":pair_index,"characters":aliases,"topics":{k:sorted(v) for k,v in self.topic.items()},"threads":sorted(st["threads"]),"commitments":sorted(self.commitments),"secrets":sorted(self.secrets)})
@@ -335,7 +366,10 @@ def verify(root,docs):
     require(actual==set(docs),"generated narrative file set stale; run stamp")
     for path,v in docs.items():require((folder/path).read_bytes()==encode(v),"stale narrative file: "+path)
 
-def retrieve(root,query="",characters=(),thread=None,limit=20):
+def term_shard(term):
+    return hashlib.sha256(term.encode("utf-8")).hexdigest()[:2]
+
+def retrieve(root,query="",characters=(),thread=None,limit=20,entities=(),event_ids=()):
     """Bounded lexical + exact entity + causal expansion, with explicit sources."""
     folder=root/"narrative"
     def get(path):return json.loads((folder/path).read_text(encoding="utf-8"))
@@ -366,15 +400,31 @@ def retrieve(root,query="",characters=(),thread=None,limit=20):
         t=get("threads/"+thread+".json")
         for n in t["chapters"]:score(n,8,"thread "+thread)
         seeds.update(t["events"][-4:])
+    for eid in event_ids:
+        require(eid in index["events"],"unknown requested event")
+        seeds.add(eid)
+    for eid in entities:
+        require(isinstance(eid,str) and re.fullmatch(r"[a-z][a-z0-9]*(?:[.-][a-z0-9]+)+",eid),"invalid entity ID")
+        path="entities/"+eid+".json"
+        require((folder/path).is_file(),"unknown or not yet referenced entity")
+        data=get(path)
+        for number in data["chapters"]:score(number,5,"entity "+eid)
+        seeds.update(data["events"][-4:])
     cat=json.loads((root/"catalog.json").read_text(encoding="utf-8"))
-    for ch in cat["chapters"]:
-        n=ch["number"]
-        if q:
-            text=(root/ch["path"]).read_text(encoding="utf-8")
-            vocab=set().union(*(stems(w) for w in words(text+" "+ch["summary"]+" "+" ".join(ch["themes"]))))
-            hits=sum(bool(vocab&t) for t in qstems)
-            if hits:score(n,2*hits,"lexical "+str(hits)+"/"+str(len(q)))
-        if n in handover["required_chapters"]:score(n,2,"handover")
+    # Read only term postings, not the prose of every chapter on each query.
+    shard_cache={}
+    hits=Counter()
+    for alternatives in qstems:
+        matches=set()
+        for term in alternatives:
+            key=term_shard(term)
+            if key not in shard_cache:
+                path="terms/"+key+".json"
+                shard_cache[key]=get(path) if (folder/path).is_file() else {}
+            matches.update(shard_cache[key].get(term,[]))
+        hits.update(matches)
+    for number,count in hits.items():score(number,2*count,"lexical "+str(count)+"/"+str(len(q)))
+    for number in handover["required_chapters"]:score(number,2,"handover")
     visited=set();queue=deque((s,0) for s in sorted(seeds))
     while queue and len(visited)<150:
         eid,depth=queue.popleft()

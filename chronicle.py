@@ -226,6 +226,18 @@ def validate(root=ROOT,check_snapshot=True):
     if check_snapshot:narrative.verify(root,docs)
     return cat,cp,st
 
+def state_at(number,root=ROOT):
+    """Recover the whole world at a historical chapter from its original events."""
+    cat=load(root,"catalog.json")
+    require(type(number) is int and 0<=number<=len(cat["chapters"]),"Invalid historical chapter")
+    st=initial(root)
+    for ch in cat["chapters"][:number]:
+        events=load(root,ch["events"])["events"]
+        scenes={s["id"]:s for s in ch["scenes"]}
+        for event in events:event_apply(st,event,scenes[event["scene"]])
+        st["last_tick"]=ch["scenes"][-1]["end_tick"]
+    return st
+
 def character_snapshot(st,cid):
     return {"profile":st["characters"][cid],
         "relationships_out":{k:v for k,v in st["relationships"].items() if k.startswith(cid+"->")},

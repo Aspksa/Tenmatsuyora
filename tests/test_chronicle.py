@@ -49,6 +49,15 @@ class ChronicleTest(unittest.TestCase):
         self.assertEqual(c.public_chapter(1,self.root)["title"],"Начало")
         self.assertNotIn("summary",c.public_catalog(self.root)["chapters"][0])
         self.assertEqual(len(c.search("слово",self.root,public=True)),1)
+    def test_indexed_retrieval_and_history(self):
+        self.fixture()
+        result=c.narrative.retrieve(self.root,"слова",entities=["char.tenmatsuyora"],event_ids=["event.000001.001"])
+        self.assertEqual(result["ranked"][0]["number"],1)
+        self.assertTrue(any("lexical" in x for x in result["ranked"][0]["reasons"]))
+        self.assertEqual(c.state_at(0,self.root)["characters"]["char.tenmatsuyora"]["state"]["health"],"не установлено")
+        self.assertEqual(c.state_at(1,self.root)["characters"]["char.tenmatsuyora"]["state"]["health"],"здорова")
+        with self.assertRaises(ValueError):c.state_at(2,self.root)
+        with self.assertRaises(ValueError):c.narrative.retrieve(self.root,entities=["../unsafe"])
     def test_stale_event(self):
         cat,ev,cp=self.fixture();ev["events"][0]["data"]["before"]="неверно";self.write("events/000001.json",ev)
         with self.assertRaises(ValueError):c.validate(self.root)

@@ -25,12 +25,15 @@ def guard(base):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("command",choices=["validate","context","search","stamp","retrieve"])
+    parser.add_argument("command",choices=["validate","context","search","stamp","retrieve","history"])
     parser.add_argument("query",nargs="?",default="")
     parser.add_argument("--base")
     parser.add_argument("--character",action="append",default=[])
     parser.add_argument("--thread")
     parser.add_argument("--limit",type=int,default=20)
+    parser.add_argument("--entity",action="append",default=[])
+    parser.add_argument("--event",action="append",default=[])
+    parser.add_argument("--chapter",type=int)
     args=parser.parse_args()
     if args.command=="stamp":
         cat=c.load(c.ROOT,"catalog.json")
@@ -45,7 +48,10 @@ def main():
     if args.base:guard(args.base)
     if args.command=="validate":print("Chronicle valid:",len(cat["chapters"]),"chapters")
     elif args.command=="search":print(json.dumps(c.search(args.query),ensure_ascii=False,indent=2))
-    elif args.command=="retrieve":print(json.dumps(c.narrative.retrieve(c.ROOT,args.query,args.character,args.thread,args.limit),ensure_ascii=False,indent=2))
+    elif args.command=="retrieve":print(json.dumps(c.narrative.retrieve(c.ROOT,args.query,args.character,args.thread,args.limit,args.entity,args.event),ensure_ascii=False,indent=2))
+    elif args.command=="history":
+        c.require(args.chapter is not None,"Use --chapter NUMBER")
+        print(json.dumps(c.state_at(args.chapter),ensure_ascii=False,indent=2))
     else: print(json.dumps({"checkpoint":cp,"state":st,"recent":cat["chapters"][-3:]},ensure_ascii=False,indent=2))
 if __name__=="__main__":
     try:main()
