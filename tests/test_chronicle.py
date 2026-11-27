@@ -26,7 +26,7 @@ class ChronicleTest(unittest.TestCase):
         p.write_text(json.dumps(value,ensure_ascii=False),encoding="utf-8")
     def fixture(self):
         cat=c.load(self.root,"catalog.json")
-        body="\n\n".join(f"Тестовый абзац {i}: "+"слово "*32 for i in range(80))
+        body="\n\n".join(f"Тестовый абзац {i}: "+"слово "*32 for i in range(80)).strip()
         raw=("# Начало\n\n"+body+"\n").encode()
         p=self.root/"books/vol-001/chapter-000001.md";p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
         actor="char.tenmatsuyora";sid="scene.000001.001"
