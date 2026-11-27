@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "base_sha": "836c6a970013741f91f9055482b249c05c098130",
+  "required_canon_commit": "8057064eda41dddf58676f3deb00e1893296b638",
+  "required_canon_pr": 14,
+  "chapter": 1,
+  "completed_scenes": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "next_scene": "Повторная сквозная редактура, привязка всех событий, значимых реплик, отношений, знаний и обещаний к точным абзацам; создать catalog/events/checkpoint и сгенерировать снимки stamp.",
+  "intended_sources": [
+    "chronicles/canon/foundation.json",
+    "chronicles/style/STYLE.md",
+    "chronicles/style/VOICES.md",
+    "chronicles/quality/NARRATIVE.md"
+  ],
+  "status": "revised_unpublished",
+  "body_chars": 26729,
+  "editorial_status": "Первая версия приведена к новой внешности, безграничной силе, шоку от прикосновения и одиночеству с детства. Нужна повторная сквозная редактура и журнал событий; не публиковать до актуализации базы и stamp/validate.",
+  "canon_pr_status": "merged",
+  "arc_pr": 15,
+  "arc_pr_status": "merged"
+}

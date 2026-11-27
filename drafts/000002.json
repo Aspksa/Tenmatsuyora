@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "base_sha": "836c6a970013741f91f9055482b249c05c098130",
+  "chapter": 2,
+  "status": "provisional_unpublished",
+  "prerequisite": {
+    "chapter": 1,
+    "branch": "draft/chronicle-000001",
+    "commit": "b2863b79fbca15a616d166d17997ee852c5e9f53",
+    "blob": "a1aab6b49f9a9df649f1f93d2de44cfd1169c7b2",
+    "note": "Глава 1 ещё не опубликована; продолжение необходимо сверить с её окончательным текстом и журналом."
+  },
+  "completed_scenes": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "next_scene": "Антон обнаруживает раненую императрицу в поле; отдельная глава о первой встрече и прикосновении.",
+  "intended_sources": [
+    "chronicles/plan/PLOT.md",
+    "chronicles/canon/foundation.json",
+    "chronicles/style/STYLE.md",
+    "chronicles/quality/NARRATIVE.md"
+  ],
+  "body_chars": 12771,
+  "editorial_status": "Первый полный черновик главы о нападении, разломе и переносе. Не публиковать до главы 1, редакторской сверки и полной индексации. Предлагаемые новые факты (левая нога, характер разлома) не являются опубликованным каноном.",
+  "arc_pr": 15,
+  "arc_pr_status": "merged"
+}
