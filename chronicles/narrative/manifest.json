@@ -5,15 +5,15 @@
     "index.json": "ac42177f67b64efd3eb83360dcf7056aa1f17060f5f65cb161b4b496851307ed"
   },
   "inputs": {
-    "AGENTS.md": "d1018000faf69d2a1aa74eb68b3530dc25dccae9167c7a0c8ba0031258c09619",
-    "START_HERE.md": "c637391adb1a6b5cc09861e00186e934e63a772a46800480385b7178c4584809",
+    "AGENTS.md": "2d7e3999ebf6d256eb10f78526c6285a6588e61eb9200a83eabe3d0f9d6c1d74",
+    "START_HERE.md": "d4b5e79a2c052f654d6ef7b1048185ef4af297607781f05029e072aa0ddc33a5",
     "canon/foundation.json": "7262dbd4e6c69bcde9d8027d45400d61309c15cfdb376756fdc708bf7d72a1f7",
     "catalog.json": "e7252e4ad4807212c0520ea2652d1ccd1cdbefef003b903d925e7643713168f2",
-    "plan/PLOT.md": "409e39abfdda80060f204702a991ef17e8df4c7a63505f075f405b5025b6e25f",
-    "plan/UNKNOWN.md": "ef8b4a094a7eed84a14dfdec4d12f2664752d096b3aeefd19f5ac85efac3348f",
+    "plan/PLOT.md": "c9251b28dd50d677101b42a0ba277f4ea4b96cf9c2dba58564513780c6f463c2",
+    "plan/UNKNOWN.md": "5288e9702f68339d11a4b3d47c468b83b6d6f76c7e956576ef330bc4b2bc1fa1",
     "state/checkpoint.json": "f8a47728e1f74dd0bfaa265f66179da7b3fa56852221d8a131a6707a3a1139f1",
     "style/EXAMPLES.json": "1577b2c9703f63c141c6b2aeb68354d14338372c7f8b995a1050f4f6f82e4f75",
-    "style/STYLE.md": "3eb64a29f1e371cb684ea1e22a61993cc091768500cab4d8723d37794015ea3c",
+    "style/STYLE.md": "adc9c534cfa2b0aa7914a703ecb6f2663c9f881647c189959f56377a16d93e4d",
     "style/VOICES.md": "ca8e5b90a5ded3638fceb86f2322d4ebfd665ce76d9d1d3ad5a99f5ff8697fc0"
   },
   "last_chapter": null,
