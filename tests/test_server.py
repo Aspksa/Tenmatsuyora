@@ -72,5 +72,32 @@ class HistoryTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 server.process("повтор",token)
 
+    def test_sse_content_and_incomplete(self):
+        chunks = [b'data: {"choices":[{"delta":{"reasoning_content":"hidden"}}]}\n', b'data: {"choices":[{"delta":{"content":"Hello"}}]}\n', b'data: {"choices":[{"delta":{"content":" world"},"finish_reason":"stop"}]}\n', b'data: [DONE]\n']
+        self.assertEqual(server.read_stream(chunks), "Hello world")
+        with self.assertRaises(ValueError):
+            server.read_stream(chunks[:2])
+
+    def test_catalog_and_cached_vectors(self):
+        from contextlib import closing
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server, "DB", Path(tmp)/"test.sqlite"), patch.object(server, "KEY", "test"):
+            import hashlib
+            with closing(server.connect()) as conn, conn:
+                conn.execute("INSERT INTO embedding_cache VALUES (?,?,?)", ("m",hashlib.sha256(b"a").hexdigest(),"[1,0]"))
+            with patch.object(server.urllib.request, "build_opener", side_effect=AssertionError("unexpected network")):
+                self.assertEqual(server.cached_vectors("m",["a","a"]),[[1,0],[1,0]])
+            self.assertAlmostEqual(server.cosine([1,0],[1,0]),1)
+            with self.assertRaises(ValueError):
+                server.cosine([1],[1,2])
+
+    def test_catalog_configuration(self):
+        catalog=[{"id":"chat","category":"llm"},{"id":"embed","category":"embedding"}]
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server, "DB", Path(tmp)/"test.sqlite"), patch.object(server,"KEY",""), patch.object(server,"MODEL",""), patch.object(server,"CATALOG",[]), patch.object(server,"VERIFIED",False), patch.object(server,"EMBED_MODEL",""), patch.object(server,"catalog_for",return_value=catalog):
+            self.assertTrue(server.configure_cloud({"key":"test","model":"chat"})["verified"])
+            with self.assertRaises(ValueError):
+                server.configure_cloud({"model":"chat","embedding":"embed"})
+            self.assertEqual(server.configure_cloud({"model":"chat","embedding":"embed","semantic_consent":True})["embedding"],"embed")
+            self.assertFalse(server.configure_cloud({"clear":True})["has_key"])
+
 if __name__ == "__main__":
     unittest.main()
