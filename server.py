@@ -1,4 +1,5 @@
 import json
+import chronicle
 import os
 import sqlite3
 import threading
@@ -388,7 +389,7 @@ def configure_cloud(data):
             KEY,MODEL,EMBED_MODEL,CATALOG,VERIFIED = candidate,selected,embedding,catalog,True
     return {"configured": bool(KEY and MODEL),"model":MODEL,**cloud_status()}
 
-ASSETS = {"/": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/geometry.js": ("geometry.js", "text/javascript; charset=utf-8"), "/physics.js": ("physics.js", "text/javascript; charset=utf-8"), "/star.svg": ("star.svg", "image/svg+xml")}
+ASSETS = {"/chronicles": ("chronicles.html", "text/html; charset=utf-8"), "/chronicles.css": ("chronicles.css", "text/css; charset=utf-8"), "/reader.js": ("reader.js", "text/javascript; charset=utf-8"), "/": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/geometry.js": ("geometry.js", "text/javascript; charset=utf-8"), "/physics.js": ("physics.js", "text/javascript; charset=utf-8"), "/star.svg": ("star.svg", "image/svg+xml")}
 
 class Handler(BaseHTTPRequestHandler):
     def allowed(self):
@@ -410,6 +411,24 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.allowed():
             return self.json(403, {"error":"Invalid host"})
+        if self.path.startswith("/api/chronicles/"):
+            from urllib.parse import urlsplit, parse_qs
+            parsed = urlsplit(self.path)
+            try:
+                if parsed.path == "/api/chronicles/catalog":
+                    return self.json(200, chronicle.public_catalog())
+                if parsed.path == "/api/chronicles/search":
+                    q = parse_qs(parsed.query).get("q", [""])[0][:200]
+                    return self.json(200, chronicle.search(q,public=True))
+                if parsed.path == "/api/chronicles/reader":
+                    DB.parent.mkdir(parents=True,exist_ok=True)
+                    return self.json(200,chronicle.reader_settings(DB))
+                match = re.fullmatch(r"/api/chronicles/chapter/([0-9]{1,6})",parsed.path)
+                if match:
+                    return self.json(200,chronicle.public_chapter(int(match.group(1))))
+                return self.json(404,{"error":"Not found"})
+            except (ValueError,KeyError,TypeError,OSError,sqlite3.Error):
+                return self.json(400,{"error":"Хроники недоступны или нарушена целостность"})
         if self.path == "/api/state":
             return self.json(200, state())
         op_match = re.fullmatch(r"/api/operation/([a-f0-9]{32})", self.path)
@@ -429,7 +448,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self.allowed() or self.headers.get("Origin") != f"http://127.0.0.1:{self.server.server_port}" or self.headers.get("X-Tenma") != "1":
             return self.json(403, {"error":"Invalid origin"})
-        if self.path not in ("/api/message", "/api/preferences", "/api/cloud", "/api/layout"):
+        if self.path not in ("/api/message", "/api/preferences", "/api/cloud", "/api/layout", "/api/chronicles/reader"):
             return self.json(404, {"error":"Not found"})
         try:
             length = int(self.headers.get("Content-Length", "0"))
@@ -438,6 +457,9 @@ class Handler(BaseHTTPRequestHandler):
             data = json.loads(self.rfile.read(length))
             if not isinstance(data, dict):
                 raise ValueError("Invalid request")
+            if self.path == "/api/chronicles/reader":
+                DB.parent.mkdir(parents=True,exist_ok=True)
+                return self.json(200,chronicle.reader_settings(DB,data,len(chronicle.public_catalog()["chapters"])))
             if self.path == "/api/layout":
                 return self.json(200, save_layout(data))
             if self.path == "/api/preferences":
@@ -455,11 +477,11 @@ class Handler(BaseHTTPRequestHandler):
             token = token or uuid4().hex
             notice = process(data.get("content"), token)
             self.json(200, {"notice":notice, **operation(token)})
-        except (ValueError, UnicodeError):
+        except (ValueError, UnicodeError, KeyError, TypeError, OSError, sqlite3.Error):
             self.json(400, {"error":"Некорректное сообщение"})
 
 def main():
-    if not all((ROOT / "static" / name).is_file() for name in ("app.js", "geometry.js", "physics.js")):
+    if not all((ROOT / "static" / name).is_file() for name in ("app.js", "geometry.js", "physics.js", "reader.js")):
         raise SystemExit("Run npm install and npm run build first")
     with closing(connect()):
         pass

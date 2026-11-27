@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "last_chapter": null,
+  "next_chapter": 1,
+  "last_tick": 0,
+  "summary": "Роман ещё не начат. Есть исходный образ, художественный стандарт и предварительный план.",
+  "next_scene": "Выбрать первую сцену, установить действующих лиц, место, цель и конфликт; не объявлять будущие события прошлым.",
+  "open_threads": [],
+  "required_reading": [
+    "START_HERE.md",
+    "AGENTS.md",
+    "canon/foundation.json",
+    "style/STYLE.md",
+    "style/VOICES.md",
+    "plan/PLOT.md",
+    "plan/UNKNOWN.md"
+  ]
+}

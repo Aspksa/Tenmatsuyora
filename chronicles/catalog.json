@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "book": {
+    "id": "book.tenmatsuyora",
+    "title": "Бессмертная владычица девяти небес",
+    "author": "Хроники Tenmatsuyora",
+    "description": "Самостоятельный художественный мир небесной императрицы."
+  },
+  "volumes": [
+    {
+      "id": "vol.001",
+      "title": "До встречи с судьбой"
+    }
+  ],
+  "chapters": []
+}
