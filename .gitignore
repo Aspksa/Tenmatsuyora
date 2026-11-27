@@ -1,0 +1,6 @@
+data/
+node_modules/
+static/app.js
+__pycache__/
+*.pyc
+.env
