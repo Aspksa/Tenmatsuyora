@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "base_sha": "dcbb37007896bf0b201685a194c29d8739a7f06a",
+  "base_sha": "836c6a970013741f91f9055482b249c05c098130",
   "required_canon_commit": "8057064eda41dddf58676f3deb00e1893296b638",
   "required_canon_pr": 14,
   "chapter": 1,
@@ -21,5 +21,7 @@
   "status": "revised_unpublished",
   "body_chars": 26729,
   "editorial_status": "Первая версия приведена к новой внешности, безграничной силе, шоку от прикосновения и одиночеству с детства. Нужна повторная сквозная редактура и журнал событий; не публиковать до актуализации базы и stamp/validate.",
-  "canon_pr_status": "merged"
+  "canon_pr_status": "merged",
+  "arc_pr": 15,
+  "arc_pr_status": "merged"
 }
