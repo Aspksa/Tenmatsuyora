@@ -20,3 +20,7 @@ jobs:
       - run: npm run build
       - run: node tests/geometry.mjs
       - run: python -m unittest discover -s tests -v
+
+      - name: Browser SVG and archive smoke test
+        if: runner.os == 'Linux'
+        run: python tests/browser_smoke.py
