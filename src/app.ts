@@ -1,9 +1,10 @@
-import {makePhysics,ENGINE} from "./physics.js";
+import {makePhysics,makeGalaxy,starMass,massCenter,semanticPairs,alongCurve,ENGINE,type GalaxyLink} from "./physics.js";
 import {center,points,fit,slots,normalizePreferences,evolutionCenter,evolutionScale,neighbours,type Point,type Group} from "./geometry.js";
 type Message={id:number,role:"user"|"assistant",content:string};
 type CatalogItem={id:string,category:string};
 type CloudStatus={verified:boolean,has_key:boolean,catalog:CatalogItem[],embedding:string,secure_storage:boolean};
-type State={cloud:CloudStatus,context_links:{answer_id:number,source_id:number}[],messages:Message[],count:number,groups:Group[],preferences:unknown,configured:boolean,model:string};
+type LayoutRow={kind:"group"|"star",entity_id:number,x:number,y:number};
+type State={layout:LayoutRow[],semantic_links:{query_id:number,source_id:number}[],cloud:CloudStatus,context_links:{answer_id:number,source_id:number}[],messages:Message[],count:number,groups:Group[],preferences:unknown,configured:boolean,model:string};
 const byId=<T extends HTMLElement>(id:string)=>document.getElementById(id) as T;
 const svg=document.getElementById("sky") as unknown as SVGSVGElement;
 svg.dataset.engine=ENGINE;
@@ -61,7 +62,7 @@ function textAt(parent:Element,x:number,y:number,value:string,c:string,size=12){
 }
 
 type Cam={x:number,y:number,k:number};
-type LiveStar={id:number,base:Point,p:Point,node:SVGGElement,born:number,delay:number};
+type LiveStar={id:number,base:Point,p:Point,node:SVGGElement,born:number,delay:number,mass:number,pending:boolean};
 type LiveEdge={el:SVGPathElement,a:number,b:number};
 type Scene={physics:ReturnType<typeof makePhysics>|null,anchor:Point,page:number,count:number,hub:SVGGElement,detail:SVGGElement,mini:SVGGElement,edge:SVGPathElement,p:Point,scale:number,targetScale:number,signature:string,active:boolean,miniSignature:string,stars:LiveStar[],edges:LiveEdge[],inView:boolean};
 const world=element("g",{},svg);
@@ -76,6 +77,55 @@ flare(core,0,0,28,"#fff9e9");sparkle(core,0,0,19,"#fff9ee");
 element("circle",{cx:0,cy:0,r:6,fill:"#fffef7"},core);
 textAt(core,0,48,"Ядро","#eee3cf",11);
 const scenes=new Map<number,Scene>();
+let galaxy:ReturnType<typeof makeGalaxy>|null=null,galaxySignature="",galaxyLinks:GalaxyLink[]=[],layoutChanged=false;
+let galaxyIndex=new Map<number,Scene>();
+const savedGroups=new Map<number,Point>(),savedStars=new Map<number,Point>();
+const semanticLayer=element("g",{class:"semantic-cluster-links","pointer-events":"none"},world);
+const particleLayer=element("g",{class:"galactic-particles","pointer-events":"none","aria-hidden":"true"},world);
+const trails=Array.from({length:6},()=>Array.from({length:4},(_,j)=>element("circle",{r:j===0?2.3:Math.max(.5,1.8-j*.4),fill:"#fff0bc",opacity:1-j*.25,visibility:"hidden"},particleLayer)));
+function importLayout(rows:LayoutRow[]){for(const r of rows||[]){if(!Number.isFinite(r.x)||!Number.isFinite(r.y))continue;(r.kind==="group"?savedGroups:savedStars).set(r.entity_id,{x:r.x,y:r.y});}}
+function rebuildGalaxy(){
+ const ordered=[...scenes.values()];
+ const signature=JSON.stringify([ordered.map(s=>[s.page,s.count,s.active]),galaxyLinks]);
+ if(signature===galaxySignature)return;
+ galaxySignature=signature;galaxy?.dispose();galaxyIndex=new Map(ordered.map(s=>[s.page,s]));
+ galaxy=makeGalaxy(ordered.map(s=>({page:s.page,count:s.count,active:s.active,goal:s.anchor,position:s.p})),galaxyLinks);
+ layoutChanged=true;dirty=true;wake();
+}
+let layoutSave=Promise.resolve(),layoutTimer=0;
+function persistLayout(){
+ if(!layoutChanged)return;layoutChanged=false;
+ clearTimeout(layoutTimer);
+ layoutTimer=window.setTimeout(()=>{
+ const rows:LayoutRow[]=[];
+ for(const s of scenes.values()){
+ rows.push({kind:"group",entity_id:s.page,x:Math.round(s.p.x*100)/100,y:Math.round(s.p.y*100)/100});
+ for(const n of s.stars){if(n.pending)continue;rows.push({kind:"star",entity_id:n.id,x:Math.round(n.p.x*100)/100,y:Math.round(n.p.y*100)/100});}
+ }
+ layoutSave=layoutSave.then(async()=>{
+ for(let i=0;i<rows.length;i+=400){const r=await fetch("/api/layout",{method:"POST",headers:{"Content-Type":"application/json","X-Tenma":"1"},body:JSON.stringify({rows:rows.slice(i,i+400)})});if(!r.ok)throw Error("layout save");}
+ }).catch(()=>{layoutChanged=true;byId("map-save-status").textContent="Положение галактики не сохранено";});
+ },250);
+}
+function updateGalacticLinks(){
+ semanticLayer.replaceChildren();
+ for(const e of galaxyLinks){const a=scenes.get(e.a),b=scenes.get(e.b);if(!a||!b||(!a.inView&&!b.inView))continue;
+ const p=curve(semanticLayer,a.p,b.p,"#c9e6d3",Math.min(.7,.19+e.weight*.07),"semantic-cluster-link");
+ const title=element("title",{},p);title.textContent="Связь по результатам векторного поиска: "+e.weight;
+ }
+}
+function animateTrails(staticMotion:boolean){
+ const s=scenes.get(active),live=!!s&&!staticMotion&&s.inView&&(busy||!!s.physics?.running()||performance.now()<highlightUntil);
+ const edges=live?s!.edges.filter(e=>!e.el.classList.contains("awaiting-birth")).slice(-6):[];
+ trails.forEach((trail,i)=>{const e=edges[i];trail.forEach((dot,j)=>{
+ if(!e){dot.setAttribute("visibility","hidden");return;}
+ const from=e.a<0?{x:0,y:0}:s!.stars[e.a].p,to=s!.stars[e.b].p;
+ const q=((time*.00078+i*.17-j*.035)%1+1)%1;
+ const p=alongCurve(from,to,q,.045);
+ dot.setAttribute("cx",String(s!.p.x+p.x*s!.scale));dot.setAttribute("cy",String(s!.p.y+p.y*s!.scale));dot.setAttribute("visibility","visible");
+ });});
+}
+
 const contextLayer=element("g",{class:"context-links","pointer-events":"none"},world);
 const workflowLayer=element("g",{class:"workflow-layer","aria-hidden":"true","pointer-events":"none"},svg);
 const cloudPoint={x:870,y:795},memoryPoint={x:105,y:795},storagePoint={x:215,y:795};
@@ -197,7 +247,7 @@ const flowDots=Array.from({length:3},()=>element("circle",{r:2,fill:"#ffeab9",cl
 function wake(){if(!frame&&!document.hidden)frame=requestAnimationFrame(tick);}
 function setCam(c:Cam){target={x:c.x,y:c.y,k:Math.max(.035,Math.min(3,c.k))};dirty=true;wake();savePrefs();}
 function overview(){auto=true;focused=-1;requestId++;archive=[];archivePage=-1;refreshDetails();setCam(fit(groups));}
-function focusCam(page:number){const p=scenes.get(page)?.anchor??center(page);setCam({x:p.x,y:p.y,k:1.55});}
+function focusCam(page:number){const p=scenes.get(page)?.p??center(page);setCam({x:p.x,y:p.y,k:1.55});}
 function project(p:Point){return {x:500+(p.x-cam.x)*cam.k,y:450+(p.y-cam.y)*cam.k};}
 function tick(t:number){
  frame=0;const dt=Math.min(50,last? t-last:16);last=t;
@@ -209,6 +259,11 @@ function tick(t:number){
  time+=staticMotion?0:dt*prefs.speed;
  const returning=t<returningUntil;svg.classList.toggle("returning",returning);
  let moving=false;
+ if(galaxy?.running()){
+ for(const p of galaxy.step(staticMotion?150:Math.max(1,Math.min(3,Math.round(dt/16*Math.max(.2,prefs.speed)))))){
+ const s=galaxyIndex.get(p.page);if(s){s.p={x:p.x,y:p.y};const tr="translate("+p.x+" "+p.y+")";s.mini.setAttribute("transform",tr+" scale(.7)");s.detail.setAttribute("transform",tr+" scale("+s.scale+")");}}
+ dirty=true;moving=galaxy.running();layoutChanged=true;
+ }
  for(const k of ["x","y","k"] as const){const diff=target[k]-cam[k];if(Math.abs(diff)>(k==="k"?.0005:.1)){cam[k]+=diff*ease;moving=true;}else if(diff){cam[k]=target[k];dirty=true;}}
  if(dirty||moving){
  world.setAttribute("transform","translate(500 450) scale("+cam.k+") translate("+(-cam.x)+" "+(-cam.y)+")");
@@ -233,41 +288,33 @@ function tick(t:number){
  }
  dirty=false;
  }
- const current=scenes.get(active)?.p;
- const cp=current?{x:current.x*.08,y:current.y*.08}:{x:0,y:0};
+ const centroid=massCenter([...scenes.values()].map(s=>({count:s.count,position:s.p})));
+ const cp={x:centroid.x*.12,y:centroid.y*.12};
  const norm=Math.max(1,Math.hypot(cp.x,cp.y)/55);
- corePosition.x+=(cp.x/norm-corePosition.x)*ease;corePosition.y+=(cp.y/norm-corePosition.y)*ease;
+ const nextCore={x:cp.x/norm,y:cp.y/norm};
+ if(Math.hypot(nextCore.x-corePosition.x,nextCore.y-corePosition.y)>.1)moving=true;
+ corePosition.x+=(nextCore.x-corePosition.x)*ease;corePosition.y+=(nextCore.y-corePosition.y)*ease;
  core.setAttribute("transform","translate("+corePosition.x+" "+corePosition.y+")");
  const coreP=project(corePosition);
  if(busy||returning)beamPath.setAttribute("d","M1000 460 Q750 510 "+coreP.x+" "+coreP.y);
  for(const s of scenes.values()){
  if(s.inView)s.edge.setAttribute("d",curveD(corePosition,s.p));
- const relocating=Math.hypot(s.p.x-s.anchor.x,s.p.y-s.anchor.y)>.1;
- if(relocating){moving=true;dirty=true;}
- if(relocating){
- const targetX=s.anchor.x,targetY=s.anchor.y;
- s.p.x+=(targetX-s.p.x)*ease;s.p.y+=(targetY-s.p.y)*ease;
- const translation="translate("+s.p.x+" "+s.p.y+")";
- s.hub.setAttribute("transform",translation+" scale("+Math.max(1,Math.min(3,.45/cam.k))+")");
- s.mini.setAttribute("transform",translation+" scale(.7)");
- s.edge.setAttribute("d",curveD(corePosition,s.p));
- s.detail.setAttribute("transform",translation+" scale("+s.scale+")");
- }
  const diff=s.targetScale-s.scale;
  if(Math.abs(diff)>.002){s.scale+=diff*ease;moving=true;s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");}
  else if(diff!==0){s.scale=s.targetScale;s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");}
  if(!s.inView||cam.k<.48||!s.stars.length)continue;
  const detailed=s.page===active||s.page===focused;
+ for(const [i,n] of s.stars.entries()){if(n.pending&&(staticMotion||time>=n.born+n.delay)){n.pending=false;s.physics?.release(i);}}
  if(s.physics?.running()){
  const positions=s.physics.step(staticMotion?120:Math.max(1,Math.min(3,Math.round(dt/16*Math.max(.2,prefs.speed)))));
  positions.forEach((p,i)=>{s.stars[i].p=p;});
- if(s.physics.running())moving=true;
+ if(s.physics.running())moving=true;layoutChanged=true;
  }
  for(const n of s.stars){
- const pending=!staticMotion&&n.born>0&&time<n.born+n.delay;
+ const pending=n.pending&&!staticMotion;
  n.node.classList.toggle("awaiting-birth",pending);if(pending){moving=true;continue;}
  
- n.node.setAttribute("transform","translate("+n.p.x+" "+n.p.y+")");
+ n.node.setAttribute("transform","translate("+n.p.x+" "+n.p.y+")");n.node.dataset.x=String(n.p.x);n.node.dataset.y=String(n.p.y);
  n.node.classList.toggle("last-born",n.id===latestId&&t<highlightUntil&&detailed&&(selected===null||selected===n.id));
  }
  for(const e of s.edges){
@@ -285,7 +332,8 @@ function tick(t:number){
  flowDots.forEach((p,i)=>{const a=((time/1650+i/3)%1),q=returning?1-a:a;p.setAttribute("cx",String(corePosition.x+(destination.x-corePosition.x)*q));p.setAttribute("cy",String(corePosition.y+(destination.y-corePosition.y)*q));});
  }else flow.setAttribute("visibility","hidden");
  }
- updateWorkflow();
+ updateWorkflow();updateGalacticLinks();animateTrails(staticMotion);
+ if(!moving&&!(galaxy?.running()))persistLayout();
  if(moving||(!staticMotion&&(busy||returning))||t<highlightUntil)wake();else last=0;
 }
 document.addEventListener("visibilitychange",()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;last=0;}else{dirty=true;wake();}});
@@ -295,11 +343,12 @@ async function choose(page:number){
  auto=false;focused=page;archive=[];archivePage=-1;const ticket=++requestId;
  focusCam(page);refreshDetails();
  if(recentPages().has(page)&&latest.filter(m=>Math.floor((m.id-1)/30)===page).length===scenes.get(page)?.count)return;
- try{const r=await fetch("/api/cluster/"+page);if(!r.ok)throw Error("Не удалось открыть созвездие");const d=await r.json() as {messages:Message[]};if(ticket!==requestId)return;archive=d.messages;archivePage=page;refreshDetails();}
+ try{const r=await fetch("/api/cluster/"+page);if(!r.ok)throw Error("Не удалось открыть созвездие");const d=await r.json() as {messages:Message[],layout:LayoutRow[]};if(ticket!==requestId)return;importLayout(d.layout);archive=d.messages;archivePage=page;refreshDetails();}
  catch(e){if(ticket===requestId)byId("node-info").textContent=e instanceof Error?e.message:"Ошибка";}
 }
 function createScene(g:Group):Scene{
- const p=evolutionCenter(g.page,active),j=g.page%palette.length,c=palette[j];
+ const anchor=evolutionCenter(g.page,active),saved=savedGroups.get(g.page);
+ const p=saved&&Math.hypot(saved.x-anchor.x,saved.y-anchor.y)<=180?{...saved}:anchor,j=g.page%palette.length,c=palette[j];
  const edge=curve(links,{x:0,y:0},p,c,.26,"constellation-link");
  const hub=element("g",{class:"cluster-control",transform:"translate("+p.x+" "+p.y+")"},nodes) as SVGGElement;
  element("circle",{r:65,fill:"url(#nebula"+j+")",opacity:.65,class:"hub-glow"},hub);element("circle",{r:29,fill:"url(#nebula"+j+")"},hub);
@@ -311,7 +360,7 @@ function createScene(g:Group):Scene{
  accessible(hub,"Открыть созвездие "+(g.page+1),()=>{void choose(g.page);});
  const mini=element("g",{class:"mini-cluster",transform:"translate("+p.x+" "+p.y+") scale(.7)","pointer-events":"none"},nodes) as SVGGElement;
  const detail=element("g",{class:"cluster-detail",transform:"translate("+p.x+" "+p.y+") scale(.55)"},nodes) as SVGGElement;
- return {physics:null,anchor:{...p},page:g.page,count:g.count,hub,detail,mini,edge,p,scale:.55,targetScale:.55,signature:"",active:false,miniSignature:"",stars:[],edges:[],inView:true};
+ return {physics:null,anchor:{...anchor},page:g.page,count:g.count,hub,detail,mini,edge,p,scale:.55,targetScale:.55,signature:"",active:false,miniSignature:"",stars:[],edges:[],inView:true};
 }
 function drawMini(s:Scene,g:Group){
  const ids=slots(g),signature=ids.join(",");
@@ -336,7 +385,7 @@ function refreshDetails(){
  if(s.page===focused)s.targetScale=1;
  visibleDetail+=data.length;
  if(signature===s.signature)continue;
- const old=new Map(s.stars.map(n=>[n.id,n]));
+ const old=new Map(s.stars.map(n=>[n.id,n]));for(const n of s.stars)if(!n.pending)savedStars.set(n.id,{...n.p});
  s.physics?.dispose();s.physics=null;
  s.stars=[];s.edges=[];
  s.signature=signature;s.detail.replaceChildren();
@@ -353,8 +402,9 @@ function refreshDetails(){
  n.dataset.x=String(x);n.dataset.y=String(y);
  const fresh=ready&&!existing&&m.id>lastDrawnId&&!reduced.matches&&prefs.speed>0;
  const delay=fresh?birthIndex++*180:0;
- const source=i?s.stars[i-1]?.p:{x:0,y:0};
- s.stars.push({id:m.id,base:{x,y},p:existing?{...existing.p}:fresh?{...(source??{x:0,y:0})}:{x,y},node:n,born:existing?.born??(fresh?Math.max(1,time):0),delay:existing?.delay??delay});
+ const parent=neighbours(ps,i)[0];const source=parent!==undefined?s.stars[parent]?.p:{x:0,y:0};
+ const stored=savedStars.get(m.id);
+ s.stars.push({id:m.id,base:{x,y},p:existing?{...existing.p}:fresh?{...(source??{x:0,y:0})}:stored?{...stored}:{x,y},node:n,born:existing?.born??(fresh?Math.max(1,time):0),delay:existing?.delay??delay,mass:starMass(m.content.length),pending:existing?.pending??fresh});
  if(existing){s.detail.append(n);}
  else{
  n.dataset.id=String(m.id);
@@ -376,7 +426,7 @@ function refreshDetails(){
  }
  n.classList.toggle("selected",selected===m.id);
  });
- if(s.stars.length){s.physics=makePhysics(s.stars.map(n=>n.base),s.stars.map(n=>n.p),s.edges.map(({a,b})=>({a,b})));}
+ if(s.stars.length){s.physics=makePhysics(s.stars.map(n=>n.base),s.stars.map(n=>n.p),s.edges.map(({a,b})=>({a,b})),true,s.stars.map(n=>n.mass));s.stars.forEach((n,i)=>{if(n.pending)s.physics?.hold(i);});layoutChanged=true;}
  }
  dirty=true;wake();
 }
@@ -393,7 +443,7 @@ function draw(data:Message[],summary:Group[]){
  s.hub.querySelector(".cluster-tag")!.textContent="Диалог "+(g.page+1);
  s.hub.querySelector(".cluster-number")!.textContent=String(g.count);
  }
- refreshDetails();
+ refreshDetails();rebuildGalaxy();
  byId("graph-count").textContent=summary.reduce((n,g)=>n+g.count,0)+" записей · "+summary.length+" созвездий";
  if(!ready){setCam(auto?fit(groups):prefs.camera??fit(groups));cam={...target};}
  else if(auto&&active!==previous&&active>=0){
@@ -414,8 +464,8 @@ byId("zoom-in").addEventListener("click",()=>{auto=false;setCam({...target,k:tar
 byId("zoom-out").addEventListener("click",()=>{auto=false;setCam({...target,k:target.k/1.25});});
 let renderedIds=new Set<number>();
 let mapRevision=0;
-async function refreshMap(revision:number){try{const r=await fetch("/api/state");if(!r.ok)return;const s=await r.json() as State;if(revision!==mapRevision)return;contextEdges=s.context_links||[];draw(s.messages,s.groups);}catch{}}
-function render(s:State){contextEdges=s.context_links||[];cloudStar.classList.toggle("configured",s.configured);renderCatalog(s.cloud,s.model);if(!prefsLoaded){prefs=normalizePreferences(s.preferences);auto=prefs.auto;applyPrefs();prefsLoaded=true;}byId("state").textContent=s.configured?(s.cloud.verified?"Cloud.ru • проверено":"Cloud.ru • не проверено"):s.cloud.has_key?"Cloud.ru • выберите модель":"Локальный режим";byId("model").textContent=s.model||"Без модели";byId("count").textContent="Сообщений: "+s.count;
+async function refreshMap(revision:number){try{const r=await fetch("/api/state");if(!r.ok)return;const s=await r.json() as State;if(revision!==mapRevision)return;contextEdges=s.context_links||[];galaxyLinks=semanticPairs(s.semantic_links||[]);draw(s.messages,s.groups);}catch{}}
+function render(s:State){if(!ready)importLayout(s.layout);galaxyLinks=semanticPairs(s.semantic_links||[]);contextEdges=s.context_links||[];cloudStar.classList.toggle("configured",s.configured);renderCatalog(s.cloud,s.model);if(!prefsLoaded){prefs=normalizePreferences(s.preferences);auto=prefs.auto;applyPrefs();prefsLoaded=true;}byId("state").textContent=s.configured?(s.cloud.verified?"Cloud.ru • проверено":"Cloud.ru • не проверено"):s.cloud.has_key?"Cloud.ru • выберите модель":"Локальный режим";byId("model").textContent=s.model||"Без модели";byId("count").textContent="Сообщений: "+s.count;
  const list=byId("messages");list.replaceChildren();for(const m of s.messages){const article=document.createElement("article");article.className="message"+(m.role==="assistant"&&ready&&!renderedIds.has(m.id)?" reveal-answer":"");article.id="msg-"+m.id;const role=document.createElement("span");role.className="role";role.textContent=m.role==="user"?"Вы":"Tenmatsuyora";const body=document.createElement("div");body.className="content";body.textContent=m.content;article.append(role,body);list.append(article);}renderedIds=new Set(s.messages.map(m=>m.id));list.scrollTop=list.scrollHeight;draw(s.messages,s.groups);}
 async function refresh(){mapRevision++;const r=await fetch("/api/state");if(!r.ok)throw Error("Сервер недоступен");render(await r.json() as State);}
 

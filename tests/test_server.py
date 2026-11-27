@@ -99,5 +99,31 @@ class HistoryTests(unittest.TestCase):
             self.assertEqual(server.configure_cloud({"model":"chat","embedding":"embed","semantic_consent":True})["embedding"],"embed")
             self.assertFalse(server.configure_cloud({"clear":True})["has_key"])
 
+    def test_physical_layout_persistence(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server,"DB",Path(tmp)/"test.sqlite"):
+            server.save("user","first")
+            rows=[{"kind":"group","entity_id":0,"x":12,"y":-34},{"kind":"star","entity_id":1,"x":4,"y":5},{"kind":"star","entity_id":999,"x":2,"y":2}]
+            self.assertTrue(server.save_layout({"rows":rows})["saved"])
+            result=server.state()["layout"]
+            self.assertEqual(len(result),2)
+            self.assertEqual(server.cluster_layout(0)[0]["entity_id"],1)
+            with self.assertRaises(ValueError):
+                server.save_layout({"rows":[{"kind":"star","entity_id":1,"x":float("nan"),"y":0}]})
+            with self.assertRaises(ValueError):
+                server.save_layout({"rows":[{"kind":"star","entity_id":1,"x":200,"y":0}]})
+
+    def test_semantic_links_are_not_plain_context(self):
+        from contextlib import closing
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server,"DB",Path(tmp)/"test.sqlite"), patch.object(server,"KEY","test"), patch.object(server,"MODEL","test"):
+            server.save("user","old")
+            def reply():
+                server.LOCAL.context_ids=[1,2]
+                server.LOCAL.semantic_ids=[1]
+                return "answer"
+            with patch.object(server,"generate",side_effect=reply):
+                self.assertEqual(server.process("query"),"")
+            self.assertEqual(server.state()["semantic_links"],[{"query_id":2,"source_id":1}])
+            self.assertEqual(len(server.state()["context_links"]),2)
+
 if __name__ == "__main__":
     unittest.main()
