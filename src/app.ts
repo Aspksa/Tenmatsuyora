@@ -43,7 +43,7 @@ function textAt(parent:Element,x:number,y:number,value:string,c:string,size=12){
 type Cam={x:number,y:number,k:number};
 type LiveStar={id:number,base:Point,p:Point,node:SVGGElement};
 type LiveEdge={el:SVGLineElement,a:number,b:number};
-type Scene={page:number,count:number,hub:SVGGElement,detail:SVGGElement,mini:SVGGElement,edge:SVGLineElement,p:Point,scale:number,targetScale:number,signature:string,active:boolean,miniSignature:string,stars:LiveStar[],edges:LiveEdge[],inView:boolean};
+type Scene={anchor:Point,page:number,count:number,hub:SVGGElement,detail:SVGGElement,mini:SVGGElement,edge:SVGLineElement,p:Point,scale:number,targetScale:number,signature:string,active:boolean,miniSignature:string,stars:LiveStar[],edges:LiveEdge[],inView:boolean};
 const world=element("g",{},svg);
 world.append(links,nodes);
 const core=element("g",{class:"core"},nodes);
@@ -62,7 +62,7 @@ let busy=false;
 let visibleDetail=0;
 let returningUntil=0;
 let prefs=normalizePreferences({}),prefsLoaded=false,saveTimer=0,saveChain=Promise.resolve();
-let time=0,corePosition={x:0,y:0};
+let time=0,corePosition={x:0,y:0},slowFrames=0,fastFrames=0,adaptiveLow=false;
 let latestId=0,highlightUntil=0;
 function savePrefs(){
  if(!prefsLoaded)return;
@@ -105,6 +105,9 @@ function project(p:Point){return {x:500+(p.x-cam.x)*cam.k,y:450+(p.y-cam.y)*cam.
 function tick(t:number){
  frame=0;const dt=Math.min(50,last? t-last:16);last=t;
  const staticMotion=reduced.matches||prefs.speed===0;
+ if(last&&dt>33){slowFrames++;fastFrames=0;}else{fastFrames++;slowFrames=Math.max(0,slowFrames-1);}
+ if(slowFrames>30)adaptiveLow=true;else if(fastFrames>120)adaptiveLow=false;
+ svg.classList.toggle("adaptive-low",adaptiveLow);
  const ease=staticMotion?1:1-Math.exp(-dt/185);
  time+=staticMotion?0:dt*prefs.speed;
  const returning=t<returningUntil;svg.classList.toggle("returning",returning);
@@ -141,19 +144,29 @@ function tick(t:number){
  const coreP=project(corePosition);
  if(busy||returning)beamPath.setAttribute("d","M1000 460 Q750 510 "+coreP.x+" "+coreP.y);
  for(const s of scenes.values()){
- s.edge.setAttribute("x1",String(corePosition.x));s.edge.setAttribute("y1",String(corePosition.y));
+ if(s.inView){s.edge.setAttribute("x1",String(corePosition.x));s.edge.setAttribute("y1",String(corePosition.y));}
+ const expanding=s.page===active||s.page===focused;
+ if(s.inView&&(expanding||Math.abs(s.p.x-s.anchor.x)+Math.abs(s.p.y-s.anchor.y)>.05)){
+ const shift=drift(s.page+33,time,staticMotion||!expanding?0:9);
+ s.p.x+=(s.anchor.x+shift.x-s.p.x)*ease;s.p.y+=(s.anchor.y+shift.y-s.p.y)*ease;
+ const translation="translate("+s.p.x+" "+s.p.y+")";
+ s.hub.setAttribute("transform",translation+" scale("+Math.max(1,Math.min(3,.45/cam.k))+")");
+ s.mini.setAttribute("transform",translation);
+ s.edge.setAttribute("x2",String(s.p.x));s.edge.setAttribute("y2",String(s.p.y));
+ s.detail.setAttribute("transform",translation+" scale("+s.scale+")");
+ }
  const diff=s.targetScale-s.scale;
  if(Math.abs(diff)>.002){s.scale+=diff*ease;moving=true;s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");}
  else if(diff!==0){s.scale=s.targetScale;s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");}
  if(!s.inView||cam.k<.48||!s.stars.length)continue;
  const detailed=s.page===active||s.page===focused;
- const amplitude=staticMotion?0:detailed?4:1.2;
+ const amplitude=staticMotion?0:detailed?4:(adaptiveLow||prefs.quality==="low")?0:1.2;
  for(const n of s.stars){
  const d=drift(n.id,time,amplitude);
  const tx=n.base.x+d.x,ty=n.base.y+d.y;
  n.p.x+=(tx-n.p.x)*ease;n.p.y+=(ty-n.p.y)*ease;
  n.node.setAttribute("transform","translate("+n.p.x+" "+n.p.y+")");
- n.node.classList.toggle("last-born",n.id===latestId&&t<highlightUntil&&detailed);
+ n.node.classList.toggle("last-born",n.id===latestId&&t<highlightUntil&&detailed&&(selected===null||selected===n.id));
  }
  for(const e of s.edges){
  const a=e.a<0?{x:0,y:0}:s.stars[e.a].p,b=s.stars[e.b].p;
@@ -194,7 +207,7 @@ function createScene(g:Group):Scene{
  accessible(hub,"Открыть созвездие "+(g.page+1),()=>{void choose(g.page);});
  const mini=element("g",{class:"mini-cluster",transform:"translate("+p.x+" "+p.y+")","pointer-events":"none"},nodes) as SVGGElement;
  const detail=element("g",{class:"cluster-detail",transform:"translate("+p.x+" "+p.y+") scale(.55)"},nodes) as SVGGElement;
- return {page:g.page,count:g.count,hub,detail,mini,edge,p,scale:.55,targetScale:.55,signature:"",active:false,miniSignature:"",stars:[],edges:[],inView:true};
+ return {anchor:{...p},page:g.page,count:g.count,hub,detail,mini,edge,p,scale:.55,targetScale:.55,signature:"",active:false,miniSignature:"",stars:[],edges:[],inView:true};
 }
 function drawMini(s:Scene,g:Group){
  const ids=slots(g),signature=ids.join(",");
@@ -274,7 +287,7 @@ function draw(data:Message[],summary:Group[]){
  else if(auto&&active!==previous&&active>=0){
  const f=fit(groups);if(f.k>=.55)setCam(f);else focusCam(active);
  }
- ready=true;dirty=true;wake();
+ ready=true;svg.dataset.ready="true";dirty=true;wake();
 }
 function svgPoint(e:PointerEvent|WheelEvent){const m=svg.getScreenCTM();return m?new DOMPoint(e.clientX,e.clientY).matrixTransform(m.inverse()):new DOMPoint(500,450);}
 svg.addEventListener("wheel",e=>{e.preventDefault();auto=false;const p=svgPoint(e),k=Math.max(.035,Math.min(3,target.k*Math.exp(-e.deltaY*.0015)));setCam({x:target.x+(p.x-500)*(1/target.k-1/k),y:target.y+(p.y-450)*(1/target.k-1/k),k});},{passive:false});

@@ -41,7 +41,7 @@ def save_preferences(value):
     if not isinstance(value, dict):
         raise ValueError("Invalid preferences")
     def num(v, lo, hi, default):
-        return min(hi, max(lo, v)) if type(v) in (float, int) and math.isfinite(v) else default
+        return min(hi, max(lo, v)) if (type(v) is int or (type(v) is float and math.isfinite(v))) else default
     camera = value.get("camera")
     camera = {"x": num(camera.get("x"), -100000, 100000, 0), "y": num(camera.get("y"), -100000, 100000, 0), "k": num(camera.get("k"), .035, 3, 1)} if isinstance(camera, dict) else None
     clean = {"glow": num(value.get("glow"), .25, 1.5, 1), "speed": num(value.get("speed"), 0, 2, 1), "quality": "low" if value.get("quality") == "low" else "high", "camera": camera, "auto": value.get("auto") is not False}
