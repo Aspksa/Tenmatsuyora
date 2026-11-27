@@ -76,7 +76,14 @@ def main():
                 reader_run=subprocess.run([chrome,"--headless=new","--no-sandbox","--disable-dev-shm-usage","--disable-gpu","--no-first-run","--window-size=1280,900",f"--user-data-dir={tmp}/reader","--virtual-time-budget=9000","--dump-dom",url+"/chronicles"],capture_output=True,timeout=60,encoding="utf-8",errors="replace")
                 if reader_run.returncode!=0 or 'data-ready="true"' not in reader_run.stdout or 'id="chapter"' not in reader_run.stdout:
                     raise AssertionError("Reader did not initialize: "+reader_run.stdout[-2000:]+reader_run.stderr[-1000:])
-                print("Browser: local Chronicle reader initialized")
+                catalog = server.chronicle.reading_catalog()
+                if catalog["chapters"]:
+                    first = catalog["chapters"][0]
+                    if 'data-chapter="1"' not in reader_run.stdout or first["title"] not in reader_run.stdout:
+                        raise AssertionError("Reader did not render the first chapter: "+reader_run.stdout[-2000:])
+                    if catalog["draft_count"] and "Рабочая глава" not in reader_run.stdout:
+                        raise AssertionError("Draft status is missing from reader navigation")
+                print("Browser: local Chronicle reader initialized with available chapters")
             finally:
                 http.shutdown()
                 thread.join(timeout=5)
