@@ -1,0 +1,1160 @@
+{
+  "schema": 1,
+  "base_sha": "836c6a970013741f91f9055482b249c05c098130",
+  "chapter": 5,
+  "status": "complete_prose_unpublished",
+  "prerequisite": {
+    "chapter": 4,
+    "branch": "draft/chronicle-000004",
+    "commit": "b5a4ae3b187b4ba31c0217e7db0c4d2d5b6a562f",
+    "blob": "c32543d061db24c3aed91a7d63609dd67239138d",
+    "closing": "А человек, который держал ложку и терпеливо ждал, пока она сама решит открыть рот.",
+    "note": "Главы 1–4 не опубликованы; не публиковать пятую отдельно."
+  },
+  "opening": "— Что это?",
+  "closing": "А воспоминание о тепле чужой ладони осталось.",
+  "body_chars": 25571,
+  "completed_scenes": [
+    "draft.scene.000005.001",
+    "draft.scene.000005.002",
+    "draft.scene.000005.003",
+    "draft.scene.000005.004",
+    "draft.scene.000005.005",
+    "draft.scene.000005.006",
+    "draft.scene.000005.007",
+    "draft.scene.000005.008",
+    "draft.scene.000005.009"
+  ],
+  "next_scene": "Глава 6 «Девять хвостов»: следующий период восстановления; из-за обеих сломанных рук и левой ноги не может сама распутать волосы и привести девять хвостов в порядок. Сначала отвергает помощь, затем соглашается, руководит действиями Антона, впервые расслабляется от спокойного ухода. Антон знает об опасности прикосновений и согласованной осторожности; титул пока не знает. Не забывать обещание показать поле после восстановления ходьбы.",
+  "editorial_status": "Полный литературный черновик; сцены, события, значимые реплики, знания, отношения и обязательства размечены предварительно, не являются опубликованным журналом. Для публикации требуется последовательная редактура глав 1–5, перенос в официальный каталог, events, stamp/validate, CI Windows/Linux. Проверены все 74 точные привязки, непрерывные диапазоны девяти сцен и отсутствие повторов длинных абзацев. Обязательство показать поле оставлено открытым. Полная индексация и CI публикации не выполнены.",
+  "draft_memory": {
+    "scenes": [
+      {
+        "id": "draft.scene.000005.001",
+        "paragraphs": [
+          1,
+          38
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро дня 4",
+        "summary": "Тэнмацуйора отказывается от предложенного умывания; Антон принимает отказ. Она сама меняет решение и устанавливает условия."
+      },
+      {
+        "id": "draft.scene.000005.002",
+        "paragraphs": [
+          39,
+          85
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро дня 4",
+        "summary": "Умывание и первое касание виска; сравнение тепла воды и живой ладони; воспоминание о придворной служительнице."
+      },
+      {
+        "id": "draft.scene.000005.003",
+        "paragraphs": [
+          86,
+          121
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро дня 4",
+        "summary": "Необходимый бытовой уход с сохранением приватности; по её требованию Антон прекращает действия и выходит, возвращается по её зову."
+      },
+      {
+        "id": "draft.scene.000005.004",
+        "paragraphs": [
+          122,
+          172
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Полдень дня 4",
+        "summary": "Осмотр фельдшера, медицинская обработка раны; Антон помогает поддерживать левую ногу с её разрешения, прямое касание безопасно."
+      },
+      {
+        "id": "draft.scene.000005.005",
+        "paragraphs": [
+          173,
+          203
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "После осмотра",
+        "summary": "Она отделяет наблюдения от гипотез, отвергает рискованные испытания на других; замечает звуки присутствия Антона."
+      },
+      {
+        "id": "draft.scene.000005.006",
+        "paragraphs": [
+          204,
+          269
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Обед дня 4",
+        "summary": "Узнаёт подробности обнаружения в поле; просит показать место позднее, Антон соглашается. Обсуждение причин заботы и награды."
+      },
+      {
+        "id": "draft.scene.000005.007",
+        "paragraphs": [
+          270,
+          329
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Вторая половина дня 4",
+        "summary": "Императрица впервые сообщает об общем правиле магического шока. Антон спрашивает, причиняет ли оно боль ей, и согласует осторожность при дальнейшем уходе."
+      },
+      {
+        "id": "draft.scene.000005.008",
+        "paragraphs": [
+          330,
+          390
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Вечер дня 4",
+        "summary": "Они добровольно соглашаются на одно краткое безопасное касание предплечья. Причина исключения неизвестна; повтор не требуется."
+      },
+      {
+        "id": "draft.scene.000005.009",
+        "paragraphs": [
+          391,
+          422
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Ночь дня 4",
+        "summary": "Она впервые прямо одобряет его поступки, отвечает на пожелание доброй ночи, замечает спутанные волосы и хвосты — переход к главе 6."
+      }
+    ],
+    "evidence": [
+      {
+        "id": "draft.event.000005.bath_offer",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 3,
+          "start": 0,
+          "end": 51,
+          "quote": "— Вода. Полотенце. Помогу вам умыться, если хотите."
+        }
+      },
+      {
+        "id": "draft.event.000005.refusal",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 4,
+          "start": 0,
+          "end": 10,
+          "quote": "— Уберите."
+        }
+      },
+      {
+        "id": "draft.event.000005.refusal_respected",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 6,
+          "start": 0,
+          "end": 14,
+          "quote": "Он взял тазик."
+        }
+      },
+      {
+        "id": "draft.event.000005.conditions",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 17,
+          "start": 0,
+          "end": 55,
+          "quote": "— Вы будете предупреждать меня о каждом своём действии."
+        }
+      },
+      {
+        "id": "draft.event.000005.temperature_consent",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 29,
+          "start": 0,
+          "end": 25,
+          "quote": "— Можно к щеке приложить?"
+        }
+      },
+      {
+        "id": "draft.event.000005.face_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 55,
+          "start": 0,
+          "end": 31,
+          "quote": "Один из пальцев коснулся виска."
+        }
+      },
+      {
+        "id": "draft.event.000005.no_shock_face",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 58,
+          "start": 0,
+          "end": 124,
+          "quote": "Никакого движения, вызванного болью. Никакой попытки отстраниться. Антон просто переложил полотенце и опустил прядь обратно."
+        }
+      },
+      {
+        "id": "draft.event.000005.remembers_maids",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 42,
+          "start": 0,
+          "end": 295,
+          "quote": "Однажды новая служительница, ещё не знакомая со всеми правилами, предложила помочь застегнуть украшение на её вороте. Старшая горничная тогда так резко окликнула девушку, что та уронила поднос. Императрица распорядилась не наказывать её за незнание, но впредь объяснять порядок до начала службы."
+        }
+      },
+      {
+        "id": "draft.event.000005.privacy",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 90,
+          "start": 0,
+          "end": 41,
+          "quote": "— Мне нужна ширма, — сказала она наконец."
+        }
+      },
+      {
+        "id": "draft.event.000005.stops_care",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 102,
+          "start": 0,
+          "end": 44,
+          "quote": "Один раз она резко потребовала остановиться."
+        }
+      },
+      {
+        "id": "draft.event.000005.resumes_voluntarily",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 120,
+          "start": 0,
+          "end": 44,
+          "quote": "Через некоторое время она позвала его снова."
+        }
+      },
+      {
+        "id": "draft.event.000005.med_followup",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 122,
+          "start": 0,
+          "end": 32,
+          "quote": "Фельдшер пришёл ближе к полудню."
+        }
+      },
+      {
+        "id": "draft.event.000005.fractures_persist",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 128,
+          "start": 0,
+          "end": 59,
+          "quote": "На последний вопрос он ответил, что обещать срок пока рано."
+        }
+      },
+      {
+        "id": "draft.event.000005.medical_gloves",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 137,
+          "start": 0,
+          "end": 203,
+          "quote": "Он продолжил осмотр, соблюдая необходимые меры предосторожности. Движения оставались деловыми, объяснения — сдержанными. Его руки были защищены перчатками, и он не пытался касаться открытой кожи без них."
+        }
+      },
+      {
+        "id": "draft.event.000005.leg_support_consent",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 149,
+          "start": 0,
+          "end": 34,
+          "quote": "— Да, — ответила она. — Осторожно."
+        }
+      },
+      {
+        "id": "draft.event.000005.leg_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 151,
+          "start": 0,
+          "end": 176,
+          "quote": "Тэнмацуйора почувствовала ладонь у неповреждённой части ноги, которую Антон поддерживал по указанию медицинского работника. Край ткани оставлял небольшой участок кожи открытым."
+        }
+      },
+      {
+        "id": "draft.event.000005.leg_no_shock",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 159,
+          "start": 0,
+          "end": 29,
+          "quote": "Его ладонь оставалась тёплой."
+        }
+      },
+      {
+        "id": "draft.event.000005.hypotheses",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 179,
+          "start": 0,
+          "end": 34,
+          "quote": "Оставались несколько возможностей."
+        }
+      },
+      {
+        "id": "draft.event.000005.rejects_risky_test",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 184,
+          "start": 0,
+          "end": 264,
+          "quote": "Подвергать кого-либо болезненному воздействию ради проверки, результат которой можно получить другим способом, не имело смысла. Она достаточно хорошо помнила, что произошло с Юнь Хэ. Если прежнее правило всё ещё действовало, опыт причинил бы кому-то ненужную боль."
+        }
+      },
+      {
+        "id": "draft.event.000005.notices_presence",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 196,
+          "start": 0,
+          "end": 65,
+          "quote": "Она просто знала: пока слышны эти звуки, он находится неподалёку."
+        }
+      },
+      {
+        "id": "draft.event.000005.learns_field",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 216,
+          "start": 0,
+          "end": 123,
+          "quote": "— Трава мокрая. Вы лежали, одежда порвана. Сначала думал, кто-то бросил какую-то вещь. Потом подошёл ближе. Дышали еле-еле."
+        }
+      },
+      {
+        "id": "draft.event.000005.field_promise",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 233,
+          "start": 0,
+          "end": 53,
+          "quote": "— Вы можете показать мне место, когда я смогу ходить?"
+        }
+      },
+      {
+        "id": "draft.event.000005.field_accept",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 234,
+          "start": 0,
+          "end": 27,
+          "quote": "— Конечно. Недалеко отсюда."
+        }
+      },
+      {
+        "id": "draft.event.000005.no_reward",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 254,
+          "start": 0,
+          "end": 6,
+          "quote": "— Нет."
+        }
+      },
+      {
+        "id": "draft.event.000005.discloses_rule",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 282,
+          "start": 0,
+          "end": 105,
+          "quote": "— При непосредственном соприкосновении с живым существом моя сила вызывает у него болезненное потрясение."
+        }
+      },
+      {
+        "id": "draft.event.000005.reciprocal_rule",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 285,
+          "start": 0,
+          "end": 38,
+          "quote": "— Да. И если я коснусь кого-либо сама."
+        }
+      },
+      {
+        "id": "draft.event.000005.only_known_exception",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 287,
+          "start": 0,
+          "end": 52,
+          "quote": "— До встречи с вами я не знала ни одного исключения."
+        }
+      },
+      {
+        "id": "draft.event.000005.asks_her_pain",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 292,
+          "start": 0,
+          "end": 31,
+          "quote": "— А вы от этого тоже страдаете?"
+        }
+      },
+      {
+        "id": "draft.event.000005.her_pain_answer",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 299,
+          "start": 0,
+          "end": 65,
+          "quote": "— Само обычное прикосновение не причиняет мне того же потрясения."
+        }
+      },
+      {
+        "id": "draft.event.000005.hypothesis_immunity",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 304,
+          "start": 0,
+          "end": 35,
+          "quote": "— Может, у меня какой-то иммунитет?"
+        }
+      },
+      {
+        "id": "draft.event.000005.hypothesis_unproven",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 306,
+          "start": 0,
+          "end": 37,
+          "quote": "— Возможно. Доказательств у меня нет."
+        }
+      },
+      {
+        "id": "draft.event.000005.future_care_permission",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 316,
+          "start": 0,
+          "end": 160,
+          "quote": "— При необходимой помощи, — произнесла она после паузы, — вы можете действовать так же, как прежде. При условии, что будете внимательны к собственным ощущениям."
+        }
+      },
+      {
+        "id": "draft.event.000005.safety_agreement",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 318,
+          "start": 0,
+          "end": 46,
+          "quote": "— Если почувствуете боль, немедленно отойдите."
+        }
+      },
+      {
+        "id": "draft.event.000005.test_consent",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 352,
+          "start": 0,
+          "end": 17,
+          "quote": "— Ладно. Давайте."
+        }
+      },
+      {
+        "id": "draft.event.000005.test_accept",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 352,
+          "start": 0,
+          "end": 17,
+          "quote": "— Ладно. Давайте."
+        }
+      },
+      {
+        "id": "draft.event.000005.deliberate_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 354,
+          "start": 0,
+          "end": 127,
+          "quote": "Антон сначала уточнил, не болит ли это место от лёгкого касания. Получив ответ, он осторожно положил туда кончики двух пальцев."
+        }
+      },
+      {
+        "id": "draft.event.000005.no_shock_test",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 359,
+          "start": 0,
+          "end": 20,
+          "quote": "Ничего не случилось."
+        }
+      },
+      {
+        "id": "draft.event.000005.test_result",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 363,
+          "start": 0,
+          "end": 29,
+          "quote": "— Кожа тёплая. Больше ничего."
+        }
+      },
+      {
+        "id": "draft.event.000005.declines_repeat",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 375,
+          "start": 0,
+          "end": 18,
+          "quote": "— Нет. Достаточно."
+        }
+      },
+      {
+        "id": "draft.event.000005.recognizes_choice",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 402,
+          "start": 0,
+          "end": 33,
+          "quote": "Но впервые сам выбор существовал."
+        }
+      },
+      {
+        "id": "draft.event.000005.praise",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 411,
+          "start": 0,
+          "end": 34,
+          "quote": "— Сегодня вы действовали достойно."
+        }
+      },
+      {
+        "id": "draft.event.000005.next_hair_tails",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 418,
+          "start": 0,
+          "end": 237,
+          "quote": "После поля и нескольких дней в постели волосы заметно спутались. Хвосты тоже нуждались в уходе. Одной мысли о том, что придётся обратиться к Антону с ещё одной подобной просьбой, было достаточно, чтобы у неё вновь испортилось настроение."
+        }
+      }
+    ],
+    "speech": [
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Предложение помощи, не приказ.",
+        "source": {
+          "paragraph": 3,
+          "start": 0,
+          "end": 51,
+          "quote": "— Вода. Полотенце. Помогу вам умыться, если хотите."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Отказ.",
+        "source": {
+          "paragraph": 4,
+          "start": 0,
+          "end": 10,
+          "quote": "— Уберите."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Сама возобновляет обсуждение.",
+        "source": {
+          "paragraph": 12,
+          "start": 0,
+          "end": 46,
+          "quote": "— Поставьте обратно. И выслушайте мои условия."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Устанавливает правила ухода.",
+        "source": {
+          "paragraph": 17,
+          "start": 0,
+          "end": 55,
+          "quote": "— Вы будете предупреждать меня о каждом своём действии."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Необходимость согласия.",
+        "source": {
+          "paragraph": 19,
+          "start": 0,
+          "end": 48,
+          "quote": "— Не станете делать ничего, чего я не разрешила."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Право остановить.",
+        "source": {
+          "paragraph": 21,
+          "start": 0,
+          "end": 33,
+          "quote": "— И прекратите, когда я потребую."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Уточняет отсутствие шока.",
+        "source": {
+          "paragraph": 78,
+          "start": 0,
+          "end": 28,
+          "quote": "— Когда касались моего лица."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Просьба о приватности.",
+        "source": {
+          "paragraph": 90,
+          "start": 0,
+          "end": 41,
+          "quote": "— Мне нужна ширма, — сказала она наконец."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Сразу прекращает действия.",
+        "source": {
+          "paragraph": 104,
+          "start": 0,
+          "end": 20,
+          "quote": "— Всё. Остановились."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Проверяет удобство при поддержке ноги.",
+        "source": {
+          "paragraph": 162,
+          "start": 0,
+          "end": 39,
+          "quote": "— Тэнмацуйора, нормально? — спросил он."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Просит показать поле после восстановления ходьбы.",
+        "source": {
+          "paragraph": 233,
+          "start": 0,
+          "end": 53,
+          "quote": "— Вы можете показать мне место, когда я смогу ходить?"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Соглашается; отложенное обязательство.",
+        "source": {
+          "paragraph": 234,
+          "start": 0,
+          "end": 27,
+          "quote": "— Конечно. Недалеко отсюда."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Пытается объяснить мотив.",
+        "source": {
+          "paragraph": 253,
+          "start": 0,
+          "end": 43,
+          "quote": "— Вы рассчитываете получить вознаграждение?"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Отделяет бытовые расходы от мотива спасения.",
+        "source": {
+          "paragraph": 261,
+          "start": 0,
+          "end": 96,
+          "quote": "— Если хотите потом обсудить расходы, обсудим, — добавил он. — Но сейчас не об этом думать надо."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Раскрывает общее правило.",
+        "source": {
+          "paragraph": 282,
+          "start": 0,
+          "end": 105,
+          "quote": "— При непосредственном соприкосновении с живым существом моя сила вызывает у него болезненное потрясение."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Обе стороны прямого контакта.",
+        "source": {
+          "paragraph": 285,
+          "start": 0,
+          "end": 38,
+          "quote": "— Да. И если я коснусь кого-либо сама."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Единственное известное исключение, не доказательство причин.",
+        "source": {
+          "paragraph": 287,
+          "start": 0,
+          "end": 52,
+          "quote": "— До встречи с вами я не знала ни одного исключения."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Интересуется её состоянием.",
+        "source": {
+          "paragraph": 292,
+          "start": 0,
+          "end": 31,
+          "quote": "— А вы от этого тоже страдаете?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Не испытывает аналогичного шока.",
+        "source": {
+          "paragraph": 299,
+          "start": 0,
+          "end": 65,
+          "quote": "— Само обычное прикосновение не причиняет мне того же потрясения."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Гипотеза, не факт.",
+        "source": {
+          "paragraph": 304,
+          "start": 0,
+          "end": 35,
+          "quote": "— Может, у меня какой-то иммунитет?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Не принимает предположение за установленное знание.",
+        "source": {
+          "paragraph": 306,
+          "start": 0,
+          "end": 37,
+          "quote": "— Возможно. Доказательств у меня нет."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Разрешение дальнейшего необходимого ухода с осторожностью.",
+        "source": {
+          "paragraph": 316,
+          "start": 0,
+          "end": 160,
+          "quote": "— При необходимой помощи, — произнесла она после паузы, — вы можете действовать так же, как прежде. При условии, что будете внимательны к собственным ощущениям."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Прямое предупреждение.",
+        "source": {
+          "paragraph": 318,
+          "start": 0,
+          "end": 46,
+          "quote": "— Если почувствуете боль, немедленно отойдите."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Предлагает добровольную проверку.",
+        "source": {
+          "paragraph": 336,
+          "start": 0,
+          "end": 23,
+          "quote": "— Вы можете отказаться."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Условие прекращения.",
+        "source": {
+          "paragraph": 350,
+          "start": 0,
+          "end": 49,
+          "quote": "— А если почувствую что-нибудь, сразу уберу руку."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Согласие на одно краткое касание.",
+        "source": {
+          "paragraph": 352,
+          "start": 0,
+          "end": 17,
+          "quote": "— Ладно. Давайте."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Сообщает ощущение после касания.",
+        "source": {
+          "paragraph": 363,
+          "start": 0,
+          "end": 29,
+          "quote": "— Кожа тёплая. Больше ничего."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Предлагает повтор, ждёт ответа.",
+        "source": {
+          "paragraph": 371,
+          "start": 0,
+          "end": 27,
+          "quote": "— Ещё раз? — спросил Антон."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Отказывается от повтора.",
+        "source": {
+          "paragraph": 375,
+          "start": 0,
+          "end": 18,
+          "quote": "— Нет. Достаточно."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Первое явное одобрение его поступков.",
+        "source": {
+          "paragraph": 411,
+          "start": 0,
+          "end": 34,
+          "quote": "— Сегодня вы действовали достойно."
+        }
+      }
+    ],
+    "characters": [
+      {
+        "id": "char.tenmatsuyora",
+        "state": {
+          "location": "place.earth.anton_home",
+          "health": "День 4: сознание яснее, утомляемость; обе руки и левая нога по-прежнему сломаны и обездвижены; фельдшер осмотрел и обработал повреждения, продолжает наблюдение.",
+          "emotion": "Гордость, раздражение, осторожный практический интерес; облегчение при уважении отказа, непривычное спокойствие и зарождающееся внимание к присутствию Антона. Любовь не установлена.",
+          "goals": [
+            "Восстановить здоровье",
+            "После восстановления ходьбы осмотреть поле, где её нашли",
+            "Выяснить причину разлома и безопасного касания",
+            "Узнать судьбу дворца"
+          ]
+        },
+        "knows": [
+          "Антон принимает отказ и прекращает уход по её требованию",
+          "Прямые касания виска и ноги не вызвали видимого шока",
+          "При добровольной краткой проверке касания предплечья Антон сообщил только тепло кожи",
+          "Антон знает об общем правиле шока; согласился соблюдать осторожность",
+          "Он не видел разлома и следов сражения, согласился позднее показать поле",
+          "Не считает помощь условием награды; готов обсуждать расходы отдельно",
+          "Другие люди не касались открытой кожи непосредственно в показанных сценах"
+        ],
+        "unknown": [
+          "Причина исключения, происхождение понимания речи, механизм восстановления",
+          "Фамилия Антона, профессия, точный адрес",
+          "Состояние дворца и координаты разлома",
+          "Справедливо ли правило для остальных существ на Земле; испытаний на других не проводили"
+        ],
+        "voice": "Точная властная речь, обращение на вы; впервые формулирует добровольный выбор, явно одобряет поступки, не становится покорной."
+      },
+      {
+        "id": "char.anton",
+        "state": {
+          "location": "place.earth.anton_home",
+          "health": "Невредим, не сообщил о боли или шоке от прикосновений.",
+          "emotion": "Сочувствие, забота, интерес к объяснению необычного свойства; любовь не установлена.",
+          "goals": [
+            "Помогать в восстановлении, соблюдая согласованные границы",
+            "Продолжать собственные дела",
+            "Когда Тэнмацуйора сможет ходить, показать место обнаружения"
+          ]
+        },
+        "knows": [
+          "Тэнмацуйора сообщила: непосредственное касание живого существа в обе стороны обычно вызывает у него магический шок",
+          "По её словам, он единственное известное ей исключение",
+          "Ей самой обычное касание не причиняет аналогичного потрясения",
+          "При краткой добровольной проверке ощутил тепло кожи, боли нет",
+          "Она интересуется разломом и следами сражения; не объяснила происхождение",
+          "Дальнейшая необходимая помощь разрешена при внимании к возможным симптомам"
+        ],
+        "unknown": [
+          "Титул, дворец, девять небес, причина разлома, подробности детства",
+          "Механизм безопасного прикосновения; иммунитет лишь предположение",
+          "Её внутреннее внимание и эмоциональные перемены"
+        ],
+        "voice": "Спокойные простые реплики; предлагает выбор, не использует беспомощность, не просит награду."
+      }
+    ],
+    "relationships": [
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "bond": "Человек, которому разрешён необходимый уход; единственное известное безопасное касание",
+        "trust": "Ограниченно выросло через соблюдение отказа, приватности и добровольность проверки",
+        "affection": "Не определена; новое внимание к присутствию и теплу, не признание любви",
+        "reason": "Умывание, помощь при лечении, спокойная реакция на раскрытие правила"
+      },
+      {
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "bond": "Раненая гостья, которой он временно помогает",
+        "trust": "Учитывает её предупреждения, согласует границы",
+        "affection": "Сочувствие и забота, не любовь",
+        "reason": "Она объяснила риск, он согласился на ограниченную проверку и продолжение необходимой помощи"
+      }
+    ],
+    "commitments": [
+      {
+        "id": "draft.commitment.anton.show_field",
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "status": "open",
+        "condition": "Когда она сможет ходить",
+        "action": "Показать поле, где он её нашёл.",
+        "source": {
+          "paragraph": 234,
+          "start": 0,
+          "end": 27,
+          "quote": "— Конечно. Недалеко отсюда."
+        }
+      },
+      {
+        "id": "draft.agreement.care_boundaries",
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "status": "active",
+        "condition": "При дальнейшем необходимом уходе",
+        "action": "Предупреждать, получать согласие, прекращать по её просьбе или при боли; уважать приватность.",
+        "source": {
+          "paragraph": 318,
+          "start": 0,
+          "end": 46,
+          "quote": "— Если почувствуете боль, немедленно отойдите."
+        }
+      }
+    ],
+    "unresolved": [
+      "Точная причина безопасного касания не раскрыта; проверка не доказывает абсолютную невосприимчивость, не вводить второе исключение.",
+      "Антон пока не знает императорского титула, устройства девяти небес, детства и обстоятельств нападения.",
+      "Осмотр поля отложен до возможности ходить.",
+      "Медицинское наблюдение продолжается, руки и левая нога не зажили.",
+      "Волосы и девять хвостов спутаны, необходим уход — глава 6.",
+      "Состояние дворца, происхождение разлома и механизм языкового понимания неизвестны."
+    ],
+    "editorial_decisions": [
+      "Выбрана хронология четвёртого дня после обнаружения. Отсчёт продолжает главу 4.",
+      "Добавлено воспоминание о молодой придворной служительнице; имена и точная дата не установлены; не приписывать героине новые события детства без текста.",
+      "Медицинскую обработку выполняет фельдшер; Антон только поддерживает ногу по его указанию. Бытовой уход не эротизирован и происходит по согласию.",
+      "Героиня сообщает об общем правиле Антону, но не раскрывает титул, прошлое и магическое происхождение.",
+      "Добавлена одна взаимно согласованная краткая проверка; она не усиливает магию, не проверяет на других и не доказывает причину.",
+      "Добавлено отложенное обещание показать поле; оно не должно быть забыто при дальнейшем развитии."
+    ]
+  }
+}
