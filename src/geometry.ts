@@ -28,6 +28,7 @@ export function points(ids:number[],active:boolean):Point[]{
  return p;
 }
 export function fit(groups:Group[]):{x:number,y:number,k:number}{
+ if(groups.length<=1)return {x:-35,y:-62,k:1.04};
  const p=[{x:0,y:0},...groups.map(g=>center(g.page))];
  const left=Math.min(...p.map(v=>v.x))-145,right=Math.max(...p.map(v=>v.x))+145,top=Math.min(...p.map(v=>v.y))-145,bottom=Math.max(...p.map(v=>v.y))+145;
  return {x:(left+right)/2,y:(top+bottom)/2,k:Math.min(1.45,800/(right-left),690/(bottom-top))};
