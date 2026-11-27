@@ -36,5 +36,16 @@ class HistoryTests(unittest.TestCase):
             self.assertEqual(len(server.cluster(0)), 30)
             self.assertEqual(len(server.cluster(333)), 10)
 
+    def test_preferences_and_exact_archive_slots(self):
+        from contextlib import closing
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server, "DB", Path(tmp)/"test.sqlite"):
+            with closing(server.connect()) as conn, conn:
+                conn.execute("INSERT INTO messages(id,role,content) VALUES (1,'user','a'), (3,'user','b'), (30,'assistant','c')")
+            self.assertEqual(server.state()["groups"][0]["mask"], (1<<0)|(1<<2)|(1<<29))
+            saved=server.save_preferences({"glow": 5, "speed": .5, "camera": {"x": 42,"y": -17,"k": 2}, "auto": False})
+            self.assertEqual(saved["glow"],1.5)
+            self.assertEqual(server.state()["preferences"],saved)
+            self.assertEqual(server.save_preferences({"speed": float("nan")})["speed"],1)
+
 if __name__ == "__main__":
     unittest.main()

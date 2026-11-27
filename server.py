@@ -5,6 +5,7 @@ import threading
 import urllib.request
 import webbrowser
 import re
+import math
 from contextlib import closing
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -21,6 +22,7 @@ def connect():
     conn = sqlite3.connect(DB, timeout=10)
     conn.row_factory = sqlite3.Row
     conn.execute("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY, role TEXT NOT NULL CHECK(role IN ('user','assistant')), content TEXT NOT NULL)")
+    conn.execute("CREATE TABLE IF NOT EXISTS visual_preferences (id INTEGER PRIMARY KEY CHECK(id=1), value TEXT NOT NULL)")
     return conn
 
 def save(role, content):
@@ -31,8 +33,21 @@ def state():
     with closing(connect()) as conn:
         rows = conn.execute("SELECT id,role,content FROM messages ORDER BY id DESC LIMIT 200").fetchall()
         count = conn.execute("SELECT count(*) FROM messages").fetchone()[0]
-        groups = [dict(row) for row in conn.execute("SELECT (id-1)/30 AS page, count(*) AS count FROM messages GROUP BY (id-1)/30 ORDER BY page")]
-    return {"messages": [dict(row) for row in reversed(rows)], "count": count, "groups": groups, "configured": bool(KEY and MODEL), "model": MODEL if KEY and MODEL else ""}
+        groups = [dict(row) for row in conn.execute("SELECT (id-1)/30 AS page, count(*) AS count, sum(1 << ((id-1)%30)) AS mask FROM messages GROUP BY (id-1)/30 ORDER BY page")]
+        pref = conn.execute("SELECT value FROM visual_preferences WHERE id=1").fetchone()
+    return {"preferences": json.loads(pref[0]) if pref else {}, "messages": [dict(row) for row in reversed(rows)], "count": count, "groups": groups, "configured": bool(KEY and MODEL), "model": MODEL if KEY and MODEL else ""}
+
+def save_preferences(value):
+    if not isinstance(value, dict):
+        raise ValueError("Invalid preferences")
+    def num(v, lo, hi, default):
+        return min(hi, max(lo, v)) if type(v) in (float, int) and math.isfinite(v) else default
+    camera = value.get("camera")
+    camera = {"x": num(camera.get("x"), -100000, 100000, 0), "y": num(camera.get("y"), -100000, 100000, 0), "k": num(camera.get("k"), .035, 3, 1)} if isinstance(camera, dict) else None
+    clean = {"glow": num(value.get("glow"), .25, 1.5, 1), "speed": num(value.get("speed"), 0, 2, 1), "quality": "low" if value.get("quality") == "low" else "high", "camera": camera, "auto": value.get("auto") is not False}
+    with closing(connect()) as conn, conn:
+        conn.execute("INSERT INTO visual_preferences(id,value) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET value=excluded.value", (json.dumps(clean),))
+    return clean
 
 def cluster(page):
     with closing(connect()) as conn:
@@ -99,7 +114,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self.allowed() or self.headers.get("Origin") != f"http://127.0.0.1:{self.server.server_port}" or self.headers.get("X-Tenma") != "1":
             return self.json(403, {"error":"Invalid origin"})
-        if self.path != "/api/message":
+        if self.path not in ("/api/message", "/api/preferences"):
             return self.json(404, {"error":"Not found"})
         try:
             length = int(self.headers.get("Content-Length", "0"))
@@ -108,6 +123,8 @@ class Handler(BaseHTTPRequestHandler):
             data = json.loads(self.rfile.read(length))
             if not isinstance(data, dict):
                 raise ValueError("Invalid request")
+            if self.path == "/api/preferences":
+                return self.json(200, {"preferences": save_preferences(data)})
             notice = process(data.get("content"))
             self.json(200, {"notice":notice})
         except (ValueError, UnicodeError):
