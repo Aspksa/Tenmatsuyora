@@ -1,10 +1,12 @@
-import {center,points,fit,slots,drift,normalizePreferences,evolutionCenter,evolutionScale,neighbours,type Point,type Group} from "./geometry.js";
+import {makePhysics,ENGINE} from "./physics.js";
+import {center,points,fit,slots,normalizePreferences,evolutionCenter,evolutionScale,neighbours,type Point,type Group} from "./geometry.js";
 type Message={id:number,role:"user"|"assistant",content:string};
 type CatalogItem={id:string,category:string};
 type CloudStatus={verified:boolean,has_key:boolean,catalog:CatalogItem[],embedding:string,secure_storage:boolean};
 type State={cloud:CloudStatus,context_links:{answer_id:number,source_id:number}[],messages:Message[],count:number,groups:Group[],preferences:unknown,configured:boolean,model:string};
 const byId=<T extends HTMLElement>(id:string)=>document.getElementById(id) as T;
 const svg=document.getElementById("sky") as unknown as SVGSVGElement;
+svg.dataset.engine=ENGINE;
 const stars=document.getElementById("stars")!;
 const links=document.getElementById("links")!;
 const nodes=document.getElementById("nodes")!;
@@ -61,7 +63,7 @@ function textAt(parent:Element,x:number,y:number,value:string,c:string,size=12){
 type Cam={x:number,y:number,k:number};
 type LiveStar={id:number,base:Point,p:Point,node:SVGGElement,born:number,delay:number};
 type LiveEdge={el:SVGPathElement,a:number,b:number};
-type Scene={anchor:Point,page:number,count:number,hub:SVGGElement,detail:SVGGElement,mini:SVGGElement,edge:SVGPathElement,p:Point,scale:number,targetScale:number,signature:string,active:boolean,miniSignature:string,stars:LiveStar[],edges:LiveEdge[],inView:boolean};
+type Scene={physics:ReturnType<typeof makePhysics>|null,anchor:Point,page:number,count:number,hub:SVGGElement,detail:SVGGElement,mini:SVGGElement,edge:SVGPathElement,p:Point,scale:number,targetScale:number,signature:string,active:boolean,miniSignature:string,stars:LiveStar[],edges:LiveEdge[],inView:boolean};
 const world=element("g",{},svg);
 world.append(links,nodes);
 const core=element("g",{class:"core"},nodes);
@@ -240,12 +242,10 @@ function tick(t:number){
  if(busy||returning)beamPath.setAttribute("d","M1000 460 Q750 510 "+coreP.x+" "+coreP.y);
  for(const s of scenes.values()){
  if(s.inView)s.edge.setAttribute("d",curveD(corePosition,s.p));
- const expanding=s.page===active||s.page===focused;
  const relocating=Math.hypot(s.p.x-s.anchor.x,s.p.y-s.anchor.y)>.1;
  if(relocating){moving=true;dirty=true;}
- if(relocating||(s.inView&&expanding)){
- const shift=drift(s.page+33,time,staticMotion||!expanding?0:9);
- const targetX=s.anchor.x+shift.x,targetY=s.anchor.y+shift.y;
+ if(relocating){
+ const targetX=s.anchor.x,targetY=s.anchor.y;
  s.p.x+=(targetX-s.p.x)*ease;s.p.y+=(targetY-s.p.y)*ease;
  const translation="translate("+s.p.x+" "+s.p.y+")";
  s.hub.setAttribute("transform",translation+" scale("+Math.max(1,Math.min(3,.45/cam.k))+")");
@@ -258,13 +258,15 @@ function tick(t:number){
  else if(diff!==0){s.scale=s.targetScale;s.detail.setAttribute("transform","translate("+s.p.x+" "+s.p.y+") scale("+s.scale+")");}
  if(!s.inView||cam.k<.48||!s.stars.length)continue;
  const detailed=s.page===active||s.page===focused;
- const amplitude=staticMotion?0:detailed?4:(adaptiveLow||prefs.quality==="low")?0:1.2;
+ if(s.physics?.running()){
+ const positions=s.physics.step(staticMotion?120:Math.max(1,Math.min(3,Math.round(dt/16*Math.max(.2,prefs.speed)))));
+ positions.forEach((p,i)=>{s.stars[i].p=p;});
+ if(s.physics.running())moving=true;
+ }
  for(const n of s.stars){
- const d=drift(n.id,time,amplitude);
  const pending=!staticMotion&&n.born>0&&time<n.born+n.delay;
  n.node.classList.toggle("awaiting-birth",pending);if(pending){moving=true;continue;}
- const tx=n.base.x+d.x,ty=n.base.y+d.y;
- n.p.x+=(tx-n.p.x)*ease;n.p.y+=(ty-n.p.y)*ease;
+ 
  n.node.setAttribute("transform","translate("+n.p.x+" "+n.p.y+")");
  n.node.classList.toggle("last-born",n.id===latestId&&t<highlightUntil&&detailed&&(selected===null||selected===n.id));
  }
@@ -284,7 +286,7 @@ function tick(t:number){
  }else flow.setAttribute("visibility","hidden");
  }
  updateWorkflow();
- if(moving||(!staticMotion&&(busy||returning||[...scenes.values()].some(s=>s.inView&&s.stars.length>0&&cam.k>=.48)))||t<highlightUntil)wake();else last=0;
+ if(moving||(!staticMotion&&(busy||returning))||t<highlightUntil)wake();else last=0;
 }
 document.addEventListener("visibilitychange",()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;last=0;}else{dirty=true;wake();}});
 reduced.addEventListener("change",()=>{dirty=true;wake();});
@@ -309,7 +311,7 @@ function createScene(g:Group):Scene{
  accessible(hub,"Открыть созвездие "+(g.page+1),()=>{void choose(g.page);});
  const mini=element("g",{class:"mini-cluster",transform:"translate("+p.x+" "+p.y+") scale(.7)","pointer-events":"none"},nodes) as SVGGElement;
  const detail=element("g",{class:"cluster-detail",transform:"translate("+p.x+" "+p.y+") scale(.55)"},nodes) as SVGGElement;
- return {anchor:{...p},page:g.page,count:g.count,hub,detail,mini,edge,p,scale:.55,targetScale:.55,signature:"",active:false,miniSignature:"",stars:[],edges:[],inView:true};
+ return {physics:null,anchor:{...p},page:g.page,count:g.count,hub,detail,mini,edge,p,scale:.55,targetScale:.55,signature:"",active:false,miniSignature:"",stars:[],edges:[],inView:true};
 }
 function drawMini(s:Scene,g:Group){
  const ids=slots(g),signature=ids.join(",");
@@ -335,6 +337,7 @@ function refreshDetails(){
  visibleDetail+=data.length;
  if(signature===s.signature)continue;
  const old=new Map(s.stars.map(n=>[n.id,n]));
+ s.physics?.dispose();s.physics=null;
  s.stars=[];s.edges=[];
  s.signature=signature;s.detail.replaceChildren();
  const c=palette[s.page%palette.length],j=s.page%palette.length;
@@ -373,6 +376,7 @@ function refreshDetails(){
  }
  n.classList.toggle("selected",selected===m.id);
  });
+ if(s.stars.length){s.physics=makePhysics(s.stars.map(n=>n.base),s.stars.map(n=>n.p),s.edges.map(({a,b})=>({a,b})));}
  }
  dirty=true;wake();
 }
@@ -381,7 +385,7 @@ function draw(data:Message[],summary:Group[]){
  const newest=data.at(-1)?.id??0;if(ready&&newest>latestId){highlightUntil=performance.now()+2400;}latestId=newest;
  latest=data;groups=summary;const previous=active;active=summary.at(-1)?.page??-1;
  const valid=new Set(summary.map(g=>g.page));
- for(const [id,s] of scenes){if(!valid.has(id)){s.hub.remove();s.detail.remove();s.mini.remove();s.edge.remove();scenes.delete(id);}}
+ for(const [id,s] of scenes){if(!valid.has(id)){s.physics?.dispose();s.hub.remove();s.detail.remove();s.mini.remove();s.edge.remove();scenes.delete(id);}}
  for(const g of summary){
  let s=scenes.get(g.page);if(!s){s=createScene(g);scenes.set(g.page,s);}
  s.count=g.count;s.active=g.page===active;s.anchor=evolutionCenter(g.page,active);drawMini(s,g);

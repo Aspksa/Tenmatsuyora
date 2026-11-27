@@ -24,3 +24,16 @@ for(let active=0;active<12;active++){
  for(let i=0;i<v.length;i++)for(let j=i+1;j<v.length;j++)assert.ok(Math.hypot(v[i].x-v[j].x,v[i].y-v[j].y)>220);
 }
 for(let i=1;i<p.length;i++){const n=neighbours(p,i);assert.ok(n.length>=1&&n.length<=3);assert.ok(n.every(k=>k<i));}
+
+const {makePhysics,ENGINE}=await import("../static/physics.js");
+assert.equal(ENGINE,"d3-force@3.0.0");
+const goal=Array.from({length:30},(_,i)=>({x:Math.cos(i*2.4)*65,y:Math.sin(i*2.4)*65}));
+const sim=makePhysics(goal,goal.map(()=>({x:0,y:0})),goal.slice(1).map((_,i)=>({a:i,b:i+1})));
+assert.ok(sim.running());
+const early=sim.step(1),final=sim.step(120);
+assert.notDeepEqual(early,final);
+assert.ok(final.every(v=>Number.isFinite(v.x)&&Number.isFinite(v.y)&&Math.hypot(v.x,v.y)<=124.001));
+assert.ok(!sim.running());
+for(let i=0;i<final.length;i++)for(let j=i+1;j<final.length;j++)assert.ok(Math.hypot(final[i].x-final[j].x,final[i].y-final[j].y)>10);
+sim.dispose();
+console.log("D3 physical simulation: repulsion, collision, springs, cooling and bounded positions");

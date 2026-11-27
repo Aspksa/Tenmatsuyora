@@ -1,3 +1,4 @@
+import {makePhysics} from "./physics.js";
 export type Point={x:number,y:number};
 export type Group={page:number,count:number,mask?:number};
 export const SPACING=350;
@@ -15,18 +16,11 @@ export function center(page:number):Point{
 }
 export function points(ids:number[],active:boolean):Point[]{
  const a=ids.map(id=>{const s=(id-1)%30,theta=s*2.39996323+Math.sin(id*9.17)*.23,r=24+Math.sqrt(s+1)*(active?16:8)+Math.sin(id*4.73)*5;return {x:Math.cos(theta)*r,y:Math.sin(theta)*r};});
- // Bounded attraction to the initial target plus short-range mutual repulsion.
- const p=a.map(v=>({...v})),gap=active?17:10;
- for(let k=0;k<12;k++){
- for(let i=0;i<p.length;i++){
- for(let j=i+1;j<p.length;j++){
- const dx=p[j].x-p[i].x,dy=p[j].y-p[i].y,d=Math.hypot(dx,dy);
- if(d>0&&d<gap){const push=(gap-d)*.5/d;p[i].x-=dx*push;p[i].y-=dy*push;p[j].x+=dx*push;p[j].y+=dy*push;}
- }
- p[i].x+=(a[i].x-p[i].x)*.1;p[i].y+=(a[i].y-p[i].y)*.1;
- }}
- return p;
+ const links=a.flatMap((_,i)=>neighbours(a,i).map(k=>({a:i,b:k})));
+ const engine=makePhysics(a,a,links,active);
+ const result=engine.step(96);engine.dispose();return result;
 }
+
 export function fit(groups:Group[]):{x:number,y:number,k:number}{
  if(groups.length<=1)return {x:-75,y:-130,k:1.04};
  const p=[{x:0,y:0},...groups.map(g=>evolutionCenter(g.page,groups.at(-1)?.page??-1))];
