@@ -1,0 +1,1161 @@
+{
+  "schema": 1,
+  "base_sha": "ad8869f9836272b43ca99bce0c7a6d41ac90f103",
+  "chapter": 6,
+  "status": "complete_prose_unpublished",
+  "prerequisite": {
+    "chapter": 5,
+    "branch": "main",
+    "commit": "ad8869f9836272b43ca99bce0c7a6d41ac90f103",
+    "blob": "4f043d741e65f615791aa8d6c8bcdbec2fb3e5e9",
+    "closing": "А воспоминание о тепле чужой ладони осталось."
+  },
+  "opening": "— Не прикасайтесь к хвостам.",
+  "closing": "И на этот раз ей не потребовалось искать причину, по которой она обратила на это внимание.",
+  "completed_scenes": [
+    "draft.scene.000006.001",
+    "draft.scene.000006.002",
+    "draft.scene.000006.003",
+    "draft.scene.000006.004",
+    "draft.scene.000006.005",
+    "draft.scene.000006.006",
+    "draft.scene.000006.007",
+    "draft.scene.000006.008",
+    "draft.scene.000006.009",
+    "draft.scene.000006.010"
+  ],
+  "body_chars": 22407,
+  "next_scene": "Глава 7 «Обыкновенный день»: последующие недели восстановления, частичное возвращение подвижности руки и затем ноги по медицинской оценке, самостоятельные бытовые действия и разговоры. Антон знает о правиле прикосновения, видел магию, но титул не раскрыт. Она начинает учитывать его время и воспринимать присутствие как привычное. Обещание показать поле исполнить только когда ходьба безопасна; к концу месяца она ещё не полностью здорова. Не торопить признание любви. Подготовить появление одной из девяти горничных-телохранительниц в главе 8.",
+  "editorial_status": "Полный черновик; сцены, события, реплики и обязательства размечены, точные привязки и диапазоны проверены. Начальная рамка не является отдельным событием. Полная публикация требует последовательной редакции, официального журнала, stamp/validate и CI.",
+  "draft_memory": {
+    "scenes": [
+      {
+        "id": "draft.scene.000006.001",
+        "paragraphs": [
+          1,
+          12
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро дня 5, рамка к сцене 3",
+        "summary": "Отказ от касания хвостов, разрешение начать с волос.",
+        "frame_of": "draft.scene.000006.003",
+        "chronological_order": null
+      },
+      {
+        "id": "draft.scene.000006.002",
+        "paragraphs": [
+          13,
+          41
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро дня 5",
+        "summary": "Зеркало, две неудачные попытки использовать гребень магией, Антон видит движение.",
+        "chronological_order": 1
+      },
+      {
+        "id": "draft.scene.000006.003",
+        "paragraphs": [
+          42,
+          83
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро дня 5",
+        "summary": "Уход за волосами с разрешения, безопасное касание.",
+        "chronological_order": 2
+      },
+      {
+        "id": "draft.scene.000006.004",
+        "paragraphs": [
+          84,
+          127
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Утро дня 5",
+        "summary": "Воспоминание о женщине и ребёнке, расслабление и испуг от потери контроля.",
+        "chronological_order": 3
+      },
+      {
+        "id": "draft.scene.000006.005",
+        "paragraphs": [
+          128,
+          192
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Полдень дня 5",
+        "summary": "Осмотр фельдшера, объяснение чувствительности хвостов, согласие на уход.",
+        "chronological_order": 4
+      },
+      {
+        "id": "draft.scene.000006.006",
+        "paragraphs": [
+          193,
+          225
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "День 5",
+        "summary": "Признаёт, что Антон не обязан быть её слугой.",
+        "chronological_order": 5
+      },
+      {
+        "id": "draft.scene.000006.007",
+        "paragraphs": [
+          226,
+          269
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "День 5",
+        "summary": "Осознанное спокойствие при уходе, конкретное доверие.",
+        "chronological_order": 6
+      },
+      {
+        "id": "draft.scene.000006.008",
+        "paragraphs": [
+          270,
+          307
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Вечер дня 5",
+        "summary": "Волосы и три хвоста, забота о его времени.",
+        "chronological_order": 7
+      },
+      {
+        "id": "draft.scene.000006.009",
+        "paragraphs": [
+          308,
+          348
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "День 6",
+        "summary": "Перемещает кружку магией, помнит обещание о поле, сама просит продолжить, рассказывает о самостоятельном уходе.",
+        "chronological_order": 8
+      },
+      {
+        "id": "draft.scene.000006.010",
+        "paragraphs": [
+          349,
+          383
+        ],
+        "pov": "char.tenmatsuyora",
+        "place": "place.earth.anton_home",
+        "time": "Вечер дня 6",
+        "summary": "Все девять хвостов, прямая благодарность, отделяет заботу от беспомощности.",
+        "chronological_order": 9
+      }
+    ],
+    "evidence": [
+      {
+        "id": "draft.event.000006.refuses_tails",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 1,
+          "start": 0,
+          "end": 28,
+          "quote": "— Не прикасайтесь к хвостам."
+        }
+      },
+      {
+        "id": "draft.event.000006.allows_hair",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 9,
+          "start": 0,
+          "end": 65,
+          "quote": "— Сначала волосы, — наконец распорядилась она. — И не торопитесь."
+        }
+      },
+      {
+        "id": "draft.event.000006.mirror",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 13,
+          "start": 0,
+          "end": 58,
+          "quote": "Утро началось с того, что Тэнмацуйора потребовала зеркало."
+        }
+      },
+      {
+        "id": "draft.event.000006.hair_condition",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 17,
+          "start": 0,
+          "end": 271,
+          "quote": "Теперь из зеркала на неё смотрела женщина, чьи длинные чёрные волосы были собраны кое-как, чтобы не мешать лечению. Несколько прядей лежали поверх одеяла. Остальные спутались возле плеч. Девять хвостов, насколько она могла видеть их отражение, утратили прежнюю гладкость."
+        }
+      },
+      {
+        "id": "draft.event.000006.asks_comb",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 21,
+          "start": 0,
+          "end": 24,
+          "quote": "— Мне необходим гребень."
+        }
+      },
+      {
+        "id": "draft.event.000006.magic_comb",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 25,
+          "start": 0,
+          "end": 97,
+          "quote": "Гребень приподнялся над деревянной поверхностью, повернулся в воздухе и приблизился к её волосам."
+        }
+      },
+      {
+        "id": "draft.event.000006.first_attempt_fails",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 28,
+          "start": 0,
+          "end": 28,
+          "quote": "Гребень опустился на одеяло."
+        }
+      },
+      {
+        "id": "draft.event.000006.second_attempt_fails",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 30,
+          "start": 0,
+          "end": 327,
+          "quote": "Через несколько минут повторила попытку. На этот раз инструмент задержался над её головой, словно ожидая дальнейшего распоряжения, и снова упал. Не потому, что Тэнмацуйора утратила силу. Она ясно ощущала её присутствие. Но мысль, необходимая для точного и продолжительного управления предметом, рассыпалась от боли и утомления."
+        }
+      },
+      {
+        "id": "draft.event.000006.anton_witnesses_magic",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 32,
+          "start": 0,
+          "end": 24,
+          "quote": "— Это вы сейчас сделали?"
+        }
+      },
+      {
+        "id": "draft.event.000006.instruction",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 42,
+          "start": 0,
+          "end": 207,
+          "quote": "Императрица объяснила, что нельзя тянуть волосы от корней, если концы спутаны. Указала, какую часть следовало отделить первой. Когда Антон попытался взять слишком большую прядь, она немедленно его поправила."
+        }
+      },
+      {
+        "id": "draft.event.000006.patient_brushing",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 50,
+          "start": 0,
+          "end": 179,
+          "quote": "Он начинал с самых концов. Если встречал сопротивление, останавливался. Иногда откладывал гребень, чтобы осторожно разделить спутанные пряди пальцами. После этого снова продолжал."
+        }
+      },
+      {
+        "id": "draft.event.000006.hair_contact",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 65,
+          "start": 0,
+          "end": 82,
+          "quote": "Он отделил следующую прядь. Его пальцы ненадолго коснулись кожи у основания волос."
+        }
+      },
+      {
+        "id": "draft.event.000006.no_shock",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 73,
+          "start": 0,
+          "end": 185,
+          "quote": "Он не испытывал магического шока. Вчерашний разговор ничего в этом отношении не изменил. Антон знал о свойстве её силы и не забывал об осторожности, но его движения не стали боязливыми."
+        }
+      },
+      {
+        "id": "draft.event.000006.childhood_recall",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 84,
+          "start": 0,
+          "end": 94,
+          "quote": "Однажды, очень давно, Тэнмацуйора наблюдала, как женщина расчёсывает волосы маленькой девочке."
+        }
+      },
+      {
+        "id": "draft.event.000006.earlier_self_care",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 89,
+          "start": 0,
+          "end": 179,
+          "quote": "Она научилась самостоятельно справляться с волосами раньше, чем могла бы объяснить, почему это необходимо. Ей приносили гребень, показывали, как им пользоваться, а затем отходили."
+        }
+      },
+      {
+        "id": "draft.event.000006.relaxation",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 112,
+          "start": 0,
+          "end": 41,
+          "quote": "Через несколько минут её веки опустились."
+        }
+      },
+      {
+        "id": "draft.event.000006.stops",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 118,
+          "start": 0,
+          "end": 13,
+          "quote": "— Достаточно."
+        }
+      },
+      {
+        "id": "draft.event.000006.medical_followup",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 128,
+          "start": 0,
+          "end": 143,
+          "quote": "К полудню фельдшер сообщил, что состояние пациентки постепенно улучшается, хотя повреждённые руки и нога всё ещё требуют фиксации и наблюдения."
+        }
+      },
+      {
+        "id": "draft.event.000006.tails_body",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 137,
+          "start": 0,
+          "end": 76,
+          "quote": "Но в повседневной жизни это были части её собственного тела, а не украшения."
+        }
+      },
+      {
+        "id": "draft.event.000006.never_earlier",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 139,
+          "start": 0,
+          "end": 68,
+          "quote": "Никогда прежде не позволяла другому существу выполнять такую работу."
+        }
+      },
+      {
+        "id": "draft.event.000006.anton_acceptance",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 154,
+          "start": 0,
+          "end": 42,
+          "quote": "— Ну, ваши хвосты и ваши. Вам с ними жить."
+        }
+      },
+      {
+        "id": "draft.event.000006.tail_permission",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 159,
+          "start": 0,
+          "end": 127,
+          "quote": "— Начнёте с того, который расположен ближе всего к вам. Только свободную часть, которую можно достать, не меняя положения ноги."
+        }
+      },
+      {
+        "id": "draft.event.000006.tail_touch",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 167,
+          "start": 0,
+          "end": 31,
+          "quote": "Антон поддержал хвост ладонями."
+        }
+      },
+      {
+        "id": "draft.event.000006.tail_reaction",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 178,
+          "start": 0,
+          "end": 60,
+          "quote": "Императрица почувствовала, как хвост непроизвольно дёрнулся."
+        }
+      },
+      {
+        "id": "draft.event.000006.tail_resume",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 185,
+          "start": 0,
+          "end": 36,
+          "quote": "Тэнмацуйора медленно расслабила его."
+        }
+      },
+      {
+        "id": "draft.event.000006.not_servant",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 209,
+          "start": 0,
+          "end": 33,
+          "quote": "— И не считаете себя моим слугой?"
+        }
+      },
+      {
+        "id": "draft.event.000006.acknowledges_no_obligation",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 216,
+          "start": 0,
+          "end": 43,
+          "quote": "— Нет, — ответила она наконец. — Не должны."
+        }
+      },
+      {
+        "id": "draft.event.000006.break",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 226,
+          "start": 0,
+          "end": 50,
+          "quote": "Первый хвост был приведён в порядок, затем второй."
+        }
+      },
+      {
+        "id": "draft.event.000006.third_tail",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 238,
+          "start": 0,
+          "end": 183,
+          "quote": "Третий хвост оказался запутан сильнее предыдущих. На самом конце шерсть слиплась от грязи, которую не удалось полностью убрать раньше. Антон не стал тянуть, а показал ей этот участок."
+        }
+      },
+      {
+        "id": "draft.event.000006.limited_trust",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 249,
+          "start": 0,
+          "end": 94,
+          "quote": "Но в отношении одного конкретного действия ей больше не требовалось проверять каждое движение."
+        }
+      },
+      {
+        "id": "draft.event.000006.calm",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 260,
+          "start": 0,
+          "end": 17,
+          "quote": "Ей было спокойно."
+        }
+      },
+      {
+        "id": "draft.event.000006.voluntary_relaxation",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 268,
+          "start": 0,
+          "end": 66,
+          "quote": "Теперь уже без поспешного объяснения самой себе, зачем это делает."
+        }
+      },
+      {
+        "id": "draft.event.000006.day5_progress",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 270,
+          "start": 0,
+          "end": 217,
+          "quote": "К вечеру волосы и три хвоста выглядели заметно лучше. Остальные она решила оставить до следующего дня: утомление стало слишком сильным, а некоторые хвосты лежали так, что для ухода пришлось бы изменить положение тела."
+        }
+      },
+      {
+        "id": "draft.event.000006.concern_for_time",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 300,
+          "start": 0,
+          "end": 65,
+          "quote": "— В таком случае не откладывайте их из-за меня без необходимости."
+        }
+      },
+      {
+        "id": "draft.event.000006.day6_request",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 308,
+          "start": 0,
+          "end": 54,
+          "quote": "На следующий день она сама попросила принести гребень."
+        }
+      },
+      {
+        "id": "draft.event.000006.cup_magic",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 310,
+          "start": 0,
+          "end": 70,
+          "quote": "Ей удалось переместить пустую кружку с одного края тумбочки на другой."
+        }
+      },
+      {
+        "id": "draft.event.000006.fractures_persist",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 313,
+          "start": 0,
+          "end": 198,
+          "quote": "Она не объявила о выздоровлении и не стала требовать снять приспособления, удерживавшие повреждённые руки и ногу. Возвращение способности сосредоточиваться не означало, что кости уже восстановились."
+        }
+      },
+      {
+        "id": "draft.event.000006.field_promise_remembered",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 316,
+          "start": 0,
+          "end": 50,
+          "quote": "Она помнила обещание Антона показать ей это место."
+        }
+      },
+      {
+        "id": "draft.event.000006.remembers_instructions",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 324,
+          "start": 0,
+          "end": 138,
+          "quote": "Он запомнил её указания. Не стал брать слишком большую прядь. Не пытался переместить хвост, пока она сама не обозначила удобное положение."
+        }
+      },
+      {
+        "id": "draft.event.000006.asks_past",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 328,
+          "start": 0,
+          "end": 41,
+          "quote": "— А раньше вам кто-нибудь помогал с этим?"
+        }
+      },
+      {
+        "id": "draft.event.000006.reveals_no_prior_help",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 337,
+          "start": 0,
+          "end": 62,
+          "quote": "— Мне приносили всё необходимое. Я справлялась самостоятельно."
+        }
+      },
+      {
+        "id": "draft.event.000006.all_tails",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 349,
+          "start": 0,
+          "end": 190,
+          "quote": "Ближе к вечеру он закончил последний из девяти хвостов, доступ к которому теперь удалось организовать без опасного перемещения повреждённой ноги. Работа заняла два дня и несколько перерывов."
+        }
+      },
+      {
+        "id": "draft.event.000006.distinguishes_help",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 365,
+          "start": 0,
+          "end": 72,
+          "quote": "Однако теперь понимала: его помощь и её беспомощность — не одно и то же."
+        }
+      },
+      {
+        "id": "draft.event.000006.thanks",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 371,
+          "start": 0,
+          "end": 16,
+          "quote": "— Благодарю вас."
+        }
+      },
+      {
+        "id": "draft.event.000006.presence",
+        "pov": "char.tenmatsuyora",
+        "source": {
+          "paragraph": 383,
+          "start": 0,
+          "end": 90,
+          "quote": "И на этот раз ей не потребовалось искать причину, по которой она обратила на это внимание."
+        }
+      }
+    ],
+    "speech": [
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Граница",
+        "source": {
+          "paragraph": 1,
+          "start": 0,
+          "end": 28,
+          "quote": "— Не прикасайтесь к хвостам."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Не предполагает разрешение",
+        "source": {
+          "paragraph": 5,
+          "start": 0,
+          "end": 22,
+          "quote": "— Поэтому и спрашиваю."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Ограниченное согласие",
+        "source": {
+          "paragraph": 9,
+          "start": 0,
+          "end": 65,
+          "quote": "— Сначала волосы, — наконец распорядилась она. — И не торопитесь."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Помнит ограничение главы 5",
+        "source": {
+          "paragraph": 19,
+          "start": 0,
+          "end": 77,
+          "quote": "— Вчера вы просили волосы не трогать. Ну, кроме той пряди, что лезла в глаза."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Видел магию",
+        "source": {
+          "paragraph": 32,
+          "start": 0,
+          "end": 24,
+          "quote": "— Это вы сейчас сделали?"
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Беспокоится о боли",
+        "source": {
+          "paragraph": 77,
+          "start": 0,
+          "end": 38,
+          "quote": "— Испытываю. Боюсь волосы вам выдрать."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Уточняет предпочтение",
+        "source": {
+          "paragraph": 107,
+          "start": 0,
+          "end": 51,
+          "quote": "— Не нужно слишком часто спрашивать, больно ли мне."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Прерывает уход",
+        "source": {
+          "paragraph": 118,
+          "start": 0,
+          "end": 13,
+          "quote": "— Достаточно."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Уважает остановку",
+        "source": {
+          "paragraph": 120,
+          "start": 0,
+          "end": 16,
+          "quote": "— Всё. Отдохнём."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Хвосты — часть тела",
+        "source": {
+          "paragraph": 140,
+          "start": 0,
+          "end": 48,
+          "quote": "— Вы должны понимать, что это не меховая одежда."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Принимает внешность",
+        "source": {
+          "paragraph": 154,
+          "start": 0,
+          "end": 42,
+          "quote": "— Ну, ваши хвосты и ваши. Вам с ними жить."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Ограничивает доступ",
+        "source": {
+          "paragraph": 159,
+          "start": 0,
+          "end": 127,
+          "quote": "— Начнёте с того, который расположен ближе всего к вам. Только свободную часть, которую можно достать, не меняя положения ноги."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Граница из-за травм",
+        "source": {
+          "paragraph": 163,
+          "start": 0,
+          "end": 60,
+          "quote": "— И не пытайтесь поднять меня, чтобы добраться до остальных."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Запрашивает разрешение",
+        "source": {
+          "paragraph": 175,
+          "start": 0,
+          "end": 34,
+          "quote": "— Тут тоже узел. Разобрать руками?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Проверяет мотив",
+        "source": {
+          "paragraph": 193,
+          "start": 0,
+          "end": 50,
+          "quote": "— Вы могли бы оставить это до моего выздоровления."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Выбор принадлежит ей",
+        "source": {
+          "paragraph": 202,
+          "start": 0,
+          "end": 44,
+          "quote": "— Нет. Ваши волосы, ваши хвосты. Вы решаете."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Вопрос о статусе",
+        "source": {
+          "paragraph": 209,
+          "start": 0,
+          "end": 33,
+          "quote": "— И не считаете себя моим слугой?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Признаёт отсутствие обязанности служить",
+        "source": {
+          "paragraph": 216,
+          "start": 0,
+          "end": 43,
+          "quote": "— Нет, — ответила она наконец. — Не должны."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Учитывает его дела",
+        "source": {
+          "paragraph": 300,
+          "start": 0,
+          "end": 65,
+          "quote": "— В таком случае не откладывайте их из-за меня без необходимости."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Сама просит продолжить",
+        "source": {
+          "paragraph": 319,
+          "start": 0,
+          "end": 52,
+          "quote": "— Если у вас есть время, продолжим вчерашнюю работу."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Вопрос о прошлом",
+        "source": {
+          "paragraph": 328,
+          "start": 0,
+          "end": 41,
+          "quote": "— А раньше вам кто-нибудь помогал с этим?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Раскрывает самостоятельный уход",
+        "source": {
+          "paragraph": 337,
+          "start": 0,
+          "end": 62,
+          "quote": "— Мне приносили всё необходимое. Я справлялась самостоятельно."
+        }
+      },
+      {
+        "speaker": "char.anton",
+        "to": [
+          "char.tenmatsuyora"
+        ],
+        "heard": [
+          "char.tenmatsuyora"
+        ],
+        "comprehension": "Связывает с правилом",
+        "source": {
+          "paragraph": 338,
+          "start": 0,
+          "end": 40,
+          "quote": "— Из-за того, что вы вчера рассказывали?"
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Частичное подтверждение",
+        "source": {
+          "paragraph": 339,
+          "start": 0,
+          "end": 14,
+          "quote": "— В том числе."
+        }
+      },
+      {
+        "speaker": "char.tenmatsuyora",
+        "to": [
+          "char.anton"
+        ],
+        "heard": [
+          "char.anton"
+        ],
+        "comprehension": "Первая прямая благодарность",
+        "source": {
+          "paragraph": 371,
+          "start": 0,
+          "end": 16,
+          "quote": "— Благодарю вас."
+        }
+      }
+    ],
+    "commitments": [
+      {
+        "id": "draft.agreement.not_move_injured_body",
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "status": "active",
+        "condition": "При уходе во время восстановления",
+        "action": "Не перемещать повреждённую ногу и тело для доступа к хвостам.",
+        "source": {
+          "paragraph": 163,
+          "start": 0,
+          "end": 60,
+          "quote": "— И не пытайтесь поднять меня, чтобы добраться до остальных."
+        }
+      },
+      {
+        "id": "draft.agreement.do_not_neglect_own_work",
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "status": "active",
+        "condition": "При выборе времени ухода",
+        "action": "Не откладывать свои дела без необходимости.",
+        "source": {
+          "paragraph": 300,
+          "start": 0,
+          "end": 65,
+          "quote": "— В таком случае не откладывайте их из-за меня без необходимости."
+        }
+      }
+    ],
+    "carried_commitments": [
+      {
+        "id": "draft.commitment.anton.show_field",
+        "status": "open",
+        "origin_chapter": 5,
+        "condition": "Когда она сможет ходить",
+        "action": "Показать поле."
+      },
+      {
+        "id": "draft.agreement.care_boundaries",
+        "status": "active",
+        "origin_chapter": 5,
+        "action": "Предупреждать, получать согласие, прекращать по просьбе или боли; уважать приватность."
+      }
+    ],
+    "characters": [
+      {
+        "id": "char.tenmatsuyora",
+        "state": {
+          "location": "place.earth.anton_home",
+          "health": "Конец дня 6: обе руки и левая нога по-прежнему сломаны и обездвижены; медицинское наблюдение, сознание яснее, может коротко управлять предметами магией, быстро утомляется. Волосы и все девять хвостов приведены в порядок.",
+          "emotion": "Гордость, осторожность, ограниченное доверие в конкретном уходе, спокойствие, смущение от собственной реакции, благодарность, внимание к присутствию Антона. Любовь ещё не осознана.",
+          "goals": [
+            "Восстановить самостоятельность",
+            "Узнать судьбу дворца и причину разлома",
+            "Позднее осмотреть поле",
+            "Выяснить причину безопасного касания"
+          ]
+        },
+        "knows": [
+          "Антон принимает её внешность, соблюдает ограничения и прекращает уход по её просьбе",
+          "Он не считает себя слугой; она признала отсутствие такой обязанности",
+          "Его прикосновение к коже при уходе за волосами не вызвало видимого шока",
+          "Собственное сознание позволяет переместить кружку, но переломы ещё требуют восстановления",
+          "Вспомнила безымянную женщину и девочку под деревом; не рассказала Антону"
+        ],
+        "unknown": [
+          "Причина безопасных прикосновений, языкового понимания и разлома",
+          "Состояние дворца",
+          "Фамилия, профессия и точный адрес Антона",
+          "Природа новых ощущений и чувства Антона"
+        ],
+        "voice": "Властная точная речь на вы; впервые прямо благодарит, не отказывается от самостоятельности."
+      },
+      {
+        "id": "char.anton",
+        "state": {
+          "location": "place.earth.anton_home",
+          "health": "Невредим; при уходе не сообщил о боли или шоке.",
+          "emotion": "Сочувствие, деловое спокойствие, доброжелательное принятие её особенностей; любовь не установлена.",
+          "goals": [
+            "Помогать с соблюдением границ",
+            "Продолжать собственные дела",
+            "Показать поле, когда она сможет ходить"
+          ]
+        },
+        "knows": [
+          "Видел движение гребня без рук; она отказалась объяснять",
+          "Знает правило шока из главы 5 и собственный опыт",
+          "Знает, что раньше никто не помогал ей расчёсывать волосы; связь с опасным касанием подтверждена частично",
+          "Знает чувствительность хвостов и её инструкции",
+          "Она прямо сказала, что он не обязан быть слугой, и поблагодарила"
+        ],
+        "unknown": [
+          "Титул, дворец, девять небес, разлом и сцена детского воспоминания",
+          "Причина исключения и понимания речи",
+          "Её внутреннее спокойствие и чувства"
+        ],
+        "voice": "Простой русский, спокойные короткие ответы, лёгкая бытовая улыбка без насмешки."
+      }
+    ],
+    "relationships": [
+      {
+        "from": "char.tenmatsuyora",
+        "to": "char.anton",
+        "bond": "Человек, которому разрешён конкретный уход и чьё присутствие она замечает",
+        "trust": "Выросло через исполнение указаний, остановку по просьбе и сохранение выбора; ограничено конкретными действиями.",
+        "affection": "Не определена. Спокойствие, благодарность и внимание, не признание любви.",
+        "reason": "Двухдневный уход за волосами и хвостами, признание его самостоятельности."
+      },
+      {
+        "from": "char.anton",
+        "to": "char.tenmatsuyora",
+        "bond": "Раненая гостья",
+        "trust": "Учитывает её указания; знает больше только из её слов.",
+        "affection": "Сочувствие, не любовь.",
+        "reason": "Она доверила уход и поблагодарила."
+      }
+    ],
+    "items": [
+      {
+        "id": "item.broken_hair_clasp",
+        "location": "Тумбочка",
+        "note": "Не починена и не использована."
+      },
+      {
+        "id": "item.anton_combs",
+        "location": "Дом Антона",
+        "note": "Два гребня/расчёски; использован редкозубый."
+      },
+      {
+        "id": "item.anton_mirror",
+        "location": "У кровати",
+        "note": "Деревянная рамка со сколом; оставлено по её просьбе."
+      }
+    ],
+    "unresolved": [
+      "Причины безопасного контакта и взаимного понимания неизвестны.",
+      "Титул и происхождение не раскрыты.",
+      "Руки и левая нога не зажили; осмотр поля отложен.",
+      "Судьба дворца и механизм разлома неизвестны.",
+      "Воспоминание о женщине и девочке — личное знание героини.",
+      "Продолжить восстановление, не ускорять романтическое признание."
+    ],
+    "editorial_decisions": [
+      "Дни 5–6; начальная рамка ведёт к сцене ухода, не дублировать.",
+      "Уход разделён на два дня с перерывами, без опасного перемещения ноги.",
+      "Воспоминание о безымянных женщине и ребёнке не вводит родственные связи.",
+      "Антон впервые видит ясное движение предмета магией; не знает масштаба силы.",
+      "Первая прямая благодарность, не признание любви.",
+      "Обещание показать поле перенесено без исполнения."
+    ]
+  }
+}
