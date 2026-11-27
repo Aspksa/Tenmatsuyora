@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "base_sha": "3bf9ee37fa10a119d0d754954fe22e74f5c6732a",
+  "required_canon_commit": "8057064eda41dddf58676f3deb00e1893296b638",
+  "required_canon_pr": 14,
+  "chapter": 1,
+  "completed_scenes": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "next_scene": "Редактура новой версии, затем привязка всех событий, значимых реплик, отношений, знаний и обещаний к точным абзацам; сверить main после PR 14.",
+  "intended_sources": [
+    "chronicles/canon/foundation.json",
+    "chronicles/style/STYLE.md",
+    "chronicles/style/VOICES.md",
+    "chronicles/quality/NARRATIVE.md"
+  ],
+  "status": "revised_unpublished",
+  "body_chars": 26581,
+  "editorial_status": "Первая версия приведена к новой внешности, безграничной силе, шоку от прикосновения и одиночеству с детства. Нужна повторная сквозная редактура и журнал событий; не публиковать до актуализации базы и stamp/validate."
+}
