@@ -16,6 +16,7 @@ class DOM(HTMLParser):
     def __init__(self):
         super().__init__()
         self.ready = False
+        self.engine = False
         self.minis = 0
         self.stars = 0
         self.chat = False
@@ -28,6 +29,7 @@ class DOM(HTMLParser):
         cls = d.get("class", "").split()
         if d.get("id") == "sky":
             self.ready = d.get("data-ready") == "true"
+            self.engine = d.get("data-engine") == "d3-force@3.0.0"
         self.minis += "mini-cluster" in cls
         self.stars += "star-node" in cls
         self.chat |= d.get("id") == "msg-360"
@@ -52,7 +54,7 @@ def main():
                     run=subprocess.run([chrome,"--headless=new","--no-sandbox","--disable-dev-shm-usage","--disable-gpu","--no-first-run","--no-default-browser-check","--disable-background-networking",f"--user-data-dir={tmp}/chrome-{attempt}","--virtual-time-budget=9000","--dump-dom",url],capture_output=True,timeout=60,encoding="utf-8",errors="replace")
                     dom=DOM()
                     dom.feed(run.stdout)
-                    if run.returncode==0 and dom.ready and dom.minis==12 and dom.stars==90 and dom.chat and dom.cloud and dom.controls and dom.services == 2 and dom.background:
+                    if run.returncode==0 and dom.ready and dom.engine and dom.minis==12 and dom.stars==90 and dom.chat and dom.cloud and dom.controls and dom.services == 2 and dom.background:
                         print("Browser: 12 compact constellations, 90 detailed stars, loaded chat and initialized SVG")
                         break
                 else:

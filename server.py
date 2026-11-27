@@ -353,7 +353,7 @@ def configure_cloud(data):
             KEY,MODEL,EMBED_MODEL,CATALOG,VERIFIED = candidate,selected,embedding,catalog,True
     return {"configured": bool(KEY and MODEL),"model":MODEL,**cloud_status()}
 
-ASSETS = {"/": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/geometry.js": ("geometry.js", "text/javascript; charset=utf-8"), "/star.svg": ("star.svg", "image/svg+xml")}
+ASSETS = {"/": ("index.html", "text/html; charset=utf-8"), "/style.css": ("style.css", "text/css; charset=utf-8"), "/app.js": ("app.js", "text/javascript; charset=utf-8"), "/geometry.js": ("geometry.js", "text/javascript; charset=utf-8"), "/physics.js": ("physics.js", "text/javascript; charset=utf-8"), "/star.svg": ("star.svg", "image/svg+xml")}
 
 class Handler(BaseHTTPRequestHandler):
     def allowed(self):
@@ -422,7 +422,7 @@ class Handler(BaseHTTPRequestHandler):
             self.json(400, {"error":"Некорректное сообщение"})
 
 def main():
-    if not all((ROOT / "static" / name).is_file() for name in ("app.js", "geometry.js")):
+    if not all((ROOT / "static" / name).is_file() for name in ("app.js", "geometry.js", "physics.js")):
         raise SystemExit("Run npm install and npm run build first")
     with closing(connect()):
         pass
