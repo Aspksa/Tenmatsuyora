@@ -287,6 +287,75 @@ def search(query,root=ROOT,public=False):
         if len(found)>=100:break
     return found
 
+def reader_archive(root=ROOT):
+    """Only indexed, contiguous draft prose is available to the local reader."""
+    archive = root.parent / "drafts"
+    index = archive / "index.json"
+    if not index.exists():
+        return []
+    data = json.loads(safe_file(archive, "index.json").read_text(encoding="utf-8"))
+    require(data.get("schema") == 1 and data.get("kind") == "unpublished_draft_archive", "Invalid draft archive")
+    published = len(load(root, "catalog.json")["chapters"])
+    require(data.get("published_through") == (published or None), "Stale draft archive")
+    rows = data["chapters"]
+    require(isinstance(rows, list) and bool(rows), "Invalid draft chapters")
+    for number, row in enumerate(rows, published + 1):
+        require(row["chapter"] == number and row["path"] == f"drafts/{number:06d}.md", "Invalid draft sequence")
+        require(isinstance(row["title"], str) and type(row["body_chars"]) is int and row["body_chars"] > 0, "Invalid draft metadata")
+        require(isinstance(row["text_sha256"], str) and bool(re.fullmatch(r"[a-f0-9]{64}", row["text_sha256"])), "Invalid draft digest")
+        require(isinstance(row["status"], str) and "unpublished" in row["status"], "Invalid draft status")
+    require(data.get("last_written") == published + len(rows) and data.get("next_writing_chapter") == published + len(rows) + 1, "Invalid draft checkpoint")
+    return rows
+
+def reading_catalog(root=ROOT):
+    """Local author-facing catalog; never changes the published canon."""
+    result = public_catalog(root)
+    published = len(result["chapters"])
+    for row in result["chapters"]:
+        row["status"] = "published"
+    draft_rows = reader_archive(root)
+    if draft_rows:
+        require(bool(result["volumes"]), "Missing book volume")
+        # A draft belongs to the current (last published) volume, or first volume
+        # before publication. Future multi-volume archives can supply a volume ID.
+        default_volume = result["chapters"][-1]["volume"] if published else result["volumes"][0]["id"]
+        volume_ids = {v["id"] for v in result["volumes"]}
+        for row in draft_rows:
+            volume = row.get("volume", default_volume)
+            require(volume in volume_ids, "Unknown draft volume")
+            result["chapters"].append({"number": row["chapter"], "volume": volume, "title": row["title"], "body_chars": row["body_chars"], "status": "draft"})
+    result["published_count"] = published
+    result["draft_count"] = len(draft_rows)
+    return result
+
+def reading_chapter(number, root=ROOT):
+    published = len(load(root, "catalog.json")["chapters"])
+    if 1 <= number <= published:
+        return {**public_chapter(number, root), "status": "published"}
+    rows = reader_archive(root)
+    require(published < number <= published + len(rows), "Unknown chapter")
+    row = rows[number - published - 1]
+    raw = safe_file(root.parent / "drafts", f"{number:06d}.md").read_bytes()
+    require(hashlib.sha256(raw).hexdigest() == row["text_sha256"], "Draft integrity")
+    heading, body = raw.decode("utf-8").split("\n", 1)
+    body = body.strip()
+    require(heading == "# " + row["title"] and len(body) == row["body_chars"], "Draft content mismatch")
+    return {"number": number, "title": row["title"], "text": body, "status": "draft"}
+
+def reading_search(query, root=ROOT):
+    terms = query.casefold().split()[:8]
+    if not terms:
+        return []
+    found = []
+    for row in reading_catalog(root)["chapters"]:
+        ch = reading_chapter(row["number"], root)
+        hay = (ch["title"] + " " + ch["text"]).casefold()
+        if all(t in hay for t in terms):
+            found.append({"number": ch["number"], "title": ch["title"], "status": ch["status"]})
+        if len(found) >= 100:
+            break
+    return found
+
 def reader_settings(db,data=None,max_chapter=0):
     from contextlib import closing
     with closing(sqlite3.connect(db,timeout=10)) as conn, conn:

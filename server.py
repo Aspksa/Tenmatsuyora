@@ -416,10 +416,10 @@ class Handler(BaseHTTPRequestHandler):
             parsed = urlsplit(self.path)
             try:
                 if parsed.path == "/api/chronicles/catalog":
-                    return self.json(200, chronicle.public_catalog())
+                    return self.json(200, chronicle.reading_catalog())
                 if parsed.path == "/api/chronicles/search":
                     q = parse_qs(parsed.query).get("q", [""])[0][:200]
-                    return self.json(200, chronicle.search(q,public=True))
+                    return self.json(200, chronicle.reading_search(q))
                 if parsed.path == "/api/chronicles/encyclopedia":
                     through = int(parse_qs(parsed.query).get("through", ["0"])[0])
                     return self.json(200,chronicle.public_encyclopedia(through))
@@ -428,7 +428,7 @@ class Handler(BaseHTTPRequestHandler):
                     return self.json(200,chronicle.reader_settings(DB))
                 match = re.fullmatch(r"/api/chronicles/chapter/([0-9]{1,6})",parsed.path)
                 if match:
-                    return self.json(200,chronicle.public_chapter(int(match.group(1))))
+                    return self.json(200,chronicle.reading_chapter(int(match.group(1))))
                 return self.json(404,{"error":"Not found"})
             except (ValueError,KeyError,TypeError,OSError,sqlite3.Error):
                 return self.json(400,{"error":"Хроники недоступны или нарушена целостность"})
@@ -462,7 +462,7 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Invalid request")
             if self.path == "/api/chronicles/reader":
                 DB.parent.mkdir(parents=True,exist_ok=True)
-                return self.json(200,chronicle.reader_settings(DB,data,len(chronicle.public_catalog()["chapters"])))
+                return self.json(200,chronicle.reader_settings(DB,data,len(chronicle.reading_catalog()["chapters"])))
             if self.path == "/api/layout":
                 return self.json(200, save_layout(data))
             if self.path == "/api/preferences":
